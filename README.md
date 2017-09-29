@@ -23,7 +23,7 @@ http://www.maxgames.com/game/age-of-war-2.html
 *Note about reference game: Only the scenario of the games are similar but the gameplay is totally different. In the reference you just create the warriors and let the AI play with them, but in ours, you are the player to fight the enemies. 
 
 
-# Collaborators:
+## Collaborators:
 - Fuad Aghazada _ 21503691
 - Seyfullah Yamanoğlu _ 21400697
 - Bayram Muradov _ 21503664
