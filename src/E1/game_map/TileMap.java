@@ -31,6 +31,7 @@ public class TileMap
     private int mapWidth;
     private int mapHeight;
 
+    private int size;
 
     /**
      *  Constructs a tile map
@@ -49,6 +50,9 @@ public class TileMap
             //parsing to integer
             this.mapWidth  = Integer.parseInt(mapWidthString);
             this.mapHeight = Integer.parseInt(mapHeightString);
+
+            //tile size
+            size = GameFrame.FRAME_HEIGHT/mapHeight;
 
             //initializing 2D array for map tiles
             map = new int[mapHeight][mapWidth];
@@ -79,6 +83,14 @@ public class TileMap
     }
 
     /**
+     *  Updates the tile map
+     */
+    public void update()
+    {
+
+    }
+
+    /**
      *  Draws the tiled map using the data from the file
      */
     public void render(Graphics2D g)
@@ -95,7 +107,7 @@ public class TileMap
                 {
                     g.setColor(Color.WHITE);
                 }
-                g.fillRect((int)x+ j * GameFrame.FRAME_WIDTH/30, (int)y + i * GameFrame.FRAME_WIDTH/30, GameFrame.FRAME_WIDTH/30, GameFrame.FRAME_WIDTH/30);
+                g.fillRect((int)x+ j * size, (int)y + i * size, size, size);
             }
         }
     }
@@ -115,6 +127,21 @@ public class TileMap
     }
 
     // ACCESS & MUTATE
+    public int getMapTile(int row, int column)
+    {
+        return map[row][column];
+    }
+
+    public int getRowTile(int x)
+    {
+        return x / size;
+    }
+
+    public int getColumnTile(int y)
+    {
+        return y /size;
+    }
+
     public float getX()
     {
         return x;

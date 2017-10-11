@@ -1,4 +1,4 @@
-package game_entity;
+package E1.game_entity;
 
 import E1.game_map.TileMap;
 
@@ -66,15 +66,40 @@ public class Character extends GameObject
             this.jumping = jumping;
     }
 
-    @Override
+     @Override
     public void update()
     {
+        if(moving_right)
+        {
+            dx -= move_speed;
+        }
+        else if(moving_left)
+        {
+            dx += move_speed;
+        }
 
+        if(jumping)
+        {
+            dy += jump_force;
+            falling = true;
+            jumping = false;
+        }
+
+        if(falling)
+        {
+            dy += getGravity();
+        }
     }
 
     @Override
     public void render(Graphics2D graphics2D)
     {
+        //tile map coordinates
+        float xmap = this.getTileMap().getX();
+        float ymap = this.getTileMap().getY();
 
+        graphics2D.setColor(Color.GREEN);
+
+        graphics2D.fillRect((int) (xmap + x - width / 2), (int) (ymap + y - height/2), width, height);
     }
 }

@@ -1,4 +1,4 @@
-package game_entity;
+package E1.game_entity;
 
 import E1.game_map.Tile;
 import E1.game_map.TileMap;
@@ -43,7 +43,6 @@ public abstract class GameObject
      */
     public abstract void update();
     public abstract void render(Graphics2D graphics2D);
-
 
     // ACCESS & MUTATE
 
