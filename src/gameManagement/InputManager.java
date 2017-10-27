@@ -1,4 +1,4 @@
-package GameManagement;
+package gameManagement;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;

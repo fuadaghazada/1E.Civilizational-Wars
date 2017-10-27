@@ -1,4 +1,4 @@
-package GameManagement;
+package gameManagement;
 
 public class TileMapManager {
 }
