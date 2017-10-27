@@ -1,4 +1,4 @@
-package gameManagement;
+package game_management;
 
 public class GameManager implements Runnable {
     @Override
