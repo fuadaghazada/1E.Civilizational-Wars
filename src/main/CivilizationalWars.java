@@ -1,6 +1,7 @@
 package main;
 
 import user_interface.MainMenuPanel;
+import user_interface.SettingsPanel;
 
 import javax.swing.*;
 
@@ -20,5 +21,14 @@ public class CivilizationalWars
         frame.setVisible(true);
 
         System.out.println("Fuad");
+
+        /*
+        //Test for Settings panel
+        SettingsPanel sp = new SettingsPanel();
+        frame.add(sp);
+        System.out.println("Seyf");
+        */
+
+        
     }
 }
