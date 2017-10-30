@@ -28,7 +28,7 @@ public class CivilizationalWars
 
         LoadLevelPanel ll = new LoadLevelPanel();
 
-        frame.add(ll);
+        frame.add(mmp);
 
 
 
@@ -36,7 +36,7 @@ public class CivilizationalWars
         SettingsPanel sp = new SettingsPanel();
 
         PausePanel pp = new PausePanel();
-        frame.add(pp);
+        //frame.add(pp);
         System.out.println("Seyf");
 
 
