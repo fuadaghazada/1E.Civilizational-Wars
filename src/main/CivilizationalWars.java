@@ -1,9 +1,6 @@
 package main;
 
-import user_interface.AboutPanel;
-import user_interface.HelpPanel;
-import user_interface.MainMenuPanel;
-import user_interface.SettingsPanel;
+import user_interface.*;
 
 import javax.swing.*;
 
@@ -35,7 +32,9 @@ public class CivilizationalWars
 
         //Test for Settings panel
         SettingsPanel sp = new SettingsPanel();
-        frame.add(sp);
+
+        PausePanel pp = new PausePanel();
+        frame.add(pp);
         System.out.println("Seyf");
 
 
