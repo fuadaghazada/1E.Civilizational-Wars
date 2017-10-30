@@ -31,12 +31,14 @@ public class CivilizationalWars
         frame.add(ll);
 
 
-        /*
+
         //Test for Settings panel
         SettingsPanel sp = new SettingsPanel();
-        frame.add(sp);
+
+        PausePanel pp = new PausePanel();
+        frame.add(pp);
         System.out.println("Seyf");
-        */
+
 
 
         frame.setVisible(true);
