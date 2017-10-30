@@ -1,10 +1,8 @@
 package user_interface;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
-import java.io.File;
-import java.io.IOException;
+
 
 /**
  *  This class will represent the panel in which the main

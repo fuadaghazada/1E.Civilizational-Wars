@@ -1,9 +1,6 @@
 package main;
 
-import user_interface.AboutPanel;
-import user_interface.HelpPanel;
-import user_interface.MainMenuPanel;
-import user_interface.SettingsPanel;
+import user_interface.*;
 
 import javax.swing.*;
 
@@ -29,7 +26,9 @@ public class CivilizationalWars
 
         HelpPanel hp = new HelpPanel();
 
-        frame.add(mmp);
+        LoadLevelPanel ll = new LoadLevelPanel();
+
+        frame.add(ll);
 
 
         /*
