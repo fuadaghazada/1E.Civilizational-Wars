@@ -32,12 +32,12 @@ public class CivilizationalWars
         frame.add(mmp);
 
 
-        /*
+
         //Test for Settings panel
         SettingsPanel sp = new SettingsPanel();
         frame.add(sp);
         System.out.println("Seyf");
-        */
+
 
 
         frame.setVisible(true);
