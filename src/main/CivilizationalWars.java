@@ -1,5 +1,7 @@
 package main;
 
+import user_interface.AboutPanel;
+import user_interface.HelpPanel;
 import user_interface.MainMenuPanel;
 import user_interface.SettingsPanel;
 
@@ -17,10 +19,18 @@ public class CivilizationalWars
         JFrame frame = new JFrame();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(700, 700);
-        frame.add(mmp);
-        frame.setVisible(true);
+        //frame.add(mmp);
+
 
         System.out.println("Fuad");
+
+
+        AboutPanel ap = new AboutPanel();
+
+        HelpPanel hp = new HelpPanel();
+
+        frame.add(mmp);
+
 
         /*
         //Test for Settings panel
@@ -29,6 +39,8 @@ public class CivilizationalWars
         System.out.println("Seyf");
         */
 
+
+        frame.setVisible(true);
         
     }
 }

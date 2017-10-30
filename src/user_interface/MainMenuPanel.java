@@ -19,9 +19,9 @@ import java.io.IOException;
 public class MainMenuPanel extends JPanel
 {
     // Properties
-    private JPanel up_panel, center_panel, bottom_panel, buttons_Panel;
+    private JPanel up_panel, center_panel, bottom_panel;
     private JButton playBtn, loadLevelBtn, viewSettingsBtn, viewHelpBtn, viewAboutBtn, quitBtn;
-    private ImageIcon game_icon;
+    private JLabel game_label;
 
     /*
     *   Constructing the Main menu panel.
@@ -30,111 +30,98 @@ public class MainMenuPanel extends JPanel
     {
         this.init();
 
+        this.setLayout(new GridLayout(2, 0));
+
         this.customizeButtons();
-
         this.customizeUpPanel();
-      //  this.customizeCenterPanel();
-      //  this.customizeBottomPanel();
-       // this.customizeButtonsPanel();
+        this.customizeBottomPanel();
 
-        this.setFocusable(true);
-
-        this.setBackground(Color.BLUE);
-
-        this.setLayout(new BorderLayout());
-
-        this.add(up_panel, BorderLayout.NORTH);
-        //this.add(center_panel, BorderLayout.CENTER);
-        this.add(center_panel, BorderLayout.SOUTH);
+        this.add(up_panel);
+        this.add(center_panel);
+        this.add(center_panel);
     }
 
     /*
     *   Initializing the properties - components of the panel
     */
-    public void init()
+    private void init()
     {
         // Panels
         up_panel = new JPanel();
         center_panel = new JPanel();
         bottom_panel = new JPanel();
-        buttons_Panel = new JPanel();
 
         // Buttons
         playBtn = new JButton("Play Game");
         loadLevelBtn = new JButton("Load Level");
         viewSettingsBtn = new JButton("Settings");
         viewAboutBtn = new JButton("About");
-        viewHelpBtn = new JButton("Help");
-        quitBtn = new JButton("QUIT");
+        viewHelpBtn = new JButton();
+        quitBtn = new JButton();
 
-        // Other
-        game_icon = new ImageIcon();
-        game_icon.setImage(new ImageIcon("src/title_image.png").getImage());
-
+        // Labels (for icon)
+        game_label = new JLabel();
+        game_label.setIcon(new ImageIcon("src/resources/ui_icons/title_image.png"));
     }
 
     /*
     *   Customizing some properties of the JButtons
     */
-    public void customizeButtons()
+    private void customizeButtons()
     {
-
-        up_panel.setBackground(Color.BLUE);
-        center_panel.setBackground(Color.RED);
-        bottom_panel.setBackground(Color.GREEN);
-        buttons_Panel.setBackground(Color.GRAY);
-
         playBtn.setAlignmentX(CENTER_ALIGNMENT);
         loadLevelBtn.setAlignmentX(CENTER_ALIGNMENT);
         viewSettingsBtn.setAlignmentX(CENTER_ALIGNMENT);
         viewAboutBtn.setAlignmentX(CENTER_ALIGNMENT);
         viewHelpBtn.setAlignmentX(CENTER_ALIGNMENT);
+
+        viewHelpBtn.setIcon(new ImageIcon("src/resources/ui_icons/help.png"));
+        quitBtn.setIcon(new ImageIcon("src/resources/ui_icons/quit.png"));
     }
 
     /*
     *   Customizing the up panel: Game icon will be located.
     */
-    public void customizeUpPanel()
+    private void customizeUpPanel()
     {
+        up_panel.setLayout(new GridBagLayout());
 
-
+        up_panel.add(game_label);
     }
 
     /*
     *   Customizing the center panel: ButtonsPanel is located.
     */
-    public void customizeCenterPanel()
+    private void customizeBottomPanel()
     {
-        center_panel.add(buttons_Panel);
+        //-----//Panel for keeping the main buttons.
+        JPanel main_buttons_panel = new JPanel();
+
+        main_buttons_panel.setLayout(new BoxLayout(main_buttons_panel, BoxLayout.Y_AXIS));
+
+        main_buttons_panel.add(playBtn);
+        main_buttons_panel.add(loadLevelBtn);
+        main_buttons_panel.add(viewSettingsBtn);
+        main_buttons_panel.add(viewAboutBtn);
+
+        //-----//Panel for keeping rest of the buttons: help and quit
+        JPanel other_buttons_panel = new JPanel();
+
+        other_buttons_panel.setLayout(new FlowLayout());
+
+        other_buttons_panel.add(viewHelpBtn);
+        other_buttons_panel.add(quitBtn);
+
+        //-----//Helper panel for locating the other_buttons_panel in the most left
+        JPanel helperPanel = new JPanel();
+
+        helperPanel.setLayout(new BorderLayout());
+        helperPanel.add(other_buttons_panel, BorderLayout.EAST);
+
+        // setting the proper layout and add the components to it.
+        center_panel.setLayout(new BorderLayout());
+
+        center_panel.add(main_buttons_panel, BorderLayout.CENTER);
+        center_panel.add(helperPanel, BorderLayout.SOUTH);
     }
-
-    /*
-    *   Customizing the up panel: Quit and help button.
-    */
-    public void customizeBottomPanel()
-    {
-
-    }
-
-    /*
-    *   Customizing the buttons panel: Buttons are located in a panel with BoxLayout
-    */
-    public void customizeButtonsPanel()
-    {
-        buttons_Panel.setLayout(new BoxLayout(buttons_Panel, BoxLayout.Y_AXIS));
-
-        buttons_Panel.add(playBtn);
-        buttons_Panel.add(loadLevelBtn);
-        buttons_Panel.add(viewSettingsBtn);
-        buttons_Panel.add(viewAboutBtn);
-        buttons_Panel.add(viewHelpBtn);
-    }
-
-    public void paintComponent(Graphics g)
-    {
-        super.paintComponent(g);
-
-        g.drawImage(game_icon.getImage(), up_panel.getX() + 30,up_panel.getY() + 30, null);
-    }
-
 }
