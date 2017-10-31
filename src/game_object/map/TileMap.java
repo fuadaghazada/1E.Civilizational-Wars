@@ -68,8 +68,6 @@ public class TileMap
                 //splitting the tile data in a line
                 String [] tokens = bufferedReader.readLine().split(" ");
 
-                System.out.println(tokens.length);
-
                 //filling process
                 for (int j = 0; j < mapWidth; j++)
                 {

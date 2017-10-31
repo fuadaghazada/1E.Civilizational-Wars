@@ -11,10 +11,14 @@ package game_object.map;
  *  @version - 1.00
  */
 
-import java.awt.Graphics2D;
-import java.awt.image.BufferedImage;
+import game_object.GameObject;
+import game_object.ObjectID;
 
-public class Tile
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.util.ArrayList;
+
+public class Tile extends GameObject
 {
     //Constants
 
@@ -28,16 +32,18 @@ public class Tile
      *  Constructs a tile with the given parameter of the image
      *  @param tileImage - given image for the tile
      */
-    public Tile(float x, float y, BufferedImage tileImage)
-    {
-        this.tileImage = tileImage;
-    }
+    //public Tile(float x, float y, BufferedImage tileImage)
+//    {
+//        this.tileImage = tileImage;
+//    }
 
     /*
      *	Test constructor
      */
     public Tile(float x, float y)
     {
+        super(x, y, ObjectID.Tile);
+
         this.x = x;
         this.y = y;
 
@@ -53,12 +59,23 @@ public class Tile
 
     }
 
+    @Override
+    public void update(ArrayList<GameObject> gameObjects) {
+
+    }
+
     /**
      * Rendering the tile in terms of its properties.
      */
-    public void render(Graphics2D g2)
+    public void render(Graphics g)
     {
-        g2.fillRect((int) x, (int) y, tileWidth, tileHeight);
+        g.fillRect((int) x, (int) y, tileWidth, tileHeight);
+    }
+
+    @Override
+    public Rectangle getBounds()
+    {
+        return new Rectangle((int) x, (int) y, tileWidth, tileHeight);
     }
 
     // ACCESS & MUTATE

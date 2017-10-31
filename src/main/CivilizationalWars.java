@@ -13,6 +13,8 @@ public class CivilizationalWars
     {
         MainMenuPanel mmp = new MainMenuPanel();
 
+        GamePanel gp = new GamePanel();
+
         JFrame frame = new JFrame();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(700, 700);
@@ -28,8 +30,9 @@ public class CivilizationalWars
 
         LoadLevelPanel ll = new LoadLevelPanel();
 
-        frame.add(mmp);
+        //frame.add(mmp);
 
+        frame.add(gp);
 
 
         //Test for Settings panel
