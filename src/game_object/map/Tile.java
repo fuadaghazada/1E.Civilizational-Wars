@@ -22,23 +22,16 @@ public class Tile extends GameObject
 {
     //Constants
 
-    //Properties
+    // Properties
     private BufferedImage tileImage;
 
     private float x, y;
     private static int tileWidth, tileHeight;
 
     /**
-     *  Constructs a tile with the given parameter of the image
-     *  @param tileImage - given image for the tile
-     */
-    //public Tile(float x, float y, BufferedImage tileImage)
-//    {
-//        this.tileImage = tileImage;
-//    }
-
-    /*
-     *	Test constructor
+     *  Constructs a tile with the given parameters.
+     *  @param x - x coordinate of the Tile
+     *  @param y - y coordinate of the Tile
      */
     public Tile(float x, float y)
     {
@@ -69,6 +62,7 @@ public class Tile extends GameObject
      */
     public void render(Graphics g)
     {
+        g.setColor(Color.BLACK);
         g.fillRect((int) x, (int) y, tileWidth, tileHeight);
     }
 

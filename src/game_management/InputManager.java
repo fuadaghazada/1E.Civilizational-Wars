@@ -7,16 +7,22 @@ import game_object.ObjectID;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-public class InputManager implements KeyListener {
-
+/**
+ *  This class will handle the user input and updates the game flow according to it.
+ */
+public class InputManager implements KeyListener
+{
+    // Properties
     GameObjectHandler gameObjectHandler;
 
-
+    /**
+     *  Constructs the input manager with given game objects.
+     *  @param gameObjectHandler - handler keeps all the game objects.
+     */
     public InputManager(GameObjectHandler gameObjectHandler)
     {
         this.gameObjectHandler = gameObjectHandler;
     }
-
 
     @Override
     public void keyTyped(KeyEvent e)
@@ -27,7 +33,7 @@ public class InputManager implements KeyListener {
     @Override
     public void keyPressed(KeyEvent e)
     {
-        for(GameObject gameObject : gameObjectHandler.game_objects)
+        for(GameObject gameObject : gameObjectHandler.getGame_objects())
         {
             GameObject temp = gameObject;
 
@@ -53,7 +59,7 @@ public class InputManager implements KeyListener {
     @Override
     public void keyReleased(KeyEvent e)
     {
-        for(GameObject gameObject : gameObjectHandler.game_objects)
+        for(GameObject gameObject : gameObjectHandler.getGame_objects())
         {
             GameObject temp = gameObject;
 

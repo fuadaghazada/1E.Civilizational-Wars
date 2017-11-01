@@ -13,9 +13,11 @@ public abstract class GameObject
     protected boolean isJump;
     protected boolean isFall;
 
-
     /**
-     *  Constructing the game object
+     *  Constructing the game object with given parameters.
+     *  @param x - x coordinate of the game object.
+     *  @param y - y coordinate of the game object.
+     *  @param id - object id defines the type of the objects.
      */
     public GameObject(float x, float y, ObjectID id)
     {
@@ -30,10 +32,21 @@ public abstract class GameObject
         velY = 0;
     }
 
+    /**
+     *  Updates the properties of the game object.
+     *  @param gameObjects - to check the collision between the game objects.
+     */
     public abstract void update(ArrayList<GameObject> gameObjects);
 
+    /**
+     *  Render the graphics of the game object.
+     *  @param g - Graphics of the program.
+     */
     public abstract void render(Graphics g);
 
+    /**
+     *  Access the bounds of the object in a rectangle.
+     */
     public abstract Rectangle getBounds();
 
 

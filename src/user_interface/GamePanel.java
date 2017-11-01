@@ -131,7 +131,7 @@ public class GamePanel extends JPanel implements Runnable
 
         handler.updateAll();
 
-        for(GameObject gameObject : handler.game_objects)
+        for(GameObject gameObject : handler.getGame_objects())
         {
             if(gameObject.getId() == ObjectID.Character)
                  camera.update(gameObject);
@@ -144,9 +144,7 @@ public class GamePanel extends JPanel implements Runnable
     @Override
     public void paintComponent(Graphics g)
     {
-        //super.paintComponent(g);
-
-//        tileMap.render((Graphics2D)g);
+        super.paintComponent(g);
 
         Graphics2D g2 = (Graphics2D) g;
 
