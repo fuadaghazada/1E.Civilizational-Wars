@@ -40,18 +40,7 @@ public class Character extends GameObject
     @Override
     public void update(ArrayList<GameObject> gameObjects)
     {
-        x += velX;
-        y += velY;
-
-        if(isFall || isJump)
-        {
-            velY += gravity;
-
-            if(velY > MAX_SPEED)
-            {
-                velY = MAX_SPEED;
-            }
-        }
+        super.update(gameObjects);
 
         this.checkCollision(gameObjects);
     }

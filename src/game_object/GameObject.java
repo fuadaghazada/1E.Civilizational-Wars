@@ -12,6 +12,11 @@ public abstract class GameObject
     protected ObjectID id;
     protected boolean isJump;
     protected boolean isFall;
+    // Constants
+    public static final float MAX_SPEED = 5;
+
+    // Properties
+    private static float GRAVITY = 0.3f;
 
     /**
      *  Constructing the game object with given parameters.
@@ -33,10 +38,24 @@ public abstract class GameObject
     }
 
     /**
-     *  Updates the properties of the game object.
-     *  @param gameObjects - to check the collision between the game objects.
+     * Updates the properties of the game object.
+     *
+     * @param gameObjects - to check the collision between the game objects.
      */
-    public abstract void update(ArrayList<GameObject> gameObjects);
+    public void update(ArrayList<GameObject> gameObjects) {
+        x += velX;
+        y += velY;
+
+        if(isFall || isJump)
+        {
+            velY += GRAVITY;
+
+            if(velY > MAX_SPEED)
+            {
+                velY = MAX_SPEED;
+            }
+        }
+    }
 
     /**
      *  Render the graphics of the game object.
