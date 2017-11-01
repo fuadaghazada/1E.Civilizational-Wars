@@ -6,7 +6,7 @@ public class Level implements ILevelInterface {
 
 
     @Override
-    public TileMap getLevelTile() {
+    public TileMap getLevelTileMap() {
         return null;
     }
 
@@ -19,4 +19,6 @@ public class Level implements ILevelInterface {
     public String getName() {
         return null;
     }
+
+
 }

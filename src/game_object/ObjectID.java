@@ -7,5 +7,5 @@ package game_object;
  */
 public enum ObjectID
 {
-    Character(), Tile(), Enemy();
+    Character(), Tile(), Enemy(), Weapon(), Bullet();
 }

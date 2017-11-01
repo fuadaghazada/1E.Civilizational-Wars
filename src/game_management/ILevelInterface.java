@@ -4,7 +4,7 @@ import game_object.map.TileMap;
 
 public interface ILevelInterface {
 
-    TileMap getLevelTile();
+    TileMap getLevelTileMap();
     int getEnemyType();
     String getName();
 

@@ -24,7 +24,7 @@ public class GameObjectHandler
     }
 
     /**
-     *  Removes the given game obeject from the list.
+     *  Removes the given game object from the list.
      *  @param gameObject - given game object.
      */
     public void removeGameObject(GameObject gameObject)
