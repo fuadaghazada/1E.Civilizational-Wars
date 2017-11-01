@@ -1,5 +1,7 @@
 package game_object;
 
+import game_object.player.Character;
+
 import java.awt.*;
 import java.util.ArrayList;
 
@@ -13,6 +15,7 @@ public class GameObjectHandler
     // Properties
     private ArrayList<GameObject> game_objects = new ArrayList<>();
     private GameObject currentObject;
+    private Character character;
 
     /**
      *  Adds the given game object to the list.
@@ -20,7 +23,10 @@ public class GameObjectHandler
      */
     public void addGameObject(GameObject gameObject)
     {
+
         game_objects.add(gameObject);
+        if(gameObject.getId() == ObjectID.Character)
+            this.character = (Character) gameObject;
     }
 
     /**
@@ -60,4 +66,9 @@ public class GameObjectHandler
 
     //ACCESS & MUTATE
     public ArrayList<GameObject> getGame_objects() { return game_objects; }
+
+    public Character getCharacter()
+    {
+        return character;
+    }
 }

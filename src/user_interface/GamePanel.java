@@ -5,6 +5,7 @@ import game_object.Camera;
 import game_object.GameObject;
 import game_object.GameObjectHandler;
 import game_object.ObjectID;
+import game_object.enemy.Enemy;
 import game_object.map.Tile;
 import game_object.map.TileMap;
 import game_object.player.Character;
@@ -64,6 +65,8 @@ public class GamePanel extends JPanel implements Runnable
         handler = new GameObjectHandler();
 
         handler.addGameObject(new Character(60.f,20.f, ObjectID.Character, handler));
+
+        handler.addGameObject(new Enemy(100,80, ObjectID.Enemy, handler));
 
         for (Tile tile : tileMap.getTiles())
         {
