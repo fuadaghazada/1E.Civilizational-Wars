@@ -1,4 +1,4 @@
-package game_object;
+package game_object.general;
 
 
 /**

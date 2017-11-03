@@ -1,18 +1,21 @@
 package game_object.enemy;
 
-import game_object.GameObject;
-import game_object.GameObjectHandler;
-import game_object.ObjectID;
+import game_object.general.GameObject;
+import game_object.general.GameObjectHandler;
+import game_object.general.ObjectID;
 import game_object.player.Character;
-import game_object.weapon.Weapon;
 
+import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 
-public class Enemy extends GameObject{
+/**
+ *  This class will represent the enemies of the game with its given parameters and methods.
+ */
 
-    private float healthLeve;
-    private Weapon weapon;
+public class Enemy extends GameObject
+{
+    private float healthLevel;
     private float damage;
     private GameObjectHandler gameObjectHandler;
 
@@ -30,8 +33,8 @@ public class Enemy extends GameObject{
         super(x, y, id);
         this.gameObjectHandler = gameObjectHandler;
 
-        setHeight(100);
-        setWidth(30);
+        setHeight(70);
+        setWidth(60);
 
     }
 
@@ -101,17 +104,10 @@ public class Enemy extends GameObject{
     public void render(Graphics g) {
         g.setColor(Color.RED);
 
-        g.fillRect((int)x, (int)y, width, height);
+        //g.fillRect((int)x, (int)y, width, height);
 
-        Graphics2D g2 = (Graphics2D) g;
 
-        g2.setColor(Color.YELLOW);
-
-        g2.draw(getBoundsTop());
-        g2.draw(getBoundsRight());
-        g2.draw(getBoundsLeft());
-        g2.draw(getBounds());
-
+        g.drawImage(new ImageIcon("src/resources/game_textures/enemy/test_enemy.png").getImage(), (int) x, (int) (y), null);
     }
 
     private void checkCollision(ArrayList<GameObject> gameObjects)

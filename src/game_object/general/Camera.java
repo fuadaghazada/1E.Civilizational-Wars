@@ -1,4 +1,6 @@
-package game_object;
+package game_object.general;
+
+import game_object.general.GameObject;
 
 /**
  *  This class will be a simple camera so that it will be designed

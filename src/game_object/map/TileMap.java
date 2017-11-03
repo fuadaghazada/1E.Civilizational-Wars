@@ -39,7 +39,7 @@ public class TileMap
      */
     public TileMap (String fileName)
     {
-        tiles = new ArrayList<Tile>();
+        tiles = new ArrayList<>();
         this.loadMap(fileName);
     }
 
@@ -80,9 +80,12 @@ public class TileMap
             {
                 for(int j = 0; j < mapWidth; j++)
                 {
-                    if(map[i][j] == 1)
+                    if(map[i][j] != 0)
                     {
-                        tiles.add(new Tile( x + j * Tile.getTileSize(), y + i * Tile.getTileSize()));
+                        Tile tile = new Tile( x + j * Tile.getTileSize(), y + i * Tile.getTileSize());
+                        tile.setType(map[i][j]);
+
+                        tiles.add(tile);
                     }
                 }
             }

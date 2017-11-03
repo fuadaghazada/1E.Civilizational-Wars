@@ -11,11 +11,10 @@ package game_object.map;
  *  @version - 1.00
  */
 
-import game_object.GameObject;
-import game_object.ObjectID;
-
+import game_object.general.GameObject;
+import game_object.general.ObjectID;
+import javax.swing.*;
 import java.awt.*;
-import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
 public class Tile extends GameObject
@@ -23,10 +22,9 @@ public class Tile extends GameObject
     //Constants
 
     // Properties
-    private BufferedImage tileImage;
-
     private float x, y;
     private static int tileWidth, tileHeight;
+    private int type;
 
     /**
      *  Constructs a tile with the given parameters.
@@ -62,9 +60,18 @@ public class Tile extends GameObject
      */
     public void render(Graphics g)
     {
-        g.setColor(Color.BLACK);
-        g.fillRect((int) x, (int) y, tileWidth, tileHeight);
+        if(type == 1)
+        {
+            g.drawImage(new ImageIcon("src/resources/game_textures/tiles/brickBrown.png").getImage(), (int) x, (int) (y), null);
+        }
+        else if(type == 2)
+        {
+            g.drawImage(new ImageIcon("src/resources/game_textures/tiles/brickGrey.png").getImage(), (int) x, (int) (y), null);
+        }
     }
+
+
+    // ACCESS & MUTATE
 
     @Override
     public Rectangle getBounds()
@@ -72,17 +79,9 @@ public class Tile extends GameObject
         return new Rectangle((int) x, (int) y, tileWidth, tileHeight);
     }
 
-    // ACCESS & MUTATE
+    public int getType() { return type; }
 
-    public BufferedImage getTileImage()
-    {
-        return tileImage;
-    }
-
-    public void setTileImage(BufferedImage tileImage)
-    {
-        this.tileImage = tileImage;
-    }
+    public void setType(int type) { this.type = type; }
 
     public static int getTileSize()
     {

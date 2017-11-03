@@ -1,21 +1,26 @@
-package game_object;
+package game_object.general;
 
 import java.awt.*;
 import java.util.ArrayList;
 
+/**
+ *  This class represents the basic properties of the game objects.
+ *
+ */
+
 public abstract class GameObject
 {
-    // Properties
-    protected float x, y;
-    protected int width, height;
-    protected float velX, velY;
-    protected ObjectID id;
-    protected boolean isJump;
-    protected boolean isFall;
     // Constants
     public static final float MAX_SPEED = 5;
 
     // Properties
+    protected ObjectID id;
+    protected float x, y;
+    protected int width, height;
+    protected float velX, velY;
+    protected boolean isJump;
+    protected boolean isFall;
+
     private static float GRAVITY = 0.3f;
 
     /**
@@ -42,7 +47,8 @@ public abstract class GameObject
      *
      * @param gameObjects - to check the collision between the game objects.
      */
-    public void update(ArrayList<GameObject> gameObjects) {
+    public void update(ArrayList<GameObject> gameObjects)
+    {
         x += velX;
         y += velY;
 

@@ -1,8 +1,8 @@
 package game_management;
 
-import game_object.GameObject;
-import game_object.GameObjectHandler;
-import game_object.ObjectID;
+import game_object.general.GameObject;
+import game_object.general.GameObjectHandler;
+import game_object.general.ObjectID;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -33,47 +33,31 @@ public class InputManager implements KeyListener
     @Override
     public void keyPressed(KeyEvent e)
     {
-        for(GameObject gameObject : gameObjectHandler.getGame_objects())
+        if(e.getKeyCode() == KeyEvent.VK_RIGHT)
         {
-            GameObject temp = gameObject;
-
-            if(temp.getId() == ObjectID.Character)
-            {
-                if(e.getKeyCode() == KeyEvent.VK_RIGHT)
-                {
-                    temp.setVelX(5);
-                }
-                if(e.getKeyCode() == KeyEvent.VK_LEFT)
-                {
-                    temp.setVelX(-5);
-                }
-                if(e.getKeyCode() == KeyEvent.VK_UP && !temp.isJump())
-                {
-                    temp.setJump(true);
-                    temp.setVelY(-10);
-                }
-            }
+            gameObjectHandler.getCharacter().setVelX(5);
+        }
+        if(e.getKeyCode() == KeyEvent.VK_LEFT)
+        {
+            gameObjectHandler.getCharacter().setVelX(-5);
+        }
+        if(e.getKeyCode() == KeyEvent.VK_UP && !gameObjectHandler.getCharacter().isJump())
+        {
+            gameObjectHandler.getCharacter().setJump(true);
+            gameObjectHandler.getCharacter().setVelY(-10);
         }
     }
 
     @Override
     public void keyReleased(KeyEvent e)
     {
-        for(GameObject gameObject : gameObjectHandler.getGame_objects())
+        if(e.getKeyCode() == KeyEvent.VK_RIGHT)
         {
-            GameObject temp = gameObject;
-
-            if(temp.getId() == ObjectID.Character)
-            {
-                if(e.getKeyCode() == KeyEvent.VK_RIGHT)
-                {
-                    temp.setVelX(0);
-                }
-                if(e.getKeyCode() == KeyEvent.VK_LEFT)
-                {
-                    temp.setVelX(0);
-                }
-            }
+            gameObjectHandler.getCharacter().setVelX(0);
+        }
+        if(e.getKeyCode() == KeyEvent.VK_LEFT)
+        {
+            gameObjectHandler.getCharacter().setVelX(0);
         }
     }
 }

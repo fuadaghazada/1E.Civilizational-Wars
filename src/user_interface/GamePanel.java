@@ -1,19 +1,18 @@
 package user_interface;
 
 import game_management.InputManager;
-import game_object.Camera;
-import game_object.GameObject;
-import game_object.GameObjectHandler;
-import game_object.ObjectID;
+import game_object.general.Camera;
+import game_object.general.GameObject;
+import game_object.general.GameObjectHandler;
+import game_object.general.ObjectID;
 import game_object.enemy.Enemy;
 import game_object.map.Tile;
 import game_object.map.TileMap;
-import game_object.player.Character;
+import game_object.player.ClassicFighter;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.image.BufferStrategy;
-import java.awt.image.BufferedImage;
+
 
 /**
  *  This class will be the one in which the game play will be implemented
@@ -60,18 +59,18 @@ public class GamePanel extends JPanel implements Runnable
     {
         camera = new Camera(0,0);
 
-        tileMap = new TileMap("src/resources/map_files/map_level_1.txt");
-
         handler = new GameObjectHandler();
 
-        handler.addGameObject(new Character(60.f,20.f, ObjectID.Character, handler));
+
+        handler.addGameObject(new ClassicFighter(60.f,20.f, ObjectID.Character, handler));
 
         handler.addGameObject(new Enemy(100,80, ObjectID.Enemy, handler));
+
+        tileMap = new TileMap("src/resources/map_files/map_level_1.txt");
 
         for (Tile tile : tileMap.getTiles())
         {
             handler.addGameObject(tile);
-
         }
 
         this.addKeyListener(new InputManager(handler));

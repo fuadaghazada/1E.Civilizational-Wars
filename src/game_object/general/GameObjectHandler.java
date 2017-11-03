@@ -1,5 +1,7 @@
-package game_object;
+package game_object.general;
 
+import game_object.general.GameObject;
+import game_object.general.ObjectID;
 import game_object.player.Character;
 
 import java.awt.*;

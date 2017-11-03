@@ -1,10 +1,10 @@
 package game_object.player;
 
-import game_object.GameObject;
-import game_object.GameObjectHandler;
-import game_object.ObjectID;
-import game_object.weapon.Weapon;
+import game_object.general.GameObject;
+import game_object.general.GameObjectHandler;
+import game_object.general.ObjectID;
 
+import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 
@@ -21,8 +21,6 @@ public class Character extends GameObject
 
     private GameObjectHandler gameObjectHandler;
 
-    private Weapon weapon;
-
     /**
      * Constructing the character with given parameters.
      *
@@ -35,11 +33,9 @@ public class Character extends GameObject
         super(x, y, id);
 
         this.gameObjectHandler = gameObjectHandler;
-        weapon = new Weapon(0);
 
         this.setHeight(70);
-        this.setWidth(30);
-
+        this.setWidth(50);
     }
 
     @Override
@@ -59,10 +55,6 @@ public class Character extends GameObject
         }
 
         this.checkCollision(gameObjects);
-
-        weapon.fire();
-
-        weapon.update(this);
     }
 
     @Override
@@ -72,13 +64,15 @@ public class Character extends GameObject
 
         g.fillRect((int)x, (int)y, width, height);
 
-        weapon.render(g);
+        g.drawImage(new ImageIcon("src/resources/game_textures/player/test_player.png").getImage(), (int) x, (int) (y), null);
     }
 
-    /**
-     *  To handle the collision between the character and the other game objects.
-     *  @param gameObjects - all game objects.
-     */
+    @Override
+    public Rectangle getBounds()
+    {
+        return new Rectangle((int) (x + (width/2) - (width/2)/2), (int)( y + (height/2)), width/2, height/2);
+    }
+
     private void checkCollision(ArrayList<GameObject> gameObjects)
     {
         for(int i = 0; i < gameObjects.size(); i++)
@@ -94,21 +88,18 @@ public class Character extends GameObject
                 {
                     setY(y+2);
                     setVelY(0);
-                    System.out.println("Top");
                 }
 
                 // Right collision
                 if(this.getBoundsRight().intersects(tempObject.getBounds()))
                 {
-                    setX(tempObject.getX() - 2 * getWidth());
-                    System.out.println("Right");
+                    setX(tempObject.getX() - getWidth());
                 }
 
                 // Left collision
                 if(this.getBoundsLeft().intersects(tempObject.getBounds()))
                 {
-                    setX(tempObject.getX() + 2 * getWidth() );
-                    System.out.println("Left");
+                    setX(tempObject.getX() + 2 * getWidth());
                 }
 
                 // Bottom Collision
@@ -117,7 +108,6 @@ public class Character extends GameObject
                     setVelY(0);
                     setFall(false);
                     setJump(false);
-                    System.out.println("Bottom");
                 }
                 else
                 {
@@ -125,12 +115,6 @@ public class Character extends GameObject
                 }
             }
         }
-    }
-
-    @Override
-    public Rectangle getBounds()
-    {
-        return new Rectangle((int) (x + (width/2) - (width/2)/2), (int)( y + (height/2)), width/2, height/2);
     }
 
     // ACCESS to different bounds of the character
@@ -147,5 +131,8 @@ public class Character extends GameObject
 
     public Rectangle getBoundsTop() { return new Rectangle((int) (x + (width/2) - (width/2)/2), (int) y, width/2, height/2); }
 
-    public Weapon getWeapon() { return weapon; }
+    public float getGravity() { return gravity; }
+
+    public void setGravity(float gravity) { this.gravity = gravity; }
+
 }
