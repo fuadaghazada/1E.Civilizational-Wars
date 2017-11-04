@@ -4,6 +4,9 @@ import game_object.general.GameObject;
 import game_object.general.GameObjectHandler;
 import game_object.general.ObjectID;
 import game_object.weapon.Bullet;
+import main.CivilizationalWars;
+import user_interface.LoadLevelPanel;
+import user_interface.MainMenuPanel;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -52,7 +55,12 @@ public class InputManager implements KeyListener
         if(e.getKeyCode() == KeyEvent.VK_F)
         {
             gameObjectHandler.getCharacter().getWeapon().fire(gameObjectHandler, gameObjectHandler.getCharacter().getDir());
-            //gameObjectHandler.addGameObject();
+        }
+        if(e.getKeyCode() == KeyEvent.VK_ESCAPE)
+        {
+            CivilizationalWars.frame.getContentPane().removeAll();
+            CivilizationalWars.frame.getContentPane().add(new MainMenuPanel());
+            CivilizationalWars.frame.revalidate();
         }
     }
 

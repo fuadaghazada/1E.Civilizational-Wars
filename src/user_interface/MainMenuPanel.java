@@ -58,10 +58,20 @@ public class MainMenuPanel extends JPanel
                 CivilizationalWars.frame.invalidate();
                 GamePanel gPanel = new GamePanel();
                 CivilizationalWars.frame.getContentPane().add(gPanel);
-                //gPanel.addKeyListener(new InputManager(gPanel.getGameManager().getLevelManager().getCurrentLevel().gameObjects()));
                 gPanel.start();
                 CivilizationalWars.frame.revalidate();
 
+            }
+        });
+
+        loadLevelBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                CivilizationalWars.frame.getContentPane().removeAll();
+                CivilizationalWars.frame.invalidate();
+                CivilizationalWars.frame.getContentPane().add(new LoadLevelPanel());
+                CivilizationalWars.frame.revalidate();
             }
         });
 

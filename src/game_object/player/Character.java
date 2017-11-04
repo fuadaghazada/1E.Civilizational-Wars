@@ -5,6 +5,8 @@ import game_object.general.GameObjectHandler;
 import game_object.general.ObjectID;
 import game_object.weapon.Bullet;
 import game_object.weapon.Weapon;
+import main.CivilizationalWars;
+import user_interface.MainMenuPanel;
 
 import java.awt.*;
 
@@ -74,7 +76,10 @@ public class Character extends GameObject
             else
             {
                 gameObjectHandler.removeGameObject(this);
-                System.out.println("Game Over");
+
+                CivilizationalWars.frame.getContentPane().removeAll();
+                CivilizationalWars.frame.getContentPane().add(new MainMenuPanel());
+                CivilizationalWars.frame.revalidate();
             }
         }
     }
@@ -83,10 +88,6 @@ public class Character extends GameObject
     public void render(Graphics g)
     {
         g.fillRect((int)x, (int)y, width, height);
-        if(lives < 0)
-        {
-            g.drawString("GAMEOVER", (int) x, (int)y);
-        }
     }
 
     @Override
