@@ -49,7 +49,6 @@ public class Enemy extends GameObject
         super(x, y, id);
         this.gameObjectHandler = gameObjectHandler;
         weapon = new Rifle(x, y, ObjectID.Weapon, this);
-        System.out.println("Fight" + fightRange + ", Follow" + followRange);
         setHeight(70);
         setWidth(60);
 
@@ -110,14 +109,11 @@ public class Enemy extends GameObject
 
         }
 
-
+        // check if the enemy is dead
         if(isDead())
         {
             gameObjectHandler.getGame_objects().remove(this);
-            System.out.println("ENEMY DIED");
         }
-
-
     }
 
     public void jumpRight()
@@ -200,20 +196,16 @@ public class Enemy extends GameObject
         {
             Bullet temp = gameObjectHandler.getBullets().get(i);
 
-
             if(getBounds().intersects(temp.getBounds()))
             {
                 if(temp.getWeapon().getOwner().getId() == ObjectID.Enemy)
                     continue;
                 healthLevel -= temp.getDamage();
 
-
-
-                System.out.println(temp.getDamage());
-
-
                 gameObjectHandler.removeBullet(temp);
+
                 i--;
+
                 break;
             }
 

@@ -3,6 +3,7 @@ package game_object.player;
 import game_object.general.GameObject;
 import game_object.general.GameObjectHandler;
 import game_object.general.ObjectID;
+import game_object.weapon.Bullet;
 import game_object.weapon.Weapon;
 
 import java.awt.*;
@@ -18,8 +19,10 @@ public class Character extends GameObject
     // Properties
     private float gravity = 0.3f;
 
-    private Weapon weapon;
+    private int lives = 3;
+    private float healthLevel = 100f;
 
+    private Weapon weapon;
     private GameObjectHandler gameObjectHandler;
 
     /**
@@ -39,24 +42,51 @@ public class Character extends GameObject
         this.setWidth(50);
     }
 
+    /**
+     *  Checks if the character is dead or not
+     */
+    public boolean isDead()
+    {
+        if( healthLevel <= 0 || getY() >= 1000)
+        {
+            lives--;
+            return true;
+        }
+        return false;
+    }
+
     @Override
     public void update(GameObjectHandler gameObjectHandler)
     {
         super.update(gameObjectHandler);
 
         this.checkCollision(gameObjectHandler);
+
+        if(isDead())
+        {
+            if(lives > 0)
+            {
+                this.setX(60);
+                this.setY(20);
+
+                setHealthLevel(100);
+            }
+            else
+            {
+                gameObjectHandler.removeGameObject(this);
+                System.out.println("Game Over");
+            }
+        }
     }
 
     @Override
     public void render(Graphics g)
     {
         g.fillRect((int)x, (int)y, width, height);
-    }
-
-    @Override
-    public Rectangle getBounds()
-    {
-        return new Rectangle((int) (x + (width/2) - (width/2)/2), (int)( y + (height/2)), width/2, height/2);
+        if(lives < 0)
+        {
+            g.drawString("GAMEOVER", (int) x, (int)y);
+        }
     }
 
     @Override
@@ -87,13 +117,11 @@ public class Character extends GameObject
                 // Left collision
                 if(this.getBoundsLeft().intersects(tempObject.getBounds()))
                 {
-
                     setX(tempObject.getX() + tempObject.getWidth());
-
                 }
 
                 // Bottom Collision
-                if(this.getBounds().intersects(tempObject.getBounds()))
+                if(this.getBoundsBottom().intersects(tempObject.getBounds()))
                 {
                     setVelY(0);
                     setFall(false);
@@ -105,10 +133,32 @@ public class Character extends GameObject
                 }
             }
         }
+
+        for(int i = 0; i < gameObjectHandler.getBullets().size(); i++)
+        {
+            Bullet temp = gameObjectHandler.getBullets().get(i);
+
+            if(temp.getBounds().intersects(this.getBounds()))
+            {
+                if(temp.getWeapon().getOwner().getId() == ObjectID.Enemy)
+                {
+                    this.healthLevel -= temp.getDamage();
+
+                    gameObjectHandler.removeBullet(temp);
+
+                    i--;
+
+                    break;
+                }
+            }
+        }
         return false;
     }
 
     // ACCESS to different bounds of the character
+
+    @Override
+    public Rectangle getBounds() { return new Rectangle((int) x, (int) y, width, height); }
 
     public Rectangle getBoundsRight()
     {
@@ -122,6 +172,8 @@ public class Character extends GameObject
 
     public Rectangle getBoundsTop() { return new Rectangle((int) (x + (width/2) - (width/2)/2), (int) y, width/2, height/2); }
 
+    public Rectangle getBoundsBottom() { return new Rectangle((int) (x + (width/2) - (width/2)/2), (int)( y + (height/2)), width/2, height/2); }
+
     public float getGravity() { return gravity; }
 
     public void setGravity(float gravity) { this.gravity = gravity; }
@@ -129,4 +181,12 @@ public class Character extends GameObject
     public Weapon getWeapon() { return weapon; }
 
     public void setWeapon(Weapon weapon) { this.weapon = weapon; }
+
+    public int getLives() { return lives; }
+
+    public void setLives(int lives) { this.lives = lives; }
+
+    public float getHealthLevel() { return healthLevel; }
+
+    public void setHealthLevel(float healthLevel) { this.healthLevel = healthLevel; }
 }
