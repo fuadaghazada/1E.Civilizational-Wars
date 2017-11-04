@@ -4,6 +4,7 @@ import game_object.general.GameObject;
 import game_object.general.GameObjectHandler;
 import game_object.general.ObjectID;
 import game_object.player.Character;
+import game_object.weapon.Bullet;
 
 import javax.swing.*;
 import java.awt.*;
@@ -15,7 +16,8 @@ import java.util.ArrayList;
 
 public class Enemy extends GameObject
 {
-    private float healthLevel;
+    //TODO: it must be overriden in child classes
+    private float healthLevel = 100;
     private float damage;
     private GameObjectHandler gameObjectHandler;
 
@@ -27,21 +29,26 @@ public class Enemy extends GameObject
 
     //These properties can be used in specific enemy types
     public static final float HORIZONTAL_SPEED = 3;
-    public static final float FIGHT_RANGE = 250;
+
+
+    private final float followRange  = (float) ((Math.random()* 500 ) + 1000);
+    private final float fightRange = (float) ((Math.random()* 100 ) + 300);
 
     public Enemy(float x, float y, ObjectID id, GameObjectHandler gameObjectHandler){
         super(x, y, id);
         this.gameObjectHandler = gameObjectHandler;
 
+        System.out.println("Fight" + fightRange + ", Follow" + followRange);
         setHeight(70);
         setWidth(60);
 
     }
 
 
-    public boolean checkKilled()
+    public boolean isDead()
     {
-        return false;
+        return healthLevel <= 0;
+
     }
 
 
@@ -55,17 +62,18 @@ public class Enemy extends GameObject
     public void update(GameObjectHandler gameObjectHandler) {
 
         super.update(gameObjectHandler);
+        this.checkCollision(gameObjectHandler);
         //TODO: Move through the character
         Character player =  gameObjectHandler.getCharacter();
 
-        if(Math.abs(this.x - player.getX()) > FIGHT_RANGE)
-        {
-            if(this.x - player.getX() < 0)
-                this.x += HORIZONTAL_SPEED;
-            else
-                this.x -= HORIZONTAL_SPEED;
+        if(Math.abs(this.x - player.getX()) < followRange) {
+            if (Math.abs(this.x - player.getX()) > fightRange) {
+                if (this.x - player.getX() < 0)
+                    this.x += HORIZONTAL_SPEED;
+                else
+                    this.x -= HORIZONTAL_SPEED;
+            }
         }
-
 
         if(forceJump)
         {
@@ -78,7 +86,14 @@ public class Enemy extends GameObject
         }
 
 
-        this.checkCollision(gameObjectHandler);
+
+
+
+        if(isDead())
+        {
+            gameObjectHandler.getGame_objects().remove(this);
+            System.out.println("ENEMY DIED");
+        }
 
 
     }
@@ -119,6 +134,8 @@ public class Enemy extends GameObject
             // To keep the game objects in a temp variable - for simplicity
             GameObject tempObject = gameObjectHandler.getGame_objects().get(i);
 
+
+
             //checking collision with the tiles.
             if(tempObject.getId() == ObjectID.Tile)
             {
@@ -138,12 +155,12 @@ public class Enemy extends GameObject
                 // Left collision
                 if(this.getBoundsLeft().intersects(tempObject.getBounds()))
                 {
-                    setX(tempObject.getX() + 2 * getWidth() );
+                    setX(tempObject.getX() + tempObject.getWidth());
                     jumpLeft();
                 }
 
                 // Bottom Collision
-                if(this.getBounds().intersects(tempObject.getBounds()))
+                if(this.getBoundsBottom().intersects(tempObject.getBounds()))
                 {
                     setVelY(0);
                     setFall(false);
@@ -153,7 +170,30 @@ public class Enemy extends GameObject
                 {
                     setFall(true);
                 }
+
+
             }
+
+
+
+
+        }
+
+
+
+        for (int i = 0; i < gameObjectHandler.getBullets().size(); i++)
+        {
+            Bullet temp = gameObjectHandler.getBullets().get(i);
+
+            if(getBounds().intersects(temp.getBounds()))
+            {
+                healthLevel -= temp.getDamage();
+                gameObjectHandler.removeBullet(temp);
+                i--;
+                System.out.println("BULLET COLLIDED");
+                break;
+            }
+
         }
         return true;
 
@@ -161,7 +201,7 @@ public class Enemy extends GameObject
 
     @Override
     public Rectangle getBounds() {
-        return new Rectangle((int) (x + (width/2) - (width/2)/2), (int)( y + (height/2)), width/2, height/2);
+        return new Rectangle((int) x, (int) y , width, height);
     }
 
     public Rectangle getBoundsRight()
@@ -175,4 +215,6 @@ public class Enemy extends GameObject
     }
 
     public Rectangle getBoundsTop() { return new Rectangle((int) (x + (width/2) - (width/2)/2), (int) y, width/2, height/2); }
+
+    public Rectangle getBoundsBottom() {return new Rectangle((int) (x + (width/2) - (width/2)/2), (int)( y + (height/2)), width/2, height/2);}
 }

@@ -81,12 +81,15 @@ public class Character extends GameObject
                 if(this.getBoundsRight().intersects(tempObject.getBounds()))
                 {
                     setX(tempObject.getX() - getWidth());
+                    
                 }
 
                 // Left collision
                 if(this.getBoundsLeft().intersects(tempObject.getBounds()))
                 {
-                    setX(tempObject.getX() + 2 * getWidth());
+
+                    setX(tempObject.getX() + tempObject.getWidth());
+
                 }
 
                 // Bottom Collision

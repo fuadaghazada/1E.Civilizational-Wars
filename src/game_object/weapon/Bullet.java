@@ -11,6 +11,8 @@ public class Bullet extends GameObject
     private GameObjectHandler gameObjectHandler;
 
 
+    boolean destroyed = false;
+
     /**
      * Constructing the game object with given parameters.
      *
@@ -33,19 +35,24 @@ public class Bullet extends GameObject
     @Override
     public void update(GameObjectHandler gameObjectHandler)
     {
-        super.update(gameObjectHandler);
 
-        x += velX;
+        if(!destroyed) {
+            super.update(gameObjectHandler);
 
-        this.checkCollision(gameObjectHandler);
+            x += velX;
+
+            this.checkCollision(gameObjectHandler);
+        }
     }
 
     @Override
     public void render(Graphics g)
     {
-        g.setColor(Color.BLACK);
+        if(!destroyed) {
+            g.setColor(Color.BLACK);
 
-        g.fillRect((int) x, (int)y, width, height);
+            g.fillRect((int) x, (int) y, width, height);
+        }
     }
 
     @Override
@@ -59,11 +66,22 @@ public class Bullet extends GameObject
     {
         for(GameObject gameObject : gameObjectHandler.getGame_objects())
         {
-            if(gameObject.getId() != ObjectID.Character && this.getBounds().intersects(gameObject.getBounds()))
+            if(gameObject.getId() != ObjectID.Character && gameObject.getId() != ObjectID.Enemy && this.getBounds().intersects(gameObject.getBounds()))
             {
                 return true;
             }
         }
         return false;
+    }
+
+    public float getDamage()
+    {
+        //TODO: it will be changed regarding the bullet type
+        return 15;
+    }
+
+    public void destroyBullet()
+    {
+        destroyed = true;
     }
 }

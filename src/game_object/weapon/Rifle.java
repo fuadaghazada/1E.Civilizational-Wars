@@ -77,7 +77,8 @@ public class Rifle extends Weapon
         {
             if(bullet.checkCollision(gameObjectHandler))
             {
-                gameObjectHandler.removeBullet(bullet);
+
+                //gameObjectHandler.removeBullet(bullet);
                 break;
             }
         }

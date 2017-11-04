@@ -63,7 +63,9 @@ public class GameObjectHandler
      */
     public void removeBullet(Bullet bullet)
     {
+        bullet.destroyBullet();
         bullets.remove(bullet);
+        System.out.println("removeBullet called");
     }
 
     /**
@@ -95,6 +97,8 @@ public class GameObjectHandler
 
             currentObject.render(g);
         }
+
+//        System.out.println("Bullet Size:" + bullets.size());
 
         for(int i = 0; i < bullets.size(); i++)
         {

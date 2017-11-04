@@ -92,5 +92,11 @@ public class Tile extends GameObject
     {
         return tileWidth;
     }
+
+    @Override
+    public int getWidth()
+    {
+        return tileWidth;
+    }
 }
 

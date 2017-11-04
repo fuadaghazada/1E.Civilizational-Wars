@@ -66,6 +66,11 @@ public class GamePanel extends JPanel implements Runnable
         handler.addGameObject(new ClassicFighter(60.f,20.f, ObjectID.Character, handler));
 
         handler.addGameObject(new Enemy(100,80, ObjectID.Enemy, handler));
+        handler.addGameObject(new Enemy(200,80, ObjectID.Enemy, handler));
+        handler.addGameObject(new Enemy(150,80, ObjectID.Enemy, handler));
+        handler.addGameObject(new Enemy(500,80, ObjectID.Enemy, handler));
+        handler.addGameObject(new Enemy(300,80, ObjectID.Enemy, handler));
+        handler.addGameObject(new Enemy(250,80, ObjectID.Enemy, handler));
 
         tileMap = new TileMap("src/resources/map_files/map_level_1.txt");
 
