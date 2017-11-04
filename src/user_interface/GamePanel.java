@@ -10,6 +10,7 @@ import game_object.map.Tile;
 import game_object.map.TileMap;
 import game_object.player.Character;
 import game_object.player.ClassicFighter;
+import game_object.player.Robot;
 
 import javax.swing.*;
 import java.awt.*;
@@ -63,7 +64,7 @@ public class GamePanel extends JPanel implements Runnable
         handler = new GameObjectHandler();
 
 
-        handler.addGameObject(new ClassicFighter(60.f,20.f, ObjectID.Character, handler));
+        handler.addGameObject(new Robot(60.f,20.f, ObjectID.Character, handler));
 
         handler.addGameObject(new Enemy(100,80, ObjectID.Enemy, handler));
         handler.addGameObject(new Enemy(200,80, ObjectID.Enemy, handler));

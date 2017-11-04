@@ -43,7 +43,8 @@ public class LaserGun extends Weapon
         gameObjectHandler.addBullet(new Bullet(x + width,
                 y + height/2,
                 ObjectID.Bullet,
-                gameObjectHandler.getCharacter().getDir() * 15, gameObjectHandler));
+                gameObjectHandler.getCharacter().getDir() * 15,
+                gameObjectHandler, 1));
     }
 
     @Override
@@ -69,7 +70,7 @@ public class LaserGun extends Weapon
     }
 
     /**
-     *  Clears the bullets when it hits somewhere
+     *  Clears the bullets when it hits tiles.
      *  @param gameObjectHandler - game objects
      */
     public void clearBulletList(GameObjectHandler gameObjectHandler)

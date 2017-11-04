@@ -170,15 +170,8 @@ public class Enemy extends GameObject
                 {
                     setFall(true);
                 }
-
-
             }
-
-
-
-
         }
-
 
 
         for (int i = 0; i < gameObjectHandler.getBullets().size(); i++)
@@ -188,9 +181,11 @@ public class Enemy extends GameObject
             if(getBounds().intersects(temp.getBounds()))
             {
                 healthLevel -= temp.getDamage();
+
+                System.out.println(temp.getDamage());
+
                 gameObjectHandler.removeBullet(temp);
                 i--;
-                System.out.println("BULLET COLLIDED");
                 break;
             }
 
