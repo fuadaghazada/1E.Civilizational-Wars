@@ -48,7 +48,7 @@ public class GamePanel extends JPanel implements Runnable
     public GamePanel()
     {
         init();
-        start();
+        //start();
         setFocusable(true);
     }
 
@@ -59,8 +59,8 @@ public class GamePanel extends JPanel implements Runnable
     {
         gameManager = new GameManager();
         camera = new Camera(0,0);
-
         this.addKeyListener(new InputManager(gameManager.getLevelManager().getCurrentLevel().gameObjects()));
+
     }
 
     /**
@@ -71,6 +71,8 @@ public class GamePanel extends JPanel implements Runnable
         isRunning = true;
         game_thread = new Thread(this);
         game_thread.start();
+        setFocusable(true);
+        requestFocusInWindow();
     }
 
     /**
@@ -138,5 +140,10 @@ public class GamePanel extends JPanel implements Runnable
         g2.translate(camera.getX(), camera.getY());
 
         g.dispose();
+    }
+
+    public GameManager getGameManager()
+    {
+        return gameManager;
     }
 }

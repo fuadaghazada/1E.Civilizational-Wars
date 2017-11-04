@@ -18,7 +18,7 @@ public class CivilizationalWars
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(700, 700);
 
-        frame.add(new SettingsPanel());
+        frame.add(new MainMenuPanel());
 
         frame.setVisible(true);
         

@@ -1,5 +1,7 @@
 package user_interface;
 
+import game_management.InputManager;
+import game_object.general.GameObject;
 import main.CivilizationalWars;
 
 import javax.swing.*;
@@ -53,7 +55,13 @@ public class MainMenuPanel extends JPanel
             public void actionPerformed(ActionEvent e)
             {
                 CivilizationalWars.frame.getContentPane().removeAll();
-                CivilizationalWars.frame.getContentPane().add(new GamePanel());
+                CivilizationalWars.frame.invalidate();
+                GamePanel gPanel = new GamePanel();
+                CivilizationalWars.frame.getContentPane().add(gPanel);
+                //gPanel.addKeyListener(new InputManager(gPanel.getGameManager().getLevelManager().getCurrentLevel().gameObjects()));
+                gPanel.start();
+                CivilizationalWars.frame.revalidate();
+
             }
         });
 
@@ -61,7 +69,10 @@ public class MainMenuPanel extends JPanel
             @Override
             public void actionPerformed(ActionEvent e)
             {
-
+                CivilizationalWars.frame.getContentPane().removeAll();
+                CivilizationalWars.frame.invalidate();
+                CivilizationalWars.frame.getContentPane().add(new SettingsPanel());
+                CivilizationalWars.frame.revalidate();
             }
         });
 
@@ -69,7 +80,10 @@ public class MainMenuPanel extends JPanel
             @Override
             public void actionPerformed(ActionEvent e)
             {
-
+                CivilizationalWars.frame.getContentPane().removeAll();
+                CivilizationalWars.frame.invalidate();
+                CivilizationalWars.frame.getContentPane().add(new AboutPanel());
+                CivilizationalWars.frame.revalidate();
             }
         });
 
@@ -77,7 +91,10 @@ public class MainMenuPanel extends JPanel
             @Override
             public void actionPerformed(ActionEvent e)
             {
-
+                CivilizationalWars.frame.getContentPane().removeAll();
+                CivilizationalWars.frame.invalidate();
+                CivilizationalWars.frame.getContentPane().add(new HelpPanel());
+                CivilizationalWars.frame.revalidate();
             }
         });
 
