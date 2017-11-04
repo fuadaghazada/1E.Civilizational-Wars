@@ -3,6 +3,8 @@ package game_object.general;
 import game_object.general.GameObject;
 import game_object.general.ObjectID;
 import game_object.player.Character;
+import game_object.weapon.Bullet;
+import game_object.weapon.Weapon;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -16,8 +18,15 @@ public class GameObjectHandler
 {
     // Properties
     private ArrayList<GameObject> game_objects = new ArrayList<>();
+
+    private ArrayList<Bullet> bullets = new ArrayList<>();
+
     private GameObject currentObject;
     private Character character;
+
+    public GameObjectHandler() {
+        bullets = new ArrayList<Bullet>();
+    }
 
     /**
      *  Adds the given game object to the list.
@@ -25,10 +34,18 @@ public class GameObjectHandler
      */
     public void addGameObject(GameObject gameObject)
     {
-
         game_objects.add(gameObject);
         if(gameObject.getId() == ObjectID.Character)
             this.character = (Character) gameObject;
+    }
+
+    /**
+     *  Adds a bullet to the bullet list.
+     *  @param bullet
+     */
+    public void addBullet(Bullet bullet)
+    {
+        bullets.add(bullet);
     }
 
     /**
@@ -41,6 +58,15 @@ public class GameObjectHandler
     }
 
     /**
+     *  Removes the given bullet object from the list.
+     *  @param bullet - given bullet object.
+     */
+    public void removeBullet(Bullet bullet)
+    {
+        bullets.remove(bullet);
+    }
+
+    /**
      *  Updates the all game objects in the list.
      */
     public void updateAll()
@@ -49,7 +75,12 @@ public class GameObjectHandler
         {
             currentObject = game_objects.get(i);
 
-            currentObject.update(game_objects);
+            currentObject.update(this);
+        }
+
+        for(int i = 0; i < bullets.size(); i++)
+        {
+            bullets.get(i).update(this);
         }
     }
 
@@ -64,13 +95,22 @@ public class GameObjectHandler
 
             currentObject.render(g);
         }
+
+        for(int i = 0; i < bullets.size(); i++)
+        {
+            bullets.get(i).render(g);
+        }
     }
 
     //ACCESS & MUTATE
     public ArrayList<GameObject> getGame_objects() { return game_objects; }
 
+    public ArrayList<Bullet> getBullets() { return bullets; }
+
     public Character getCharacter()
     {
         return character;
     }
+
+    public int getSize() { return getGame_objects().size(); }
 }

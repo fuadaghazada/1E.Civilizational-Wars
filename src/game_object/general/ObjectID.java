@@ -7,5 +7,13 @@ package game_object.general;
  */
 public enum ObjectID
 {
-    Character(), Tile(), Enemy(), Weapon(), Bullet();
+    Character(),
+    Tile(),
+    Enemy(),
+    Weapon(), Bullet(),
+    Classic(),
+    Modern(),
+    PostModern(),
+    Rifle(),
+    LaserGun();
 }

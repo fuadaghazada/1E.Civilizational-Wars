@@ -3,6 +3,7 @@ package game_management;
 import game_object.general.GameObject;
 import game_object.general.GameObjectHandler;
 import game_object.general.ObjectID;
+import game_object.weapon.Bullet;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -35,16 +36,23 @@ public class InputManager implements KeyListener
     {
         if(e.getKeyCode() == KeyEvent.VK_RIGHT)
         {
+            gameObjectHandler.getCharacter().setDir(1);
             gameObjectHandler.getCharacter().setVelX(5);
         }
         if(e.getKeyCode() == KeyEvent.VK_LEFT)
         {
+            gameObjectHandler.getCharacter().setDir(-1);
             gameObjectHandler.getCharacter().setVelX(-5);
         }
         if(e.getKeyCode() == KeyEvent.VK_UP && !gameObjectHandler.getCharacter().isJump())
         {
             gameObjectHandler.getCharacter().setJump(true);
             gameObjectHandler.getCharacter().setVelY(-10);
+        }
+        if(e.getKeyCode() == KeyEvent.VK_F)
+        {
+            gameObjectHandler.getCharacter().getWeapon().fire(gameObjectHandler);
+            //gameObjectHandler.addGameObject();
         }
     }
 

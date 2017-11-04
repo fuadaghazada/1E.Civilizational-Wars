@@ -1,6 +1,7 @@
 package game_object.general;
 
 import java.awt.*;
+import java.awt.geom.AffineTransform;
 import java.util.ArrayList;
 
 /**
@@ -20,8 +21,10 @@ public abstract class GameObject
     protected float velX, velY;
     protected boolean isJump;
     protected boolean isFall;
+    protected int dir = 1;
 
     private static float GRAVITY = 0.3f;
+
 
     /**
      *  Constructing the game object with given parameters.
@@ -45,9 +48,9 @@ public abstract class GameObject
     /**
      * Updates the properties of the game object.
      *
-     * @param gameObjects - to check the collision between the game objects.
+     * @param gameObjectHandler - to check the collision between the game objects.
      */
-    public void update(ArrayList<GameObject> gameObjects)
+    public void update(GameObjectHandler gameObjectHandler)
     {
         x += velX;
         y += velY;
@@ -69,11 +72,12 @@ public abstract class GameObject
      */
     public abstract void render(Graphics g);
 
+    protected abstract boolean checkCollision(GameObjectHandler gameObjectHandler);
+
     /**
      *  Access the bounds of the object in a rectangle.
      */
     public abstract Rectangle getBounds();
-
 
     // ACCESS & MUTATE
 
@@ -161,4 +165,9 @@ public abstract class GameObject
     {
         this.velY = velY;
     }
+
+    public  int getDir() { return dir; }
+
+    public  void setDir(int dir) { this.dir = dir; }
 }
+

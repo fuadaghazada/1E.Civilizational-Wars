@@ -12,7 +12,10 @@ package game_object.map;
  */
 
 import game_object.general.GameObject;
+import game_object.general.GameObjectHandler;
 import game_object.general.ObjectID;
+import texture_stuff.ImageLoader;
+
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
@@ -25,6 +28,9 @@ public class Tile extends GameObject
     private float x, y;
     private static int tileWidth, tileHeight;
     private int type;
+
+    //textures
+    private ImageLoader imageLoader;
 
     /**
      *  Constructs a tile with the given parameters.
@@ -40,6 +46,9 @@ public class Tile extends GameObject
 
         tileWidth = 700 / 15;
         tileHeight = tileWidth;
+
+        //textures
+        imageLoader = new ImageLoader(ObjectID.Tile);
     }
 
     /**
@@ -51,7 +60,7 @@ public class Tile extends GameObject
     }
 
     @Override
-    public void update(ArrayList<GameObject> gameObjects) {
+    public void update(GameObjectHandler gameObjectHandler) {
 
     }
 
@@ -60,15 +69,11 @@ public class Tile extends GameObject
      */
     public void render(Graphics g)
     {
-        if(type == 1)
-        {
-            g.drawImage(new ImageIcon("src/resources/game_textures/tiles/brickBrown.png").getImage(), (int) x, (int) (y), null);
-        }
-        else if(type == 2)
-        {
-            g.drawImage(new ImageIcon("src/resources/game_textures/tiles/brickGrey.png").getImage(), (int) x, (int) (y), null);
-        }
+        g.drawImage(imageLoader.getTiles()[type - 1], (int) x, (int) (y), null);
     }
+
+    @Override
+    protected boolean checkCollision(GameObjectHandler gameObjectHandler) { return false; }
 
 
     // ACCESS & MUTATE

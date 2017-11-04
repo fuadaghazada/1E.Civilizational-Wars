@@ -52,9 +52,9 @@ public class Enemy extends GameObject
 
 
     @Override
-    public void update(ArrayList<GameObject> gameObjects) {
+    public void update(GameObjectHandler gameObjectHandler) {
 
-        super.update(gameObjects);
+        super.update(gameObjectHandler);
         //TODO: Move through the character
         Character player =  gameObjectHandler.getCharacter();
 
@@ -78,7 +78,7 @@ public class Enemy extends GameObject
         }
 
 
-        this.checkCollision(gameObjects);
+        this.checkCollision(gameObjectHandler);
 
 
     }
@@ -110,10 +110,11 @@ public class Enemy extends GameObject
         g.drawImage(new ImageIcon("src/resources/game_textures/enemy/test_enemy.png").getImage(), (int) x, (int) (y), null);
     }
 
-    private void checkCollision(ArrayList<GameObject> gameObjects)
+    @Override
+    protected boolean checkCollision(GameObjectHandler gameObjectHandler)
     {
 
-        for(int i = 0; i < gameObjects.size(); i++)
+        for(int i = 0; i < gameObjectHandler.getGame_objects().size(); i++)
         {
             // To keep the game objects in a temp variable - for simplicity
             GameObject tempObject = gameObjectHandler.getGame_objects().get(i);
@@ -154,6 +155,7 @@ public class Enemy extends GameObject
                 }
             }
         }
+        return true;
 
     }
 

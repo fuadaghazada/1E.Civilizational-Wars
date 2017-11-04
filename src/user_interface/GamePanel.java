@@ -8,6 +8,7 @@ import game_object.general.ObjectID;
 import game_object.enemy.Enemy;
 import game_object.map.Tile;
 import game_object.map.TileMap;
+import game_object.player.Character;
 import game_object.player.ClassicFighter;
 
 import javax.swing.*;

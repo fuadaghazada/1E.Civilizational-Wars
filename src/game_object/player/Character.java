@@ -3,10 +3,9 @@ package game_object.player;
 import game_object.general.GameObject;
 import game_object.general.GameObjectHandler;
 import game_object.general.ObjectID;
+import game_object.weapon.Weapon;
 
-import javax.swing.*;
 import java.awt.*;
-import java.util.ArrayList;
 
 /**
  *  This class will represent the Character of the game with its given parameters and methods.
@@ -18,6 +17,8 @@ public class Character extends GameObject
 
     // Properties
     private float gravity = 0.3f;
+
+    private Weapon weapon;
 
     private GameObjectHandler gameObjectHandler;
 
@@ -39,32 +40,17 @@ public class Character extends GameObject
     }
 
     @Override
-    public void update(ArrayList<GameObject> gameObjects)
+    public void update(GameObjectHandler gameObjectHandler)
     {
-        x += velX;
-        y += velY;
+        super.update(gameObjectHandler);
 
-        if(isFall || isJump)
-        {
-            velY += gravity;
-
-            if(velY > MAX_SPEED)
-            {
-                velY = MAX_SPEED;
-            }
-        }
-
-        this.checkCollision(gameObjects);
+        this.checkCollision(gameObjectHandler);
     }
 
     @Override
     public void render(Graphics g)
     {
-        g.setColor(Color.BLUE);
-
         g.fillRect((int)x, (int)y, width, height);
-
-        g.drawImage(new ImageIcon("src/resources/game_textures/player/test_player.png").getImage(), (int) x, (int) (y), null);
     }
 
     @Override
@@ -73,9 +59,10 @@ public class Character extends GameObject
         return new Rectangle((int) (x + (width/2) - (width/2)/2), (int)( y + (height/2)), width/2, height/2);
     }
 
-    private void checkCollision(ArrayList<GameObject> gameObjects)
+    @Override
+    protected boolean checkCollision(GameObjectHandler gameObjectHandler)
     {
-        for(int i = 0; i < gameObjects.size(); i++)
+        for(int i = 0; i < gameObjectHandler.getGame_objects().size(); i++)
         {
             // To keep the game objects in a temp variable - for simplicity
             GameObject tempObject = gameObjectHandler.getGame_objects().get(i);
@@ -115,6 +102,7 @@ public class Character extends GameObject
                 }
             }
         }
+        return false;
     }
 
     // ACCESS to different bounds of the character
@@ -135,4 +123,7 @@ public class Character extends GameObject
 
     public void setGravity(float gravity) { this.gravity = gravity; }
 
+    public Weapon getWeapon() { return weapon; }
+
+    public void setWeapon(Weapon weapon) { this.weapon = weapon; }
 }
