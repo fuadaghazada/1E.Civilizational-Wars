@@ -5,10 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ec04559d-53aa-46bc-a9a5-057997c4f56f" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/CivilizationalWars.java" afterPath="$PROJECT_DIR$/src/main/CivilizationalWars.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/texture_stuff/Animation.java" afterPath="$PROJECT_DIR$/src/texture_stuff/Animation.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/user_interface/MainMenuPanel.java" afterPath="$PROJECT_DIR$/src/user_interface/MainMenuPanel.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/user_interface/SettingsPanel.java" afterPath="$PROJECT_DIR$/src/user_interface/SettingsPanel.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -45,11 +43,34 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GamePanel.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="SettingsPanel.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/user_interface/SettingsPanel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="195">
+              <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ModernFighter.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/game_object/player/ModernFighter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="390">
+              <caret line="36" column="5" lean-forward="true" selection-start-line="36" selection-start-column="5" selection-end-line="36" selection-end-column="5" />
+              <folding>
+                <element signature="e#1586#1587#0" expanded="true" />
+                <element signature="e#1648#1649#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GamePanel.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/user_interface/GamePanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="355">
-              <caret line="50" column="16" lean-forward="false" selection-start-line="50" selection-start-column="16" selection-end-line="50" selection-end-column="16" />
+            <state relative-caret-position="265">
+              <caret line="35" column="38" lean-forward="true" selection-start-line="35" selection-start-column="38" selection-end-line="35" selection-end-column="38" />
               <folding />
             </state>
           </provider>
@@ -83,7 +104,6 @@
       <list>
         <option value="$PROJECT_DIR$/src/user_interface/AboutPanel.java" />
         <option value="$PROJECT_DIR$/src/user_interface/HelpPanel.java" />
-        <option value="$PROJECT_DIR$/src/user_interface/SettingsPanel.java" />
         <option value="$PROJECT_DIR$/src/user_interface/PausePanel.java" />
         <option value="$PROJECT_DIR$/src/game_management/LevelInterface.java" />
         <option value="$PROJECT_DIR$/src/game_object/Camera.java" />
@@ -127,6 +147,7 @@
         <option value="$PROJECT_DIR$/src/user_interface/MainMenuPanel.java" />
         <option value="$PROJECT_DIR$/src/user_interface/GamePanel.java" />
         <option value="$PROJECT_DIR$/src/main/CivilizationalWars.java" />
+        <option value="$PROJECT_DIR$/src/user_interface/SettingsPanel.java" />
       </list>
     </option>
   </component>
@@ -169,7 +190,26 @@
               <item name="1E.Civilizational-Wars" type="b2602c69:ProjectViewProjectNode" />
               <item name="1E.Civilizational-Wars" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="game_object" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="1E.Civilizational-Wars" type="b2602c69:ProjectViewProjectNode" />
+              <item name="1E.Civilizational-Wars" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="game_object" type="462c0819:PsiDirectoryNode" />
+              <item name="player" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="1E.Civilizational-Wars" type="b2602c69:ProjectViewProjectNode" />
+              <item name="1E.Civilizational-Wars" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="1E.Civilizational-Wars" type="b2602c69:ProjectViewProjectNode" />
+              <item name="1E.Civilizational-Wars" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="texture_stuff" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="1E.Civilizational-Wars" type="b2602c69:ProjectViewProjectNode" />
@@ -442,13 +482,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/game_management/DataManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/user_interface/AboutPanel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -742,17 +775,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/game_object/player/ModernFighter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="290">
-          <caret line="55" column="25" lean-forward="false" selection-start-line="55" selection-start-column="25" selection-end-line="55" selection-end-column="25" />
-          <folding>
-            <element signature="e#1586#1587#0" expanded="false" />
-            <element signature="e#1648#1649#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/game_management/LevelManager.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -781,42 +803,42 @@
         <state relative-caret-position="12015">
           <caret line="801" column="0" lean-forward="false" selection-start-line="801" selection-start-column="0" selection-end-line="801" selection-end-column="0" />
           <folding>
-            <marker date="1509822995359" expanded="true" signature="56813:56830" ph="..." />
-            <marker date="1509822995359" expanded="true" signature="56813:56848" ph="..." />
-            <marker date="1509822995359" expanded="true" signature="56813:56861" ph="..." />
-            <marker date="1509822995359" expanded="true" signature="56813:56876" ph="..." />
-            <marker date="1509822995359" expanded="true" signature="56911:59076" ph="..." />
-            <marker date="1509822995359" expanded="true" signature="56924:59061" ph="..." />
-            <marker date="1509822995359" expanded="true" signature="56978:57273" ph="..." />
-            <marker date="1509822995359" expanded="true" signature="56997:57258" ph="..." />
-            <marker date="1509822995359" expanded="true" signature="57060:57238" ph="..." />
-            <marker date="1509822995359" expanded="true" signature="57100:57204" ph="..." />
-            <marker date="1509822995359" expanded="true" signature="57121:57182" ph="..." />
-            <marker date="1509822995359" expanded="true" signature="57323:57650" ph="..." />
-            <marker date="1509822995359" expanded="true" signature="57342:57635" ph="..." />
-            <marker date="1509822995359" expanded="true" signature="57437:57615" ph="..." />
-            <marker date="1509822995359" expanded="true" signature="57477:57581" ph="..." />
-            <marker date="1509822995359" expanded="true" signature="57498:57559" ph="..." />
-            <marker date="1509822995359" expanded="true" signature="57701:57966" ph="..." />
-            <marker date="1509822995359" expanded="true" signature="57720:57951" ph="..." />
-            <marker date="1509822995359" expanded="true" signature="57753:57931" ph="..." />
-            <marker date="1509822995359" expanded="true" signature="57793:57897" ph="..." />
-            <marker date="1509822995359" expanded="true" signature="57814:57875" ph="..." />
-            <marker date="1509822995359" expanded="true" signature="58009:58315" ph="..." />
-            <marker date="1509822995359" expanded="true" signature="58028:58300" ph="..." />
-            <marker date="1509822995359" expanded="true" signature="58102:58280" ph="..." />
-            <marker date="1509822995359" expanded="true" signature="58142:58246" ph="..." />
-            <marker date="1509822995359" expanded="true" signature="58163:58224" ph="..." />
-            <marker date="1509822995359" expanded="true" signature="58366:58730" ph="..." />
-            <marker date="1509822995359" expanded="true" signature="58385:58715" ph="..." />
-            <marker date="1509822995359" expanded="true" signature="58478:58695" ph="..." />
-            <marker date="1509822995359" expanded="true" signature="58518:58661" ph="..." />
-            <marker date="1509822995359" expanded="true" signature="58539:58639" ph="..." />
-            <marker date="1509822995359" expanded="true" signature="58782:59047" ph="..." />
-            <marker date="1509822995359" expanded="true" signature="58801:59032" ph="..." />
-            <marker date="1509822995359" expanded="true" signature="58834:59012" ph="..." />
-            <marker date="1509822995359" expanded="true" signature="58874:58978" ph="..." />
-            <marker date="1509822995359" expanded="true" signature="58895:58956" ph="..." />
+            <marker date="1509823340445" expanded="true" signature="58964:58981" ph="..." />
+            <marker date="1509823340445" expanded="true" signature="58964:58999" ph="..." />
+            <marker date="1509823340445" expanded="true" signature="58964:59012" ph="..." />
+            <marker date="1509823340445" expanded="true" signature="58964:59027" ph="..." />
+            <marker date="1509823340445" expanded="true" signature="59062:61227" ph="..." />
+            <marker date="1509823340445" expanded="true" signature="59075:61212" ph="..." />
+            <marker date="1509823340445" expanded="true" signature="59129:59424" ph="..." />
+            <marker date="1509823340445" expanded="true" signature="59148:59409" ph="..." />
+            <marker date="1509823340445" expanded="true" signature="59211:59389" ph="..." />
+            <marker date="1509823340445" expanded="true" signature="59251:59355" ph="..." />
+            <marker date="1509823340445" expanded="true" signature="59272:59333" ph="..." />
+            <marker date="1509823340445" expanded="true" signature="59474:59801" ph="..." />
+            <marker date="1509823340445" expanded="true" signature="59493:59786" ph="..." />
+            <marker date="1509823340445" expanded="true" signature="59588:59766" ph="..." />
+            <marker date="1509823340445" expanded="true" signature="59628:59732" ph="..." />
+            <marker date="1509823340445" expanded="true" signature="59649:59710" ph="..." />
+            <marker date="1509823340445" expanded="true" signature="59852:60117" ph="..." />
+            <marker date="1509823340445" expanded="true" signature="59871:60102" ph="..." />
+            <marker date="1509823340445" expanded="true" signature="59904:60082" ph="..." />
+            <marker date="1509823340445" expanded="true" signature="59944:60048" ph="..." />
+            <marker date="1509823340445" expanded="true" signature="59965:60026" ph="..." />
+            <marker date="1509823340445" expanded="true" signature="60160:60466" ph="..." />
+            <marker date="1509823340445" expanded="true" signature="60179:60451" ph="..." />
+            <marker date="1509823340445" expanded="true" signature="60253:60431" ph="..." />
+            <marker date="1509823340445" expanded="true" signature="60293:60397" ph="..." />
+            <marker date="1509823340445" expanded="true" signature="60314:60375" ph="..." />
+            <marker date="1509823340445" expanded="true" signature="60517:60881" ph="..." />
+            <marker date="1509823340445" expanded="true" signature="60536:60866" ph="..." />
+            <marker date="1509823340445" expanded="true" signature="60629:60846" ph="..." />
+            <marker date="1509823340445" expanded="true" signature="60669:60812" ph="..." />
+            <marker date="1509823340445" expanded="true" signature="60690:60790" ph="..." />
+            <marker date="1509823340445" expanded="true" signature="60933:61198" ph="..." />
+            <marker date="1509823340445" expanded="true" signature="60952:61183" ph="..." />
+            <marker date="1509823340445" expanded="true" signature="60985:61163" ph="..." />
+            <marker date="1509823340445" expanded="true" signature="61025:61129" ph="..." />
+            <marker date="1509823340445" expanded="true" signature="61046:61107" ph="..." />
           </folding>
         </state>
       </provider>
@@ -869,6 +891,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/user_interface/GamePanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="265">
+          <caret line="35" column="38" lean-forward="true" selection-start-line="35" selection-start-column="38" selection-end-line="35" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/CivilizationalWars.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
@@ -877,11 +907,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/user_interface/GamePanel.java">
+    <entry file="file://$PROJECT_DIR$/src/user_interface/SettingsPanel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="355">
-          <caret line="50" column="16" lean-forward="false" selection-start-line="50" selection-start-column="16" selection-end-line="50" selection-end-column="16" />
+        <state relative-caret-position="195">
+          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/game_object/player/ModernFighter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="36" column="5" lean-forward="true" selection-start-line="36" selection-start-column="5" selection-end-line="36" selection-end-column="5" />
+          <folding>
+            <element signature="e#1586#1587#0" expanded="true" />
+            <element signature="e#1648#1649#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

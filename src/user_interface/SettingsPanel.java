@@ -14,8 +14,6 @@ public class SettingsPanel extends JPanel {
     private JPanel[] rows;
 
 
-
-
     public SettingsPanel()
     {
         setLayout(new GridLayout(SETTINGS_ROW,SETTINGS_COL));
