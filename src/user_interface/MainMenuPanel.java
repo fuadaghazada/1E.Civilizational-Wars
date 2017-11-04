@@ -1,7 +1,11 @@
 package user_interface;
 
+import main.CivilizationalWars;
+
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 
 /**
@@ -30,6 +34,8 @@ public class MainMenuPanel extends JPanel
 
         this.setLayout(new GridLayout(2, 0));
 
+        this.listen();
+
         this.customizeButtons();
         this.customizeUpPanel();
         this.customizeBottomPanel();
@@ -37,6 +43,52 @@ public class MainMenuPanel extends JPanel
         this.add(up_panel);
         this.add(center_panel);
         this.add(center_panel);
+    }
+
+    public void listen()
+    {
+        playBtn.addActionListener(new ActionListener()
+        {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                CivilizationalWars.frame.getContentPane().removeAll();
+                CivilizationalWars.frame.getContentPane().add(new GamePanel());
+            }
+        });
+
+        viewSettingsBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+
+            }
+        });
+
+        viewAboutBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+
+            }
+        });
+
+        viewHelpBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+
+            }
+        });
+
+        quitBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                System.exit(1);
+            }
+        });
+
     }
 
     /*

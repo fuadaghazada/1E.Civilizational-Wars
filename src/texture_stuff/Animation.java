@@ -74,6 +74,4 @@ public class Animation
     {
         g.drawImage(currentImage, x, y, scaleX, scaleY, null);
     }
-
-
 }
