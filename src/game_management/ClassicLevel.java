@@ -136,9 +136,10 @@ public class ClassicLevel implements ILevelInterface
             case 1:
                 //Win
                 System.out.println("YOU WON");
+                LevelManager.currentLevel = new ModernLevel();
+
                 break;
         }
     }
-
 
 }

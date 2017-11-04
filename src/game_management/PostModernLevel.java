@@ -17,6 +17,7 @@ public class PostModernLevel implements ILevelInterface {
     private int enemyType;
     private int weaponType;
     private int characterType;
+    private int currentEnemy;
 
     private GameObjectHandler gameObjectHandler;
 
@@ -29,7 +30,7 @@ public class PostModernLevel implements ILevelInterface {
         enemyType = 2;
         weaponType = 2;
         characterType = 2;
-
+        currentEnemy = ENEMY_NUM;
         gameObjectHandler = new GameObjectHandler();
 
         this.generateTiles();
@@ -99,16 +100,27 @@ public class PostModernLevel implements ILevelInterface {
 
     @Override
     public void enemyDied() {
+        currentEnemy--;
 
     }
 
     @Override
     public int getCurrentEnemy() {
-        return 0;
+        return currentEnemy;
     }
 
     @Override
     public void levelFinished(int state) {
+        switch (state)
+        {
+            case 0:
+                //Lost
+                break;
+            case 1:
+                //Win
+                System.out.println("YOU WON");
+                break;
+        }
 
     }
 
