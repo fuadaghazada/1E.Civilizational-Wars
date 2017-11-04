@@ -98,6 +98,21 @@ public class PostModernLevel implements ILevelInterface {
     }
 
     @Override
+    public void enemyDied() {
+
+    }
+
+    @Override
+    public int getCurrentEnemy() {
+        return 0;
+    }
+
+    @Override
+    public void levelFinished(int state) {
+
+    }
+
+    @Override
     public GameObjectHandler gameObjects() {
         return gameObjectHandler;
     }

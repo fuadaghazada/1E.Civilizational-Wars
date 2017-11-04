@@ -1,5 +1,7 @@
 package game_object.enemy;
 
+import game_management.GameManager;
+import game_management.LevelManager;
 import game_object.general.GameObject;
 import game_object.general.GameObjectHandler;
 import game_object.general.ObjectID;
@@ -60,11 +62,23 @@ public class Enemy extends GameObject
     {
         if(healthLevel <= 0){
             gameObjectHandler.getGame_objects().remove(this);
+            if(LevelManager.currentLevel != null)
+                LevelManager.currentLevel.enemyDied();
+
+
+            if(LevelManager.currentLevel.getCurrentEnemy() <= 1)
+                LevelManager.currentLevel.levelFinished(1);
             return true;
         }
         else if(getY() >= 1000)
         {
             gameObjectHandler.getGame_objects().remove(this);
+            if(LevelManager.currentLevel != null)
+                LevelManager.currentLevel.enemyDied();
+
+
+            if(LevelManager.currentLevel.getCurrentEnemy() <= 1)
+                LevelManager.currentLevel.levelFinished(1);
             return true;
         }
 
@@ -88,6 +102,9 @@ public class Enemy extends GameObject
         weapon.update(gameObjectHandler);
         //TODO: Move through the character
         Character player =  gameObjectHandler.getCharacter();
+
+
+
 
         if(Math.abs(this.x - player.getX()) < followRange) {
             if (Math.abs(this.x - player.getX()) > fightRange) {

@@ -18,6 +18,7 @@ public class ClassicLevel implements ILevelInterface
     private int enemyType;
     private int weaponType;
     private int characterType;
+    private int currentEnemy;
 
     private GameObjectHandler gameObjectHandler;
 
@@ -31,6 +32,7 @@ public class ClassicLevel implements ILevelInterface
         enemyType = 0;
         weaponType = 0;
         characterType = 0;
+        currentEnemy = ENEMY_NUM;
 
         gameObjectHandler = new GameObjectHandler();
 
@@ -79,6 +81,18 @@ public class ClassicLevel implements ILevelInterface
         }
     }
 
+
+
+    public void enemyDied()
+    {
+        currentEnemy--;
+    }
+
+    @Override
+    public int getCurrentEnemy() {
+        return currentEnemy;
+    }
+
     @Override
     public TileMap getLevelTileMap() {
         return null;
@@ -108,6 +122,22 @@ public class ClassicLevel implements ILevelInterface
     public GameObjectHandler gameObjects()
     {
         return gameObjectHandler;
+    }
+
+    @Override
+    public void levelFinished(int state)
+    {
+
+        switch (state)
+        {
+            case 0:
+                //Lost
+                break;
+            case 1:
+                //Win
+                System.out.println("YOU WON");
+                break;
+        }
     }
 
 

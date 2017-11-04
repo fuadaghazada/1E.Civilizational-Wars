@@ -4,7 +4,7 @@ public class LevelManager
 {
 
     // Properties
-    private ILevelInterface currentLevel;
+    public static ILevelInterface currentLevel = null;
 
     /**
      * Constructs the level manager
@@ -27,8 +27,9 @@ public class LevelManager
     }
 
     // ACCESS
-
+/*
     public ILevelInterface getCurrentLevel() {
         return currentLevel;
     }
+    */
 }

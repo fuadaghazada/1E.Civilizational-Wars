@@ -10,6 +10,9 @@ public interface ILevelInterface {
     String getName();
     int getWeaponType();
     int getCharacterType();
+    void enemyDied();
+    int getCurrentEnemy();
+    void levelFinished(int state);
 
     GameObjectHandler gameObjects();
 

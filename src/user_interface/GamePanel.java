@@ -14,6 +14,7 @@ import game_object.player.Robot;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.logging.Level;
 
 
 /**
@@ -59,7 +60,7 @@ public class GamePanel extends JPanel implements Runnable
     {
         gameManager = new GameManager();
         camera = new Camera(0,0);
-        this.addKeyListener(new InputManager(gameManager.getLevelManager().getCurrentLevel().gameObjects()));
+        this.addKeyListener(new InputManager(LevelManager.currentLevel.gameObjects()));
 
     }
 
@@ -117,8 +118,8 @@ public class GamePanel extends JPanel implements Runnable
      */
     public void update()
     {
-        camera.update(gameManager.getLevelManager().getCurrentLevel().gameObjects().getCharacter());
-        gameManager.getLevelManager().getCurrentLevel().gameObjects().updateAll();
+        camera.update(LevelManager.currentLevel.gameObjects().getCharacter());
+        LevelManager.currentLevel.gameObjects().updateAll();
     }
 
     /**
@@ -135,7 +136,7 @@ public class GamePanel extends JPanel implements Runnable
         g2.translate(-camera.getX(), -camera.getY());
 
         //game manager
-        gameManager.getLevelManager().getCurrentLevel().gameObjects().renderAll(g);
+        LevelManager.currentLevel.gameObjects().renderAll(g);
 
         g2.translate(camera.getX(), camera.getY());
 

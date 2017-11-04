@@ -18,12 +18,12 @@ public class GameManager
 
     public void update()
     {
-        levelManager.getCurrentLevel().gameObjects().updateAll();
+        LevelManager.currentLevel.gameObjects().updateAll();
     }
 
     public void render(Graphics g)
     {
-        levelManager.getCurrentLevel().gameObjects().renderAll(g);
+        LevelManager.currentLevel.gameObjects().renderAll(g);
     }
 
     // ACCESS
