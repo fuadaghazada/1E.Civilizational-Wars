@@ -1,8 +1,12 @@
 package user_interface;
 
+import main.CivilizationalWars;
+
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class SettingsPanel extends JPanel {
 
@@ -12,6 +16,7 @@ public class SettingsPanel extends JPanel {
     //Components
     private JLabel lblDifficulty, lblControls, lblMusic;
     private JPanel[] rows;
+    private JButton btnBackToMenu;
 
 
     public SettingsPanel()
@@ -21,7 +26,22 @@ public class SettingsPanel extends JPanel {
         setBackground(Color.BLUE);
         this.setBorder(new EmptyBorder(20,50,20,20));
         init();
+        this.listen();
 
+    }
+
+    public void listen()
+    {
+        btnBackToMenu.addActionListener(new ActionListener()
+        {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                CivilizationalWars.frame.getContentPane().removeAll();
+                CivilizationalWars.frame.add(new MainMenuPanel());
+                CivilizationalWars.frame.revalidate();
+            }
+        });
     }
 
     /*
@@ -131,7 +151,7 @@ public class SettingsPanel extends JPanel {
             case 4:
 
                 JPanel fourthRow = new JPanel();
-                JButton btnBackToMenu = new JButton("Go back to menu");
+                btnBackToMenu = new JButton("Go back to menu");
                 fourthRow.add(btnBackToMenu);
                 return fourthRow;
 

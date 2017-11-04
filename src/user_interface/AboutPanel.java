@@ -1,7 +1,11 @@
 package user_interface;
 
+import main.CivilizationalWars;
+
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class AboutPanel extends JPanel
 {
@@ -16,10 +20,26 @@ public class AboutPanel extends JPanel
     {
         this.init();
 
+        this.listen();
+
         this.setLayout(new BorderLayout());
 
         this.customizeTextArea();
         this.customizePanel();
+    }
+
+    public void listen()
+    {
+        backToMenu.addActionListener(new ActionListener()
+        {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                CivilizationalWars.frame.getContentPane().removeAll();
+                CivilizationalWars.frame.add(new MainMenuPanel());
+                CivilizationalWars.frame.revalidate();
+            }
+        });
     }
 
     /*
