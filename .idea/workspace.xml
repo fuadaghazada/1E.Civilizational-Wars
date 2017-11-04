@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="ec04559d-53aa-46bc-a9a5-057997c4f56f" name="Default" comment="">
 <<<<<<< HEAD
+<<<<<<< HEAD
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/game_management/ModernLevel.java" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/game_management/PostModernLevel.java" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/game_object/general/IRenderable.java" />
@@ -28,6 +29,10 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/game_object/enemy/Enemy.java" afterPath="$PROJECT_DIR$/src/game_object/enemy/Enemy.java" />
 >>>>>>> 3d8c06c83d34dddb6fdfe20677c58b3029e57064
+=======
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/game_object/enemy/Enemy.java" afterPath="$PROJECT_DIR$/src/game_object/enemy/Enemy.java" />
+>>>>>>> 3d8c06c83d34dddb6fdfe20677c58b3029e57064
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -44,6 +49,7 @@
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="Character.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/game_object/player/Character.java">
+<<<<<<< HEAD
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-49">
               <caret line="49" column="46" lean-forward="false" selection-start-line="49" selection-start-column="32" selection-end-line="49" selection-end-column="46" />
@@ -55,6 +61,19 @@
       <file leaf-file-name="ClassicFighter.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/game_object/player/ClassicFighter.java">
           <provider selected="true" editor-type-id="text-editor">
+=======
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-49">
+              <caret line="49" column="46" lean-forward="false" selection-start-line="49" selection-start-column="32" selection-end-line="49" selection-end-column="46" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ClassicFighter.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/game_object/player/ClassicFighter.java">
+          <provider selected="true" editor-type-id="text-editor">
+>>>>>>> 3d8c06c83d34dddb6fdfe20677c58b3029e57064
             <state relative-caret-position="70">
               <caret line="55" column="53" lean-forward="false" selection-start-line="55" selection-start-column="53" selection-end-line="55" selection-end-column="53" />
               <folding>
@@ -113,6 +132,7 @@
         <entry file="file://$PROJECT_DIR$/src/resources/game_textures/player/test_player_jump1.png">
           <provider selected="true" editor-type-id="images">
             <state />
+<<<<<<< HEAD
           </provider>
         </entry>
       </file>
@@ -130,6 +150,25 @@
           </provider>
         </entry>
       </file>
+=======
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="test_player_walk1.png" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/resources/game_textures/player/test_player_walk1.png">
+          <provider selected="true" editor-type-id="images">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="test_player_walk2.png" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/resources/game_textures/player/test_player_walk2.png">
+          <provider selected="true" editor-type-id="images">
+            <state />
+          </provider>
+        </entry>
+      </file>
+>>>>>>> 3d8c06c83d34dddb6fdfe20677c58b3029e57064
       <file leaf-file-name="GameObjectHandler.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/game_object/general/GameObjectHandler.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -153,9 +192,15 @@
   </component>
   <component name="FindInProjectRecents">
 <<<<<<< HEAD
+<<<<<<< HEAD
     <findStrings>
       <find>0</find>
     </findStrings>
+=======
+    <dirStrings>
+      <dir>D:\Warranty Files\Works Updated\Study\CS319\Repo\1E.Civilizational-Wars\src\resources\game_textures\player</dir>
+    </dirStrings>
+>>>>>>> 3d8c06c83d34dddb6fdfe20677c58b3029e57064
 =======
     <dirStrings>
       <dir>D:\Warranty Files\Works Updated\Study\CS319\Repo\1E.Civilizational-Wars\src\resources\game_textures\player</dir>
@@ -217,8 +262,13 @@
         <option value="$PROJECT_DIR$/src/game_object/player/Robot.java" />
         <option value="$PROJECT_DIR$/src/game_management/LevelManager.java" />
 <<<<<<< HEAD
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/src/user_interface/GamePanel.java" />
         <option value="$PROJECT_DIR$/src/game_management/GameManager.java" />
+=======
+        <option value="$PROJECT_DIR$/src/game_object/general/GameObject.java" />
+        <option value="$PROJECT_DIR$/src/game_object/enemy/Enemy.java" />
+>>>>>>> 3d8c06c83d34dddb6fdfe20677c58b3029e57064
 =======
         <option value="$PROJECT_DIR$/src/game_object/general/GameObject.java" />
         <option value="$PROJECT_DIR$/src/game_object/enemy/Enemy.java" />
@@ -297,6 +347,27 @@
               <item name="1E.Civilizational-Wars" type="b2602c69:ProjectViewProjectNode" />
               <item name="1E.Civilizational-Wars" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="game_object" type="462c0819:PsiDirectoryNode" />
+              <item name="enemy" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="1E.Civilizational-Wars" type="b2602c69:ProjectViewProjectNode" />
+              <item name="1E.Civilizational-Wars" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="game_object" type="462c0819:PsiDirectoryNode" />
+              <item name="general" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="1E.Civilizational-Wars" type="b2602c69:ProjectViewProjectNode" />
+              <item name="1E.Civilizational-Wars" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="game_object" type="462c0819:PsiDirectoryNode" />
+              <item name="player" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="1E.Civilizational-Wars" type="b2602c69:ProjectViewProjectNode" />
+              <item name="1E.Civilizational-Wars" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -322,6 +393,12 @@
             </path>
 <<<<<<< HEAD
 =======
+            <path>
+              <item name="1E.Civilizational-Wars" type="b2602c69:ProjectViewProjectNode" />
+              <item name="1E.Civilizational-Wars" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="texture_stuff" type="462c0819:PsiDirectoryNode" />
+            </path>
             <path>
               <item name="1E.Civilizational-Wars" type="b2602c69:ProjectViewProjectNode" />
               <item name="1E.Civilizational-Wars" type="462c0819:PsiDirectoryNode" />
@@ -525,6 +602,9 @@
 =======
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1640625" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32874617" sideWeight="0.4968701" order="1" side_tool="false" content_ui="tabs" />
+<<<<<<< HEAD
+>>>>>>> 3d8c06c83d34dddb6fdfe20677c58b3029e57064
+=======
 >>>>>>> 3d8c06c83d34dddb6fdfe20677c58b3029e57064
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -627,7 +707,10 @@
   </component>
   <component name="editorHistoryManager">
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 3d8c06c83d34dddb6fdfe20677c58b3029e57064
     <entry file="file://$PROJECT_DIR$/src/user_interface/PausePanel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
@@ -747,6 +830,10 @@
           <caret line="55" column="53" lean-forward="false" selection-start-line="55" selection-start-column="53" selection-end-line="55" selection-end-column="53" />
           <folding>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+            <element signature="e#1588#1589#0" expanded="true" />
+>>>>>>> 3d8c06c83d34dddb6fdfe20677c58b3029e57064
 =======
             <element signature="e#1588#1589#0" expanded="true" />
 >>>>>>> 3d8c06c83d34dddb6fdfe20677c58b3029e57064
@@ -762,6 +849,7 @@
           <folding>
             <element signature="imports" expanded="true" />
 <<<<<<< HEAD
+<<<<<<< HEAD
             <marker date="1509814089124" expanded="true" signature="3487:3493" ph="{...}" />
             <marker date="1509814089124" expanded="true" signature="3527:3695" ph="{...}" />
             <marker date="1509814089124" expanded="true" signature="3728:3897" ph="{...}" />
@@ -775,6 +863,8 @@
             <marker date="1509814089124" expanded="false" signature="6545:6551" ph=" }" />
             <marker date="1509814089124" expanded="false" signature="6854:6865" ph=" { " />
             <marker date="1509814089124" expanded="false" signature="6879:6885" ph=" }" />
+=======
+>>>>>>> 3d8c06c83d34dddb6fdfe20677c58b3029e57064
 =======
 >>>>>>> 3d8c06c83d34dddb6fdfe20677c58b3029e57064
           </folding>
@@ -868,6 +958,7 @@
       </provider>
     </entry>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/game_object/player/Character.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1215">
@@ -908,6 +999,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/CivilizationalWars.java">
 =======
+=======
+>>>>>>> 3d8c06c83d34dddb6fdfe20677c58b3029e57064
     <entry file="file://$PROJECT_DIR$/src/game_object/weapon/LaserGun.java">
 >>>>>>> 3d8c06c83d34dddb6fdfe20677c58b3029e57064
       <provider selected="true" editor-type-id="text-editor">
@@ -925,6 +1018,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
 <<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/game_object/general/IUpdatable.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -948,6 +1042,8 @@
     </entry>
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home/src.zip!/java/lang/NumberFormatException.java">
 =======
+=======
+>>>>>>> 3d8c06c83d34dddb6fdfe20677c58b3029e57064
     <entry file="file://$PROJECT_DIR$/src/resources/map_files/map_level_1.txt">
 >>>>>>> 3d8c06c83d34dddb6fdfe20677c58b3029e57064
       <provider selected="true" editor-type-id="text-editor">
@@ -982,6 +1078,7 @@
       </provider>
     </entry>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/game_object/weapon/LaserGun.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="35">
@@ -998,6 +1095,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/resources/map_files/map_level_2.txt">
 =======
+=======
+>>>>>>> 3d8c06c83d34dddb6fdfe20677c58b3029e57064
     <entry file="file://$PROJECT_DIR$/src/game_management/GameManager.java">
 >>>>>>> 3d8c06c83d34dddb6fdfe20677c58b3029e57064
       <provider selected="true" editor-type-id="text-editor">
@@ -1018,6 +1117,14 @@
 <<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/game_management/PostModernLevel.java">
 =======
+    <entry file="file://$PROJECT_DIR$/src/user_interface/GamePanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-995">
+          <caret line="64" column="0" lean-forward="true" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/user_interface/GamePanel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-995">
@@ -1063,6 +1170,21 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+=======
+    <entry file="file://$PROJECT_DIR$/src/game_object/general/GameObject.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="24" column="0" lean-forward="true" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1987#1988#0" expanded="true" />
+            <element signature="e#2013#2014#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+>>>>>>> 3d8c06c83d34dddb6fdfe20677c58b3029e57064
     <entry file="file://$PROJECT_DIR$/src/game_object/general/GameObjectHandler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
@@ -1200,15 +1322,74 @@
       </provider>
     </entry>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/game_management/LevelManager.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="6" column="22" lean-forward="false" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="22" />
+=======
+    <entry file="file://$PROJECT_DIR$/src/resources/game_textures/player/test_player.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/resources/game_textures/player/test_player_jump1.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/resources/game_textures/player/test_player_walk1.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/resources/game_textures/player/test_player_walk2.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/game_object/player/Character.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-49">
+          <caret line="49" column="46" lean-forward="false" selection-start-line="49" selection-start-column="32" selection-end-line="49" selection-end-column="46" />
+>>>>>>> 3d8c06c83d34dddb6fdfe20677c58b3029e57064
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
 =======
+>>>>>>> 3d8c06c83d34dddb6fdfe20677c58b3029e57064
+=======
+    <entry file="file://$PROJECT_DIR$/src/game_object/player/ClassicFighter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="70">
+          <caret line="55" column="53" lean-forward="false" selection-start-line="55" selection-start-column="53" selection-end-line="55" selection-end-column="53" />
+          <folding>
+            <element signature="e#1588#1589#0" expanded="true" />
+            <element signature="e#1650#1651#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/texture_stuff/ImageLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="82" column="7" lean-forward="true" selection-start-line="82" selection-start-column="7" selection-end-line="82" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/game_object/enemy/Enemy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="136" column="25" lean-forward="true" selection-start-line="136" selection-start-column="25" selection-end-line="136" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
 >>>>>>> 3d8c06c83d34dddb6fdfe20677c58b3029e57064
   </component>
   <component name="masterDetails">
