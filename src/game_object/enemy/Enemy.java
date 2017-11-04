@@ -206,11 +206,11 @@ public class Enemy extends GameObject
             {
                 healthLevel -= temp.getDamage();
 
-<<<<<<< HEAD
-=======
+
+
                 System.out.println(temp.getDamage());
 
->>>>>>> 59bdba8043faf655c640db0ee92334e12018a1a7
+
                 gameObjectHandler.removeBullet(temp);
                 i--;
                 break;
