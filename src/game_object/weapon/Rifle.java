@@ -47,7 +47,12 @@ public class Rifle extends Weapon
         gameObjectHandler.addBullet(new Bullet(x + width,
                                y + height/2,
                                 ObjectID.Bullet,
+<<<<<<< HEAD
                                dir * 15, gameObjectHandler, this));
+=======
+                               gameObjectHandler.getCharacter().getDir() * 15,
+                                gameObjectHandler, 0));
+>>>>>>> 59bdba8043faf655c640db0ee92334e12018a1a7
     }
 
     @Override
@@ -72,7 +77,7 @@ public class Rifle extends Weapon
     }
 
     /**
-     *  Clears the bullets when it hits somewhere
+     *  Clears the bullets when it hits tiles.
      *  @param gameObjectHandler - game objects
      */
     public void clearBulletList(GameObjectHandler gameObjectHandler)

@@ -192,15 +192,8 @@ public class Enemy extends GameObject
                 {
                     setFall(true);
                 }
-
-
             }
-
-
-
-
         }
-
 
 
         for (int i = 0; i < gameObjectHandler.getBullets().size(); i++)
@@ -213,9 +206,13 @@ public class Enemy extends GameObject
             {
                 healthLevel -= temp.getDamage();
 
+<<<<<<< HEAD
+=======
+                System.out.println(temp.getDamage());
+
+>>>>>>> 59bdba8043faf655c640db0ee92334e12018a1a7
                 gameObjectHandler.removeBullet(temp);
                 i--;
-                System.out.println("BULLET COLLIDED");
                 break;
             }
 

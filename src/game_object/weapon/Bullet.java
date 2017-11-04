@@ -8,12 +8,18 @@ import java.awt.*;
 
 public class Bullet extends GameObject
 {
+    // Properties
+    private int bullet_type;
+    private float damage;
     private GameObjectHandler gameObjectHandler;
 
+<<<<<<< HEAD
 
     boolean destroyed = false;
     private Weapon weapon;
 
+=======
+>>>>>>> 59bdba8043faf655c640db0ee92334e12018a1a7
     /**
      * Constructing the game object with given parameters.
      *
@@ -21,14 +27,29 @@ public class Bullet extends GameObject
      * @param y  - y coordinate of the game object.
      * @param id - object id defines the type of the objects.
      */
+<<<<<<< HEAD
     public Bullet(float x, float y, ObjectID id, float velX, GameObjectHandler gameObjectHandler, Weapon weapon)
+=======
+    public Bullet(float x, float y, ObjectID id, float velX, GameObjectHandler gameObjectHandler, int bullet_type)
+>>>>>>> 59bdba8043faf655c640db0ee92334e12018a1a7
     {
         super(x, y, id);
         this.weapon = weapon;
         this.gameObjectHandler = gameObjectHandler;
+        this.bullet_type = bullet_type;
 
-        this.setWidth(5);
-        this.setHeight(2);
+        this.setWidth(10);
+        this.setHeight(5);
+
+        // Damage according to the bullet type
+        if(bullet_type == 0)
+        {
+            damage = 15f;
+        }
+        else if(bullet_type == 1)
+        {
+            damage = 30f;
+        }
 
         this.velX = velX;
     }
@@ -36,24 +57,24 @@ public class Bullet extends GameObject
     @Override
     public void update(GameObjectHandler gameObjectHandler)
     {
+        super.update(gameObjectHandler);
 
-        if(!destroyed) {
-            super.update(gameObjectHandler);
+        x += velX;
 
-            x += velX;
-
-            this.checkCollision(gameObjectHandler);
-        }
+        this.checkCollision(gameObjectHandler);
     }
 
     @Override
     public void render(Graphics g)
     {
-        if(!destroyed) {
+        // Rendering according to the bullet type
+        if(bullet_type == 0)
             g.setColor(Color.BLACK);
+        else if(bullet_type == 1)
+            g.setColor(Color.RED);
 
-            g.fillRect((int) x, (int) y, width, height);
-        }
+        g.fillRect((int) x, (int) y, width, height);
+
     }
 
     @Override
@@ -77,13 +98,7 @@ public class Bullet extends GameObject
 
     public float getDamage()
     {
-        //TODO: it will be changed regarding the bullet type
-        return 15;
-    }
-
-    public void destroyBullet()
-    {
-        destroyed = true;
+        return damage;
     }
 
     public Weapon getWeapon() {

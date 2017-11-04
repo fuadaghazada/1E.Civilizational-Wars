@@ -63,7 +63,6 @@ public class GameObjectHandler
      */
     public void removeBullet(Bullet bullet)
     {
-        bullet.destroyBullet();
         bullets.remove(bullet);
         System.out.println("removeBullet called");
     }
