@@ -6,11 +6,13 @@ import game_object.general.ObjectID;
 import game_object.map.Tile;
 import game_object.map.TileMap;
 import game_object.player.ClassicFighter;
+import main.CivilizationalWars;
+import user_interface.GamePanel;
 
 public class ClassicLevel implements ILevelInterface
 {
     //constants
-    public static final int ENEMY_NUM = 30;
+    public static final int ENEMY_NUM = 3;
 
     // Properties
     private String name;
@@ -136,6 +138,7 @@ public class ClassicLevel implements ILevelInterface
             case 1:
                 //Win
                 System.out.println("YOU WON");
+                
                 LevelManager.currentLevel = new ModernLevel();
 
                 break;

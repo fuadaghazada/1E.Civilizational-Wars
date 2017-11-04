@@ -26,6 +26,11 @@ public class LevelManager
         }
     }
 
+    public void setLevel(ILevelInterface level)
+    {
+        level = currentLevel;
+    }
+
     // ACCESS
 /*
     public ILevelInterface getCurrentLevel() {

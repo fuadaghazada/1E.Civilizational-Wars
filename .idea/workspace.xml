@@ -5,10 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ec04559d-53aa-46bc-a9a5-057997c4f56f" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/game_management/InputManager.java" afterPath="$PROJECT_DIR$/src/game_management/InputManager.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/game_object/player/Character.java" afterPath="$PROJECT_DIR$/src/game_object/player/Character.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/user_interface/GamePanel.java" afterPath="$PROJECT_DIR$/src/user_interface/GamePanel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/user_interface/MainMenuPanel.java" afterPath="$PROJECT_DIR$/src/user_interface/MainMenuPanel.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/game_management/ClassicLevel.java" afterPath="$PROJECT_DIR$/src/game_management/ClassicLevel.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/game_management/LevelManager.java" afterPath="$PROJECT_DIR$/src/game_management/LevelManager.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/user_interface/SettingsPanel.java" afterPath="$PROJECT_DIR$/src/user_interface/SettingsPanel.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -20,11 +20,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Character.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Character.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/game_object/player/Character.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1065">
-              <caret line="79" column="16" lean-forward="false" selection-start-line="79" selection-start-column="16" selection-end-line="79" selection-end-column="16" />
+            <state relative-caret-position="-1074">
+              <caret line="77" column="57" lean-forward="true" selection-start-line="77" selection-start-column="57" selection-end-line="77" selection-end-column="57" />
               <folding>
                 <element signature="e#2160#2161#0" expanded="true" />
                 <element signature="e#2217#2218#0" expanded="true" />
@@ -36,9 +36,73 @@
       <file leaf-file-name="GamePanel.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/user_interface/GamePanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-668">
-              <caret line="52" column="31" lean-forward="false" selection-start-line="52" selection-start-column="31" selection-end-line="52" selection-end-column="31" />
+            <state relative-caret-position="-654">
+              <caret line="65" column="0" lean-forward="true" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
+              <folding>
+                <marker date="1509826992144" expanded="false" signature="3108:3123" ph=" { " />
+                <marker date="1509826992144" expanded="false" signature="3142:3148" ph=" }" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SettingsPanel.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/user_interface/SettingsPanel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="30">
+              <caret line="25" column="3" lean-forward="true" selection-start-line="25" selection-start-column="3" selection-end-line="25" selection-end-column="34" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DataManager.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/game_management/DataManager.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="30">
+              <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ClassicLevel.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/game_management/ClassicLevel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="463">
+              <caret line="140" column="16" lean-forward="false" selection-start-line="140" selection-start-column="16" selection-end-line="140" selection-end-column="16" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#2131#2132#0" expanded="true" />
+                <element signature="e#2161#2162#0" expanded="true" />
+                <element signature="e#2211#2212#0" expanded="true" />
+                <element signature="e#2246#2247#0" expanded="true" />
+                <element signature="e#2300#2301#0" expanded="true" />
+                <element signature="e#2327#2328#0" expanded="true" />
+                <element signature="e#2374#2375#0" expanded="true" />
+                <element signature="e#2398#2399#0" expanded="true" />
+                <element signature="e#2443#2444#0" expanded="true" />
+                <element signature="e#2470#2471#0" expanded="true" />
+                <element signature="e#2518#2519#0" expanded="true" />
+                <element signature="e#2542#2543#0" expanded="true" />
+                <element signature="e#2593#2594#0" expanded="true" />
+                <element signature="e#2617#2618#0" expanded="true" />
+                <element signature="e#2681#2682#0" expanded="true" />
+                <element signature="e#2721#2722#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LevelManager.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/game_management/LevelManager.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="381">
+              <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+              <folding>
+                <element signature="e#609#610#0" expanded="true" />
+                <element signature="e#645#646#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -46,8 +110,18 @@
       <file leaf-file-name="InputManager.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/game_management/InputManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="60" column="0" lean-forward="false" selection-start-line="60" selection-start-column="0" selection-end-line="62" selection-end-column="50" />
+            <state relative-caret-position="248">
+              <caret line="57" column="9" lean-forward="true" selection-start-line="57" selection-start-column="9" selection-end-line="57" selection-end-column="9" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ImageLoader.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/texture_stuff/ImageLoader.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="211">
+              <caret line="55" column="8" lean-forward="false" selection-start-line="55" selection-start-column="8" selection-end-line="55" selection-end-column="8" />
               <folding />
             </state>
           </provider>
@@ -110,23 +184,23 @@
         <option value="$PROJECT_DIR$/src/game_object/map/TileMap.java" />
         <option value="$PROJECT_DIR$/src/resources/map_files/map_level_1.txt" />
         <option value="$PROJECT_DIR$/src/resources/map_files/map_level_3.txt" />
-        <option value="$PROJECT_DIR$/src/game_management/ClassicLevel.java" />
         <option value="$PROJECT_DIR$/src/game_management/ModernLevel.java" />
         <option value="$PROJECT_DIR$/src/game_management/PostModernLevel.java" />
         <option value="$PROJECT_DIR$/src/game_object/player/ModernFighter.java" />
         <option value="$PROJECT_DIR$/src/game_object/player/Robot.java" />
-        <option value="$PROJECT_DIR$/src/game_management/LevelManager.java" />
         <option value="$PROJECT_DIR$/src/game_management/GameManager.java" />
         <option value="$PROJECT_DIR$/src/game_object/player/ClassicFighter.java" />
         <option value="$PROJECT_DIR$/src/texture_stuff/Animation.java" />
         <option value="$PROJECT_DIR$/src/texture_stuff/ImageLoader.java" />
         <option value="$PROJECT_DIR$/src/main/CivilizationalWars.java" />
-        <option value="$PROJECT_DIR$/src/user_interface/SettingsPanel.java" />
-        <option value="$PROJECT_DIR$/src/user_interface/GamePanel.java" />
         <option value="$PROJECT_DIR$/src/user_interface/MainMenuPanel.java" />
         <option value="$PROJECT_DIR$/src/game_management/InputManager.java" />
         <option value="$PROJECT_DIR$/src/user_interface/LoadLevelPanel.java" />
         <option value="$PROJECT_DIR$/src/game_object/player/Character.java" />
+        <option value="$PROJECT_DIR$/src/game_management/LevelManager.java" />
+        <option value="$PROJECT_DIR$/src/game_management/ClassicLevel.java" />
+        <option value="$PROJECT_DIR$/src/user_interface/GamePanel.java" />
+        <option value="$PROJECT_DIR$/src/user_interface/SettingsPanel.java" />
       </list>
     </option>
   </component>
@@ -467,7 +541,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/textures/Texture.java" />
     <entry file="file://$PROJECT_DIR$/src/game_object/Bullet.java" />
     <entry file="file://$PROJECT_DIR$/src/game_object/general_classes.java" />
     <entry file="file://$PROJECT_DIR$/src/game_object/general/Camera.java">
@@ -686,8 +759,6 @@
           <caret line="103" column="1" lean-forward="false" selection-start-line="103" selection-start-column="1" selection-end-line="103" selection-end-column="1" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2344#2345#0" expanded="true" />
-            <element signature="e#2384#2385#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -702,18 +773,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/game_management/ClassicLevel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="24" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2401#2402#0" expanded="true" />
-            <element signature="e#2441#2442#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/game_object/player/Robot.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1035">
@@ -722,13 +781,6 @@
             <element signature="e#1579#1580#0" expanded="true" />
             <element signature="e#1647#1648#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/game_management/LevelManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="22" lean-forward="false" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="22" />
         </state>
       </provider>
     </entry>
@@ -763,21 +815,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/game_management/GameManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/texture_stuff/ImageLoader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="4" lean-forward="true" selection-start-line="0" selection-start-column="4" selection-end-line="0" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/texture_stuff/Animation.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="215">
@@ -791,17 +828,6 @@
           <caret line="32" column="44" lean-forward="true" selection-start-line="32" selection-start-column="44" selection-end-line="32" selection-end-column="44" />
           <folding>
             <element signature="e#948#949#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/user_interface/SettingsPanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="103">
-          <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          <folding>
-            <element signature="e#831#1169#0" expanded="true" />
-            <element signature="e#1168#1169#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -877,30 +903,102 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/user_interface/GamePanel.java">
+    <entry file="file://$PROJECT_DIR$/src/game_object/player/Character.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-668">
-          <caret line="52" column="31" lean-forward="false" selection-start-line="52" selection-start-column="31" selection-end-line="52" selection-end-column="31" />
+        <state relative-caret-position="-1074">
+          <caret line="77" column="57" lean-forward="true" selection-start-line="77" selection-start-column="57" selection-end-line="77" selection-end-column="57" />
+          <folding>
+            <element signature="e#2160#2161#0" expanded="true" />
+            <element signature="e#2217#2218#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/game_management/GameManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/game_management/InputManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="60" column="0" lean-forward="false" selection-start-line="60" selection-start-column="0" selection-end-line="62" selection-end-column="50" />
+        <state relative-caret-position="248">
+          <caret line="57" column="9" lean-forward="true" selection-start-line="57" selection-start-column="9" selection-end-line="57" selection-end-column="9" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/game_object/player/Character.java">
+    <entry file="file://$PROJECT_DIR$/src/game_management/DataManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1065">
-          <caret line="79" column="16" lean-forward="false" selection-start-line="79" selection-start-column="16" selection-end-line="79" selection-end-column="16" />
+        <state relative-caret-position="30">
+          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/texture_stuff/ImageLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="211">
+          <caret line="55" column="8" lean-forward="false" selection-start-line="55" selection-start-column="8" selection-end-line="55" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/game_management/LevelManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="381">
+          <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
           <folding>
-            <element signature="e#2160#2161#0" expanded="true" />
-            <element signature="e#2217#2218#0" expanded="true" />
+            <element signature="e#609#610#0" expanded="true" />
+            <element signature="e#645#646#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/game_management/ClassicLevel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="463">
+          <caret line="140" column="16" lean-forward="false" selection-start-line="140" selection-start-column="16" selection-end-line="140" selection-end-column="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2131#2132#0" expanded="true" />
+            <element signature="e#2161#2162#0" expanded="true" />
+            <element signature="e#2211#2212#0" expanded="true" />
+            <element signature="e#2246#2247#0" expanded="true" />
+            <element signature="e#2300#2301#0" expanded="true" />
+            <element signature="e#2327#2328#0" expanded="true" />
+            <element signature="e#2374#2375#0" expanded="true" />
+            <element signature="e#2398#2399#0" expanded="true" />
+            <element signature="e#2443#2444#0" expanded="true" />
+            <element signature="e#2470#2471#0" expanded="true" />
+            <element signature="e#2518#2519#0" expanded="true" />
+            <element signature="e#2542#2543#0" expanded="true" />
+            <element signature="e#2593#2594#0" expanded="true" />
+            <element signature="e#2617#2618#0" expanded="true" />
+            <element signature="e#2681#2682#0" expanded="true" />
+            <element signature="e#2721#2722#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/user_interface/GamePanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-654">
+          <caret line="65" column="0" lean-forward="true" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
+          <folding>
+            <marker date="1509826992144" expanded="false" signature="3108:3123" ph=" { " />
+            <marker date="1509826992144" expanded="false" signature="3142:3148" ph=" }" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/user_interface/SettingsPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="25" column="3" lean-forward="true" selection-start-line="25" selection-start-column="3" selection-end-line="25" selection-end-column="34" />
+          <folding />
         </state>
       </provider>
     </entry>

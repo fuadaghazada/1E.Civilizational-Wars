@@ -39,7 +39,7 @@ public class SettingsPanel extends JPanel {
             {
                 CivilizationalWars.frame.getContentPane().removeAll();
                 CivilizationalWars.frame.add(new MainMenuPanel());
-                CivilizationalWars.frame.revalidate();
+                CivilizationalWars.frame.reva
             }
         });
     }
