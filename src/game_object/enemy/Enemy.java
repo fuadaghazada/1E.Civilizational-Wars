@@ -5,6 +5,9 @@ import game_object.general.GameObjectHandler;
 import game_object.general.ObjectID;
 import game_object.player.Character;
 import game_object.weapon.Bullet;
+import game_object.weapon.LaserGun;
+import game_object.weapon.Rifle;
+import game_object.weapon.Weapon;
 
 import javax.swing.*;
 import java.awt.*;
@@ -20,6 +23,7 @@ public class Enemy extends GameObject
     private float healthLevel = 100;
     private float damage;
     private GameObjectHandler gameObjectHandler;
+    private Weapon weapon;
 
     private boolean forceJump = false;
 
@@ -33,27 +37,37 @@ public class Enemy extends GameObject
 
     private final float followRange  = (float) ((Math.random()* 500 ) + 1000);
     private final float fightRange = (float) ((Math.random()* 100 ) + 300);
+    private final float fireRange = fightRange + 50;
+    //TODO: add one more range property to fire behind the fight range and follow range
+
+    private long lastFire = System.currentTimeMillis();
+    private final long fireRate = 750;
+
+
 
     public Enemy(float x, float y, ObjectID id, GameObjectHandler gameObjectHandler){
         super(x, y, id);
         this.gameObjectHandler = gameObjectHandler;
-
+        weapon = new Rifle(x, y, ObjectID.Weapon, this);
         System.out.println("Fight" + fightRange + ", Follow" + followRange);
         setHeight(70);
         setWidth(60);
 
+
     }
+
 
 
     public boolean isDead()
     {
         return healthLevel <= 0;
-
     }
 
 
     public void fight()
     {
+        //TODO: Fire at some interval when inside the range
+        weapon.fire(gameObjectHandler, getDir());
 
     }
 
@@ -63,15 +77,20 @@ public class Enemy extends GameObject
 
         super.update(gameObjectHandler);
         this.checkCollision(gameObjectHandler);
+        weapon.update(gameObjectHandler);
         //TODO: Move through the character
         Character player =  gameObjectHandler.getCharacter();
 
         if(Math.abs(this.x - player.getX()) < followRange) {
             if (Math.abs(this.x - player.getX()) > fightRange) {
-                if (this.x - player.getX() < 0)
+                if (this.x - player.getX() < 0) {
                     this.x += HORIZONTAL_SPEED;
-                else
+                    setDir(1);
+                }
+                else {
                     this.x -= HORIZONTAL_SPEED;
+                    setDir(-1);
+                }
             }
         }
 
@@ -85,8 +104,11 @@ public class Enemy extends GameObject
             forceJump = false;
         }
 
+        if(Math.abs(this.x - player.getX()) < fireRange && (System.currentTimeMillis() - lastFire >= fireRate ) ) {
+            fight();
+            lastFire = System.currentTimeMillis();
 
-
+        }
 
 
         if(isDead())
@@ -185,9 +207,12 @@ public class Enemy extends GameObject
         {
             Bullet temp = gameObjectHandler.getBullets().get(i);
 
+            if(temp.getWeapon().getOwner().getId() == ObjectID.Enemy)
+                continue;
             if(getBounds().intersects(temp.getBounds()))
             {
                 healthLevel -= temp.getDamage();
+
                 gameObjectHandler.removeBullet(temp);
                 i--;
                 System.out.println("BULLET COLLIDED");
@@ -217,4 +242,12 @@ public class Enemy extends GameObject
     public Rectangle getBoundsTop() { return new Rectangle((int) (x + (width/2) - (width/2)/2), (int) y, width/2, height/2); }
 
     public Rectangle getBoundsBottom() {return new Rectangle((int) (x + (width/2) - (width/2)/2), (int)( y + (height/2)), width/2, height/2);}
+
+    public Weapon getWeapon() {
+        return weapon;
+    }
+
+    public void setWeapon(Weapon weapon) {
+        this.weapon = weapon;
+    }
 }

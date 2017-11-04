@@ -1,5 +1,6 @@
 package game_object.weapon;
 
+import game_object.general.GameObject;
 import game_object.general.GameObjectHandler;
 import game_object.general.ObjectID;
 import texture_stuff.ImageLoader;
@@ -15,7 +16,7 @@ public class LaserGun extends Weapon
 {
     //Textures
     private ImageLoader imageLoader;
-
+    private GameObject owner;
     /**
      * Constructing the game object weapon with given parameters.
      *
@@ -23,12 +24,14 @@ public class LaserGun extends Weapon
      * @param y  - y coordinate of the game object.
      * @param id - object id defines the type of the objects.
      */
-    public LaserGun(float x, float y, ObjectID id)
+    public LaserGun(float x, float y, ObjectID id, GameObject owner)
     {
         super(x, y, id);
 
         this.setHeight(20);
         this.setWidth(40);
+
+        this.owner = owner;
 
         //textures
         imageLoader =  new ImageLoader(ObjectID.Weapon);
@@ -38,12 +41,12 @@ public class LaserGun extends Weapon
      *  Fires the rifle
      *  @param gameObjectHandler - all game objects
      */
-    public void fire(GameObjectHandler gameObjectHandler)
+    public void fire(GameObjectHandler gameObjectHandler, int dir)
     {
         gameObjectHandler.addBullet(new Bullet(x + width,
                 y + height/2,
                 ObjectID.Bullet,
-                gameObjectHandler.getCharacter().getDir() * 15, gameObjectHandler));
+                dir * 15, gameObjectHandler, this));
     }
 
     @Override
@@ -88,5 +91,14 @@ public class LaserGun extends Weapon
     public Rectangle getBounds()
     {
         return null;
+    }
+
+    @Override
+    public GameObject getOwner() {
+        return owner;
+    }
+
+    public void setOwner(GameObject owner) {
+        this.owner = owner;
     }
 }

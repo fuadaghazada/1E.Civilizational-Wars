@@ -12,6 +12,7 @@ public class Bullet extends GameObject
 
 
     boolean destroyed = false;
+    private Weapon weapon;
 
     /**
      * Constructing the game object with given parameters.
@@ -20,10 +21,10 @@ public class Bullet extends GameObject
      * @param y  - y coordinate of the game object.
      * @param id - object id defines the type of the objects.
      */
-    public Bullet(float x, float y, ObjectID id, float velX, GameObjectHandler gameObjectHandler)
+    public Bullet(float x, float y, ObjectID id, float velX, GameObjectHandler gameObjectHandler, Weapon weapon)
     {
         super(x, y, id);
-
+        this.weapon = weapon;
         this.gameObjectHandler = gameObjectHandler;
 
         this.setWidth(5);
@@ -66,7 +67,7 @@ public class Bullet extends GameObject
     {
         for(GameObject gameObject : gameObjectHandler.getGame_objects())
         {
-            if(gameObject.getId() != ObjectID.Character && gameObject.getId() != ObjectID.Enemy && this.getBounds().intersects(gameObject.getBounds()))
+            if(gameObject.getId() == ObjectID.Tile && this.getBounds().intersects(gameObject.getBounds()))
             {
                 return true;
             }
@@ -83,5 +84,13 @@ public class Bullet extends GameObject
     public void destroyBullet()
     {
         destroyed = true;
+    }
+
+    public Weapon getWeapon() {
+        return weapon;
+    }
+
+    public void setWeapon(Weapon weapon) {
+        this.weapon = weapon;
     }
 }

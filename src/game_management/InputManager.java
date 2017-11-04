@@ -51,7 +51,7 @@ public class InputManager implements KeyListener
         }
         if(e.getKeyCode() == KeyEvent.VK_F)
         {
-            gameObjectHandler.getCharacter().getWeapon().fire(gameObjectHandler);
+            gameObjectHandler.getCharacter().getWeapon().fire(gameObjectHandler, gameObjectHandler.getCharacter().getDir());
             //gameObjectHandler.addGameObject();
         }
     }

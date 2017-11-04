@@ -1,5 +1,6 @@
 package game_object.weapon;
 
+import game_object.general.GameObject;
 import game_object.general.GameObjectHandler;
 import game_object.general.ObjectID;
 import texture_stuff.ImageLoader;
@@ -15,6 +16,7 @@ public class Rifle extends Weapon
 {
     //Textures
     private ImageLoader imageLoader;
+    private GameObject owner;
 
     /**
      * Constructing the game object weapon with given parameters.
@@ -23,12 +25,14 @@ public class Rifle extends Weapon
      * @param y  - y coordinate of the game object.
      * @param id - object id defines the type of the objects.
      */
-    public Rifle(float x, float y, ObjectID id)
+    public Rifle(float x, float y, ObjectID id, GameObject owner)
     {
         super(x, y, id);
-
+        this.owner = owner;
         this.setHeight(20);
         this.setWidth(40);
+
+
 
         //textures
         imageLoader =  new ImageLoader(ObjectID.Weapon);
@@ -38,19 +42,19 @@ public class Rifle extends Weapon
      *  Fires the rifle
      *  @param gameObjectHandler - all game objects
      */
-    public void fire(GameObjectHandler gameObjectHandler)
+    public void fire(GameObjectHandler gameObjectHandler, int dir)
     {
         gameObjectHandler.addBullet(new Bullet(x + width,
                                y + height/2,
                                 ObjectID.Bullet,
-                               gameObjectHandler.getCharacter().getDir() * 15, gameObjectHandler));
+                               dir * 15, gameObjectHandler, this));
     }
 
     @Override
     public void update(GameObjectHandler gameObjectHandler)
     {
-        this.setX(gameObjectHandler.getCharacter().getX() + gameObjectHandler.getCharacter().getWidth()/4);
-        this.setY(gameObjectHandler.getCharacter().getY() + gameObjectHandler.getCharacter().getHeight()/2 + 8);
+        this.setX(owner.getX() + owner.getWidth()/4);
+        this.setY(owner.getY() + owner.getHeight()/2 + 8);
 
         this.clearBulletList(gameObjectHandler);
     }
@@ -73,12 +77,14 @@ public class Rifle extends Weapon
      */
     public void clearBulletList(GameObjectHandler gameObjectHandler)
     {
-        for(Bullet bullet : gameObjectHandler.getBullets())
+
+        for(int i = 0; i < gameObjectHandler.getBullets().size(); i++)
         {
+            Bullet bullet = gameObjectHandler.getBullets().get(i);
+
             if(bullet.checkCollision(gameObjectHandler))
             {
-
-                //gameObjectHandler.removeBullet(bullet);
+                gameObjectHandler.removeBullet(bullet);
                 break;
             }
         }
@@ -88,5 +94,13 @@ public class Rifle extends Weapon
     public Rectangle getBounds()
     {
         return null;
+    }
+
+    public GameObject getOwner() {
+        return owner;
+    }
+
+    public void setOwner(GameObject owner) {
+        this.owner = owner;
     }
 }

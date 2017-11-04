@@ -53,7 +53,7 @@ public class ClassicFighter extends Character
      */
     private void init()
     {
-        rifle = new Rifle(x, y, ObjectID.Weapon);
+        rifle = new Rifle(x, y, ObjectID.Weapon, this);
     }
 
     @Override
