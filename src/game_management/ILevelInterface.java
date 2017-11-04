@@ -1,0 +1,20 @@
+package game_management;
+
+import game_object.general.GameObjectHandler;
+import game_object.map.TileMap;
+
+public interface ILevelInterface {
+
+    TileMap getLevelTileMap();
+    int getEnemyType();
+    String getName();
+    int getWeaponType();
+    int getCharacterType();
+    void enemyDied();
+    int getCurrentEnemy();
+    void levelFinished(int state);
+
+    GameObjectHandler gameObjects();
+
+
+}
