@@ -1,6 +1,6 @@
 package user_interface;
 
-import game_management.InputManager;
+import game_management.*;
 import game_object.general.Camera;
 import game_object.general.GameObject;
 import game_object.general.GameObjectHandler;
@@ -30,19 +30,17 @@ public class GamePanel extends JPanel implements Runnable
 {
     //Constants
 	private static final long serialVersionUID = -3314656870429864436L;
-	
+
     //GAME LOOP properties
-	
 	private Thread game_thread;
     private boolean isRunning = false;
     private int FPS = 60;
     private long targetTime = 1000 / FPS;
 
-    //Game elements
-    TileMap tileMap;
+    //
+    private GameManager gameManager;
+    private Camera camera;
 
-    GameObjectHandler handler;
-    Camera camera;
 
     /**
      *   Constructs the game panel
@@ -59,28 +57,10 @@ public class GamePanel extends JPanel implements Runnable
      */
     public void init()
     {
+        gameManager = new GameManager();
         camera = new Camera(0,0);
 
-        handler = new GameObjectHandler();
-
-
-        handler.addGameObject(new Robot(60.f,20.f, ObjectID.Character, handler));
-
-        handler.addGameObject(new Enemy(100,80, ObjectID.Enemy, handler));
-        handler.addGameObject(new Enemy(200,80, ObjectID.Enemy, handler));
-        handler.addGameObject(new Enemy(150,80, ObjectID.Enemy, handler));
-        handler.addGameObject(new Enemy(500,80, ObjectID.Enemy, handler));
-        handler.addGameObject(new Enemy(300,80, ObjectID.Enemy, handler));
-        handler.addGameObject(new Enemy(250,80, ObjectID.Enemy, handler));
-
-        tileMap = new TileMap("src/resources/map_files/map_level_1.txt");
-
-        for (Tile tile : tileMap.getTiles())
-        {
-            handler.addGameObject(tile);
-        }
-
-        this.addKeyListener(new InputManager(handler));
+        this.addKeyListener(new InputManager(gameManager.getLevelManager().getCurrentLevel().gameObjects()));
     }
 
     /**
@@ -108,7 +88,6 @@ public class GamePanel extends JPanel implements Runnable
         {
             start = System.nanoTime();
 
-            //TODO update and render the game logic here
             update();
             repaint();
 
@@ -136,15 +115,8 @@ public class GamePanel extends JPanel implements Runnable
      */
     public void update()
     {
-        tileMap.update();
-
-        handler.updateAll();
-
-        for(GameObject gameObject : handler.getGame_objects())
-        {
-            if(gameObject.getId() == ObjectID.Character)
-                 camera.update(gameObject);
-        }
+        camera.update(gameManager.getLevelManager().getCurrentLevel().gameObjects().getCharacter());
+        gameManager.getLevelManager().getCurrentLevel().gameObjects().updateAll();
     }
 
     /**
@@ -158,10 +130,10 @@ public class GamePanel extends JPanel implements Runnable
         Graphics2D g2 = (Graphics2D) g;
 
         //Camera follows the character
-
         g2.translate(-camera.getX(), -camera.getY());
 
-        handler.renderAll(g);
+        //game manager
+        gameManager.getLevelManager().getCurrentLevel().gameObjects().renderAll(g);
 
         g2.translate(camera.getX(), camera.getY());
 

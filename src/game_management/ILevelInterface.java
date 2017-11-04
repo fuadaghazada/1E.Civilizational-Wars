@@ -1,5 +1,6 @@
 package game_management;
 
+import game_object.general.GameObjectHandler;
 import game_object.map.TileMap;
 
 public interface ILevelInterface {
@@ -9,6 +10,8 @@ public interface ILevelInterface {
     String getName();
     int getWeaponType();
     int getCharacterType();
+
+    GameObjectHandler gameObjects();
 
 
 }

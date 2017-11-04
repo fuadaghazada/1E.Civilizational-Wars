@@ -9,7 +9,7 @@ import java.util.ArrayList;
  *
  */
 
-public abstract class GameObject
+public abstract class GameObject implements IUpdatable, IRenderable
 {
     // Constants
     public static final float MAX_SPEED = 5;
@@ -50,6 +50,7 @@ public abstract class GameObject
      *
      * @param gameObjectHandler - to check the collision between the game objects.
      */
+    @Override
     public void update(GameObjectHandler gameObjectHandler)
     {
         x += velX;
@@ -70,6 +71,7 @@ public abstract class GameObject
      *  Render the graphics of the game object.
      *  @param g - Graphics of the program.
      */
+    @Override
     public abstract void render(Graphics g);
 
     protected abstract boolean checkCollision(GameObjectHandler gameObjectHandler);

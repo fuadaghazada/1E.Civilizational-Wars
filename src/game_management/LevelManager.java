@@ -1,9 +1,14 @@
 package game_management;
 
-public class LevelManager {
+public class LevelManager
+{
 
+    // Properties
     private ILevelInterface currentLevel;
 
+    /**
+     * Constructs the level manager
+     */
     public LevelManager(int level)
     {
         switch (level)
@@ -11,18 +16,19 @@ public class LevelManager {
             case 0:
                 currentLevel = new ClassicLevel();
                 break;
-            default:
-                System.out.println("Not implemented level");
+            case 1:
+                currentLevel = new ModernLevel();
+                break;
+
+            case 2:
+                currentLevel = new PostModernLevel();
+                break;
         }
     }
+
+    // ACCESS
 
     public ILevelInterface getCurrentLevel() {
         return currentLevel;
     }
-
-
-
-    //TODO: Responsible for creating enemies at their locations
-
-
 }

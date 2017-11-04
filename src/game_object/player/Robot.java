@@ -13,7 +13,7 @@ import java.awt.*;
 import java.util.ArrayList;
 
 /**
- *  This class represents the third period of character.
+ *  This class represents the first period of character.
  *
  */
 public class Robot extends Character
