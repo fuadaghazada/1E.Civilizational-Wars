@@ -7,6 +7,8 @@ public interface ILevelInterface {
     TileMap getLevelTileMap();
     int getEnemyType();
     String getName();
+    int getWeaponType();
+    int getCharacterType();
 
 
 }

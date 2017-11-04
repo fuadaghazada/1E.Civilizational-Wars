@@ -77,8 +77,10 @@ public class LaserGun extends Weapon
      */
     public void clearBulletList(GameObjectHandler gameObjectHandler)
     {
-        for(Bullet bullet : gameObjectHandler.getBullets())
+
+        for(int i = 0; i < gameObjectHandler.getBullets().size(); i++)
         {
+            Bullet bullet = gameObjectHandler.getBullets().get(i);
             if(bullet.checkCollision(gameObjectHandler))
             {
                 gameObjectHandler.removeBullet(bullet);

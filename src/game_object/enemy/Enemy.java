@@ -56,10 +56,20 @@ public class Enemy extends GameObject
     }
 
 
-
     public boolean isDead()
     {
-        return healthLevel <= 0;
+        if(healthLevel <= 0){
+            gameObjectHandler.getGame_objects().remove(this);
+            return true;
+        }
+        else if(getY() >= 1000)
+        {
+            gameObjectHandler.getGame_objects().remove(this);
+            return true;
+        }
+
+        return  false;
+
     }
 
 
@@ -69,7 +79,6 @@ public class Enemy extends GameObject
         weapon.fire(gameObjectHandler, getDir());
 
     }
-
 
     @Override
     public void update(GameObjectHandler gameObjectHandler) {
@@ -114,6 +123,10 @@ public class Enemy extends GameObject
         {
             gameObjectHandler.getGame_objects().remove(this);
         }
+
+
+
+
     }
 
     public void jumpRight()
