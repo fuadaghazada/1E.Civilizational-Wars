@@ -200,10 +200,11 @@ public class Enemy extends GameObject
         {
             Bullet temp = gameObjectHandler.getBullets().get(i);
 
-            if(temp.getWeapon().getOwner().getId() == ObjectID.Enemy)
-                continue;
+
             if(getBounds().intersects(temp.getBounds()))
             {
+                if(temp.getWeapon().getOwner().getId() == ObjectID.Enemy)
+                    continue;
                 healthLevel -= temp.getDamage();
 
 
