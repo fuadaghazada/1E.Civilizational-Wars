@@ -5,14 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ec04559d-53aa-46bc-a9a5-057997c4f56f" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/game_management/GameManager.java" afterPath="$PROJECT_DIR$/src/game_management/GameManager.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/game_management/ILevelInterface.java" afterPath="$PROJECT_DIR$/src/game_management/ILevelInterface.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/game_management/LevelManager.java" afterPath="$PROJECT_DIR$/src/game_management/LevelManager.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/game_object/enemy/Enemy.java" afterPath="$PROJECT_DIR$/src/game_object/enemy/Enemy.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/game_object/weapon/LaserGun.java" afterPath="$PROJECT_DIR$/src/game_object/weapon/LaserGun.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/game_management/Level.java" afterPath="$PROJECT_DIR$/src/game_management/ClassicLevel.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -24,29 +18,40 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Enemy.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/game_object/enemy/Enemy.java">
+      <file leaf-file-name="Character.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/game_object/player/Character.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="301">
-              <caret line="73" column="0" lean-forward="true" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
+            <state relative-caret-position="-49">
+              <caret line="49" column="46" lean-forward="false" selection-start-line="49" selection-start-column="32" selection-end-line="49" selection-end-column="46" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ClassicFighter.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/game_object/player/ClassicFighter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="70">
+              <caret line="55" column="53" lean-forward="false" selection-start-line="55" selection-start-column="53" selection-end-line="55" selection-end-column="53" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <marker date="1509813243438" expanded="false" signature="6235:6246" ph=" { " />
-                <marker date="1509813243438" expanded="false" signature="6301:6307" ph=" }" />
-                <marker date="1509813243438" expanded="false" signature="6346:6361" ph=" { " />
-                <marker date="1509813243438" expanded="false" signature="6429:6435" ph=" }" />
-                <marker date="1509813243438" expanded="false" signature="6473:6488" ph=" { " />
-                <marker date="1509813243438" expanded="false" signature="6545:6551" ph=" }" />
-                <marker date="1509813243438" expanded="false" signature="6854:6865" ph=" { " />
-                <marker date="1509813243438" expanded="false" signature="6879:6885" ph=" }" />
-                <marker date="1509813243438" expanded="false" signature="6927:6938" ph=" { " />
-                <marker date="1509813243438" expanded="false" signature="6959:6965" ph=" }" />
+                <element signature="e#1588#1589#0" expanded="true" />
+                <element signature="e#1650#1651#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ClassicLevel.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ImageLoader.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/texture_stuff/ImageLoader.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="189">
+              <caret line="82" column="7" lean-forward="true" selection-start-line="82" selection-start-column="7" selection-end-line="82" selection-end-column="7" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ClassicLevel.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/game_management/ClassicLevel.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="121">
@@ -61,84 +66,51 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LevelManager.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/game_management/LevelManager.java">
+      <file leaf-file-name="Enemy.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/game_object/enemy/Enemy.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="374">
-              <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+              <caret line="136" column="25" lean-forward="true" selection-start-line="136" selection-start-column="25" selection-end-line="136" selection-end-column="25" />
               <folding>
-                <element signature="e#410#411#0" expanded="true" />
-                <element signature="e#445#446#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GamePanel.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/user_interface/GamePanel.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="280">
-              <caret line="64" column="0" lean-forward="true" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
-              <folding />
-            </state>
+      <file leaf-file-name="test_player.png" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/resources/game_textures/player/test_player.png">
+          <provider selected="true" editor-type-id="images">
+            <state />
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GameManager.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/game_management/GameManager.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-              <folding />
-            </state>
+      <file leaf-file-name="test_player_jump1.png" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/resources/game_textures/player/test_player_jump1.png">
+          <provider selected="true" editor-type-id="images">
+            <state />
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CivilizationalWars.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/CivilizationalWars.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="12" column="5" lean-forward="true" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
-              <folding />
-            </state>
+      <file leaf-file-name="test_player_walk1.png" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/resources/game_textures/player/test_player_walk1.png">
+          <provider selected="true" editor-type-id="images">
+            <state />
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TileMapManager.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/game_management/TileMapManager.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="29" lean-forward="true" selection-start-line="2" selection-start-column="29" selection-end-line="2" selection-end-column="29" />
-              <folding />
-            </state>
+      <file leaf-file-name="test_player_walk2.png" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/resources/game_textures/player/test_player_walk2.png">
+          <provider selected="true" editor-type-id="images">
+            <state />
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TileMap.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/game_object/map/TileMap.java">
+      <file leaf-file-name="GameObjectHandler.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/game_object/general/GameObjectHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-457">
-              <caret line="84" column="54" lean-forward="false" selection-start-line="84" selection-start-column="54" selection-end-line="84" selection-end-column="72" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ILevelInterface.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/game_management/ILevelInterface.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="24" lean-forward="false" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="24" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="map_level_1.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/resources/map_files/map_level_1.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" column="33" lean-forward="false" selection-start-line="11" selection-start-column="33" selection-end-line="11" selection-end-column="33" />
+            <state relative-caret-position="51">
+              <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -153,6 +125,11 @@
         <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <dirStrings>
+      <dir>D:\Warranty Files\Works Updated\Study\CS319\Repo\1E.Civilizational-Wars\src\resources\game_textures\player</dir>
+    </dirStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -197,12 +174,13 @@
         <option value="$PROJECT_DIR$/src/game_object/player/Robot.java" />
         <option value="$PROJECT_DIR$/src/game_object/player/Character.java" />
         <option value="$PROJECT_DIR$/src/game_object/weapon/LaserGun.java" />
-        <option value="$PROJECT_DIR$/src/game_object/enemy/Enemy.java" />
         <option value="$PROJECT_DIR$/src/game_management/Level.java" />
         <option value="$PROJECT_DIR$/src/game_management/ILevelInterface.java" />
         <option value="$PROJECT_DIR$/src/game_management/ClassicLevel.java" />
         <option value="$PROJECT_DIR$/src/game_management/GameManager.java" />
         <option value="$PROJECT_DIR$/src/game_management/LevelManager.java" />
+        <option value="$PROJECT_DIR$/src/game_object/general/GameObject.java" />
+        <option value="$PROJECT_DIR$/src/game_object/enemy/Enemy.java" />
       </list>
     </option>
   </component>
@@ -258,6 +236,27 @@
               <item name="1E.Civilizational-Wars" type="b2602c69:ProjectViewProjectNode" />
               <item name="1E.Civilizational-Wars" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="game_object" type="462c0819:PsiDirectoryNode" />
+              <item name="enemy" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="1E.Civilizational-Wars" type="b2602c69:ProjectViewProjectNode" />
+              <item name="1E.Civilizational-Wars" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="game_object" type="462c0819:PsiDirectoryNode" />
+              <item name="general" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="1E.Civilizational-Wars" type="b2602c69:ProjectViewProjectNode" />
+              <item name="1E.Civilizational-Wars" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="game_object" type="462c0819:PsiDirectoryNode" />
+              <item name="player" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="1E.Civilizational-Wars" type="b2602c69:ProjectViewProjectNode" />
+              <item name="1E.Civilizational-Wars" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -271,7 +270,20 @@
               <item name="1E.Civilizational-Wars" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="game_textures" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="1E.Civilizational-Wars" type="b2602c69:ProjectViewProjectNode" />
+              <item name="1E.Civilizational-Wars" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="map_files" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="1E.Civilizational-Wars" type="b2602c69:ProjectViewProjectNode" />
+              <item name="1E.Civilizational-Wars" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="texture_stuff" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="1E.Civilizational-Wars" type="b2602c69:ProjectViewProjectNode" />
@@ -459,6 +471,7 @@
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1640625" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32874617" sideWeight="0.4968701" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -488,7 +501,6 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32979852" sideWeight="0.49791667" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1640625" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32874617" sideWeight="0.4968701" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
     </layout>
@@ -560,26 +572,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home/src.zip!/javax/swing/ImageIcon.java" />
-    <entry file="file://$PROJECT_DIR$/src/user_interface/MenuListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/doc/Iteration1_mock_up_files/use-case-2-pause-game.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/user_interface/LoadLevelPanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="262">
-          <caret line="79" column="8" lean-forward="false" selection-start-line="79" selection-start-column="8" selection-end-line="79" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/user_interface/PausePanel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
@@ -688,13 +680,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/texture_stuff/ImageLoader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="555">
-          <caret line="40" column="41" lean-forward="false" selection-start-line="40" selection-start-column="41" selection-end-line="40" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/game_object/map/Tile.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="394">
@@ -714,8 +699,8 @@
         <state relative-caret-position="309">
           <caret line="55" column="53" lean-forward="false" selection-start-line="55" selection-start-column="53" selection-end-line="55" selection-end-column="53" />
           <folding>
-            <element signature="e#1588#1589#0" expanded="false" />
-            <element signature="e#1650#1651#0" expanded="false" />
+            <element signature="e#1588#1589#0" expanded="true" />
+            <element signature="e#1650#1651#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -726,24 +711,7 @@
           <caret line="185" column="0" lean-forward="false" selection-start-line="185" selection-start-column="0" selection-end-line="185" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1509813243438" expanded="false" signature="6235:6246" ph=" { " />
-            <marker date="1509813243438" expanded="false" signature="6301:6307" ph=" }" />
-            <marker date="1509813243438" expanded="false" signature="6346:6361" ph=" { " />
-            <marker date="1509813243438" expanded="false" signature="6429:6435" ph=" }" />
-            <marker date="1509813243438" expanded="false" signature="6473:6488" ph=" { " />
-            <marker date="1509813243438" expanded="false" signature="6545:6551" ph=" }" />
-            <marker date="1509813243438" expanded="false" signature="6854:6865" ph=" { " />
-            <marker date="1509813243438" expanded="false" signature="6879:6885" ph=" }" />
-            <marker date="1509813243438" expanded="false" signature="6927:6938" ph=" { " />
-            <marker date="1509813243438" expanded="false" signature="6959:6965" ph=" }" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/game_object/general/GameObjectHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="12" lean-forward="true" selection-start-line="0" selection-start-column="12" selection-end-line="0" selection-end-column="12" />
         </state>
       </provider>
     </entry>
@@ -802,18 +770,18 @@
         <state relative-caret-position="-115">
           <caret line="767" column="0" lean-forward="false" selection-start-line="767" selection-start-column="0" selection-end-line="767" selection-end-column="0" />
           <folding>
-            <marker date="1509814058871" expanded="true" signature="70080:70105" ph="..." />
-            <marker date="1509814058871" expanded="true" signature="70080:70127" ph="..." />
-            <marker date="1509814058871" expanded="true" signature="70080:70161" ph="..." />
-            <marker date="1509814058871" expanded="true" signature="70080:70181" ph="..." />
-            <marker date="1509814058871" expanded="true" signature="70080:70196" ph="..." />
-            <marker date="1509814058871" expanded="true" signature="70080:70527" ph="..." />
-            <marker date="1509814058871" expanded="true" signature="70080:70542" ph="..." />
-            <marker date="1509814058871" expanded="true" signature="70248:70513" ph="..." />
-            <marker date="1509814058871" expanded="true" signature="70267:70498" ph="..." />
-            <marker date="1509814058871" expanded="true" signature="70300:70478" ph="..." />
-            <marker date="1509814058871" expanded="true" signature="70340:70444" ph="..." />
-            <marker date="1509814058871" expanded="true" signature="70361:70422" ph="..." />
+            <marker date="1509815630044" expanded="true" signature="67709:67734" ph="..." />
+            <marker date="1509815630044" expanded="true" signature="67709:67756" ph="..." />
+            <marker date="1509815630044" expanded="true" signature="67709:67790" ph="..." />
+            <marker date="1509815630044" expanded="true" signature="67709:67810" ph="..." />
+            <marker date="1509815630044" expanded="true" signature="67709:67825" ph="..." />
+            <marker date="1509815630044" expanded="true" signature="67709:68156" ph="..." />
+            <marker date="1509815630044" expanded="true" signature="67709:68171" ph="..." />
+            <marker date="1509815630044" expanded="true" signature="67877:68142" ph="..." />
+            <marker date="1509815630044" expanded="true" signature="67896:68127" ph="..." />
+            <marker date="1509815630044" expanded="true" signature="67929:68107" ph="..." />
+            <marker date="1509815630044" expanded="true" signature="67969:68073" ph="..." />
+            <marker date="1509815630044" expanded="true" signature="67990:68051" ph="..." />
           </folding>
         </state>
       </provider>
@@ -848,27 +816,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/game_object/general/GameObject.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1445">
-          <caret line="93" column="20" lean-forward="false" selection-start-line="93" selection-start-column="16" selection-end-line="93" selection-end-column="20" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/game_object/player/ClassicFighter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="309">
-          <caret line="55" column="53" lean-forward="false" selection-start-line="55" selection-start-column="53" selection-end-line="55" selection-end-column="53" />
-          <folding>
-            <element signature="e#1588#1589#0" expanded="false" />
-            <element signature="e#1650#1651#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/game_object/weapon/LaserGun.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="342">
@@ -892,34 +839,6 @@
         <state relative-caret-position="34">
           <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/game_object/player/Character.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="49" column="46" lean-forward="false" selection-start-line="49" selection-start-column="32" selection-end-line="49" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/game_object/enemy/Enemy.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="301">
-          <caret line="73" column="0" lean-forward="true" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <marker date="1509813243438" expanded="false" signature="6235:6246" ph=" { " />
-            <marker date="1509813243438" expanded="false" signature="6301:6307" ph=" }" />
-            <marker date="1509813243438" expanded="false" signature="6346:6361" ph=" { " />
-            <marker date="1509813243438" expanded="false" signature="6429:6435" ph=" }" />
-            <marker date="1509813243438" expanded="false" signature="6473:6488" ph=" { " />
-            <marker date="1509813243438" expanded="false" signature="6545:6551" ph=" }" />
-            <marker date="1509813243438" expanded="false" signature="6854:6865" ph=" { " />
-            <marker date="1509813243438" expanded="false" signature="6879:6885" ph=" }" />
-            <marker date="1509813243438" expanded="false" signature="6927:6938" ph=" { " />
-            <marker date="1509813243438" expanded="false" signature="6959:6965" ph=" }" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -955,14 +874,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/user_interface/GamePanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="64" column="0" lean-forward="true" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/game_management/GameManager.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -979,6 +890,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/user_interface/GamePanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-995">
+          <caret line="64" column="0" lean-forward="true" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/game_management/LevelManager.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
@@ -987,6 +906,26 @@
             <element signature="e#410#411#0" expanded="true" />
             <element signature="e#445#446#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/game_object/general/GameObject.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="24" column="0" lean-forward="true" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1987#1988#0" expanded="true" />
+            <element signature="e#2013#2014#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/game_object/general/GameObjectHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -999,6 +938,63 @@
             <element signature="e#760#761#0" expanded="true" />
             <element signature="e#811#812#0" expanded="true" />
             <element signature="e#835#836#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/resources/game_textures/player/test_player.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/resources/game_textures/player/test_player_jump1.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/resources/game_textures/player/test_player_walk1.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/resources/game_textures/player/test_player_walk2.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/game_object/player/Character.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-49">
+          <caret line="49" column="46" lean-forward="false" selection-start-line="49" selection-start-column="32" selection-end-line="49" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/game_object/player/ClassicFighter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="70">
+          <caret line="55" column="53" lean-forward="false" selection-start-line="55" selection-start-column="53" selection-end-line="55" selection-end-column="53" />
+          <folding>
+            <element signature="e#1588#1589#0" expanded="true" />
+            <element signature="e#1650#1651#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/texture_stuff/ImageLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="82" column="7" lean-forward="true" selection-start-line="82" selection-start-column="7" selection-end-line="82" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/game_object/enemy/Enemy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="136" column="25" lean-forward="true" selection-start-line="136" selection-start-column="25" selection-end-line="136" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
