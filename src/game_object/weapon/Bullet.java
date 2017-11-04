@@ -12,14 +12,8 @@ public class Bullet extends GameObject
     private int bullet_type;
     private float damage;
     private GameObjectHandler gameObjectHandler;
-
-<<<<<<< HEAD
-
-    boolean destroyed = false;
     private Weapon weapon;
 
-=======
->>>>>>> 59bdba8043faf655c640db0ee92334e12018a1a7
     /**
      * Constructing the game object with given parameters.
      *
@@ -27,15 +21,13 @@ public class Bullet extends GameObject
      * @param y  - y coordinate of the game object.
      * @param id - object id defines the type of the objects.
      */
-<<<<<<< HEAD
-    public Bullet(float x, float y, ObjectID id, float velX, GameObjectHandler gameObjectHandler, Weapon weapon)
-=======
-    public Bullet(float x, float y, ObjectID id, float velX, GameObjectHandler gameObjectHandler, int bullet_type)
->>>>>>> 59bdba8043faf655c640db0ee92334e12018a1a7
+    public Bullet(float x, float y, ObjectID id, float velX, GameObjectHandler gameObjectHandler, Weapon weaponint, int bullet_type)
+
     {
         super(x, y, id);
-        this.weapon = weapon;
+
         this.gameObjectHandler = gameObjectHandler;
+        this.weapon = weapon;
         this.bullet_type = bullet_type;
 
         this.setWidth(10);
@@ -96,16 +88,20 @@ public class Bullet extends GameObject
         return false;
     }
 
+    // ACCESS
+
     public float getDamage()
     {
         return damage;
     }
 
-    public Weapon getWeapon() {
+    public Weapon getWeapon()
+    {
         return weapon;
     }
 
-    public void setWeapon(Weapon weapon) {
+    public void setWeapon(Weapon weapon)
+    {
         this.weapon = weapon;
     }
 }

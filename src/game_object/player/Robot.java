@@ -53,7 +53,7 @@ public class Robot extends Character
      */
     private void init()
     {
-        laserGun = new LaserGun(x, y, ObjectID.Weapon);
+        laserGun = new LaserGun(x, y, ObjectID.Weapon, this);
     }
 
     @Override

@@ -44,14 +44,9 @@ public class LaserGun extends Weapon
     public void fire(GameObjectHandler gameObjectHandler, int dir)
     {
         gameObjectHandler.addBullet(new Bullet(x + width,
-                y + height/2,
-                ObjectID.Bullet,
-<<<<<<< HEAD
-                dir * 15, gameObjectHandler, this));
-=======
-                gameObjectHandler.getCharacter().getDir() * 15,
-                gameObjectHandler, 1));
->>>>>>> 59bdba8043faf655c640db0ee92334e12018a1a7
+                                    y + height/2,
+                                    ObjectID.Bullet,
+                                    dir * 15, gameObjectHandler, this, 1));
     }
 
     @Override
