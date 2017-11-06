@@ -15,6 +15,7 @@ public interface ILevelInterface {
     void levelFinished(int state);
 
     GameObjectHandler gameObjects();
+    InputManager getInputManager();
 
 
 }

@@ -1,6 +1,7 @@
 package game_management;
 
 import game_object.enemy.Enemy;
+import game_object.general.GameObject;
 import game_object.general.GameObjectHandler;
 import game_object.general.ObjectID;
 import game_object.map.Tile;
@@ -12,7 +13,7 @@ import user_interface.GamePanel;
 public class ClassicLevel implements ILevelInterface
 {
     //constants
-    public static final int ENEMY_NUM = 3;
+    public static final int ENEMY_NUM = 5;
 
     // Properties
     private String name;
@@ -21,7 +22,7 @@ public class ClassicLevel implements ILevelInterface
     private int weaponType;
     private int characterType;
     private int currentEnemy;
-
+    InputManager inputManager;
     private GameObjectHandler gameObjectHandler;
 
     /**
@@ -30,7 +31,7 @@ public class ClassicLevel implements ILevelInterface
     public ClassicLevel()
     {
         name = "Classic";
-        tileMap = new TileMap("src/resources/map_files/map_level_2.txt");
+        tileMap = new TileMap("src/resources/map_files/map_level_1.txt");
         enemyType = 0;
         weaponType = 0;
         characterType = 0;
@@ -41,6 +42,13 @@ public class ClassicLevel implements ILevelInterface
         this.generateTiles();
         this.generateCharacter();
         this.generateEnemies();
+
+        inputManager = new InputManager(gameObjectHandler);
+    }
+
+    public InputManager getInputManager()
+    {
+        return inputManager;
     }
 
     /**
@@ -130,6 +138,19 @@ public class ClassicLevel implements ILevelInterface
     public void levelFinished(int state)
     {
 
+        int count = 0;
+        for(GameObject o : gameObjectHandler.getGame_objects())
+        {
+            if(o instanceof Enemy)
+                count++;
+        }
+
+        if (count <= 0)
+        {
+            System.out.println("YOU WON");
+            LevelManager.currentLevel = new ModernLevel();
+        }
+        /*
         switch (state)
         {
             case 0:
@@ -138,11 +159,12 @@ public class ClassicLevel implements ILevelInterface
             case 1:
                 //Win
                 System.out.println("YOU WON");
-                
+
                 LevelManager.currentLevel = new ModernLevel();
 
                 break;
         }
+        */
     }
 
 }

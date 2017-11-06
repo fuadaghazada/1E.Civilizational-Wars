@@ -1,6 +1,7 @@
 package game_management;
 
 import game_object.enemy.Enemy;
+import game_object.general.GameObject;
 import game_object.general.GameObjectHandler;
 import game_object.general.ObjectID;
 import game_object.map.Tile;
@@ -18,6 +19,7 @@ public class PostModernLevel implements ILevelInterface {
     private int weaponType;
     private int characterType;
     private int currentEnemy;
+    private InputManager inputManager;
 
     private GameObjectHandler gameObjectHandler;
 
@@ -26,7 +28,7 @@ public class PostModernLevel implements ILevelInterface {
      */
     public PostModernLevel() {
         name = "PostModern";
-        tileMap = new TileMap("src/resources/map_files/map_level_2.txt");
+        tileMap = new TileMap("src/resources/map_files/map_level_3.txt");
         enemyType = 2;
         weaponType = 2;
         characterType = 2;
@@ -36,6 +38,7 @@ public class PostModernLevel implements ILevelInterface {
         this.generateTiles();
         this.generateCharacter();
         this.generateEnemies();
+        inputManager = new InputManager(gameObjectHandler);
     }
 
     /**
@@ -111,15 +114,17 @@ public class PostModernLevel implements ILevelInterface {
 
     @Override
     public void levelFinished(int state) {
-        switch (state)
+        int count = 0;
+        for(GameObject o : gameObjectHandler.getGame_objects())
         {
-            case 0:
-                //Lost
-                break;
-            case 1:
-                //Win
-                System.out.println("YOU WON");
-                break;
+            if(o instanceof Enemy)
+                count++;
+        }
+
+        if (count <= 0)
+        {
+            System.out.println("YOU WON");
+            LevelManager.currentLevel = new ModernLevel();
         }
 
     }
@@ -127,6 +132,11 @@ public class PostModernLevel implements ILevelInterface {
     @Override
     public GameObjectHandler gameObjects() {
         return gameObjectHandler;
+    }
+
+    @Override
+    public InputManager getInputManager() {
+        return inputManager;
     }
 }
 

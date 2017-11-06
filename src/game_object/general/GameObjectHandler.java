@@ -64,7 +64,6 @@ public class GameObjectHandler
     public void removeBullet(Bullet bullet)
     {
         bullets.remove(bullet);
-        System.out.println("removeBullet called");
     }
 
     /**

@@ -1,6 +1,7 @@
 package game_management;
 
 import game_object.enemy.Enemy;
+import game_object.general.GameObject;
 import game_object.general.GameObjectHandler;
 import game_object.general.ObjectID;
 import game_object.map.Tile;
@@ -18,6 +19,7 @@ public class ModernLevel implements ILevelInterface {
     private int weaponType;
     private int characterType;
     private int currentEnemy;
+    private InputManager inputManager;
 
     private GameObjectHandler gameObjectHandler;
 
@@ -36,6 +38,7 @@ public class ModernLevel implements ILevelInterface {
         this.generateTiles();
         this.generateCharacter();
         this.generateEnemies();
+        inputManager = new InputManager(gameObjectHandler);
     }
 
     /**
@@ -112,17 +115,17 @@ public class ModernLevel implements ILevelInterface {
     @Override
     public void levelFinished(int state) {
 
-        switch (state)
+        int count = 0;
+        for(GameObject o : gameObjectHandler.getGame_objects())
         {
-            case 0:
-                //Lost
-                break;
-            case 1:
-                //Win
-                System.out.println("YOU WON");
-                LevelManager.currentLevel = new PostModernLevel();
+            if(o instanceof Enemy)
+                count++;
+        }
 
-                break;
+        if (count <= 0)
+        {
+            System.out.println("YOU WON");
+            LevelManager.currentLevel = new ModernLevel();
         }
 
     }
@@ -130,6 +133,11 @@ public class ModernLevel implements ILevelInterface {
     @Override
     public GameObjectHandler gameObjects() {
         return gameObjectHandler;
+    }
+
+    @Override
+    public InputManager getInputManager() {
+        return inputManager;
     }
 
 }

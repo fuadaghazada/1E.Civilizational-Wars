@@ -17,6 +17,7 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 
 public class TileMap
@@ -62,24 +63,20 @@ public class TileMap
             //initializing 2D array for map tiles
             map = new int[mapHeight][mapWidth];
 
+
+
             //filling the array with the data from the map file
             for (int i = 0; i < mapHeight; i ++)
             {
                 //splitting the tile data in a line
                 String [] tokens = bufferedReader.readLine().split(" ");
 
-                for(int k = 0 ; k <  tokens.length; k++)
-                {
-                    System.out.println(tokens[k]);
-                }
-
-
-
                 //filling process
                 for (int j = 0; j < mapWidth; j++)
                 {
-                    map[i][j] = Integer.parseInt(tokens[j]);
+                    map[i][j] = Integer.parseInt(tokens[j].trim());
                 }
+                System.out.println();
             }
 
             // Generating the tiles in a list

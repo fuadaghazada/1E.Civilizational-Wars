@@ -11,6 +11,7 @@ import game_object.map.TileMap;
 import game_object.player.Character;
 import game_object.player.ClassicFighter;
 import game_object.player.Robot;
+import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
 
 import javax.swing.*;
 import java.awt.*;
@@ -37,7 +38,7 @@ public class GamePanel extends JPanel implements Runnable
     private boolean isRunning = false;
     private int FPS = 60;
     private long targetTime = 1000 / FPS;
-
+    private ILevelInterface current = null;
     //
     private GameManager gameManager;
     private Camera camera;
@@ -50,6 +51,7 @@ public class GamePanel extends JPanel implements Runnable
     {
         init();
         //start();
+        current = LevelManager.currentLevel;
         setFocusable(true);
     }
 
@@ -60,7 +62,7 @@ public class GamePanel extends JPanel implements Runnable
     {
         gameManager = new GameManager();
         camera = new Camera(0,0);
-        this.addKeyListener(new InputManager(LevelManager.currentLevel.gameObjects()));
+
 
     }
 
@@ -74,6 +76,8 @@ public class GamePanel extends JPanel implements Runnable
         game_thread.start();
         setFocusable(true);
         requestFocusInWindow();
+        this.addKeyListener(LevelManager.currentLevel.getInputManager());
+
     }
 
     /**
@@ -116,10 +120,20 @@ public class GamePanel extends JPanel implements Runnable
     /**
      *  Updates the game logic - (object/elements updating)
      */
+
+
     public void update()
     {
-        camera.update(LevelManager.currentLevel.gameObjects().getCharacter());
-        LevelManager.currentLevel.gameObjects().updateAll();
+        if (current == null || current != LevelManager.currentLevel)
+        {
+            System.out.println("ENTERED CURRENT CHANGE");
+            this.addKeyListener(LevelManager.currentLevel.getInputManager());
+            current = LevelManager.currentLevel;
+        }
+        else {
+            camera.update(LevelManager.currentLevel.gameObjects().getCharacter());
+            LevelManager.currentLevel.gameObjects().updateAll();
+        }
     }
 
     /**

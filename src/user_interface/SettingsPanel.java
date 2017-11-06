@@ -1,5 +1,6 @@
 package user_interface;
 
+import game_management.InputManager;
 import main.CivilizationalWars;
 
 import javax.swing.*;
@@ -17,6 +18,11 @@ public class SettingsPanel extends JPanel {
     private JLabel lblDifficulty, lblControls, lblMusic;
     private JPanel[] rows;
     private JButton btnBackToMenu;
+
+    JComboBox<String> comboMove, comboFight;
+
+
+
 
 
     public SettingsPanel()
@@ -37,6 +43,9 @@ public class SettingsPanel extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e)
             {
+                InputManager.moveKeys = comboMove.getSelectedIndex();
+                InputManager.fightKeys = comboFight.getSelectedIndex();
+                System.out.println("FIGHT INDEX: " + InputManager.fightKeys);
                 CivilizationalWars.frame.getContentPane().removeAll();
                 CivilizationalWars.frame.add(new MainMenuPanel());
                 CivilizationalWars.frame.revalidate();
@@ -101,8 +110,8 @@ public class SettingsPanel extends JPanel {
                 moveP.setLayout(new GridLayout(2,1));
                 moveP.add(new Label("Move: "));
 
-                String[] moveOptions = {"WASD", "Arrow keys"};
-                JComboBox<String> comboMove = new JComboBox<>(moveOptions);
+                String[] moveOptions = {"Arrow keys", "WASD"};
+                comboMove = new JComboBox<>(moveOptions);
 
                 moveP.setBackground(Color.BLUE);
                 comboMove.setBackground(Color.BLUE);
@@ -115,7 +124,7 @@ public class SettingsPanel extends JPanel {
                 fightP.add(new Label("Fight"));
 
                 String[] fightOptions = {"Z", "K" , "L"};
-                JComboBox<String> comboFight = new JComboBox<>(fightOptions);
+                comboFight = new JComboBox<>(fightOptions);
                 fightP.setBackground(Color.BLUE);
                 comboFight.setBackground(Color.BLUE);
                 comboFight.setForeground(Color.WHITE);
@@ -151,7 +160,8 @@ public class SettingsPanel extends JPanel {
             case 4:
 
                 JPanel fourthRow = new JPanel();
-                btnBackToMenu = new JButton("Go back to menu");
+                //TODO: add another button for save and discarded back
+                btnBackToMenu = new JButton("Save and Go back to menu");
                 fourthRow.add(btnBackToMenu);
                 return fourthRow;
 
