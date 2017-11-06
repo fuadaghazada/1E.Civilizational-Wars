@@ -8,6 +8,7 @@ import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
 
 public class SettingsPanel extends JPanel {
 
@@ -21,8 +22,9 @@ public class SettingsPanel extends JPanel {
 
     JComboBox<String> comboMove, comboFight;
 
-
-
+    // Control keys indexes
+    private static int moveKeys = 0;
+    private static int fightKeys = 0;
 
 
     public SettingsPanel()
@@ -43,9 +45,11 @@ public class SettingsPanel extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e)
             {
-                InputManager.moveKeys = comboMove.getSelectedIndex();
-                InputManager.fightKeys = comboFight.getSelectedIndex();
-                System.out.println("FIGHT INDEX: " + InputManager.fightKeys);
+                moveKeys = comboMove.getSelectedIndex();
+                fightKeys = comboFight.getSelectedIndex();
+
+                updateControls();
+
                 CivilizationalWars.frame.getContentPane().removeAll();
                 CivilizationalWars.frame.add(new MainMenuPanel());
                 CivilizationalWars.frame.revalidate();
@@ -173,4 +177,25 @@ public class SettingsPanel extends JPanel {
         }
     }
 
+    private static void updateControls()
+    {
+        if(moveKeys == 0)
+        {
+            InputManager.right = KeyEvent.VK_RIGHT;
+            InputManager.left = KeyEvent.VK_LEFT;
+            InputManager.up = KeyEvent.VK_UP;
+        }
+        else if(moveKeys == 1)
+        {
+            InputManager.right = KeyEvent.VK_D;
+            InputManager.left = KeyEvent.VK_A;
+            InputManager.up = KeyEvent.VK_W;
+        }
+        if(fightKeys == 0)
+            InputManager.fight = KeyEvent.VK_Z;
+        else if (fightKeys == 1)
+            InputManager.fight = KeyEvent.VK_K;
+        else if (fightKeys == 2)
+            InputManager.fight = KeyEvent.VK_L;
+    }
 }

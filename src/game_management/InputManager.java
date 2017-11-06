@@ -18,14 +18,13 @@ public class InputManager implements KeyListener
 {
     // Properties
     GameObjectHandler gameObjectHandler;
-    public static int moveKeys = 0;
-    public static int fightKeys = 0;
 
     //Default values for input keys
-    int right = KeyEvent.VK_RIGHT;
-    int left = KeyEvent.VK_LEFT;
-    int up = KeyEvent.VK_UP;
-    int fight = KeyEvent.VK_E;
+    public static int right = KeyEvent.VK_RIGHT;
+    public static int left = KeyEvent.VK_LEFT;
+    public static int up = KeyEvent.VK_UP;
+    public static int fight = KeyEvent.VK_E;
+
     /**
      *  Constructs the input manager with given game objects.
      *  @param gameObjectHandler - handler keeps all the game objects.
@@ -44,27 +43,6 @@ public class InputManager implements KeyListener
     @Override
     public void keyPressed(KeyEvent e)
     {
-
-        if(moveKeys == 0)
-        {
-            right = KeyEvent.VK_RIGHT;
-            left = KeyEvent.VK_LEFT;
-            up = KeyEvent.VK_UP;
-        }
-        else if(moveKeys == 1)
-        {
-            right = KeyEvent.VK_D;
-            left = KeyEvent.VK_A;
-            up = KeyEvent.VK_W;
-        }
-        if(fightKeys == 0)
-            fight = KeyEvent.VK_Z;
-        else if (fightKeys == 1)
-            fight = KeyEvent.VK_K;
-        else if (fightKeys == 2)
-            fight = KeyEvent.VK_L;
-
-
         if(e.getKeyCode() == right)
         {
             gameObjectHandler.getCharacter().setDir(1);
