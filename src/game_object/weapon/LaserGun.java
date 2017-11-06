@@ -61,8 +61,10 @@ public class LaserGun extends Weapon
     @Override
     public void render(Graphics g)
     {
-        g.setColor(Color.RED);
-        g.drawImage(imageLoader.getWeapons()[2], (int)x , (int)y, null);
+        if(this.dir == 1)
+            g.drawImage(imageLoader.getWeapons()[4], (int)x , (int)y, null);
+        else if(dir == -1)
+            g.drawImage(imageLoader.getWeapons()[5], (int)x , (int)y, null);
     }
 
     @Override

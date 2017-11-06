@@ -15,6 +15,7 @@ import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.KeyListener;
 import java.util.logging.Level;
 
 
@@ -38,11 +39,11 @@ public class GamePanel extends JPanel implements Runnable
     private boolean isRunning = false;
     private int FPS = 60;
     private long targetTime = 1000 / FPS;
-    private ILevelInterface current = null;
-    //
+
+    // Game Properties
     private GameManager gameManager;
     private Camera camera;
-
+    private ILevelInterface current = null;
 
     /**
      *   Constructs the game panel
@@ -62,8 +63,6 @@ public class GamePanel extends JPanel implements Runnable
     {
         gameManager = new GameManager();
         camera = new Camera(0,0);
-
-
     }
 
     /**
@@ -118,15 +117,12 @@ public class GamePanel extends JPanel implements Runnable
     }
 
     /**
-     *  Updates the game logic - (object/elements updating)
+     *  Updates the game logic - (object/elements updating according to level)
      */
-
-
     public void update()
     {
         if (current == null || current != LevelManager.currentLevel)
         {
-            System.out.println("ENTERED CURRENT CHANGE");
             this.addKeyListener(LevelManager.currentLevel.getInputManager());
             current = LevelManager.currentLevel;
         }
@@ -157,8 +153,15 @@ public class GamePanel extends JPanel implements Runnable
         g.dispose();
     }
 
+    // ACCESS
+
     public GameManager getGameManager()
     {
         return gameManager;
     }
+
+    public ILevelInterface getCurrent() { return current; }
+
+    public KeyListener getKeyListener() { return LevelManager.currentLevel.getInputManager(); }
+
 }

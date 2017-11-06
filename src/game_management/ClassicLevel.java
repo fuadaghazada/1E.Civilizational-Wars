@@ -150,21 +150,6 @@ public class ClassicLevel implements ILevelInterface
             System.out.println("YOU WON");
             LevelManager.currentLevel = new ModernLevel();
         }
-        /*
-        switch (state)
-        {
-            case 0:
-                //Lost
-                break;
-            case 1:
-                //Win
-                System.out.println("YOU WON");
-
-                LevelManager.currentLevel = new ModernLevel();
-
-                break;
-        }
-        */
     }
 
 }

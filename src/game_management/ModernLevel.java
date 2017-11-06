@@ -125,7 +125,7 @@ public class ModernLevel implements ILevelInterface {
         if (count <= 0)
         {
             System.out.println("YOU WON");
-            LevelManager.currentLevel = new ModernLevel();
+            LevelManager.currentLevel = new PostModernLevel();
         }
 
     }

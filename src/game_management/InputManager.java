@@ -46,11 +46,13 @@ public class InputManager implements KeyListener
         if(e.getKeyCode() == right)
         {
             gameObjectHandler.getCharacter().setDir(1);
+            gameObjectHandler.getCharacter().getWeapon().setDir(1);
             gameObjectHandler.getCharacter().setVelX(5);
         }
         if(e.getKeyCode() == left)
         {
             gameObjectHandler.getCharacter().setDir(-1);
+            gameObjectHandler.getCharacter().getWeapon().setDir(-1);
             gameObjectHandler.getCharacter().setVelX(-5);
         }
         if(e.getKeyCode() == up && !gameObjectHandler.getCharacter().isJump())

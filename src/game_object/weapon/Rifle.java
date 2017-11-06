@@ -32,8 +32,6 @@ public class Rifle extends Weapon
         this.setHeight(20);
         this.setWidth(40);
 
-
-
         //textures
         imageLoader =  new ImageLoader(ObjectID.Weapon);
     }
@@ -62,7 +60,10 @@ public class Rifle extends Weapon
     @Override
     public void render(Graphics g)
     {
-        g.drawImage(imageLoader.getWeapons()[1], (int)x , (int)y, null);
+        if(this.dir == 1)
+            g.drawImage(imageLoader.getWeapons()[2], (int)x , (int)y, null);
+        else if(dir == -1)
+            g.drawImage(imageLoader.getWeapons()[3], (int)x , (int)y, null);
     }
 
     @Override

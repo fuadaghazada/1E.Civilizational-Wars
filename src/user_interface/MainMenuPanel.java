@@ -1,5 +1,6 @@
 package user_interface;
 
+import game_management.ClassicLevel;
 import game_management.InputManager;
 import game_object.general.GameObject;
 import main.CivilizationalWars;
@@ -56,7 +57,9 @@ public class MainMenuPanel extends JPanel
             {
                 CivilizationalWars.frame.getContentPane().removeAll();
                 CivilizationalWars.frame.invalidate();
+
                 GamePanel gPanel = new GamePanel();
+
                 CivilizationalWars.frame.getContentPane().add(gPanel);
                 gPanel.start();
                 CivilizationalWars.frame.revalidate();
