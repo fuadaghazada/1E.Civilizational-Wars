@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="ec04559d-53aa-46bc-a9a5-057997c4f56f" name="Default" comment="">
 <<<<<<< HEAD
+<<<<<<< HEAD
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/resources/game_textures/player/classic_soldier/test_player.png" afterPath="$PROJECT_DIR$/src/resources/game_textures/player/classic_soldier/test_player.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/resources/game_textures/player/classic_soldier/test_player_jump1.png" afterPath="$PROJECT_DIR$/src/resources/game_textures/player/classic_soldier/test_player_jump1.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/resources/game_textures/player/classic_soldier/test_player_jump1_l.png" afterPath="$PROJECT_DIR$/src/resources/game_textures/player/classic_soldier/test_player_jump1_l.png" />
@@ -20,6 +21,20 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/resources/map_files/map_level_1.txt" afterPath="$PROJECT_DIR$/src/resources/map_files/map_level_1.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/texture_stuff/ImageLoader.java" afterPath="$PROJECT_DIR$/src/texture_stuff/ImageLoader.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/user_interface/GamePanel.java" afterPath="$PROJECT_DIR$/src/user_interface/GamePanel.java" />
+=======
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/1E.Civilizational-Wars/resources/game_textures/enemy/test_enemy.png" afterPath="$PROJECT_DIR$/out/production/1E.Civilizational-Wars/resources/game_textures/enemy/test_enemy.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/1E.Civilizational-Wars/resources/game_textures/enemy/test_enemy_2.png" afterPath="$PROJECT_DIR$/out/production/1E.Civilizational-Wars/resources/game_textures/enemy/test_enemy_2.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/resources/game_textures/enemy/test_enemy.png" afterPath="$PROJECT_DIR$/src/resources/game_textures/enemy/test_enemy.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/resources/game_textures/enemy/test_enemy_2.png" afterPath="$PROJECT_DIR$/src/resources/game_textures/enemy/test_enemy_2.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/game_management/ClassicLevel.java" afterPath="$PROJECT_DIR$/src/game_management/ClassicLevel.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/game_management/LevelManager.java" afterPath="$PROJECT_DIR$/src/game_management/LevelManager.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/game_object/enemy/ClassicSoldier.java" afterPath="$PROJECT_DIR$/src/game_object/enemy/ClassicSoldier.java" />
+>>>>>>> 2ca1860fbc884793da481d3dd12b32a883d1a055
 =======
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" />
@@ -57,8 +72,13 @@
         <entry file="file://$PROJECT_DIR$/src/game_management/LevelManager.java">
           <provider selected="true" editor-type-id="text-editor">
 <<<<<<< HEAD
+<<<<<<< HEAD
             <state relative-caret-position="1005">
               <caret line="83" column="37" lean-forward="false" selection-start-line="83" selection-start-column="37" selection-end-line="83" selection-end-column="37" />
+=======
+            <state vertical-scroll-proportion="0.0">
+              <caret line="17" column="16" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="16" />
+>>>>>>> 2ca1860fbc884793da481d3dd12b32a883d1a055
 =======
             <state vertical-scroll-proportion="0.0">
               <caret line="17" column="16" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="16" />
@@ -69,23 +89,30 @@
         </entry>
       </file>
 <<<<<<< HEAD
+<<<<<<< HEAD
       <file leaf-file-name="Menu.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/user_interface/Menu.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="30">
               <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
 =======
+=======
+>>>>>>> 2ca1860fbc884793da481d3dd12b32a883d1a055
       <file leaf-file-name="ModernLevel.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/game_management/ModernLevel.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="127" column="61" selection-start-line="127" selection-start-column="61" selection-end-line="127" selection-end-column="61" />
+<<<<<<< HEAD
+>>>>>>> 2ca1860fbc884793da481d3dd12b32a883d1a055
+=======
 >>>>>>> 2ca1860fbc884793da481d3dd12b32a883d1a055
               <folding />
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
 <<<<<<< HEAD
       <file leaf-file-name="MainMenuPanel.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/user_interface/MainMenuPanel.java">
@@ -94,6 +121,8 @@
               <caret line="60" column="16" lean-forward="false" selection-start-line="60" selection-start-column="16" selection-end-line="60" selection-end-column="51" />
               <folding />
 =======
+=======
+>>>>>>> 2ca1860fbc884793da481d3dd12b32a883d1a055
       <file leaf-file-name="PostModernLevel.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/game_management/PostModernLevel.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -119,11 +148,19 @@
         </entry>
       </file>
 <<<<<<< HEAD
+<<<<<<< HEAD
       <file leaf-file-name="GameObjectHandler.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/game_object/general/GameObjectHandler.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1170">
               <caret line="96" column="9" lean-forward="false" selection-start-line="96" selection-start-column="9" selection-end-line="96" selection-end-column="9" />
+=======
+      <file leaf-file-name="Tile.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/game_object/map/Tile.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="71" column="45" selection-start-line="71" selection-start-column="45" selection-end-line="71" selection-end-column="45" />
+>>>>>>> 2ca1860fbc884793da481d3dd12b32a883d1a055
 =======
       <file leaf-file-name="Tile.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/game_object/map/Tile.java">
@@ -137,6 +174,7 @@
         </entry>
       </file>
 <<<<<<< HEAD
+<<<<<<< HEAD
       <file leaf-file-name="ClassicFighter.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/game_object/player/ClassicFighter.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -149,11 +187,19 @@
             <state vertical-scroll-proportion="0.0">
               <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
 >>>>>>> 2ca1860fbc884793da481d3dd12b32a883d1a055
+=======
+      <file leaf-file-name="SurpriseBox.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/game_object/bonus/SurpriseBox.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+>>>>>>> 2ca1860fbc884793da481d3dd12b32a883d1a055
               <folding />
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
 <<<<<<< HEAD
       <file leaf-file-name="LevelManager.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/game_management/LevelManager.java">
@@ -200,17 +246,44 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="150">
               <caret line="10" column="157" lean-forward="false" selection-start-line="10" selection-start-column="157" selection-end-line="10" selection-end-column="157" />
+=======
+      <file leaf-file-name="Character.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/game_object/player/Character.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="20" column="17" selection-start-line="20" selection-start-column="17" selection-end-line="20" selection-end-column="17" />
+>>>>>>> 2ca1860fbc884793da481d3dd12b32a883d1a055
               <folding />
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="ImageLoader.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/texture_stuff/ImageLoader.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-1445">
               <caret line="78" column="41" lean-forward="false" selection-start-line="78" selection-start-column="41" selection-end-line="78" selection-end-column="41" />
 =======
+      <file leaf-file-name="ClassicLevel.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/game_management/ClassicLevel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="60" column="0" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
+>>>>>>> 2ca1860fbc884793da481d3dd12b32a883d1a055
+=======
+      <file leaf-file-name="ClassicSoldier.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/game_object/enemy/ClassicSoldier.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="ClassicLevel.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/game_management/ClassicLevel.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -226,8 +299,13 @@
         <entry file="file://$PROJECT_DIR$/src/game_object/enemy/Enemy.java">
           <provider selected="true" editor-type-id="text-editor">
 <<<<<<< HEAD
+<<<<<<< HEAD
             <state relative-caret-position="1065">
               <caret line="80" column="69" lean-forward="false" selection-start-line="80" selection-start-column="69" selection-end-line="80" selection-end-column="69" />
+=======
+            <state vertical-scroll-proportion="0.0">
+              <caret line="183" column="0" selection-start-line="183" selection-start-column="0" selection-end-line="183" selection-end-column="0" />
+>>>>>>> 2ca1860fbc884793da481d3dd12b32a883d1a055
 =======
             <state vertical-scroll-proportion="0.0">
               <caret line="183" column="0" selection-start-line="183" selection-start-column="0" selection-end-line="183" selection-end-column="0" />
@@ -303,6 +381,7 @@
         <option value="$PROJECT_DIR$/src/game_management/InputManager.java" />
         <option value="$PROJECT_DIR$/src/game_management/ModernLevel.java" />
 <<<<<<< HEAD
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/src/game_management/ClassicLevel.java" />
         <option value="$PROJECT_DIR$/src/game_object/player/Robot.java" />
         <option value="$PROJECT_DIR$/src/resources/map_files/map_level_3.txt" />
@@ -315,6 +394,8 @@
         <option value="$PROJECT_DIR$/src/game_object/player/ClassicFighter.java" />
         <option value="$PROJECT_DIR$/src/texture_stuff/ImageLoader.java" />
 =======
+=======
+>>>>>>> 2ca1860fbc884793da481d3dd12b32a883d1a055
         <option value="$PROJECT_DIR$/src/game_object/player/ClassicFighter.java" />
         <option value="$PROJECT_DIR$/src/game_object/player/Robot.java" />
         <option value="$PROJECT_DIR$/src/resources/map_files/map_level_3.txt" />
@@ -324,11 +405,15 @@
         <option value="$PROJECT_DIR$/src/game_object/enemy/ClassicSoldier.java" />
         <option value="$PROJECT_DIR$/src/game_management/ClassicLevel.java" />
         <option value="$PROJECT_DIR$/src/game_management/LevelManager.java" />
+<<<<<<< HEAD
+>>>>>>> 2ca1860fbc884793da481d3dd12b32a883d1a055
+=======
 >>>>>>> 2ca1860fbc884793da481d3dd12b32a883d1a055
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
+<<<<<<< HEAD
 <<<<<<< HEAD
     <option name="y" value="23" />
     <option name="width" value="1280" />
@@ -336,6 +421,10 @@
 =======
     <option name="y" value="22" />
     <option name="width" value="1280" />
+=======
+    <option name="y" value="22" />
+    <option name="width" value="1280" />
+>>>>>>> 2ca1860fbc884793da481d3dd12b32a883d1a055
     <option name="height" value="734" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
@@ -347,6 +436,9 @@
     <OptionsSetting value="true" id="Edit" />
     <ConfirmationsSetting value="0" id="Add" />
     <ConfirmationsSetting value="0" id="Remove" />
+<<<<<<< HEAD
+>>>>>>> 2ca1860fbc884793da481d3dd12b32a883d1a055
+=======
 >>>>>>> 2ca1860fbc884793da481d3dd12b32a883d1a055
   </component>
   <component name="ProjectView">
@@ -614,6 +706,9 @@
 <<<<<<< HEAD
 =======
       <pane id="AndroidView" />
+<<<<<<< HEAD
+>>>>>>> 2ca1860fbc884793da481d3dd12b32a883d1a055
+=======
 >>>>>>> 2ca1860fbc884793da481d3dd12b32a883d1a055
     </panes>
   </component>
@@ -785,7 +880,11 @@
   </component>
   <component name="ToolWindowManager">
 <<<<<<< HEAD
+<<<<<<< HEAD
     <frame x="0" y="23" width="1280" height="728" extended-state="0" />
+=======
+    <frame x="0" y="22" width="1280" height="734" extended-state="0" />
+>>>>>>> 2ca1860fbc884793da481d3dd12b32a883d1a055
 =======
     <frame x="0" y="22" width="1280" height="734" extended-state="0" />
 >>>>>>> 2ca1860fbc884793da481d3dd12b32a883d1a055
@@ -793,6 +892,7 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+<<<<<<< HEAD
 <<<<<<< HEAD
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.323217" sideWeight="0.48984376" order="7" side_tool="false" content_ui="tabs" />
 =======
@@ -805,12 +905,22 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20579268" sideWeight="0.47109374" order="2" side_tool="false" content_ui="tabs" />
 =======
 >>>>>>> 2ca1860fbc884793da481d3dd12b32a883d1a055
+=======
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32176656" sideWeight="0.48984376" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21004567" sideWeight="0.5289062" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+>>>>>>> 2ca1860fbc884793da481d3dd12b32a883d1a055
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32979852" sideWeight="0.49791667" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23520249" sideWeight="0.47109374" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
 <<<<<<< HEAD
+<<<<<<< HEAD
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16328125" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+=======
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1631664" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+>>>>>>> 2ca1860fbc884793da481d3dd12b32a883d1a055
 =======
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1631664" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
 >>>>>>> 2ca1860fbc884793da481d3dd12b32a883d1a055
@@ -823,10 +933,13 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
 <<<<<<< HEAD
+<<<<<<< HEAD
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32874617" sideWeight="0.4968701" order="1" side_tool="false" content_ui="tabs" />
 =======
+=======
+>>>>>>> 2ca1860fbc884793da481d3dd12b32a883d1a055
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -834,6 +947,9 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32874617" sideWeight="0.4968701" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+<<<<<<< HEAD
+>>>>>>> 2ca1860fbc884793da481d3dd12b32a883d1a055
+=======
 >>>>>>> 2ca1860fbc884793da481d3dd12b32a883d1a055
     </layout>
     <layout-to-restore>
@@ -909,6 +1025,7 @@
   </component>
   <component name="editorHistoryManager">
 <<<<<<< HEAD
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/game_object/enemy/ModernSoldier.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -923,6 +1040,8 @@
         </state>
       </provider>
     </entry>
+=======
+>>>>>>> 2ca1860fbc884793da481d3dd12b32a883d1a055
 =======
 >>>>>>> 2ca1860fbc884793da481d3dd12b32a883d1a055
     <entry file="file://$PROJECT_DIR$/src/game_object/general/GameObjectHandler.java">
@@ -943,9 +1062,12 @@
     <entry file="file://$PROJECT_DIR$/src/game_object/enemy/Enemy.java">
       <provider selected="true" editor-type-id="text-editor">
 <<<<<<< HEAD
+<<<<<<< HEAD
         <state relative-caret-position="52">
           <caret line="185" column="0" lean-forward="false" selection-start-line="185" selection-start-column="0" selection-end-line="185" selection-end-column="0" />
 =======
+=======
+>>>>>>> 2ca1860fbc884793da481d3dd12b32a883d1a055
         <state vertical-scroll-proportion="0.0">
           <caret line="185" column="0" selection-start-line="185" selection-start-column="0" selection-end-line="185" selection-end-column="0" />
           <folding />
@@ -956,6 +1078,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="20" column="74" selection-start-line="20" selection-start-column="74" selection-end-line="20" selection-end-column="74" />
+<<<<<<< HEAD
+>>>>>>> 2ca1860fbc884793da481d3dd12b32a883d1a055
+=======
 >>>>>>> 2ca1860fbc884793da481d3dd12b32a883d1a055
         </state>
       </provider>
@@ -996,9 +1121,12 @@
     <entry file="file://$PROJECT_DIR$/src/user_interface/SettingsPanel.java">
       <provider selected="true" editor-type-id="text-editor">
 <<<<<<< HEAD
+<<<<<<< HEAD
         <state relative-caret-position="-1748">
           <caret line="12" column="18" lean-forward="false" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
 =======
+=======
+>>>>>>> 2ca1860fbc884793da481d3dd12b32a883d1a055
         <state vertical-scroll-proportion="0.0">
           <caret line="50" column="16" selection-start-line="50" selection-start-column="16" selection-end-line="50" selection-end-column="33" />
           <folding />
@@ -1069,9 +1197,12 @@
       </provider>
     </entry>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/resources/game_textures/player/test_player.png" />
     <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
 =======
+=======
+>>>>>>> 2ca1860fbc884793da481d3dd12b32a883d1a055
     <entry file="file://$PROJECT_DIR$/src/game_object/enemy/ModernSoldier.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1081,6 +1212,9 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/game_object/enemy/Alien.java">
+<<<<<<< HEAD
+>>>>>>> 2ca1860fbc884793da481d3dd12b32a883d1a055
+=======
 >>>>>>> 2ca1860fbc884793da481d3dd12b32a883d1a055
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1152,6 +1286,8 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="47" column="61" selection-start-line="47" selection-start-column="61" selection-end-line="47" selection-end-column="61" />
+<<<<<<< HEAD
+=======
           <folding />
         </state>
       </provider>
@@ -1160,10 +1296,24 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="63" column="0" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
+>>>>>>> 2ca1860fbc884793da481d3dd12b32a883d1a055
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/user_interface/GamePanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+<<<<<<< HEAD
+          <caret line="63" column="0" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
+=======
+          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="32" selection-end-column="5" />
+>>>>>>> 2ca1860fbc884793da481d3dd12b32a883d1a055
+          <folding />
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/user_interface/Game.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1189,19 +1339,51 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="51" column="5" selection-start-line="51" selection-start-column="5" selection-end-line="52" selection-end-column="39" />
+=======
+    <entry file="file://$PROJECT_DIR$/src/user_interface/AboutPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="32" column="44" selection-start-line="32" selection-start-column="44" selection-end-line="32" selection-end-column="44" />
+          <folding>
+            <element signature="e#948#949#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/texture_stuff/Animation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="51" column="5" selection-start-line="51" selection-start-column="5" selection-end-line="52" selection-end-column="39" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/texture_stuff/ImageLoader.java">
->>>>>>> 2ca1860fbc884793da481d3dd12b32a883d1a055
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+>>>>>>> 2ca1860fbc884793da481d3dd12b32a883d1a055
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/src/texture_stuff/ImageLoader.java">
+>>>>>>> 2ca1860fbc884793da481d3dd12b32a883d1a055
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+=======
+    <entry file="file://$PROJECT_DIR$/src/main/CivilizationalWars.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="20" column="37" selection-start-line="20" selection-start-column="37" selection-end-line="20" selection-end-column="37" />
+>>>>>>> 2ca1860fbc884793da481d3dd12b32a883d1a055
+          <folding />
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/main/CivilizationalWars.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1224,17 +1406,30 @@
           <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
           <folding />
 >>>>>>> 2ca1860fbc884793da481d3dd12b32a883d1a055
+=======
+    <entry file="file://$PROJECT_DIR$/src/game_object/player/ModernFighter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+          <folding />
+>>>>>>> 2ca1860fbc884793da481d3dd12b32a883d1a055
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/game_object/general/IRenderable.java">
       <provider selected="true" editor-type-id="text-editor">
 <<<<<<< HEAD
+<<<<<<< HEAD
         <state relative-caret-position="990">
           <caret line="66" column="50" lean-forward="false" selection-start-line="66" selection-start-column="50" selection-end-line="66" selection-end-column="50" />
           <folding>
             <element signature="imports" expanded="false" />
           </folding>
+=======
+        <state vertical-scroll-proportion="0.0">
+          <caret line="5" column="1" selection-start-line="5" selection-start-column="1" selection-end-line="5" selection-end-column="1" />
+          <folding />
+>>>>>>> 2ca1860fbc884793da481d3dd12b32a883d1a055
 =======
         <state vertical-scroll-proportion="0.0">
           <caret line="5" column="1" selection-start-line="5" selection-start-column="1" selection-end-line="5" selection-end-column="1" />
@@ -1268,6 +1463,7 @@
       </provider>
     </entry>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/resources/map_files/map_level_2.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -1291,6 +1487,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+=======
+    <entry file="file://$PROJECT_DIR$/src/game_management/GameManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
           <folding />
         </state>
       </provider>
@@ -1299,7 +1500,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
->>>>>>> 2ca1860fbc884793da481d3dd12b32a883d1a055
           <folding />
         </state>
       </provider>
@@ -1308,15 +1508,17 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="48" column="64" selection-start-line="48" selection-start-column="64" selection-end-line="48" selection-end-column="64" />
+>>>>>>> 2ca1860fbc884793da481d3dd12b32a883d1a055
           <folding />
         </state>
       </provider>
     </entry>
 <<<<<<< HEAD
-    <entry file="file://$PROJECT_DIR$/src/texture_stuff/Animation.java">
+    <entry file="file://$PROJECT_DIR$/src/game_management/ILevelInterface.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="765">
-          <caret line="51" column="5" lean-forward="false" selection-start-line="51" selection-start-column="5" selection-end-line="52" selection-end-column="39" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+>>>>>>> 2ca1860fbc884793da481d3dd12b32a883d1a055
 =======
     <entry file="file://$PROJECT_DIR$/src/game_management/ModernLevel.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -1328,10 +1530,10 @@
       </provider>
     </entry>
 <<<<<<< HEAD
-    <entry file="file://$PROJECT_DIR$/src/resources/map_files/map_level_1.txt">
+    <entry file="file://$PROJECT_DIR$/src/game_management/InputManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="157" lean-forward="false" selection-start-line="10" selection-start-column="157" selection-end-line="10" selection-end-column="157" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="48" column="64" selection-start-line="48" selection-start-column="64" selection-end-line="48" selection-end-column="64" />
 =======
     <entry file="file://$PROJECT_DIR$/src/game_object/bonus/SurpriseBox.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -1343,29 +1545,40 @@
       </provider>
     </entry>
 <<<<<<< HEAD
-    <entry file="file://$PROJECT_DIR$/src/game_object/map/TileMap.java">
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/src/texture_stuff/Animation.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1050">
-          <caret line="76" column="0" lean-forward="false" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
-          <folding>
-            <marker date="1509977739651" expanded="true" signature="1964:2685" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/game_management/LevelManager.java">
+        <state relative-caret-position="765">
+          <caret line="51" column="5" lean-forward="false" selection-start-line="51" selection-start-column="5" selection-end-line="52" selection-end-column="39" />
+=======
+    <entry file="file://$PROJECT_DIR$/src/game_management/ModernLevel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="47" lean-forward="false" selection-start-line="16" selection-start-column="35" selection-end-line="16" selection-end-column="47" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="127" column="61" selection-start-line="127" selection-start-column="61" selection-end-line="127" selection-end-column="61" />
+>>>>>>> 2ca1860fbc884793da481d3dd12b32a883d1a055
 =======
     <entry file="file://$PROJECT_DIR$/src/game_management/ClassicLevel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="60" column="0" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
+>>>>>>> 2ca1860fbc884793da481d3dd12b32a883d1a055
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/src/resources/map_files/map_level_1.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="157" lean-forward="false" selection-start-line="10" selection-start-column="157" selection-end-line="10" selection-end-column="157" />
+=======
+    <entry file="file://$PROJECT_DIR$/src/game_object/bonus/SurpriseBox.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+>>>>>>> 2ca1860fbc884793da481d3dd12b32a883d1a055
+=======
     <entry file="file://$PROJECT_DIR$/src/game_object/player/Character.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1376,14 +1589,71 @@
       </provider>
     </entry>
 <<<<<<< HEAD
-    <entry file="file://$PROJECT_DIR$/src/user_interface/GamePanel.java">
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/src/game_object/map/TileMap.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1005">
-          <caret line="83" column="37" lean-forward="false" selection-start-line="83" selection-start-column="37" selection-end-line="83" selection-end-column="37" />
+        <state relative-caret-position="1050">
+          <caret line="76" column="0" lean-forward="false" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
+=======
+    <entry file="file://$PROJECT_DIR$/src/game_object/enemy/ClassicSoldier.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+>>>>>>> 2ca1860fbc884793da481d3dd12b32a883d1a055
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/game_object/enemy/Enemy.java">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="240">
+          <caret line="16" column="47" lean-forward="false" selection-start-line="16" selection-start-column="35" selection-end-line="16" selection-end-column="47" />
+=======
+    <entry file="file://$PROJECT_DIR$/src/game_management/ClassicLevel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="60" column="0" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
+=======
+        <state vertical-scroll-proportion="0.0">
+          <caret line="183" column="0" selection-start-line="183" selection-start-column="0" selection-end-line="183" selection-end-column="0" />
+>>>>>>> 2ca1860fbc884793da481d3dd12b32a883d1a055
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/game_management/LevelManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+<<<<<<< HEAD
+          <caret line="20" column="17" selection-start-line="20" selection-start-column="17" selection-end-line="20" selection-end-column="17" />
+>>>>>>> 2ca1860fbc884793da481d3dd12b32a883d1a055
+=======
+          <caret line="17" column="16" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="16" />
+>>>>>>> 2ca1860fbc884793da481d3dd12b32a883d1a055
+          <folding />
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/src/user_interface/GamePanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1005">
+          <caret line="83" column="37" lean-forward="false" selection-start-line="83" selection-start-column="37" selection-end-line="83" selection-end-column="37" />
+=======
+    <entry file="file://$PROJECT_DIR$/src/game_management/PostModernLevel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="103" column="1" selection-start-line="103" selection-start-column="1" selection-end-line="103" selection-end-column="1" />
+>>>>>>> 2ca1860fbc884793da481d3dd12b32a883d1a055
+          <folding />
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/user_interface/Menu.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -1441,10 +1711,17 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1170">
           <caret line="96" column="9" lean-forward="false" selection-start-line="96" selection-start-column="9" selection-end-line="96" selection-end-column="9" />
+=======
+    <entry file="file://$PROJECT_DIR$/src/game_object/map/Tile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="71" column="45" selection-start-line="71" selection-start-column="45" selection-end-line="71" selection-end-column="45" />
+>>>>>>> 2ca1860fbc884793da481d3dd12b32a883d1a055
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/game_object/player/ClassicFighter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="259">
@@ -1467,6 +1744,8 @@
         </state>
       </provider>
     </entry>
+=======
+>>>>>>> 2ca1860fbc884793da481d3dd12b32a883d1a055
     <entry file="file://$PROJECT_DIR$/src/game_object/map/TileMap.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="2.0043197">
