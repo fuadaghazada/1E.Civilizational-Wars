@@ -6,6 +6,7 @@ import game_object.general.ObjectID;
 
 public abstract class Weapon extends GameObject
 {
+    private boolean isUsed = false;
     /**
      * Constructing the game object weapon with given parameters.
      *
@@ -22,4 +23,7 @@ public abstract class Weapon extends GameObject
 
     public abstract GameObject getOwner();
 
+    public boolean isUsed() { return isUsed; }
+
+    public void setUsed(boolean used) { isUsed = used; }
 }

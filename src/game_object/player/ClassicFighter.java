@@ -5,6 +5,7 @@ import game_object.general.GameObjectHandler;
 import game_object.general.ObjectID;
 import game_object.weapon.LaserGun;
 import game_object.weapon.Rifle;
+import game_object.weapon.Sword;
 import texture_stuff.Animation;
 import texture_stuff.ImageLoader;
 
@@ -19,11 +20,11 @@ import java.util.ArrayList;
 public class ClassicFighter extends Character
 {
     // Properties
-    private Rifle rifle;
+    private Sword sword;
 
     // textures
     private ImageLoader imageLoader;
-    private Animation walkingAnimationR, walkingAnimationL, jumpingAnimationR, jumpingAnimationL;
+    private Animation walkingAnimationR, walkingAnimationL, jumpingAnimationR, jumpingAnimationL, fightingAnimationR, fightingAnimationL;
 
     /**
      * Constructing the character with given parameters.
@@ -38,7 +39,7 @@ public class ClassicFighter extends Character
         super(x, y, id, gameObjectHandler);
 
         this.init();
-        this.setWeapon(rifle);
+        this.setWeapon(sword);
 
         // loads the necessary images
         imageLoader = new ImageLoader(ObjectID.Classic);
@@ -48,6 +49,8 @@ public class ClassicFighter extends Character
         walkingAnimationL = new Animation(5,imageLoader.getPlayer_walkingL());
         jumpingAnimationR = new Animation(5,imageLoader.getPlayer_jumpingR());
         jumpingAnimationL = new Animation(5,imageLoader.getPlayer_jumpingL());
+        fightingAnimationR = new Animation(5, imageLoader.getPlayer_fightingR());
+        fightingAnimationL = new Animation(5, imageLoader.getPlayer_fightingL());
     }
 
     /**
@@ -55,7 +58,7 @@ public class ClassicFighter extends Character
      */
     private void init()
     {
-        rifle = new Rifle(x, y, ObjectID.Weapon, this);
+        sword = new Sword(x, y, ObjectID.Weapon, this);
     }
 
     @Override
@@ -68,6 +71,8 @@ public class ClassicFighter extends Character
                 walkingAnimationR.drawAnimation(g, (int) x, (int) y, width, height);
             else if(velY != 0)
                 jumpingAnimationR.drawAnimation(g, (int) x, (int) y, width, height);
+            else if(this.getWeapon().isUsed())
+                fightingAnimationR.drawAnimation(g, (int) x, (int) y, width, height);
             else
                 g.drawImage(imageLoader.getPlayer_still()[0], (int) x, (int) (y), width, height, null);
         else if(dir == -1)
@@ -75,10 +80,14 @@ public class ClassicFighter extends Character
                 walkingAnimationL.drawAnimation(g, (int) x, (int) y, width, height);
             else if(velY != 0)
                 jumpingAnimationL.drawAnimation(g, (int) x, (int) y, width, height);
+            else if(this.getWeapon().isUsed())
+                fightingAnimationL.drawAnimation(g, (int) x, (int) y, width, height);
             else
                 g.drawImage(imageLoader.getPlayer_still()[1], (int) x, (int) (y), width, height, null);
 
-            // rendering the weapon /rifle
+
+
+        // rendering the weapon /rifle
         //rifle.render(g);
     }
 
@@ -88,12 +97,14 @@ public class ClassicFighter extends Character
         super.update(gameObjectHandler);
 
         // update the position of the rifle
-        rifle.update(gameObjectHandler);
+        sword.update(gameObjectHandler);
 
         // running the animations
         walkingAnimationR.runAnimation();
         walkingAnimationL.runAnimation();
         jumpingAnimationR.runAnimation();
         jumpingAnimationL.runAnimation();
+        fightingAnimationR.runAnimation();
+        fightingAnimationL.runAnimation();
     }
 }

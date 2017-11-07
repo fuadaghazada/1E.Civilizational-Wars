@@ -1,6 +1,7 @@
 package game_management;
 
 import game_object.enemy.Enemy;
+import game_object.enemy.ModernSoldier;
 import game_object.general.GameObject;
 import game_object.general.GameObjectHandler;
 import game_object.general.ObjectID;
@@ -27,7 +28,7 @@ public class ModernLevel implements ILevelInterface {
      * Constructs the level
      */
     public ModernLevel() {
-        name = "Modern";
+        name = "Modern Period";
         tileMap = new TileMap("src/resources/map_files/map_level_2.txt");
         enemyType = 0;
         weaponType = 0;
@@ -61,7 +62,7 @@ public class ModernLevel implements ILevelInterface {
             float randX = (float) ((Math.random() * horizontalRange) + 100);
             float randY = verticalRange;
 
-            Enemy enemy = new Enemy(randX, randY, ObjectID.Enemy, gameObjectHandler);
+            ModernSoldier enemy = new ModernSoldier(randX, randY, ObjectID.Enemy, gameObjectHandler);
 
             gameObjectHandler.addGameObject(enemy);
         }
@@ -88,7 +89,7 @@ public class ModernLevel implements ILevelInterface {
 
     @Override
     public String getName() {
-        return null;
+        return name;
     }
 
     @Override
@@ -118,7 +119,7 @@ public class ModernLevel implements ILevelInterface {
         int count = 0;
         for(GameObject o : gameObjectHandler.getGame_objects())
         {
-            if(o instanceof Enemy)
+            if(o instanceof ModernSoldier)
                 count++;
         }
 

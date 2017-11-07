@@ -77,9 +77,6 @@ public class Character extends GameObject
             else
             {
                 gameObjectHandler.removeGameObject(this);
-                CivilizationalWars.frame.getContentPane().removeAll();
-                CivilizationalWars.frame.getContentPane().add(new MainMenuPanel());
-                CivilizationalWars.frame.revalidate();
             }
         }
     }

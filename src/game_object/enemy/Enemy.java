@@ -24,6 +24,7 @@ public class Enemy extends GameObject
     //TODO: it must be overriden in child classes
     private float healthLevel = 100;
     private float damage;
+
     private GameObjectHandler gameObjectHandler;
     private Weapon weapon;
 
@@ -51,10 +52,9 @@ public class Enemy extends GameObject
         super(x, y, id);
         this.gameObjectHandler = gameObjectHandler;
         weapon = new Rifle(x, y, ObjectID.Weapon, this);
+
         setHeight(70);
         setWidth(60);
-
-
     }
 
 
@@ -170,7 +170,7 @@ public class Enemy extends GameObject
         //g.fillRect((int)x, (int)y, width, height);
 
 
-        g.drawImage(new ImageIcon("src/resources/game_textures/enemy/test_enemy.png").getImage(), (int) x, (int) (y), null);
+        g.drawImage(new ImageIcon("src/resources/game_textures/enemy/modern/test_enemy.png").getImage(), (int) x, (int) (y), null);
     }
 
     @Override
@@ -238,7 +238,6 @@ public class Enemy extends GameObject
 
                 break;
             }
-
         }
         return true;
 
@@ -266,6 +265,10 @@ public class Enemy extends GameObject
     public Weapon getWeapon() {
         return weapon;
     }
+
+    public float getHealthLevel() { return healthLevel; }
+
+    public void setHealthLevel(float healthLevel) { this.healthLevel = healthLevel; }
 
     public void setWeapon(Weapon weapon) {
         this.weapon = weapon;

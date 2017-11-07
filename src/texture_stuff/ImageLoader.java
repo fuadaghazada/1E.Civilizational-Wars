@@ -17,6 +17,12 @@ public class ImageLoader
     private Image[] player_walkingR, player_walkingL;
     private Image[] player_jumpingR, player_jumpingL;
     private Image[] player_still;
+    private Image[] player_fightingR, player_fightingL;
+
+    // enemy
+    private Image[] enemy_walkingR, enemy_walkingL;
+    private Image[] enemy_jumpingR, enemy_jumpingL;
+    private Image[] enemy_still;
 
     //weapon
     private Image [] weapons;
@@ -36,18 +42,30 @@ public class ImageLoader
             player_still = new Image[2];
             player_still[0] = new ImageIcon("src/resources/game_textures/player/classic_soldier/test_player.png").getImage();
             player_still[1] = new ImageIcon("src/resources/game_textures/player/classic_soldier/test_player_l.png").getImage();
+
+            enemy_still = new Image[2];
+            enemy_still[0] = new ImageIcon("src/resources/game_textures/enemy/classic/test_enemy.png").getImage();
+            enemy_still[1] = new ImageIcon("src/resources/game_textures/enemy/classic/test_enemy_l.png").getImage();
         }
         else if(id.equals(ObjectID.Modern))
         {
             player_still = new Image[2];
             player_still[0] = new ImageIcon("src/resources/game_textures/player/modern_soldier/test_player.png").getImage();
             player_still[1] = new ImageIcon("src/resources/game_textures/player/modern_soldier/test_player_l.png").getImage();
+
+            enemy_still = new Image[2];
+            enemy_still[0] = new ImageIcon("src/resources/game_textures/enemy/modern/test_enemy.png").getImage();
+            enemy_still[1] = new ImageIcon("src/resources/game_textures/enemy/modern/test_enemy_l.png").getImage();
         }
         else if(id.equals(ObjectID.PostModern))
         {
             player_still = new Image[2];
             player_still[0] = new ImageIcon("src/resources/game_textures/player/robot/test_player.png").getImage();
             player_still[1] = new ImageIcon("src/resources/game_textures/player/robot/test_player_l.png").getImage();
+
+            enemy_still = new Image[2];
+            enemy_still[0] = new ImageIcon("src/resources/game_textures/enemy/alien/test_enemy.png").getImage();
+            enemy_still[1] = new ImageIcon("src/resources/game_textures/enemy/alien/test_enemy_l.png").getImage();
         }
         else if(id.equals(ObjectID.Weapon))
         {
@@ -65,14 +83,15 @@ public class ImageLoader
             this.loadTiles();
         }
 
-        this.loadPlayerWalking();
-        this.loadPlayerJumping();
+        this.loadWalking();
+        this.loadJumping();
+        this.loadFighting();
     }
 
     /**
      *  Loads the walking animation images
      */
-    private void loadPlayerWalking()
+    private void loadWalking()
     {
         if(id == ObjectID.Classic)
         {
@@ -121,7 +140,7 @@ public class ImageLoader
     /**
      *  Loads the jumping animation images
      */
-    private void loadPlayerJumping()
+    private void loadJumping()
     {
         if(id == ObjectID.Classic)
         {
@@ -168,6 +187,27 @@ public class ImageLoader
     }
 
     /**
+     *  Loads fighting textures
+     */
+    private void loadFighting()
+    {
+        if(id == ObjectID.Classic)
+        {
+            player_fightingR = new Image[9];
+
+            for (int i = 0; i < player_fightingR.length; i++) {
+                player_fightingR[i] = new ImageIcon("src/resources/game_textures/player/classic_soldier/test_player_attack" + (i + 1) + ".png").getImage();
+            }
+
+            player_fightingL = new Image[9];
+
+            for (int i = 0; i < player_fightingL.length; i++) {
+                player_fightingL[i] = new ImageIcon("src/resources/game_textures/player/classic_soldier/test_player_attack" + (i + 1) + "_l.png").getImage();
+            }
+        }
+    }
+
+    /**
      *  Loads the tile textures
      */
     private void loadTiles()
@@ -202,6 +242,22 @@ public class ImageLoader
     {
         return player_still;
     }
+
+    public Image[] getPlayer_fightingR() { return player_fightingR; }
+
+    public Image[] getPlayer_fightingL() { return player_fightingL; }
+
+    //enemy
+
+    public Image[] getEnemy_walkingR() { return enemy_walkingR; }
+
+    public Image[] getEnemy_walkingL() { return enemy_walkingL; }
+
+    public Image[] getEnemy_jumpingR() { return enemy_jumpingR; }
+
+    public Image[] getEnemy_jumpingL() { return enemy_jumpingL; }
+
+    public Image[] getEnemy_still() { return enemy_still; }
 
     //tiles
     public Image[] getTiles() { return tiles; }

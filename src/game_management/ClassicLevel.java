@@ -31,7 +31,7 @@ public class ClassicLevel implements ILevelInterface
      */
     public ClassicLevel()
     {
-        name = "Classic";
+        name = "Classic Period";
         tileMap = new TileMap("src/resources/map_files/map_level_1.txt");
         enemyType = 0;
         weaponType = 0;
@@ -91,13 +91,6 @@ public class ClassicLevel implements ILevelInterface
             gameObjectHandler.addGameObject(tile);
         }
     }
-
-
-
-    public void update() {
-
-
-    }
     public void enemyDied()
     {
         currentEnemy--;
@@ -120,7 +113,7 @@ public class ClassicLevel implements ILevelInterface
 
     @Override
     public String getName() {
-        return null;
+        return name;
     }
 
     @Override

@@ -1,5 +1,6 @@
 package game_management;
 
+import game_object.enemy.Alien;
 import game_object.enemy.Enemy;
 import game_object.general.GameObject;
 import game_object.general.GameObjectHandler;
@@ -26,8 +27,9 @@ public class PostModernLevel implements ILevelInterface {
     /**
      * Constructs the level
      */
-    public PostModernLevel() {
-        name = "PostModern";
+    public PostModernLevel()
+    {
+        name = "Post Modern Period";
         tileMap = new TileMap("src/resources/map_files/map_level_3.txt");
         enemyType = 2;
         weaponType = 2;
@@ -61,7 +63,7 @@ public class PostModernLevel implements ILevelInterface {
             float randX = (float) ((Math.random() * horizontalRange) + 100);
             float randY = verticalRange;
 
-            Enemy enemy = new Enemy(randX, randY, ObjectID.Enemy, gameObjectHandler);
+            Enemy enemy = new Alien(randX, randY, ObjectID.Enemy, gameObjectHandler);
 
             gameObjectHandler.addGameObject(enemy);
         }
@@ -88,7 +90,7 @@ public class PostModernLevel implements ILevelInterface {
 
     @Override
     public String getName() {
-        return null;
+        return name;
     }
 
     @Override
@@ -117,14 +119,13 @@ public class PostModernLevel implements ILevelInterface {
         int count = 0;
         for(GameObject o : gameObjectHandler.getGame_objects())
         {
-            if(o instanceof Enemy)
+            if(o instanceof Alien)
                 count++;
         }
 
         if (count <= 0)
         {
             System.out.println("YOU WON");
-            LevelManager.currentLevel = new ModernLevel();
         }
 
     }

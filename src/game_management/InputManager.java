@@ -62,6 +62,7 @@ public class InputManager implements KeyListener
         }
         if(e.getKeyCode() == fight)
         {
+            gameObjectHandler.getCharacter().getWeapon().setUsed(true);
             gameObjectHandler.getCharacter().getWeapon().fire(gameObjectHandler, gameObjectHandler.getCharacter().getDir());
         }
         //TODO: Think about that
@@ -83,6 +84,10 @@ public class InputManager implements KeyListener
         if(e.getKeyCode() == left)
         {
             gameObjectHandler.getCharacter().setVelX(0);
+        }
+        if(e.getKeyCode() == fight)
+        {
+            gameObjectHandler.getCharacter().getWeapon().setUsed(false);
         }
     }
 }

@@ -1,5 +1,6 @@
 package game_object.general;
 
+import game_object.enemy.Enemy;
 import game_object.general.GameObject;
 import game_object.general.ObjectID;
 import game_object.player.Character;
@@ -18,13 +19,14 @@ public class GameObjectHandler
 {
     // Properties
     private ArrayList<GameObject> game_objects = new ArrayList<>();
-
     private ArrayList<Bullet> bullets = new ArrayList<>();
+    private ArrayList<Enemy> enemies = new ArrayList<>();
 
     private GameObject currentObject;
     private Character character;
 
     public GameObjectHandler() {
+
         bullets = new ArrayList<Bullet>();
     }
 
@@ -104,6 +106,18 @@ public class GameObjectHandler
 
     //ACCESS & MUTATE
     public ArrayList<GameObject> getGame_objects() { return game_objects; }
+
+    public ArrayList<Enemy> getEnemies()
+    {
+        for(GameObject g : getGame_objects())
+        {
+            if(g instanceof Enemy)
+            {
+                enemies.add((Enemy)g);
+            }
+        }
+        return enemies;
+    }
 
     public ArrayList<Bullet> getBullets() { return bullets; }
 
