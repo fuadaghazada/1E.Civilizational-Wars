@@ -14,7 +14,7 @@ import user_interface.GamePanel;
 public class ClassicLevel implements ILevelInterface
 {
     //constants
-    public static final int ENEMY_NUM = 5;
+    public static final int ENEMY_NUM = 7;
 
     // Properties
     private String name;
