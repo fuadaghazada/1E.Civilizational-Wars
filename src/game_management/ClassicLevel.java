@@ -1,5 +1,6 @@
 package game_management;
 
+import game_object.enemy.ClassicSoldier;
 import game_object.enemy.Enemy;
 import game_object.general.GameObject;
 import game_object.general.GameObjectHandler;
@@ -74,7 +75,7 @@ public class ClassicLevel implements ILevelInterface
             float randX = (float) ((Math.random() * horizontalRange) + 100);
             float randY = verticalRange;
 
-            Enemy enemy = new Enemy(randX ,randY, ObjectID.Enemy, gameObjectHandler);
+            ClassicSoldier enemy = new ClassicSoldier(randX ,randY, ObjectID.Enemy, gameObjectHandler);
 
             gameObjectHandler.addGameObject(enemy);
         }
@@ -93,6 +94,10 @@ public class ClassicLevel implements ILevelInterface
 
 
 
+    public void update() {
+
+
+    }
     public void enemyDied()
     {
         currentEnemy--;
@@ -141,7 +146,7 @@ public class ClassicLevel implements ILevelInterface
         int count = 0;
         for(GameObject o : gameObjectHandler.getGame_objects())
         {
-            if(o instanceof Enemy)
+            if(o instanceof ClassicSoldier)
                 count++;
         }
 
