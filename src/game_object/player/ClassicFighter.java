@@ -79,7 +79,7 @@ public class ClassicFighter extends Character
                 g.drawImage(imageLoader.getPlayer_still()[1], (int) x, (int) (y), width, height, null);
 
             // rendering the weapon /rifle
-        rifle.render(g);
+        //rifle.render(g);
     }
 
     @Override

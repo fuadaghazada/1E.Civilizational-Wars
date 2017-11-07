@@ -14,7 +14,7 @@ public class LevelManager
         switch (level)
         {
             case 0:
-                currentLevel = new ClassicLevel();
+                currentLevel = new PostModernLevel();
                 break;
             case 1:
                 currentLevel = new ModernLevel();

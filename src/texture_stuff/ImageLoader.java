@@ -76,13 +76,13 @@ public class ImageLoader
     {
         if(id == ObjectID.Classic)
         {
-            player_walkingR = new Image[2];
+            player_walkingR = new Image[9];
 
             for (int i = 0; i < player_walkingR.length; i++) {
                 player_walkingR[i] = new ImageIcon("src/resources/game_textures/player/classic_soldier/test_player_walk" + (i + 1) + ".png").getImage();
             }
 
-            player_walkingL = new Image[2];
+            player_walkingL = new Image[9];
 
             for (int i = 0; i < player_walkingL.length; i++) {
                 player_walkingL[i] = new ImageIcon("src/resources/game_textures/player/classic_soldier/test_player_walk" + (i + 1) + "_l.png").getImage();

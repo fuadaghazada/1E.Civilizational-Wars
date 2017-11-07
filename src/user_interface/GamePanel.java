@@ -76,7 +76,12 @@ public class GamePanel extends JPanel implements Runnable
         setFocusable(true);
         requestFocusInWindow();
         this.addKeyListener(LevelManager.currentLevel.getInputManager());
+    }
 
+    public void stop()
+    {
+        isRunning = false;
+        game_thread = new Thread(this);
     }
 
     /**
