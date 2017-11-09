@@ -15,5 +15,6 @@ public enum ObjectID
     Modern(),
     PostModern(),
     Rifle(),
-    LaserGun();
+    LaserGun(),
+    SupriseBox();
 }
