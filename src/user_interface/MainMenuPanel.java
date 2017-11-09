@@ -56,12 +56,15 @@ public class MainMenuPanel extends JPanel
             public void actionPerformed(ActionEvent e)
             {
                 CivilizationalWars.frame.getContentPane().removeAll();
-                CivilizationalWars.frame.invalidate();
 
                 GamePanel gPanel = new GamePanel();
 
+                gPanel.init();
+
                 CivilizationalWars.frame.getContentPane().add(gPanel);
+
                 gPanel.start();
+
                 CivilizationalWars.frame.revalidate();
 
             }

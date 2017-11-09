@@ -11,7 +11,7 @@ import game_object.player.ModernFighter;
 
 public class ModernLevel implements ILevelInterface {
     //constants
-    public static final int ENEMY_NUM = 30;
+    public static final int ENEMY_NUM = 7;
 
     // Properties
     private String name;

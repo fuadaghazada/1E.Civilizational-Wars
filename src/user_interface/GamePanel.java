@@ -15,7 +15,10 @@ import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyListener;
+import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 
 
@@ -63,6 +66,8 @@ public class GamePanel extends JPanel implements Runnable
     {
         gameManager = new GameManager();
         camera = new Camera(0,0);
+        game_thread = new Thread(this);
+        isRunning = false;
     }
 
     /**
@@ -71,7 +76,6 @@ public class GamePanel extends JPanel implements Runnable
     public void start()
     {
         isRunning = true;
-        game_thread = new Thread(this);
         game_thread.start();
         setFocusable(true);
         requestFocusInWindow();
@@ -196,6 +200,24 @@ public class GamePanel extends JPanel implements Runnable
         {
             g.setColor(Color.RED);
             g.drawString("GAME OVER!", getWidth()/2, getHeight()/2);
+
+
+            final Timer timer = new Timer(5000, new ActionListener() {
+
+                @Override
+                public void actionPerformed(ActionEvent e)
+                {
+                    System.out.println("+++");
+                }
+            });
+
+            timer.setRepeats(false);
+            timer.start();
+
+            System.out.println("===");
+
+            gameManager = new GameManager();
+            camera = new Camera(0,0);
         }
 
         if(this.current.getName().equals("Post Modern Period"))
