@@ -68,7 +68,6 @@ public class ClassicSoldier extends Enemy
     @Override
     public void update(GameObjectHandler gameObjectHandler)
     {
-
         super.update(gameObjectHandler);
     }
 }

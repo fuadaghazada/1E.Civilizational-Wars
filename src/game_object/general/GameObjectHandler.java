@@ -3,7 +3,6 @@ package game_object.general;
 import game_object.enemy.Enemy;
 import game_object.general.GameObject;
 import game_object.general.ObjectID;
-import game_object.bonus.SurpriseBox;
 import game_object.player.Character;
 import game_object.weapon.Bullet;
 import game_object.weapon.Weapon;
@@ -22,6 +21,7 @@ public class GameObjectHandler
     private ArrayList<GameObject> game_objects = new ArrayList<>();
     private ArrayList<Bullet> bullets = new ArrayList<>();
     private ArrayList<Enemy> enemies = new ArrayList<>();
+
     private GameObject currentObject;
     private Character character;
 
