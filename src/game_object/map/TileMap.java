@@ -105,17 +105,6 @@ public class TileMap
     }
 
     /**
-     *  Updates the tile map
-     */
-    public void update()
-    {
-        for(int i = 0; i < tiles.size(); i++)
-        {
-            tiles.get(i).update();
-        }
-    }
-
-    /**
      *  Draws the tiled map using the data from the file
      */
     public void render(Graphics2D g2)
