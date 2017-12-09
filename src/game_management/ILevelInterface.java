@@ -6,16 +6,9 @@ import game_object.map.TileMap;
 public interface ILevelInterface {
 
     TileMap getLevelTileMap();
-    int getEnemyType();
     String getName();
+    int getEnemyType();
     int getWeaponType();
     int getCharacterType();
-    void enemyDied();
     int getCurrentEnemy();
-    void levelFinished(int state);
-
-    GameObjectHandler gameObjects();
-    InputManager getInputManager();
-
-
 }

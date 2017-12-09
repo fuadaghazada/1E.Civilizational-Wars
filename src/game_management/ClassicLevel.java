@@ -19,81 +19,21 @@ public class ClassicLevel implements ILevelInterface
     // Properties
     private String name;
     private TileMap tileMap;
-    private int enemyType;
-    private int weaponType;
-    private int characterType;
+    private ObjectID enemyType;
+    private ObjectID characterType;
+
     private int currentEnemy;
-    InputManager inputManager;
-    private GameObjectHandler gameObjectHandler;
 
     /**
-     *  Constructs the level
+     *  Constructs the classic level
      */
     public ClassicLevel()
     {
         name = "Classic Period";
         tileMap = new TileMap("src/resources/map_files/map_level_1.txt");
-        enemyType = 0;
-        weaponType = 0;
-        characterType = 0;
+        enemyType = ObjectID.Classic;
+        characterType = ObjectID.Classic;
         currentEnemy = ENEMY_NUM;
-
-        gameObjectHandler = new GameObjectHandler();
-
-        this.generateTiles();
-        this.generateCharacter();
-        this.generateEnemies();
-
-        inputManager = new InputManager(gameObjectHandler);
-    }
-
-    public InputManager getInputManager()
-    {
-        return inputManager;
-    }
-
-    /**
-     *  Generates the character
-     */
-    public void generateCharacter()
-    {
-        ClassicFighter classicFighter = new ClassicFighter(50, 100, ObjectID.Character, gameObjectHandler);
-
-        gameObjectHandler.addGameObject(classicFighter);
-    }
-
-    /**
-     *  Generates the enemies
-     */
-    public void generateEnemies()
-    {
-        int horizontalRange = tileMap.getMapWidth() * Tile.getTileSize();
-        int verticalRange = 200;
-
-        for(int i = 0; i < ENEMY_NUM; i++)
-        {
-            float randX = (float) ((Math.random() * horizontalRange) + 100);
-            float randY = verticalRange;
-
-            ClassicSoldier enemy = new ClassicSoldier(randX ,randY, ObjectID.Enemy, gameObjectHandler);
-
-            gameObjectHandler.addGameObject(enemy);
-        }
-    }
-
-    /**
-     *  Generates the tiles
-     */
-    public void generateTiles()
-    {
-        for (Tile tile : tileMap.getTiles())
-        {
-            gameObjectHandler.addGameObject(tile);
-        }
-    }
-    public void enemyDied()
-    {
-        currentEnemy--;
     }
 
     @Override
@@ -124,30 +64,6 @@ public class ClassicLevel implements ILevelInterface
     @Override
     public int getCharacterType() {
         return 0;
-    }
-
-    @Override
-    public GameObjectHandler gameObjects()
-    {
-        return gameObjectHandler;
-    }
-
-    @Override
-    public void levelFinished(int state)
-    {
-
-        int count = 0;
-        for(GameObject o : gameObjectHandler.getGame_objects())
-        {
-            if(o instanceof ClassicSoldier)
-                count++;
-        }
-
-        if (count <= 0)
-        {
-            System.out.println("YOU WON");
-            LevelManager.currentLevel = new ModernLevel();
-        }
     }
 
 }

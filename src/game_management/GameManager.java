@@ -1,35 +1,38 @@
 package game_management;
 
 
-import java.awt.*;
+import game_object.general.GameObjectHandler;
 
 public class GameManager
 {
-    // Properties
-    private LevelManager levelManager;
+    //Properties
+
 
     /**
-     *  Constrcuts the game manager
+     *  Generates the character according to the current level
      */
-    public GameManager()
+    public void generateCharacter()
     {
-        levelManager = new LevelManager(0);
+
     }
 
-    public void update()
+    /**
+     *  Generates the enemies according to the current level
+     */
+    public void generateEnemies()
     {
-        LevelManager.currentLevel.gameObjects().updateAll();
+
     }
 
-    public void render(Graphics g)
+    /**
+     *  Generates the tiles according to the current level
+     */
+    public void generateTiles()
     {
-        LevelManager.currentLevel.gameObjects().renderAll(g);
+
     }
 
-    // ACCESS
 
-    public LevelManager getLevelManager()
-    {
-        return levelManager;
-    }
+
+
 }

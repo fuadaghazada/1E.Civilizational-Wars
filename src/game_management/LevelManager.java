@@ -1,40 +1,54 @@
 package game_management;
 
+
+import java.util.ArrayList;
+
 public class LevelManager
 {
+    // Constants
+    public static final int MAX_LEVEL = 3;
 
     // Properties
-    public static ILevelInterface currentLevel = null;
+    private ILevelInterface currentLevel;
+
+    public static LevelManager levelManager = new LevelManager();
+
+    private ArrayList<ILevelInterface> levels;
 
     /**
      * Constructs the level manager
      */
-    public LevelManager(int level)
+    private LevelManager()
     {
-        switch (level)
-        {
-            case 0:
-                currentLevel = new ClassicLevel();
-                break;
-            case 1:
-                currentLevel = new ModernLevel();
-                break;
+        levels = new ArrayList<>();
 
-            case 2:
-                currentLevel = new PostModernLevel();
-                break;
-        }
+        levels.add(new ClassicLevel());
+        levels.add(new ModernLevel());
+        levels.add(new PostModernLevel());
+
+        currentLevel = levels.get(0);
     }
 
-    public void setLevel(ILevelInterface level)
+    /**
+     *  To change the level
+     */
+    public void changeLevel(int level)
     {
-        level = currentLevel;
+        if(level > 0 && level <= MAX_LEVEL)
+            this.currentLevel = levels.get(level-1);
+    }
+
+    /**
+     *  Singleton access to the level manager
+     */
+    public static LevelManager getInstance()
+    {
+        return levelManager;
     }
 
     // ACCESS
-/*
-    public ILevelInterface getCurrentLevel() {
+    public ILevelInterface getCurrentLevel()
+    {
         return currentLevel;
     }
-    */
 }
