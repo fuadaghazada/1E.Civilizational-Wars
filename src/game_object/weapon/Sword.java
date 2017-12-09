@@ -28,10 +28,10 @@ public class Sword extends Weapon
     }
 
     @Override
-    public void fire(GameObjectHandler gameObjectHandler, int dir)
+    public void fire(int dir)
     {
         if(owner.getId() == ObjectID.Character) {
-            for (Enemy go : gameObjectHandler.getEnemies())
+            for (Enemy go : GameObjectHandler.getInstance().getEnemies())
             {
                 if (go.getBounds().intersects(owner.getBounds()))
                 {
@@ -43,15 +43,15 @@ public class Sword extends Weapon
         }
         else if(owner.getId() == ObjectID.Enemy)
         {
-            if (gameObjectHandler.getCharacter(1).getBounds().intersects(owner.getBounds()))
+            if (GameObjectHandler.getInstance().getCharacter(1).getBounds().intersects(owner.getBounds()))
             {
-                gameObjectHandler.getCharacter(1).setY(gameObjectHandler.getCharacter(1).getY() - 50);
-                gameObjectHandler.getCharacter(1).setHealthLevel(gameObjectHandler.getCharacter(1).getHealthLevel() - 10);
+                GameObjectHandler.getInstance().getCharacter(1).setY(GameObjectHandler.getInstance().getCharacter(1).getY() - 50);
+                GameObjectHandler.getInstance().getCharacter(1).setHealthLevel(GameObjectHandler.getInstance().getCharacter(1).getHealthLevel() - 10);
             }
-            else if (gameObjectHandler.getCharacter(2).getBounds().intersects(owner.getBounds()))
+            else if (GameObjectHandler.getInstance().getCharacter(2).getBounds().intersects(owner.getBounds()))
             {
-                gameObjectHandler.getCharacter(2).setY(gameObjectHandler.getCharacter(2).getY() - 50);
-                gameObjectHandler.getCharacter(2).setHealthLevel(gameObjectHandler.getCharacter(2).getHealthLevel() - 10);
+                GameObjectHandler.getInstance().getCharacter(2).setY(GameObjectHandler.getInstance().getCharacter(2).getY() - 50);
+                GameObjectHandler.getInstance().getCharacter(2).setHealthLevel(GameObjectHandler.getInstance().getCharacter(2).getHealthLevel() - 10);
             }
         }
     }

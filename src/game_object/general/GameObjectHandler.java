@@ -29,8 +29,6 @@ public class GameObjectHandler
     private ArrayList<IUpdatable> updatables;
     private ArrayList<IRenderable> renderables;
 
-    private ArrayList<Enemy> enemies = new ArrayList<>();
-
     private Character[] character;
 
     private boolean isMultiPlayer;
@@ -181,6 +179,7 @@ public class GameObjectHandler
 
     public ArrayList<Enemy> getEnemies()
     {
+        ArrayList<Enemy> enemies = new ArrayList<>();
         for(GameObject g : getGame_objects())
         {
             if(g instanceof Enemy)

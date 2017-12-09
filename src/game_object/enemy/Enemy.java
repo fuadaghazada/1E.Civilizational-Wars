@@ -10,6 +10,7 @@ import game_object.weapon.Bullet;
 import game_object.weapon.LaserGun;
 import game_object.weapon.Rifle;
 import game_object.weapon.Weapon;
+import user_interface.Game;
 
 import javax.swing.*;
 import java.awt.*;
@@ -25,7 +26,6 @@ public class Enemy extends GameObject
     private float healthLevel = 100;
     private float damage;
 
-    private GameObjectHandler gameObjectHandler;
     private Weapon weapon;
 
     private boolean forceJump = false;
@@ -50,7 +50,7 @@ public class Enemy extends GameObject
 
     public Enemy(float x, float y, ObjectID id){
         super(x, y, id);
-        this.gameObjectHandler = gameObjectHandler;
+
         weapon = new Rifle(x, y, ObjectID.Weapon, this);
 
         setHeight(70);
@@ -61,24 +61,10 @@ public class Enemy extends GameObject
     public boolean isDead()
     {
         if(healthLevel <= 0){
-            gameObjectHandler.getGame_objects().remove(this);
-            if(LevelManager.currentLevel != null)
-                LevelManager.currentLevel.enemyDied();
-
-
-            if(LevelManager.currentLevel.getCurrentEnemy() <= 1)
-                LevelManager.currentLevel.levelFinished(1);
             return true;
         }
         else if(getY() >= 1000)
         {
-            gameObjectHandler.getGame_objects().remove(this);
-            if(LevelManager.currentLevel != null)
-                LevelManager.currentLevel.enemyDied();
-
-
-            if(LevelManager.currentLevel.getCurrentEnemy() <= 1)
-                LevelManager.currentLevel.levelFinished(1);
             return true;
         }
 
@@ -90,7 +76,7 @@ public class Enemy extends GameObject
     public void fight()
     {
         //TODO: Fire at some interval when inside the range
-        weapon.fire(gameObjectHandler, getDir());
+        weapon.fire(getDir());
 
     }
 
@@ -158,7 +144,7 @@ public class Enemy extends GameObject
         // check if the enemy is dead
         if(isDead())
         {
-            gameObjectHandler.getGame_objects().remove(this);
+            GameObjectHandler.getInstance().removeGameObject(this);
         }
 
 
@@ -197,10 +183,10 @@ public class Enemy extends GameObject
     protected boolean checkCollision()
     {
 
-        for(int i = 0; i < gameObjectHandler.getGame_objects().size(); i++)
+        for(int i = 0; i < GameObjectHandler.getInstance().getGame_objects().size(); i++)
         {
             // To keep the game objects in a temp variable - for simplicity
-            GameObject tempObject = gameObjectHandler.getGame_objects().get(i);
+            GameObject tempObject = GameObjectHandler.getInstance().getGame_objects().get(i);
 
 
 
@@ -242,9 +228,9 @@ public class Enemy extends GameObject
         }
 
 
-        for (int i = 0; i < gameObjectHandler.getBullets().size(); i++)
+        for (int i = 0; i < GameObjectHandler.getInstance().getBullets().size(); i++)
         {
-            Bullet temp = gameObjectHandler.getBullets().get(i);
+            Bullet temp = GameObjectHandler.getInstance().getBullets().get(i);
 
             if(getBounds().intersects(temp.getBounds()))
             {
@@ -252,7 +238,7 @@ public class Enemy extends GameObject
                     continue;
                 healthLevel -= temp.getDamage();
 
-                gameObjectHandler.removeBullet(temp);
+                GameObjectHandler.getInstance().removeBullet(temp);
 
                 i--;
 

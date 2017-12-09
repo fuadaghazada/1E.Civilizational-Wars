@@ -39,11 +39,10 @@ public class Rifle extends Weapon
 
     /**
      *  Fires the rifle
-     *  @param gameObjectHandler - all game objects
      */
-    public void fire(GameObjectHandler gameObjectHandler, int dir)
+    public void fire(int dir)
     {
-        gameObjectHandler.addBullet(new Bullet(x + width,
+        GameObjectHandler.getInstance().addBullet(new Bullet(x + width,
                                     y + height/2,
                                     ObjectID.Bullet,
                                     dir * 15, this, 0));

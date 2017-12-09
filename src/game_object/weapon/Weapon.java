@@ -19,7 +19,7 @@ public abstract class Weapon extends GameObject
         super(x, y, id);
     }
 
-    public abstract void fire(GameObjectHandler gameObjectHandler, int dir);
+    public abstract void fire(int dir);
 
     public abstract GameObject getOwner();
 

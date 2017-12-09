@@ -4,6 +4,7 @@ import game_object.general.GameObject;
 import game_object.general.GameObjectHandler;
 import game_object.general.ObjectID;
 import texture_stuff.ImageLoader;
+import user_interface.Game;
 
 import java.awt.*;
 
@@ -39,11 +40,10 @@ public class LaserGun extends Weapon
 
     /**
      *  Fires the rifle
-     *  @param gameObjectHandler - all game objects
      */
-    public void fire(GameObjectHandler gameObjectHandler, int dir)
+    public void fire(int dir)
     {
-        gameObjectHandler.addBullet(new Bullet(x + width,
+        GameObjectHandler.getInstance().addBullet(new Bullet(x + width,
                 y + height/2,
                 ObjectID.Bullet,
                 dir * 15, this, 1));
