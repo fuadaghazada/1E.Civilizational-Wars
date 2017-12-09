@@ -44,6 +44,35 @@ public class Character extends GameObject
         this.setWidth(50);
     }
 
+    public void move(int dir)
+    {
+        if(dir == 0)
+            setVelX(0);
+        else {
+            setDir(dir);
+            setVelX(5);
+            weapon.setDir(dir);
+        }
+    }
+
+    public void jump()
+    {
+        setJump(true);
+        setVelY(-10);
+    }
+
+    public void fight(boolean onFire)
+    {
+        if(onFire) {
+            weapon.setUsed(true);
+            weapon.fire(getDir());
+        }
+        else
+        {
+            weapon.setUsed(false);
+        }
+    }
+
     /**
      *  Checks if the character is dead or not
      */
