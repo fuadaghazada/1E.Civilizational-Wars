@@ -43,10 +43,15 @@ public class Sword extends Weapon
         }
         else if(owner.getId() == ObjectID.Enemy)
         {
-            if (gameObjectHandler.getCharacter().getBounds().intersects(owner.getBounds()))
+            if (gameObjectHandler.getCharacter(1).getBounds().intersects(owner.getBounds()))
             {
-                gameObjectHandler.getCharacter().setY(gameObjectHandler.getCharacter().getY() - 50);
-                gameObjectHandler.getCharacter().setHealthLevel(gameObjectHandler.getCharacter().getHealthLevel() - 10);
+                gameObjectHandler.getCharacter(1).setY(gameObjectHandler.getCharacter(1).getY() - 50);
+                gameObjectHandler.getCharacter(1).setHealthLevel(gameObjectHandler.getCharacter(1).getHealthLevel() - 10);
+            }
+            else if (gameObjectHandler.getCharacter(2).getBounds().intersects(owner.getBounds()))
+            {
+                gameObjectHandler.getCharacter(2).setY(gameObjectHandler.getCharacter(2).getY() - 50);
+                gameObjectHandler.getCharacter(2).setHealthLevel(gameObjectHandler.getCharacter(2).getHealthLevel() - 10);
             }
         }
     }
@@ -58,7 +63,7 @@ public class Sword extends Weapon
     }
 
     @Override
-    protected boolean checkCollision(GameObjectHandler gameObjectHandler)
+    protected boolean checkCollision()
     {
         return false;
     }

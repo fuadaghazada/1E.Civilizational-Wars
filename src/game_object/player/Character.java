@@ -6,6 +6,7 @@ import game_object.general.ObjectID;
 import game_object.weapon.Bullet;
 import game_object.weapon.Weapon;
 import main.CivilizationalWars;
+import user_interface.Game;
 import user_interface.GamePanel;
 import user_interface.MainMenuPanel;
 
@@ -21,12 +22,10 @@ public class Character extends GameObject
 
     // Properties
     private float gravity = 0.3f;
-
     private int lives = 3;
     private float healthLevel = 100f;
-
     private Weapon weapon;
-    private GameObjectHandler gameObjectHandler;
+
 
     /**
      * Constructing the character with given parameters.
@@ -35,11 +34,11 @@ public class Character extends GameObject
      * @param y - y coordinate of the character.
      * @param id - id of the character as a game object.
      */
-    public Character(float x, float y, ObjectID id, GameObjectHandler gameObjectHandler)
+    public Character(float x, float y, ObjectID id)
     {
         super(x, y, id);
 
-        this.gameObjectHandler = gameObjectHandler;
+
 
         this.setHeight(70);
         this.setWidth(50);
@@ -59,11 +58,11 @@ public class Character extends GameObject
     }
 
     @Override
-    public void update(GameObjectHandler gameObjectHandler)
+    public void update()
     {
-        super.update(gameObjectHandler);
+        super.update();
 
-        this.checkCollision(gameObjectHandler);
+        this.checkCollision();
 
         if(isDead())
         {
@@ -76,7 +75,7 @@ public class Character extends GameObject
             }
             else
             {
-                gameObjectHandler.removeGameObject(this);
+                GameObjectHandler.getInstance().removeGameObject(this);
             }
         }
     }
@@ -88,12 +87,12 @@ public class Character extends GameObject
     }
 
     @Override
-    protected boolean checkCollision(GameObjectHandler gameObjectHandler)
+    protected boolean checkCollision()
     {
-        for(int i = 0; i < gameObjectHandler.getGame_objects().size(); i++)
+        for(int i = 0; i < GameObjectHandler.getInstance().getGame_objects().size(); i++)
         {
             // To keep the game objects in a temp variable - for simplicity
-            GameObject tempObject = gameObjectHandler.getGame_objects().get(i);
+            GameObject tempObject = GameObjectHandler.getInstance().getGame_objects().get(i);
 
             //checking collision with the tiles.
             if(tempObject.getId() == ObjectID.Tile)
@@ -132,9 +131,9 @@ public class Character extends GameObject
             }
         }
 
-        for(int i = 0; i < gameObjectHandler.getBullets().size(); i++)
+        for(int i = 0; i < GameObjectHandler.getInstance().getBullets().size(); i++)
         {
-            Bullet temp = gameObjectHandler.getBullets().get(i);
+            Bullet temp = GameObjectHandler.getInstance().getBullets().get(i);
 
             if(temp.getBounds().intersects(this.getBounds()))
             {
@@ -142,7 +141,7 @@ public class Character extends GameObject
                 {
                     this.healthLevel -= temp.getDamage();
 
-                    gameObjectHandler.removeBullet(temp);
+                    GameObjectHandler.getInstance().removeBullet(temp);
 
                     i--;
 

@@ -31,11 +31,10 @@ public class Robot extends Character
      * @param x                 - x coordinate of the character.
      * @param y                 - y coordinate of the character.
      * @param id                - id of the character as a game object.
-     * @param gameObjectHandler - all game objects to check the collisions.
      */
-    public Robot (float x, float y, ObjectID id, GameObjectHandler gameObjectHandler)
+    public Robot (float x, float y, ObjectID id)
     {
-        super(x, y, id, gameObjectHandler);
+        super(x, y, id);
 
         this.init();
         this.setWeapon(laserGun);
@@ -83,12 +82,12 @@ public class Robot extends Character
     }
 
     @Override
-    public void update(GameObjectHandler gameObjectHandler)
+    public void update()
     {
-        super.update(gameObjectHandler);
+        super.update();
 
         // update the position of the rifle
-        laserGun.update(gameObjectHandler);
+        laserGun.update();
 
         // running the animations
         walkingAnimationR.runAnimation();

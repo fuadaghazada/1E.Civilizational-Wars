@@ -10,10 +10,14 @@ public enum ObjectID
     Character(),
     Tile(),
     Enemy(),
-    Weapon(), Bullet(),
+    Weapon(),
+    Bullet(),
+    Alien(),
+    ClassicSoldier(),
+    ModernSoldier(),
     Classic(),
     Modern(),
     PostModern(),
     Rifle(),
-    LaserGun();
+    LaserGun()
 }

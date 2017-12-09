@@ -1,11 +1,13 @@
 package game_object.general;
 
+import game_object.enemy.ClassicSoldier;
 import game_object.enemy.Enemy;
 import game_object.general.GameObject;
 import game_object.general.ObjectID;
 import game_object.player.Character;
 import game_object.weapon.Bullet;
 import game_object.weapon.Weapon;
+import user_interface.Game;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -17,28 +19,115 @@ import java.util.ArrayList;
  */
 public class GameObjectHandler
 {
+
+    private static GameObjectHandler instance = new GameObjectHandler();
+
     // Properties
-    private ArrayList<GameObject> game_objects = new ArrayList<>();
-    private ArrayList<Bullet> bullets = new ArrayList<>();
+    private ArrayList<GameObject> game_objects;
+    private ArrayList<Bullet> bullets;
+
+    private ArrayList<IUpdatable> updatables;
+    private ArrayList<IRenderable> renderables;
+
     private ArrayList<Enemy> enemies = new ArrayList<>();
 
-    private GameObject currentObject;
-    private Character character;
+    private Character[] character;
 
-    public GameObjectHandler() {
+    private boolean isMultiPlayer;
 
-        bullets = new ArrayList<Bullet>();
+    public static GameObjectHandler getInstance()
+    {
+        return instance;
     }
 
-    /**
-     *  Adds the given game object to the list.
-     *  @param gameObject - given game object.
-     */
-    public void addGameObject(GameObject gameObject)
+    private GameObjectHandler() {
+        game_objects = new ArrayList<>();
+        updatables = new ArrayList<>();
+        renderables = new ArrayList<>();
+        bullets = new ArrayList<>();
+        isMultiPlayer = false;
+        character = new Character[2];
+    }
+
+    public void addGameObject(ObjectID objectID, int amount, int x, int y)
     {
-        game_objects.add(gameObject);
-        if(gameObject.getId() == ObjectID.Character)
-            this.character = (Character) gameObject;
+
+        GameObject go = null;
+        if(objectID == ObjectID.Classic)
+        {
+            for (int i = 0; i < amount; i++)
+            {
+                go = new Character(x, y, objectID);
+                if(character[0] == null)
+                    character[0] = (Character) go;
+                else if(character[1] == null)
+                    character[1] = (Character) go;
+
+            }
+            //generateCharacter(objectID);
+        }
+        else if(objectID == ObjectID.Modern)
+        {
+            for (int i = 0; i < amount; i++)
+            {
+                go = new Character(x, y, objectID);
+                if(character[0] == null)
+                    character[0] = (Character) go;
+                else if(character[1] == null)
+                {
+                    character[1] = (Character) go;
+                    isMultiPlayer = true;
+                }
+            }
+        }
+        else if(objectID == ObjectID.PostModern)
+        {
+            for (int i = 0; i < amount; i++)
+            {
+                go = new Character(x, y, objectID);
+                if(character[0] == null)
+                    character[0] = (Character) go;
+                else if(character[1] == null)
+                    character[1] = (Character) go;
+            }
+        }
+        else if (objectID == ObjectID.Alien)
+        {
+            for (int i = 0; i < amount; i++)
+            {
+                go = new Enemy(x, y, objectID);
+            }
+        }
+        else if( objectID == ObjectID.ClassicSoldier)
+        {
+            for (int i = 0; i < amount; i++)
+            {
+                go = new Enemy(x, y, objectID);
+            }
+        }
+        else if( objectID == ObjectID.ModernSoldier)
+        {
+            for (int i = 0; i < amount; i++)
+            {
+                go = new Enemy(x, y, objectID);
+            }
+        }
+
+        //Add the game object ot render and update
+        updatables.add(go);
+        renderables.add(go);
+        game_objects.add(go);
+
+    }
+
+    //To add the existing objects
+    public void addGameObject(GameObject go)
+    {
+        if(!updatables.contains(go))
+            updatables.add(go);
+        if(!renderables.contains(go))
+            renderables.add(go);
+        game_objects.add(go);
     }
 
     /**
@@ -73,17 +162,9 @@ public class GameObjectHandler
      */
     public void updateAll()
     {
-        for(int i = 0; i < game_objects.size(); i++)
-        {
-            currentObject = game_objects.get(i);
+        for (IUpdatable go : updatables)
+            go.update();
 
-            currentObject.update(this);
-        }
-
-        for(int i = 0; i < bullets.size(); i++)
-        {
-            bullets.get(i).update(this);
-        }
     }
 
     /**
@@ -91,17 +172,8 @@ public class GameObjectHandler
      */
     public void renderAll(Graphics g)
     {
-        for(int i = 0; i < game_objects.size(); i++)
-        {
-            currentObject = game_objects.get(i);
-
-            currentObject.render(g);
-        }
-
-        for(int i = 0; i < bullets.size(); i++)
-        {
-            bullets.get(i).render(g);
-        }
+        for (IRenderable i : renderables)
+            i.render(g);
     }
 
     //ACCESS & MUTATE
@@ -121,10 +193,14 @@ public class GameObjectHandler
 
     public ArrayList<Bullet> getBullets() { return bullets; }
 
-    public Character getCharacter()
+    public Character getCharacter(int index)
     {
-        return character;
+        return character[index];
     }
 
     public int getSize() { return getGame_objects().size(); }
+
+    public boolean isMultiPlayer() {
+        return isMultiPlayer;
+    }
 }

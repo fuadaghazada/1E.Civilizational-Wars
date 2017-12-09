@@ -15,11 +15,10 @@ public class Alien extends Enemy
      *  @param x - x coordinate
      *  @param y - y coordinate
      *  @param id - id of the object
-     *  @param gameObjectHandler - game objects
      */
-    public Alien(float x, float y, ObjectID id, GameObjectHandler gameObjectHandler)
+    public Alien(float x, float y, ObjectID id )
     {
-        super(x, y, id, gameObjectHandler);
+        super(x, y, id);
 
         // textures
         imageLoader = new ImageLoader(ObjectID.PostModern);
@@ -55,8 +54,8 @@ public class Alien extends Enemy
     }
 
     @Override
-    public void update(GameObjectHandler gameObjectHandler)
+    public void update()
     {
-        super.update(gameObjectHandler);
+        super.update();
     }
 }

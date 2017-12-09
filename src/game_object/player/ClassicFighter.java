@@ -32,11 +32,10 @@ public class ClassicFighter extends Character
      * @param x                 - x coordinate of the character.
      * @param y                 - y coordinate of the character.
      * @param id                - id of the character as a game object.
-     * @param gameObjectHandler - all game objects to check the collisions.
      */
-    public ClassicFighter(float x, float y, ObjectID id, GameObjectHandler gameObjectHandler)
+    public ClassicFighter(float x, float y, ObjectID id)
     {
-        super(x, y, id, gameObjectHandler);
+        super(x, y, id);
 
         this.init();
         this.setWeapon(sword);
@@ -92,12 +91,12 @@ public class ClassicFighter extends Character
     }
 
     @Override
-    public void update(GameObjectHandler gameObjectHandler)
+    public void update()
     {
-        super.update(gameObjectHandler);
+        super.update();
 
         // update the position of the rifle
-        sword.update(gameObjectHandler);
+        sword.update();
 
         // running the animations
         walkingAnimationR.runAnimation();

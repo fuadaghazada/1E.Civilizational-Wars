@@ -17,11 +17,10 @@ public class ClassicSoldier extends Enemy
      *  @param x - x coordinate
      *  @param y - y coordinate
      *  @param id - id of the object
-     *  @param gameObjectHandler - game objects
      */
-    public ClassicSoldier(float x, float y, ObjectID id, GameObjectHandler gameObjectHandler)
+    public ClassicSoldier(float x, float y, ObjectID id)
     {
-        super(x, y, id, gameObjectHandler);
+        super(x, y, id);
 
         this.init();
 
@@ -66,8 +65,8 @@ public class ClassicSoldier extends Enemy
     }
 
     @Override
-    public void update(GameObjectHandler gameObjectHandler)
+    public void update()
     {
-        super.update(gameObjectHandler);
+        super.update();
     }
 }

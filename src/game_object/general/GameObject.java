@@ -45,13 +45,9 @@ public abstract class GameObject implements IUpdatable, IRenderable
         velY = 0;
     }
 
-    /**
-     * Updates the properties of the game object.
-     *
-     * @param gameObjectHandler - to check the collision between the game objects.
-     */
+
     @Override
-    public void update(GameObjectHandler gameObjectHandler)
+    public void update()
     {
         x += velX;
         y += velY;
@@ -74,7 +70,7 @@ public abstract class GameObject implements IUpdatable, IRenderable
     @Override
     public abstract void render(Graphics g);
 
-    protected abstract boolean checkCollision(GameObjectHandler gameObjectHandler);
+    protected abstract boolean checkCollision();
 
     /**
      *  Access the bounds of the object in a rectangle.

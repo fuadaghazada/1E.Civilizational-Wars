@@ -48,7 +48,7 @@ public class Enemy extends GameObject
 
 
 
-    public Enemy(float x, float y, ObjectID id, GameObjectHandler gameObjectHandler){
+    public Enemy(float x, float y, ObjectID id){
         super(x, y, id);
         this.gameObjectHandler = gameObjectHandler;
         weapon = new Rifle(x, y, ObjectID.Weapon, this);
@@ -95,14 +95,34 @@ public class Enemy extends GameObject
     }
 
     @Override
-    public void update(GameObjectHandler gameObjectHandler) {
+    public void update() {
 
-        super.update(gameObjectHandler);
-        this.checkCollision(gameObjectHandler);
-        weapon.update(gameObjectHandler);
+        super.update();
+        this.checkCollision();
+        weapon.update();
         //TODO: Move through the character
-        Character player =  gameObjectHandler.getCharacter();
+        Character player;
+        Character player1 =  GameObjectHandler.getInstance().getCharacter(1);
+        Character player2 =  GameObjectHandler.getInstance().getCharacter(2);
 
+        if(player1 == null && player2 == null)
+            return;
+        else if (player2 == null)
+        {
+            player = player1;
+        }
+        else if (player1 == null)
+        {
+            player = player2;
+        }
+        else{
+            //Calculate which one is closer
+            if(Math.abs(this.x - player1.getX()) < Math.abs(this.x - player2.getX()))
+                player = player1;
+            else
+                player = player2;
+
+        }
 
 
 
@@ -174,7 +194,7 @@ public class Enemy extends GameObject
     }
 
     @Override
-    protected boolean checkCollision(GameObjectHandler gameObjectHandler)
+    protected boolean checkCollision()
     {
 
         for(int i = 0; i < gameObjectHandler.getGame_objects().size(); i++)

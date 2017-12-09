@@ -15,11 +15,10 @@ public class ModernSoldier extends Enemy
      *  @param x - x coordinate
      *  @param y - y coordinate
      *  @param id - id of the object
-     *  @param gameObjectHandler - game objects
      */
-    public ModernSoldier(float x, float y, ObjectID id, GameObjectHandler gameObjectHandler)
+    public ModernSoldier(float x, float y, ObjectID id)
     {
-        super(x, y, id, gameObjectHandler);
+        super(x, y, id);
 
         // textures
         imageLoader = new ImageLoader(ObjectID.Modern);
@@ -56,8 +55,8 @@ public class ModernSoldier extends Enemy
     }
 
     @Override
-    public void update(GameObjectHandler gameObjectHandler)
+    public void update()
     {
-        super.update(gameObjectHandler);
+        super.update();
     }
 }

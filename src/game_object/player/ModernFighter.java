@@ -31,11 +31,10 @@ public class ModernFighter extends Character
      * @param x                 - x coordinate of the character.
      * @param y                 - y coordinate of the character.
      * @param id                - id of the character as a game object.
-     * @param gameObjectHandler - all game objects to check the collisions.
      */
-    public ModernFighter(float x, float y, ObjectID id, GameObjectHandler gameObjectHandler)
+    public ModernFighter(float x, float y, ObjectID id)
     {
-        super(x, y, id, gameObjectHandler);
+        super(x, y, id);
 
         this.init();
         this.setWeapon(rifle);
@@ -83,12 +82,12 @@ public class ModernFighter extends Character
     }
 
     @Override
-    public void update(GameObjectHandler gameObjectHandler)
+    public void update()
     {
-        super.update(gameObjectHandler);
+        super.update();
 
         // update the position of the rifle
-        rifle.update(gameObjectHandler);
+        rifle.update();
 
         // running the animations
         walkingAnimationR.runAnimation();

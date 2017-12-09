@@ -4,6 +4,7 @@ import game_object.general.GameObject;
 import game_object.general.GameObjectHandler;
 import game_object.general.ObjectID;
 import texture_stuff.ImageLoader;
+import user_interface.Game;
 
 import java.awt.*;
 
@@ -45,16 +46,16 @@ public class Rifle extends Weapon
         gameObjectHandler.addBullet(new Bullet(x + width,
                                     y + height/2,
                                     ObjectID.Bullet,
-                                    dir * 15, gameObjectHandler, this, 0));
+                                    dir * 15, this, 0));
     }
 
     @Override
-    public void update(GameObjectHandler gameObjectHandler)
+    public void update()
     {
         this.setX(owner.getX() + owner.getWidth()/4);
         this.setY(owner.getY() + owner.getHeight()/2 + 8);
 
-        this.clearBulletList(gameObjectHandler);
+        this.clearBulletList();
     }
 
     @Override
@@ -67,25 +68,24 @@ public class Rifle extends Weapon
     }
 
     @Override
-    protected boolean checkCollision(GameObjectHandler gameObjectHandler)
+    protected boolean checkCollision()
     {
         return false;
     }
 
     /**
      *  Clears the bullets when it hits tiles.
-     *  @param gameObjectHandler - game objects
      */
-    public void clearBulletList(GameObjectHandler gameObjectHandler)
+    public void clearBulletList()
     {
 
-        for(int i = 0; i < gameObjectHandler.getBullets().size(); i++)
+        for(int i = 0; i < GameObjectHandler.getInstance().getBullets().size(); i++)
         {
-            Bullet bullet = gameObjectHandler.getBullets().get(i);
+            Bullet bullet = GameObjectHandler.getInstance().getBullets().get(i);
 
-            if(bullet.checkCollision(gameObjectHandler))
+            if(bullet.checkCollision())
             {
-                gameObjectHandler.removeBullet(bullet);
+                GameObjectHandler.getInstance().removeBullet(bullet);
                 break;
             }
         }

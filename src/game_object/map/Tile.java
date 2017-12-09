@@ -51,18 +51,10 @@ public class Tile extends GameObject
         imageLoader = new ImageLoader(ObjectID.Tile);
     }
 
-    /**
-     *	Updating the tile properties.
-     */
-    public void update()
-    {
 
-    }
 
     @Override
-    public void update(GameObjectHandler gameObjectHandler) {
-
-    }
+    public void update() { }
 
     /**
      * Rendering the tile in terms of its properties.
@@ -73,7 +65,7 @@ public class Tile extends GameObject
     }
 
     @Override
-    protected boolean checkCollision(GameObjectHandler gameObjectHandler) { return false; }
+    protected boolean checkCollision() { return false; }
 
 
     // ACCESS & MUTATE
