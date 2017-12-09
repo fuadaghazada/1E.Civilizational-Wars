@@ -1,8 +1,6 @@
 package user_interface;
 
-import game_management.ClassicLevel;
-import game_management.InputManager;
-import game_object.general.GameObject;
+
 import main.CivilizationalWars;
 
 import javax.swing.*;
