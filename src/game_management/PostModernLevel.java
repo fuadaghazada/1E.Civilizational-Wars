@@ -11,16 +11,20 @@ import game_object.player.ClassicFighter;
 import main.CivilizationalWars;
 import user_interface.GamePanel;
 
+import java.awt.*;
+
 public class PostModernLevel implements ILevelInterface
 {
     //constants
-    public static final int ENEMY_NUM = 7;
+    public final int ENEMY_NUM = 7;
 
     // Properties
     private String name;
-    private TileMap tileMap;
+    private String tileMap;
     private ObjectID enemyType;
     private ObjectID characterType;
+    private Point [] characterPositions;
+    private Point [] enemyPositions;
 
     private int currentEnemy;
 
@@ -30,21 +34,18 @@ public class PostModernLevel implements ILevelInterface
     public PostModernLevel()
     {
         name = "Post-Modern Period";
-        tileMap = new TileMap("src/resources/map_files/map_level_3.txt");
-        enemyType = ObjectID.PostModern;
-        characterType = ObjectID.PostModern;
+        tileMap = "src/resources/map_files/map_level_3.txt";
+        enemyType = ObjectID.Alien;
+        characterType = ObjectID.Robot;
         currentEnemy = ENEMY_NUM;
-    }
 
-
-    @Override
-    public int getCurrentEnemy() {
-        return currentEnemy;
+        characterPositions = new Point[2];
+        enemyPositions = new Point[ENEMY_NUM];
     }
 
     @Override
-    public TileMap getLevelTileMap() {
-        return null;
+    public String getLevelTileMap() {
+        return tileMap;
     }
 
     @Override
@@ -58,13 +59,17 @@ public class PostModernLevel implements ILevelInterface
     }
 
     @Override
-    public int getWeaponType() {
+    public int getCharacterType() {
         return 0;
     }
 
     @Override
-    public int getCharacterType() {
-        return 0;
-    }
+    public Point[] getCharacterPositions(){ return characterPositions; }
+
+    @Override
+    public Point [] getEnemyPositions() { return enemyPositions; }
+
+    @Override
+    public int getEnemySize() {return ENEMY_NUM; }
 
 }

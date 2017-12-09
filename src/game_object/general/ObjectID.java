@@ -12,12 +12,12 @@ public enum ObjectID
     Enemy(),
     Weapon(),
     Bullet(),
+    ClassicFighter(),
+    ModernFighter(),
+    Robot,
     Alien(),
     ClassicSoldier(),
     ModernSoldier(),
-    Classic(),
-    Modern(),
-    PostModern(),
     Rifle(),
     LaserGun()
 }

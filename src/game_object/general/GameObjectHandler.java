@@ -4,6 +4,7 @@ import game_object.enemy.ClassicSoldier;
 import game_object.enemy.Enemy;
 import game_object.general.GameObject;
 import game_object.general.ObjectID;
+import game_object.map.TileMap;
 import game_object.player.Character;
 import game_object.weapon.Bullet;
 import game_object.weapon.Weapon;
@@ -31,6 +32,8 @@ public class GameObjectHandler
 
     private Character[] character;
 
+    private TileMap tileMap;
+
     private boolean isMultiPlayer;
 
     public static GameObjectHandler getInstance()
@@ -47,15 +50,14 @@ public class GameObjectHandler
         character = new Character[2];
     }
 
-    public void addGameObject(ObjectID objectID, int amount, int x, int y)
+    public void addGameObject(ObjectID objectID, int amount, Point [] points)
     {
-
         GameObject go = null;
-        if(objectID == ObjectID.Classic)
+        if(objectID == ObjectID.ClassicFighter)
         {
             for (int i = 0; i < amount; i++)
             {
-                go = new Character(x, y, objectID);
+                go = new Character(points[i].getX(), points[i].getY(), objectID);
                 if(character[0] == null)
                     character[0] = (Character) go;
                 else if(character[1] == null)
@@ -64,11 +66,11 @@ public class GameObjectHandler
             }
             //generateCharacter(objectID);
         }
-        else if(objectID == ObjectID.Modern)
+        else if(objectID == ObjectID.ModernFighter)
         {
             for (int i = 0; i < amount; i++)
             {
-                go = new Character(x, y, objectID);
+                go = new Character(points[i].getX(), points[i].getY(), objectID);
                 if(character[0] == null)
                     character[0] = (Character) go;
                 else if(character[1] == null)
@@ -78,11 +80,11 @@ public class GameObjectHandler
                 }
             }
         }
-        else if(objectID == ObjectID.PostModern)
+        else if(objectID == ObjectID.Robot)
         {
             for (int i = 0; i < amount; i++)
             {
-                go = new Character(x, y, objectID);
+                go = new Character(points[i].getX(), points[i].getY(), objectID);
                 if(character[0] == null)
                     character[0] = (Character) go;
                 else if(character[1] == null)
@@ -93,21 +95,21 @@ public class GameObjectHandler
         {
             for (int i = 0; i < amount; i++)
             {
-                go = new Enemy(x, y, objectID);
+                go = new Enemy(points[i].getX(), points[i].getY(), objectID);
             }
         }
         else if( objectID == ObjectID.ClassicSoldier)
         {
             for (int i = 0; i < amount; i++)
             {
-                go = new Enemy(x, y, objectID);
+                go = new Enemy(points[i].getX(), points[i].getY(), objectID);
             }
         }
         else if( objectID == ObjectID.ModernSoldier)
         {
             for (int i = 0; i < amount; i++)
             {
-                go = new Enemy(x, y, objectID);
+                go = new Enemy(points[i].getX(), points[i].getY(), objectID);
             }
         }
 
@@ -126,6 +128,13 @@ public class GameObjectHandler
         if(!renderables.contains(go))
             renderables.add(go);
         game_objects.add(go);
+    }
+
+    public void addTile(String fileName)
+    {
+        tileMap = new TileMap(fileName);
+
+        renderables.add(tileMap);
     }
 
     /**

@@ -11,8 +11,9 @@ package game_object.map;
  *  @version - 1.00
  */
 
-import java.awt.Color;
-import java.awt.Graphics2D;
+import game_object.general.IRenderable;
+
+import java.awt.*;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -20,7 +21,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 
-public class TileMap
+public class TileMap implements IRenderable
 {
     //Constants
 
@@ -107,13 +108,14 @@ public class TileMap
     /**
      *  Draws the tiled map using the data from the file
      */
-    public void render(Graphics2D g2)
+    @Override
+    public void render(Graphics g)
     {
-        g2.setColor(Color.BLACK);
+        g.setColor(Color.BLACK);
 
         for(int i = 0; i < tiles.size(); i++)
         {
-            tiles.get(i).render(g2);
+            tiles.get(i).render(g);
         }
     }
 
@@ -163,4 +165,5 @@ public class TileMap
     {
         this.mapHeight = mapHeight;
     }
+
 }

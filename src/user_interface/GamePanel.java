@@ -46,7 +46,6 @@ public class GamePanel extends JPanel implements Runnable
     // Game Properties
     private GameManager gameManager;
     private Camera camera;
-    private ILevelInterface current = null;
 
     /**
      *   Constructs the game panel
@@ -55,7 +54,7 @@ public class GamePanel extends JPanel implements Runnable
     {
         init();
         //start();
-        current = LevelManager.currentLevel;
+
         setFocusable(true);
     }
 
@@ -156,7 +155,7 @@ public class GamePanel extends JPanel implements Runnable
         g2.translate(-camera.getX(), -camera.getY());
 
         //game manager
-        LevelManager.currentLevel.gameObjects().renderAll(g);
+        GameObjectHandler.getInstance().renderAll(g);
 
         g2.translate(camera.getX(), camera.getY());
 

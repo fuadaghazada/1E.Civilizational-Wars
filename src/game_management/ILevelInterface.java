@@ -3,12 +3,18 @@ package game_management;
 import game_object.general.GameObjectHandler;
 import game_object.map.TileMap;
 
+import java.awt.*;
+
 public interface ILevelInterface {
 
-    TileMap getLevelTileMap();
+    String getLevelTileMap();
     String getName();
     int getEnemyType();
-    int getWeaponType();
     int getCharacterType();
-    int getCurrentEnemy();
+
+    int getEnemySize();
+
+    Point [] getCharacterPositions();
+    Point [] getEnemyPositions();
+
 }

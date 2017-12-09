@@ -1,8 +1,6 @@
 package game_object.general;
 
 import java.awt.*;
-import java.awt.geom.AffineTransform;
-import java.util.ArrayList;
 
 /**
  *  This class represents the basic properties of the game objects.
@@ -16,7 +14,7 @@ public abstract class GameObject implements IUpdatable, IRenderable
 
     // Properties
     protected ObjectID id;
-    protected float x, y;
+    protected double x, y;
     protected int width, height;
     protected float velX, velY;
     protected boolean isJump;
@@ -28,11 +26,11 @@ public abstract class GameObject implements IUpdatable, IRenderable
 
     /**
      *  Constructing the game object with given parameters.
-     *  @param x - x coordinate of the game object.
+     * @param x - x coordinate of the game object.
      *  @param y - y coordinate of the game object.
-     *  @param id - object id defines the type of the objects.
+     * @param id - object id defines the type of the objects.
      */
-    public GameObject(float x, float y, ObjectID id)
+    public GameObject(double x, double y, ObjectID id)
     {
         this.x = x;
         this.y = y;
@@ -84,22 +82,22 @@ public abstract class GameObject implements IUpdatable, IRenderable
         return id;
     }
 
-    public float getX()
+    public double getX()
     {
         return x;
     }
 
-    public void setX(float x)
+    public void setX(double x)
     {
         this.x = x;
     }
 
-    public float getY()
+    public double getY()
     {
         return y;
     }
 
-    public void setY(float y)
+    public void setY(double y)
     {
         this.y = y;
     }

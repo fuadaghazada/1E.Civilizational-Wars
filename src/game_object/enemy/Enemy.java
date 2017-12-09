@@ -1,20 +1,15 @@
 package game_object.enemy;
 
-import game_management.GameManager;
-import game_management.LevelManager;
 import game_object.general.GameObject;
 import game_object.general.GameObjectHandler;
 import game_object.general.ObjectID;
 import game_object.player.Character;
 import game_object.weapon.Bullet;
-import game_object.weapon.LaserGun;
 import game_object.weapon.Rifle;
 import game_object.weapon.Weapon;
-import user_interface.Game;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.ArrayList;
 
 /**
  *  This class will represent the enemies of the game with its given parameters and methods.
@@ -48,7 +43,7 @@ public class Enemy extends GameObject
 
 
 
-    public Enemy(float x, float y, ObjectID id){
+    public Enemy(double x, double y, ObjectID id){
         super(x, y, id);
 
         weapon = new Rifle(x, y, ObjectID.Weapon, this);
