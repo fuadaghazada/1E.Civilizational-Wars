@@ -40,7 +40,7 @@ public class ModernFighter extends Character
         this.setWeapon(rifle);
 
         // loads the necessary images
-        imageLoader = new ImageLoader(ObjectID.Modern);
+        imageLoader = new ImageLoader(ObjectID.ModernFighter);
 
         // initiating the player animations
         walkingAnimationR = new Animation(5,imageLoader.getPlayer_walkingR());

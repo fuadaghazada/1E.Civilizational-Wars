@@ -21,7 +21,7 @@ public class Alien extends Enemy
         super(x, y, id);
 
         // textures
-        imageLoader = new ImageLoader(ObjectID.PostModern);
+        imageLoader = new ImageLoader(ObjectID.Alien);
     }
 
     @Override

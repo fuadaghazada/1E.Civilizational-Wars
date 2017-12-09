@@ -15,12 +15,11 @@ public class Bullet extends GameObject
 
     /**
      * Constructing the game object with given parameters.
-     *
-     * @param x  - x coordinate of the game object.
+     *  @param x  - x coordinate of the game object.
      * @param y  - y coordinate of the game object.
      * @param id - object id defines the type of the objects.
      */
-    public Bullet(float x, float y, ObjectID id, float velX, Weapon weapon, int bullet_type)
+    public Bullet(double x, double y, ObjectID id, float velX, Weapon weapon, int bullet_type)
 
     {
         super(x, y, id);

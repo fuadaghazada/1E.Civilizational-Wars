@@ -4,7 +4,6 @@ import game_object.general.GameObject;
 import game_object.general.GameObjectHandler;
 import game_object.general.ObjectID;
 import texture_stuff.ImageLoader;
-import user_interface.Game;
 
 import java.awt.*;
 
@@ -20,12 +19,11 @@ public class LaserGun extends Weapon
     private GameObject owner;
     /**
      * Constructing the game object weapon with given parameters.
-     *
-     * @param x  - x coordinate of the game object.
+     *  @param x  - x coordinate of the game object.
      * @param y  - y coordinate of the game object.
      * @param id - object id defines the type of the objects.
      */
-    public LaserGun(float x, float y, ObjectID id, GameObject owner)
+    public LaserGun(double x, double y, ObjectID id, GameObject owner)
     {
         super(x, y, id);
 

@@ -21,7 +21,7 @@ public class ModernSoldier extends Enemy
         super(x, y, id);
 
         // textures
-        imageLoader = new ImageLoader(ObjectID.Modern);
+        imageLoader = new ImageLoader(ObjectID.ModernSoldier);
     }
 
     @Override

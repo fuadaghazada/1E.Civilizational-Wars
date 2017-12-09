@@ -1,6 +1,5 @@
 package game_object.weapon;
 
-import game_object.enemy.ClassicSoldier;
 import game_object.enemy.Enemy;
 import game_object.general.GameObject;
 import game_object.general.GameObjectHandler;
@@ -15,12 +14,11 @@ public class Sword extends Weapon
 
     /**
      * Constructing the game object weapon with given parameters.
-     *
-     * @param x  - x coordinate of the game object.
+     *  @param x  - x coordinate of the game object.
      * @param y  - y coordinate of the game object.
      * @param id - object id defines the type of the objects.
      */
-    public Sword(float x, float y, ObjectID id, GameObject owner)
+    public Sword(double x, double y, ObjectID id, GameObject owner)
     {
         super(x, y, id);
 

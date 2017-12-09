@@ -1,7 +1,6 @@
 package game_object.weapon;
 
 import game_object.general.GameObject;
-import game_object.general.GameObjectHandler;
 import game_object.general.ObjectID;
 
 public abstract class Weapon extends GameObject
@@ -9,12 +8,11 @@ public abstract class Weapon extends GameObject
     private boolean isUsed = false;
     /**
      * Constructing the game object weapon with given parameters.
-     *
-     * @param x  - x coordinate of the game object.
+     *  @param x  - x coordinate of the game object.
      * @param y  - y coordinate of the game object.
      * @param id - object id defines the type of the objects.
      */
-    public Weapon(float x, float y, ObjectID id)
+    public Weapon(double x, double y, ObjectID id)
     {
         super(x, y, id);
     }

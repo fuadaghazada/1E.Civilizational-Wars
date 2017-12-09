@@ -1,14 +1,9 @@
 package game_object.general;
 
-import game_object.enemy.ClassicSoldier;
 import game_object.enemy.Enemy;
-import game_object.general.GameObject;
-import game_object.general.ObjectID;
 import game_object.map.TileMap;
 import game_object.player.Character;
 import game_object.weapon.Bullet;
-import game_object.weapon.Weapon;
-import user_interface.Game;
 
 import java.awt.*;
 import java.util.ArrayList;

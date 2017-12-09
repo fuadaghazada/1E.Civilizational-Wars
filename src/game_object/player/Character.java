@@ -5,10 +5,6 @@ import game_object.general.GameObjectHandler;
 import game_object.general.ObjectID;
 import game_object.weapon.Bullet;
 import game_object.weapon.Weapon;
-import main.CivilizationalWars;
-import user_interface.Game;
-import user_interface.GamePanel;
-import user_interface.MainMenuPanel;
 
 import java.awt.*;
 
@@ -34,11 +30,9 @@ public class Character extends GameObject
      * @param y - y coordinate of the character.
      * @param id - id of the character as a game object.
      */
-    public Character(float x, float y, ObjectID id)
+    public Character(double x, double y, ObjectID id)
     {
         super(x, y, id);
-
-
 
         this.setHeight(70);
         this.setWidth(50);

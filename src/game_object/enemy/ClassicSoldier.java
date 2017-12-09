@@ -33,7 +33,7 @@ public class ClassicSoldier extends Enemy
     private void init()
     {
         // textures
-        imageLoader = new ImageLoader(ObjectID.Classic);
+        imageLoader = new ImageLoader(ObjectID.ClassicSoldier);
 
         sword = new Sword(x, y, ObjectID.Weapon, this);
     }

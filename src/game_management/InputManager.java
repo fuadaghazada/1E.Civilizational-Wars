@@ -1,12 +1,7 @@
 package game_management;
 
-import game_object.general.GameObject;
 import game_object.general.GameObjectHandler;
-import game_object.general.ObjectID;
-import game_object.weapon.Bullet;
 import main.CivilizationalWars;
-import user_interface.Game;
-import user_interface.LoadLevelPanel;
 import user_interface.MainMenuPanel;
 
 import java.awt.event.KeyEvent;

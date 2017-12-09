@@ -37,7 +37,7 @@ public class ImageLoader
     {
         this.id  = id;
 
-        if (id.equals(ObjectID.Classic))
+        if (id.equals(ObjectID.ClassicSoldier))
         {
             player_still = new Image[2];
             player_still[0] = new ImageIcon("src/resources/game_textures/player/classic_soldier/test_player.png").getImage();
@@ -47,7 +47,7 @@ public class ImageLoader
             enemy_still[0] = new ImageIcon("src/resources/game_textures/enemy/classic/test_enemy.png").getImage();
             enemy_still[1] = new ImageIcon("src/resources/game_textures/enemy/classic/test_enemy_l.png").getImage();
         }
-        else if(id.equals(ObjectID.Modern))
+        else if(id.equals(ObjectID.ModernSoldier))
         {
             player_still = new Image[2];
             player_still[0] = new ImageIcon("src/resources/game_textures/player/modern_soldier/test_player.png").getImage();
@@ -57,7 +57,7 @@ public class ImageLoader
             enemy_still[0] = new ImageIcon("src/resources/game_textures/enemy/modern/test_enemy.png").getImage();
             enemy_still[1] = new ImageIcon("src/resources/game_textures/enemy/modern/test_enemy_l.png").getImage();
         }
-        else if(id.equals(ObjectID.PostModern))
+        else if(id.equals(ObjectID.Robot))
         {
             player_still = new Image[2];
             player_still[0] = new ImageIcon("src/resources/game_textures/player/robot/test_player.png").getImage();
@@ -93,7 +93,7 @@ public class ImageLoader
      */
     private void loadWalking()
     {
-        if(id == ObjectID.Classic)
+        if(id == ObjectID.ClassicSoldier)
         {
             player_walkingR = new Image[9];
 
@@ -107,7 +107,7 @@ public class ImageLoader
                 player_walkingL[i] = new ImageIcon("src/resources/game_textures/player/classic_soldier/test_player_walk" + (i + 1) + "_l.png").getImage();
             }
         }
-        else if(id == ObjectID.Modern)
+        else if(id == ObjectID.ModernSoldier)
         {
             player_walkingR = new Image[2];
 
@@ -121,7 +121,7 @@ public class ImageLoader
                 player_walkingL[i] = new ImageIcon("src/resources/game_textures/player/modern_soldier/test_player_walk" + (i + 1) + "_l.png").getImage();
             }
         }
-        else if(id == ObjectID.PostModern)
+        else if(id == ObjectID.Robot)
         {
             player_walkingR = new Image[8];
 
@@ -142,7 +142,7 @@ public class ImageLoader
      */
     private void loadJumping()
     {
-        if(id == ObjectID.Classic)
+        if(id == ObjectID.ClassicSoldier)
         {
             player_jumpingR = new Image[1];
 
@@ -156,7 +156,7 @@ public class ImageLoader
                 player_jumpingL[i] = new ImageIcon("src/resources/game_textures/player/classic_soldier/test_player_jump" + (i + 1) + "_l.png").getImage();
             }
         }
-        else if(id == ObjectID.Modern)
+        else if(id == ObjectID.ModernSoldier)
         {
             player_jumpingR = new Image[1];
 
@@ -170,7 +170,7 @@ public class ImageLoader
                 player_jumpingL[i] = new ImageIcon("src/resources/game_textures/player/modern_soldier/test_player_jump" + (i + 1) + "_l.png").getImage();
             }
         }
-        else if(id == ObjectID.PostModern)
+        else if(id == ObjectID.Robot)
         {
             player_jumpingR = new Image[9];
 
@@ -191,7 +191,7 @@ public class ImageLoader
      */
     private void loadFighting()
     {
-        if(id == ObjectID.Classic)
+        if(id == ObjectID.ClassicSoldier)
         {
             player_fightingR = new Image[9];
 

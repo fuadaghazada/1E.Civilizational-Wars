@@ -41,7 +41,7 @@ public class ClassicFighter extends Character
         this.setWeapon(sword);
 
         // loads the necessary images
-        imageLoader = new ImageLoader(ObjectID.Classic);
+        imageLoader = new ImageLoader(ObjectID.ClassicFighter);
 
         // initiating the player animations
         walkingAnimationR = new Animation(5,imageLoader.getPlayer_walkingR());

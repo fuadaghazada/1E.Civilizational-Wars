@@ -40,7 +40,7 @@ public class Robot extends Character
         this.setWeapon(laserGun);
 
         // loads the necessary images
-        imageLoader = new ImageLoader(ObjectID.PostModern);
+        imageLoader = new ImageLoader(ObjectID.Robot);
 
         // initiating the player animations
         walkingAnimationR = new Animation(5,imageLoader.getPlayer_walkingR());

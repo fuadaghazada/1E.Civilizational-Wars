@@ -10,14 +10,14 @@ import game_object.general.GameObject;
 public class Camera
 {
     // Properties
-    private float x, y;
+    private double x, y;
 
     /**
      *  Constructs the camera with given coordinates.
      *  @param x - x coordinate of the given object.
      *  @param y - y coordinate of the given object.
      */
-    public Camera(float x, float y)
+    public Camera(double x, double y)
     {
         this.x = x;
         this.y = y;
@@ -36,16 +36,16 @@ public class Camera
 
     // ACCESS & MUTATE METHODS
 
-    public float getX() { return x; }
+    public double getX() { return x; }
 
-    public void setX(float x) { this.x = x; }
+    public void setX(double x) { this.x = x; }
 
-    public float getY()
+    public double getY()
     {
         return y;
     }
 
-    public void setY(float y)
+    public void setY(double y)
     {
         this.y = y;
     }
