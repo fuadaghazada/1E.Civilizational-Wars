@@ -41,7 +41,11 @@ public class ClassicLevel implements ILevelInterface
         currentEnemy = ENEMY_NUM;
 
         characterPositions = new Point[2];
-        enemyPositions = new Point[ENEMY_NUM];
+        enemyPositions = new Point[1];
+
+        characterPositions[0] = new Point(50,50);
+
+        enemyPositions[0] = new Point(70, 50);
     }
 
     @Override

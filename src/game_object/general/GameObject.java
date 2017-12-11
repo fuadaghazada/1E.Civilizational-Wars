@@ -47,7 +47,8 @@ public abstract class GameObject implements IUpdatable, IRenderable
     @Override
     public void update()
     {
-        x += velX;
+
+        x += velX * dir;
         y += velY;
 
         if(isFall || isJump)

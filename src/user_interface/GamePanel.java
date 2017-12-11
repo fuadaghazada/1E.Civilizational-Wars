@@ -67,6 +67,7 @@ public class GamePanel extends JPanel implements Runnable
         camera = new Camera(0,0);
         game_thread = new Thread(this);
         isRunning = false;
+        //start();
     }
 
     /**
@@ -78,13 +79,7 @@ public class GamePanel extends JPanel implements Runnable
         game_thread.start();
         setFocusable(true);
         requestFocusInWindow();
-        //this.addKeyListener(LevelManager.currentLevel.getInputManager());
-    }
-
-    public void stop()
-    {
-        isRunning = false;
-        game_thread = new Thread(this);
+        this.addKeyListener(gameManager.getInputManager());
     }
 
     /**
@@ -138,6 +133,7 @@ public class GamePanel extends JPanel implements Runnable
 //            camera.update(LevelManager.currentLevel.gameObjects().getCharacter());
 //            LevelManager.currentLevel.gameObjects().updateAll();
 //        }
+        gameManager.update();
     }
 
     /**
@@ -155,7 +151,7 @@ public class GamePanel extends JPanel implements Runnable
         g2.translate(-camera.getX(), -camera.getY());
 
         //game manager
-        GameObjectHandler.getInstance().renderAll(g);
+        gameManager.render(g);
 
         g2.translate(camera.getX(), camera.getY());
 

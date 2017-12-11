@@ -86,7 +86,7 @@ public class Character extends GameObject
         super.update();
 
         this.checkCollision();
-
+        //TODO: put this code to gamemanager and handle there
         if(isDead())
         {
             if(lives > 0)
@@ -160,7 +160,7 @@ public class Character extends GameObject
 
             if(temp.getBounds().intersects(this.getBounds()))
             {
-                if(temp.getWeapon().getOwner().getId() == ObjectID.Enemy)
+                if(temp.getWeapon().getOwner().getId() == ObjectID.ModernSoldier)
                 {
                     this.healthLevel -= temp.getDamage();
 

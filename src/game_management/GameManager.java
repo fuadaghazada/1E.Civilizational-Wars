@@ -4,6 +4,8 @@ package game_management;
 import game_object.general.GameObjectHandler;
 import game_object.general.ObjectID;
 
+import java.awt.*;
+
 public class GameManager
 {
     //Properties
@@ -11,7 +13,7 @@ public class GameManager
 
     public GameManager()
     {
-        //inputManager = new InputManager();
+        inputManager = new InputManager();
 
         this.generateCharacter();
         this.generateEnemies();
@@ -23,7 +25,7 @@ public class GameManager
      */
     public void generateCharacter()
     {
-        GameObjectHandler.getInstance().addGameObject(ObjectID.ClassicFighter, 1, LevelManager.getInstance().getCurrentLevel().getCharacterPositions());
+        GameObjectHandler.getInstance().addGameObject(ObjectID.ClassicFighter, LevelManager.getInstance().getCurrentLevel().getCharacterPositions());
     }
 
     /**
@@ -31,7 +33,7 @@ public class GameManager
      */
     public void generateEnemies()
     {
-        GameObjectHandler.getInstance().addGameObject(ObjectID.ClassicFighter, 1, LevelManager.getInstance().getCurrentLevel().getEnemyPositions());
+        GameObjectHandler.getInstance().addGameObject(ObjectID.ModernSoldier, LevelManager.getInstance().getCurrentLevel().getEnemyPositions());
     }
 
     /**
@@ -40,5 +42,27 @@ public class GameManager
     public void generateTiles()
     {
         GameObjectHandler.getInstance().addTile(LevelManager.getInstance().getCurrentLevel().getLevelTileMap());
+    }
+
+    /**
+     *
+     */
+    public void update()
+    {
+        GameObjectHandler.getInstance().updateAll();
+    }
+
+    /**
+     *
+     */
+    public void render(Graphics g)
+    {
+        GameObjectHandler.getInstance().renderAll(g);
+    }
+
+    // Access
+    public InputManager getInputManager()
+    {
+        return inputManager;
     }
 }

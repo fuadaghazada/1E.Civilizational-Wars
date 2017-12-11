@@ -28,7 +28,7 @@ public class Sword extends Weapon
     @Override
     public void fire(int dir)
     {
-        if(owner.getId() == ObjectID.Character) {
+        if(owner.getId() == ObjectID.ClassicFighter) {
             for (Enemy go : GameObjectHandler.getInstance().getEnemies())
             {
                 if (go.getBounds().intersects(owner.getBounds()))
@@ -39,17 +39,17 @@ public class Sword extends Weapon
 
             }
         }
-        else if(owner.getId() == ObjectID.Enemy)
+        else if(owner.getId() == ObjectID.ModernSoldier)
         {
-            if (GameObjectHandler.getInstance().getCharacter(1).getBounds().intersects(owner.getBounds()))
+            if (GameObjectHandler.getInstance().getCharacter(0).getBounds().intersects(owner.getBounds()))
+            {
+                GameObjectHandler.getInstance().getCharacter(0).setY(GameObjectHandler.getInstance().getCharacter(0).getY() - 50);
+                GameObjectHandler.getInstance().getCharacter(0).setHealthLevel(GameObjectHandler.getInstance().getCharacter(1).getHealthLevel() - 10);
+            }
+            else if (GameObjectHandler.getInstance().getCharacter(1).getBounds().intersects(owner.getBounds()))
             {
                 GameObjectHandler.getInstance().getCharacter(1).setY(GameObjectHandler.getInstance().getCharacter(1).getY() - 50);
                 GameObjectHandler.getInstance().getCharacter(1).setHealthLevel(GameObjectHandler.getInstance().getCharacter(1).getHealthLevel() - 10);
-            }
-            else if (GameObjectHandler.getInstance().getCharacter(2).getBounds().intersects(owner.getBounds()))
-            {
-                GameObjectHandler.getInstance().getCharacter(2).setY(GameObjectHandler.getInstance().getCharacter(2).getY() - 50);
-                GameObjectHandler.getInstance().getCharacter(2).setHealthLevel(GameObjectHandler.getInstance().getCharacter(2).getHealthLevel() - 10);
             }
         }
     }

@@ -1,8 +1,12 @@
 package game_object.general;
 
+import game_object.enemy.ClassicSoldier;
 import game_object.enemy.Enemy;
+import game_object.enemy.ModernSoldier;
+import game_object.map.Tile;
 import game_object.map.TileMap;
 import game_object.player.Character;
+import game_object.player.ClassicFighter;
 import game_object.weapon.Bullet;
 
 import java.awt.*;
@@ -24,6 +28,7 @@ public class GameObjectHandler
 
     private ArrayList<IUpdatable> updatables;
     private ArrayList<IRenderable> renderables;
+    private ArrayList<IUpdatable> clearList;
 
     private Character[] character;
 
@@ -41,30 +46,39 @@ public class GameObjectHandler
         updatables = new ArrayList<>();
         renderables = new ArrayList<>();
         bullets = new ArrayList<>();
+        clearList = new ArrayList<>();
         isMultiPlayer = false;
         character = new Character[2];
     }
 
-    public void addGameObject(ObjectID objectID, int amount, Point [] points)
+    public void addGameObject(ObjectID objectID, Point [] points)
     {
         GameObject go = null;
+
         if(objectID == ObjectID.ClassicFighter)
         {
-            for (int i = 0; i < amount; i++)
+            for (int i = 0; i < points.length; i++)
             {
-                go = new Character(points[i].getX(), points[i].getY(), objectID);
+                if(points[i] == null)
+                    continue;
+                go = new ClassicFighter(points[i].getX(), points[i].getY(), objectID);
+                System.out.println(go + "x: " + points[i].getX());
                 if(character[0] == null)
                     character[0] = (Character) go;
                 else if(character[1] == null)
                     character[1] = (Character) go;
-
+                updatables.add(go);
+                renderables.add(go);
+                game_objects.add(go);
             }
             //generateCharacter(objectID);
         }
         else if(objectID == ObjectID.ModernFighter)
         {
-            for (int i = 0; i < amount; i++)
+            for (int i = 0; i < points.length; i++)
             {
+                if(points[i] == null)
+                    continue;
                 go = new Character(points[i].getX(), points[i].getY(), objectID);
                 if(character[0] == null)
                     character[0] = (Character) go;
@@ -73,45 +87,66 @@ public class GameObjectHandler
                     character[1] = (Character) go;
                     isMultiPlayer = true;
                 }
+                updatables.add(go);
+                renderables.add(go);
+                game_objects.add(go);
             }
         }
         else if(objectID == ObjectID.Robot)
         {
-            for (int i = 0; i < amount; i++)
+            for (int i = 0; i < points.length; i++)
             {
+                if(points[i] == null)
+                    continue;
                 go = new Character(points[i].getX(), points[i].getY(), objectID);
                 if(character[0] == null)
                     character[0] = (Character) go;
                 else if(character[1] == null)
                     character[1] = (Character) go;
+
+                updatables.add(go);
+                renderables.add(go);
+                game_objects.add(go);
             }
         }
         else if (objectID == ObjectID.Alien)
         {
-            for (int i = 0; i < amount; i++)
+            for (int i = 0; i < points.length; i++)
             {
+                if(points[i] == null)
+                    continue;
                 go = new Enemy(points[i].getX(), points[i].getY(), objectID);
+                updatables.add(go);
+                renderables.add(go);
+                game_objects.add(go);
             }
         }
         else if( objectID == ObjectID.ClassicSoldier)
         {
-            for (int i = 0; i < amount; i++)
+            for (int i = 0; i < points.length; i++)
             {
-                go = new Enemy(points[i].getX(), points[i].getY(), objectID);
+                if(points[i] == null)
+                    continue;
+                go = new ClassicSoldier(points[i].getX(), points[i].getY(), objectID);
+                updatables.add(go);
+                renderables.add(go);
+                game_objects.add(go);
             }
+
         }
         else if( objectID == ObjectID.ModernSoldier)
         {
-            for (int i = 0; i < amount; i++)
+            for (int i = 0; i < points.length; i++)
             {
-                go = new Enemy(points[i].getX(), points[i].getY(), objectID);
+                go = new ModernSoldier(points[i].getX(), points[i].getY(), objectID);
+                updatables.add(go);
+                renderables.add(go);
+                game_objects.add(go);
             }
         }
 
         //Add the game object ot render and update
-        updatables.add(go);
-        renderables.add(go);
-        game_objects.add(go);
+
 
     }
 
@@ -122,7 +157,8 @@ public class GameObjectHandler
             updatables.add(go);
         if(!renderables.contains(go))
             renderables.add(go);
-        game_objects.add(go);
+        if(!game_objects.contains(go))
+            game_objects.add(go);
     }
 
     public void addTile(String fileName)
@@ -130,7 +166,11 @@ public class GameObjectHandler
         tileMap = new TileMap(fileName);
 
         renderables.add(tileMap);
+
     }
+
+
+
 
     /**
      *  Adds a bullet to the bullet list.
@@ -147,8 +187,12 @@ public class GameObjectHandler
      */
     public void removeGameObject(GameObject gameObject)
     {
+        //updatables.remove(gameObject);
+        renderables.remove(gameObject);
         game_objects.remove(gameObject);
+        clearList.add(gameObject);
     }
+
 
     /**
      *  Removes the given bullet object from the list.
@@ -164,9 +208,13 @@ public class GameObjectHandler
      */
     public void updateAll()
     {
-        for (IUpdatable go : updatables)
+        for (IUpdatable go : updatables) {
             go.update();
-
+        }
+        for (Bullet b : bullets)
+            b.update();
+        updatables.removeAll(clearList);
+        clearList.removeAll(clearList);
     }
 
     /**
@@ -176,6 +224,8 @@ public class GameObjectHandler
     {
         for (IRenderable i : renderables)
             i.render(g);
+        for(Bullet b : bullets)
+            b.render(g);
     }
 
     //ACCESS & MUTATE

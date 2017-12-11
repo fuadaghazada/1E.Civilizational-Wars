@@ -12,11 +12,11 @@ public class ModernSoldier extends Enemy
 
     /**
      *  Constructs the modern enemy for period 1
-     *  @param x - x coordinate
+     * @param x - x coordinate
      *  @param y - y coordinate
-     *  @param id - id of the object
+     * @param id - id of the object
      */
-    public ModernSoldier(float x, float y, ObjectID id)
+    public ModernSoldier(double x, double y, ObjectID id)
     {
         super(x, y, id);
 

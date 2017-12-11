@@ -38,21 +38,21 @@ public class InputManager implements KeyListener
     {
         if(e.getKeyCode() == right)
         {
-            GameObjectHandler.getInstance().getCharacter(1).move(1);
+            GameObjectHandler.getInstance().getCharacter(0).move(1);
 
         }
         if(e.getKeyCode() == left)
         {
-            GameObjectHandler.getInstance().getCharacter(1).move(-1);
+            GameObjectHandler.getInstance().getCharacter(0).move(-1);
 
         }
-        if(e.getKeyCode() == up && !GameObjectHandler.getInstance().getCharacter(1).isJump())
+        if(e.getKeyCode() == up && !GameObjectHandler.getInstance().getCharacter(0).isJump())
         {
-            GameObjectHandler.getInstance().getCharacter(1).jump();
+            GameObjectHandler.getInstance().getCharacter(0).jump();
         }
         if(e.getKeyCode() == fight)
         {
-            GameObjectHandler.getInstance().getCharacter(1).fight(true);
+            GameObjectHandler.getInstance().getCharacter(0).fight(true);
         }
 
         //TODO: Think about that
@@ -69,21 +69,21 @@ public class InputManager implements KeyListener
             return;
         if(e.getKeyCode() == right2)
         {
-            GameObjectHandler.getInstance().getCharacter(2).move(1);
+            GameObjectHandler.getInstance().getCharacter(1).move(1);
 
         }
         if(e.getKeyCode() == left2)
         {
-            GameObjectHandler.getInstance().getCharacter(2).move(-1);
+            GameObjectHandler.getInstance().getCharacter(1).move(-1);
 
         }
-        if(e.getKeyCode() == up2 && !GameObjectHandler.getInstance().getCharacter(2).isJump())
+        if(e.getKeyCode() == up2 && !GameObjectHandler.getInstance().getCharacter(1).isJump())
         {
-            GameObjectHandler.getInstance().getCharacter(2).jump();
+            GameObjectHandler.getInstance().getCharacter(1).jump();
         }
         if(e.getKeyCode() == fight2)
         {
-            GameObjectHandler.getInstance().getCharacter(2).fight(true);
+            GameObjectHandler.getInstance().getCharacter(1).fight(true);
         }
 
 
@@ -94,11 +94,11 @@ public class InputManager implements KeyListener
     {
         if(e.getKeyCode() == right || e.getKeyCode() == left)
         {
-            GameObjectHandler.getInstance().getCharacter(1).setVelX(0);
+            GameObjectHandler.getInstance().getCharacter(0).setVelX(0);
         }
         if(e.getKeyCode() == fight)
         {
-            GameObjectHandler.getInstance().getCharacter(1).fight(false);
+            GameObjectHandler.getInstance().getCharacter(0).fight(false);
         }
 
         //Second player

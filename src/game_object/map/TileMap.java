@@ -11,6 +11,7 @@ package game_object.map;
  *  @version - 1.00
  */
 
+import game_object.general.GameObjectHandler;
 import game_object.general.IRenderable;
 
 import java.awt.*;
@@ -91,6 +92,7 @@ public class TileMap implements IRenderable
                         tile.setType(map[i][j]);
 
                         tiles.add(tile);
+                        GameObjectHandler.getInstance().addGameObject(tile);
                     }
                 }
             }

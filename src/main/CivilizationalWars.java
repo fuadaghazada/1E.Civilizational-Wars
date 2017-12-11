@@ -12,7 +12,7 @@ public class CivilizationalWars
     {
         MainMenuPanel mmp = new MainMenuPanel();
 
-        GamePanel gp = new GamePanel();
+        //GamePanel gp = new GamePanel();
 
         frame = new JFrame();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

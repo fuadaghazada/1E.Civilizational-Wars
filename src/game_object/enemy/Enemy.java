@@ -71,6 +71,7 @@ public class Enemy extends GameObject
     public void fight()
     {
         //TODO: Fire at some interval when inside the range
+        System.out.println("Entered Fight");
         weapon.fire(getDir());
 
     }
@@ -83,8 +84,8 @@ public class Enemy extends GameObject
         weapon.update();
         //TODO: Move through the character
         Character player;
-        Character player1 =  GameObjectHandler.getInstance().getCharacter(1);
-        Character player2 =  GameObjectHandler.getInstance().getCharacter(2);
+        Character player1 =  GameObjectHandler.getInstance().getCharacter(0);
+        Character player2 =  GameObjectHandler.getInstance().getCharacter(1);
 
         if(player1 == null && player2 == null)
             return;
@@ -229,7 +230,8 @@ public class Enemy extends GameObject
 
             if(getBounds().intersects(temp.getBounds()))
             {
-                if(temp.getWeapon().getOwner().getId() == ObjectID.Enemy)
+                //Need to override in child classes to check each enemy
+                if(temp.getWeapon().getOwner().getId() == ObjectID.ModernSoldier)
                     continue;
                 healthLevel -= temp.getDamage();
 

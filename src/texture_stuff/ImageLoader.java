@@ -37,7 +37,7 @@ public class ImageLoader
     {
         this.id  = id;
 
-        if (id.equals(ObjectID.ClassicSoldier))
+        if (id.equals(ObjectID.ClassicFighter))
         {
             player_still = new Image[2];
             player_still[0] = new ImageIcon("src/resources/game_textures/player/classic_soldier/test_player.png").getImage();
@@ -93,7 +93,7 @@ public class ImageLoader
      */
     private void loadWalking()
     {
-        if(id == ObjectID.ClassicSoldier)
+        if(id == ObjectID.ClassicFighter)
         {
             player_walkingR = new Image[9];
 
@@ -142,7 +142,7 @@ public class ImageLoader
      */
     private void loadJumping()
     {
-        if(id == ObjectID.ClassicSoldier)
+        if(id == ObjectID.ClassicFighter)
         {
             player_jumpingR = new Image[1];
 
@@ -191,7 +191,7 @@ public class ImageLoader
      */
     private void loadFighting()
     {
-        if(id == ObjectID.ClassicSoldier)
+        if(id == ObjectID.ClassicFighter)
         {
             player_fightingR = new Image[9];
 

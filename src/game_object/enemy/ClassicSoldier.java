@@ -14,11 +14,11 @@ public class ClassicSoldier extends Enemy
 
     /**
      *  Constructs the classic enemy for period 1
-     *  @param x - x coordinate
+     * @param x - x coordinate
      *  @param y - y coordinate
-     *  @param id - id of the object
+     * @param id - id of the object
      */
-    public ClassicSoldier(float x, float y, ObjectID id)
+    public ClassicSoldier(double x, double y, ObjectID id)
     {
         super(x, y, id);
 

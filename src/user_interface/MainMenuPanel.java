@@ -57,7 +57,7 @@ public class MainMenuPanel extends JPanel
 
                 GamePanel gPanel = new GamePanel();
 
-                gPanel.init();
+
 
                 CivilizationalWars.frame.getContentPane().add(gPanel);
 
