@@ -50,7 +50,7 @@ public class SettingsPanel extends JPanel {
 
                 updateControls();
 
-                ScreenManager.getInstance().setCurrentPanel(new MainMenuPanel());
+                ScreenManager.getInstance().back();
             }
         });
     }

@@ -18,24 +18,40 @@ public class ScreenManager {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(700, 700);
 
-        frame.add(new MainMenuPanel());
-
         frame.setVisible(true);
         start();
 
     }
 
     private void start() {
-        frame.add(new MainMenuPanel());
-        frame.revalidate();
+        setCurrentPanel(new MainMenuPanel());
     }
 
     public void setCurrentPanel(JPanel p)
     {
-        panelStack.add(p);
+        panelStack.push(p);
         frame.getContentPane().removeAll();
         frame.getContentPane().add(p);
         frame.getContentPane().revalidate();
+        p.updateUI();
+        p.requestFocusInWindow();
+    }
+
+    public void back()
+    {
+        panelStack.pop();
+        JPanel backP = panelStack.peek();
+        frame.getContentPane().removeAll();
+        frame.getContentPane().add(backP);
+        backP.requestFocusInWindow();
+        backP.updateUI();
+        frame.getContentPane().revalidate();
+    }
+
+    public void clearHistory()
+    {
+        frame.getContentPane().removeAll();
+        panelStack.clear();
     }
 
 

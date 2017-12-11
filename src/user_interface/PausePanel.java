@@ -1,16 +1,22 @@
 package user_interface;
 
+import game_management.GameManager;
+
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class PausePanel extends JPanel {
 
     JButton btnResume, btnSaveGame, btnSettings, btnBackToMenu;
-
-    public PausePanel()
+    private GameManager gameManager;
+    public PausePanel(GameManager gameManager)
     {
+        this.gameManager = gameManager;
         this.init();
+
     }
 
     private void init() {
@@ -30,7 +36,27 @@ public class PausePanel extends JPanel {
         add(btnSettings);
         add(btnBackToMenu);
 
+        btnResume.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                gameManager.setPaused(false);
+            }
+        });
 
+        btnSettings.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ScreenManager.getInstance().setCurrentPanel(new SettingsPanel());
+            }
+        });
+
+        btnBackToMenu.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ScreenManager.getInstance().clearHistory();
+                ScreenManager.getInstance().setCurrentPanel(new MainMenuPanel());
+            }
+        });
 
     }
 }

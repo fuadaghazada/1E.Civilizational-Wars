@@ -38,7 +38,7 @@ public class LoadLevelPanel extends JPanel
             @Override
             public void actionPerformed(ActionEvent e)
             {
-                ScreenManager.getInstance().setCurrentPanel(new MainMenuPanel());
+                ScreenManager.getInstance().back();
             }
         });
     }

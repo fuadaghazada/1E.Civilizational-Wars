@@ -46,6 +46,7 @@ public class GamePanel extends JPanel implements Runnable
     // Game Properties
     private GameManager gameManager;
     private Camera camera;
+    private boolean pauseCalled = false;
 
     /**
      *   Constructs the game panel
@@ -53,7 +54,7 @@ public class GamePanel extends JPanel implements Runnable
     public GamePanel()
     {
         init();
-        //start();
+        start();
 
         setFocusable(true);
     }
@@ -66,7 +67,11 @@ public class GamePanel extends JPanel implements Runnable
         gameManager = new GameManager();
         camera = new Camera(0,0);
         gameManager.setCamera(camera);
+
+
+
         game_thread = new Thread(this);
+
         isRunning = false;
         //start();
     }
@@ -76,6 +81,7 @@ public class GamePanel extends JPanel implements Runnable
      */
     public void start()
     {
+
         isRunning = true;
         game_thread.start();
         setFocusable(true);
@@ -125,6 +131,7 @@ public class GamePanel extends JPanel implements Runnable
      */
     public void update()
     {
+
 //        if (current == null || current != LevelManager.currentLevel)
 //        {
 //            this.addKeyListener(LevelManager.currentLevel.getInputManager());
@@ -134,18 +141,35 @@ public class GamePanel extends JPanel implements Runnable
 //            camera.update(LevelManager.currentLevel.gameObjects().getCharacter());
 //            LevelManager.currentLevel.gameObjects().updateAll();
 //        }
-        if (gameManager.getGameState() == GameManager.PLAYING)
+        if (gameManager.getGameState() == GameManager.PLAYING) {
             gameManager.update();
-        else
+            pause(false);
+        }
+        else if (gameManager.getGameState() == GameManager.PAUSED)
         {
-            if (gameManager.getGameState() == GameManager.WON)
-            {
-
-            }
+            pause(true);
         }
 
     }
 
+    public void pause(boolean paused)
+    {
+        //System.out.println("paused: " + paused + "- pauseCalled: "  + pauseCalled);
+        if(paused)
+        {
+            if(!pauseCalled) {
+                ScreenManager.getInstance().setCurrentPanel(new PausePanel(gameManager));
+                pauseCalled = !pauseCalled;
+            }
+        }
+        else{
+            if(pauseCalled) {
+                ScreenManager.getInstance().back();
+                pauseCalled = false;
+            }
+        }
+
+    }
     /**
      *  Renders the game graphics
      */

@@ -61,7 +61,6 @@ public class MainMenuPanel extends JPanel
 
               //  CivilizationalWars.frame.getContentPane().add(gPanel);
 
-                gPanel.start();
 
                // CivilizationalWars.frame.revalidate();
 

@@ -36,9 +36,7 @@ public class HelpPanel extends JPanel
             @Override
             public void actionPerformed(ActionEvent e)
             {
-                CivilizationalWars.frame.getContentPane().removeAll();
-                CivilizationalWars.frame.add(new MainMenuPanel());
-                CivilizationalWars.frame.revalidate();
+                ScreenManager.getInstance().back();
             }
         });
     }

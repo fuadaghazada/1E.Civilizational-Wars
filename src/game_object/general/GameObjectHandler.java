@@ -258,4 +258,15 @@ public class GameObjectHandler
     public boolean isMultiPlayer() {
         return isMultiPlayer;
     }
+
+    public void dispose()
+    {
+        game_objects = new ArrayList<>();
+        bullets = new ArrayList<>();
+        updatables = new ArrayList<>();
+        renderables = new ArrayList<>();
+        clearList = new ArrayList<>();
+        character = new Character[2];
+        tileMap = null;
+    }
 }

@@ -21,6 +21,7 @@ public class GameManager
     private Camera camera = null;
     public GameManager()
     {
+        GameObjectHandler.getInstance().dispose();
         inputManager = new InputManager(this);
 
         this.generateCharacter();
@@ -101,4 +102,6 @@ public class GameManager
     public boolean isGamePaused() {
         return isGamePaused;
     }
+
+
 }
