@@ -50,9 +50,7 @@ public class SettingsPanel extends JPanel {
 
                 updateControls();
 
-                CivilizationalWars.frame.getContentPane().removeAll();
-                CivilizationalWars.frame.add(new MainMenuPanel());
-                CivilizationalWars.frame.revalidate();
+                ScreenManager.getInstance().setCurrentPanel(new MainMenuPanel());
             }
         });
     }

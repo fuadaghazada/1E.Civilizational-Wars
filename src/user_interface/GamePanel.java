@@ -65,6 +65,7 @@ public class GamePanel extends JPanel implements Runnable
     {
         gameManager = new GameManager();
         camera = new Camera(0,0);
+        gameManager.setCamera(camera);
         game_thread = new Thread(this);
         isRunning = false;
         //start();
@@ -133,7 +134,16 @@ public class GamePanel extends JPanel implements Runnable
 //            camera.update(LevelManager.currentLevel.gameObjects().getCharacter());
 //            LevelManager.currentLevel.gameObjects().updateAll();
 //        }
-        gameManager.update();
+        if (gameManager.getGameState() == GameManager.PLAYING)
+            gameManager.update();
+        else
+        {
+            if (gameManager.getGameState() == GameManager.WON)
+            {
+
+            }
+        }
+
     }
 
     /**

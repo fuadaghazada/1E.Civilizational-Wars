@@ -53,17 +53,17 @@ public class MainMenuPanel extends JPanel
             @Override
             public void actionPerformed(ActionEvent e)
             {
-                CivilizationalWars.frame.getContentPane().removeAll();
+               // CivilizationalWars.frame.getContentPane().removeAll();
 
                 GamePanel gPanel = new GamePanel();
 
+                ScreenManager.getInstance().setCurrentPanel(gPanel);
 
-
-                CivilizationalWars.frame.getContentPane().add(gPanel);
+              //  CivilizationalWars.frame.getContentPane().add(gPanel);
 
                 gPanel.start();
 
-                CivilizationalWars.frame.revalidate();
+               // CivilizationalWars.frame.revalidate();
 
             }
         });
@@ -72,10 +72,7 @@ public class MainMenuPanel extends JPanel
             @Override
             public void actionPerformed(ActionEvent e)
             {
-                CivilizationalWars.frame.getContentPane().removeAll();
-                CivilizationalWars.frame.invalidate();
-                CivilizationalWars.frame.getContentPane().add(new LoadLevelPanel());
-                CivilizationalWars.frame.revalidate();
+                ScreenManager.getInstance().setCurrentPanel(new LoadLevelPanel());
             }
         });
 
@@ -83,10 +80,7 @@ public class MainMenuPanel extends JPanel
             @Override
             public void actionPerformed(ActionEvent e)
             {
-                CivilizationalWars.frame.getContentPane().removeAll();
-                CivilizationalWars.frame.invalidate();
-                CivilizationalWars.frame.getContentPane().add(new SettingsPanel());
-                CivilizationalWars.frame.revalidate();
+                ScreenManager.getInstance().setCurrentPanel(new SettingsPanel());
             }
         });
 
@@ -94,10 +88,7 @@ public class MainMenuPanel extends JPanel
             @Override
             public void actionPerformed(ActionEvent e)
             {
-                CivilizationalWars.frame.getContentPane().removeAll();
-                CivilizationalWars.frame.invalidate();
-                CivilizationalWars.frame.getContentPane().add(new AboutPanel());
-                CivilizationalWars.frame.revalidate();
+                ScreenManager.getInstance().setCurrentPanel(new AboutPanel());
             }
         });
 
@@ -105,10 +96,7 @@ public class MainMenuPanel extends JPanel
             @Override
             public void actionPerformed(ActionEvent e)
             {
-                CivilizationalWars.frame.getContentPane().removeAll();
-                CivilizationalWars.frame.invalidate();
-                CivilizationalWars.frame.getContentPane().add(new HelpPanel());
-                CivilizationalWars.frame.revalidate();
+                ScreenManager.getInstance().setCurrentPanel(new HelpPanel());
             }
         });
 

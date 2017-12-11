@@ -138,6 +138,8 @@ public class GameObjectHandler
         {
             for (int i = 0; i < points.length; i++)
             {
+                if(points[i] == null)
+                    continue;
                 go = new ModernSoldier(points[i].getX(), points[i].getY(), objectID);
                 updatables.add(go);
                 renderables.add(go);

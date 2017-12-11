@@ -10,6 +10,9 @@ public class CivilizationalWars
 
     public static void main(String[] args)
     {
+
+        ScreenManager.getInstance();
+        /*
         MainMenuPanel mmp = new MainMenuPanel();
 
         //GamePanel gp = new GamePanel();
@@ -21,6 +24,7 @@ public class CivilizationalWars
         frame.add(new MainMenuPanel());
 
         frame.setVisible(true);
+        */
         
     }
 }

@@ -26,6 +26,12 @@ public class InputManager implements KeyListener
     public static int up2 = KeyEvent.VK_H;
     public static int fight2 = KeyEvent.VK_Q;
 
+    private GameManager gameManager;
+
+    public InputManager(GameManager gameManager)
+    {
+        this.gameManager = gameManager;
+    }
 
     @Override
     public void keyTyped(KeyEvent e)
@@ -44,7 +50,6 @@ public class InputManager implements KeyListener
         if(e.getKeyCode() == left)
         {
             GameObjectHandler.getInstance().getCharacter(0).move(-1);
-
         }
         if(e.getKeyCode() == up && !GameObjectHandler.getInstance().getCharacter(0).isJump())
         {
@@ -58,9 +63,7 @@ public class InputManager implements KeyListener
         //TODO: Think about that
         if(e.getKeyCode() == KeyEvent.VK_ESCAPE)
         {
-            CivilizationalWars.frame.getContentPane().removeAll();
-            CivilizationalWars.frame.getContentPane().add(new MainMenuPanel());
-            CivilizationalWars.frame.revalidate();
+            gameManager.setPaused(!gameManager.isGamePaused());
         }
 
         //Second player
