@@ -19,8 +19,8 @@ public class PausePanel extends JPanel {
 
     }
 
-    private void init() {
-
+    private void init()
+    {
         setLayout(new GridLayout(5,1, 0,20));
         setBorder(new EmptyBorder(100,150,100,150));
 

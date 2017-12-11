@@ -3,16 +3,20 @@ package user_interface;
 import javax.swing.*;
 import java.util.Stack;
 
-public class ScreenManager {
+public class ScreenManager
+{
+    // singleton instance
     private static ScreenManager ourInstance = new ScreenManager();
 
-    public static ScreenManager getInstance() {
-        return ourInstance;
-    }
+    //Properties
+    private JFrame frame;
+    private Stack<JPanel> panelStack;
 
-    JFrame frame;
-    Stack<JPanel> panelStack;
-    private ScreenManager() {
+    /**
+     *  Constructs the screen manager - initializing the stack and the frame
+     */
+    private ScreenManager()
+    {
         panelStack = new Stack<>();
         frame = new JFrame("Civilizational Wars");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -23,10 +27,21 @@ public class ScreenManager {
 
     }
 
+    public static ScreenManager getInstance() {
+        return ourInstance;
+    }
+
+    /**
+     *  Sets the current panel to main menu - when the program starts
+     */
     private void start() {
         setCurrentPanel(new MainMenuPanel());
     }
 
+    /**
+     *  Pushes the new panel to the stack and make it the current panel
+     *  @param p - new panel adding
+     */
     public void setCurrentPanel(JPanel p)
     {
         panelStack.push(p);
@@ -37,6 +52,9 @@ public class ScreenManager {
         p.requestFocusInWindow();
     }
 
+    /**
+     *  Pops the current panel from the JPanel stack and sets it the current panel
+     */
     public void back()
     {
         panelStack.pop();
@@ -48,12 +66,12 @@ public class ScreenManager {
         frame.getContentPane().revalidate();
     }
 
+    /**
+     *  Clearing the panel stack
+     */
     public void clearHistory()
     {
         frame.getContentPane().removeAll();
         panelStack.clear();
     }
-
-
-
 }

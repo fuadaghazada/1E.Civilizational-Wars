@@ -27,6 +27,7 @@ import java.util.logging.Level;
  *
  *  @authors:
  *            - Fuad Aghazada
+ *            - Seyfullah Yamanoglu
  *
  *
  *  @version - 1.00
@@ -68,12 +69,9 @@ public class GamePanel extends JPanel implements Runnable
         camera = new Camera(0,0);
         gameManager.setCamera(camera);
 
-
-
         game_thread = new Thread(this);
 
         isRunning = false;
-        //start();
     }
 
     /**
@@ -81,7 +79,6 @@ public class GamePanel extends JPanel implements Runnable
      */
     public void start()
     {
-
         isRunning = true;
         game_thread.start();
         setFocusable(true);
@@ -131,17 +128,8 @@ public class GamePanel extends JPanel implements Runnable
      */
     public void update()
     {
-
-//        if (current == null || current != LevelManager.currentLevel)
-//        {
-//            this.addKeyListener(LevelManager.currentLevel.getInputManager());
-//            current = LevelManager.currentLevel;
-//        }
-//        else {
-//            camera.update(LevelManager.currentLevel.gameObjects().getCharacter());
-//            LevelManager.currentLevel.gameObjects().updateAll();
-//        }
-        if (gameManager.getGameState() == GameManager.PLAYING) {
+        if (gameManager.getGameState() == GameManager.PLAYING)
+        {
             gameManager.update();
             pause(false);
         }
@@ -149,12 +137,10 @@ public class GamePanel extends JPanel implements Runnable
         {
             pause(true);
         }
-
     }
 
     public void pause(boolean paused)
     {
-        //System.out.println("paused: " + paused + "- pauseCalled: "  + pauseCalled);
         if(paused)
         {
             if(!pauseCalled) {
@@ -168,7 +154,6 @@ public class GamePanel extends JPanel implements Runnable
                 pauseCalled = false;
             }
         }
-
     }
     /**
      *  Renders the game graphics

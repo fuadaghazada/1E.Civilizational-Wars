@@ -10,15 +10,17 @@ import java.awt.*;
 
 public class GameManager
 {
+    //Properties
     public static final int PLAYING = 0;
     public static final int WON = 1;
     public static final int LOST = 2;
     public static final int PAUSED = 3;
 
     private boolean isGamePaused = false;
-    //Properties
+
     private InputManager inputManager;
     private Camera camera = null;
+
     public GameManager()
     {
         GameObjectHandler.getInstance().dispose();

@@ -41,7 +41,8 @@ public class GameObjectHandler
         return instance;
     }
 
-    private GameObjectHandler() {
+    private GameObjectHandler()
+    {
         game_objects = new ArrayList<>();
         updatables = new ArrayList<>();
         renderables = new ArrayList<>();

@@ -53,17 +53,9 @@ public class MainMenuPanel extends JPanel
             @Override
             public void actionPerformed(ActionEvent e)
             {
-               // CivilizationalWars.frame.getContentPane().removeAll();
-
                 GamePanel gPanel = new GamePanel();
 
                 ScreenManager.getInstance().setCurrentPanel(gPanel);
-
-              //  CivilizationalWars.frame.getContentPane().add(gPanel);
-
-
-               // CivilizationalWars.frame.revalidate();
-
             }
         });
 
