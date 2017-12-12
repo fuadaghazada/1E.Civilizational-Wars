@@ -51,4 +51,6 @@ public class LevelManager
     {
         return currentLevel;
     }
+
+    public int getCurrentLevelNo() { return levels.indexOf(currentLevel) + 1; }
 }

@@ -166,5 +166,7 @@ public abstract class GameObject implements IUpdatable, IRenderable
     public  int getDir() { return dir; }
 
     public  void setDir(int dir) { this.dir = dir; }
+
+    public String toString() { return id + "-" + x + "-" + y; }
 }
 

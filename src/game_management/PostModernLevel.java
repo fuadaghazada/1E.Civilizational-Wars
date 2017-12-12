@@ -41,6 +41,15 @@ public class PostModernLevel implements ILevelInterface
 
         characterPositions = new Point[2];
         enemyPositions = new Point[ENEMY_NUM];
+
+        characterPositions[0] = new Point(50,50);
+        
+        for (int i = 0; i < enemyPositions.length; i++)
+        {
+            int enX = (int) ((Math.random() * 600) + 200);
+            int enY = (int) ((Math.random() * 600) + 200);
+            enemyPositions[i] = new Point(enX, 50);
+        }
     }
 
     @Override

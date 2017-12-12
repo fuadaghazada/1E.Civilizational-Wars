@@ -19,6 +19,7 @@ public class GameManager
     private boolean isGamePaused = false;
 
     private InputManager inputManager;
+
     private Camera camera = null;
 
     public GameManager()
@@ -26,8 +27,16 @@ public class GameManager
         GameObjectHandler.getInstance().dispose();
         inputManager = new InputManager(this);
 
-        this.generateCharacter();
-        this.generateEnemies();
+        if(!DataManager.getInstance().isLoadCalled())
+        {
+            this.generateCharacter();
+            this.generateEnemies();
+        }
+        else
+        {
+            if(DataManager.getInstance().isSuccessfulRead())
+                DataManager.getInstance().readFromFile();
+        }
         this.generateTiles();
     }
 

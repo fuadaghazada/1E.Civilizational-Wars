@@ -25,7 +25,6 @@ public class Tile extends GameObject
     //Constants
 
     // Properties
-    private float x, y;
     private static int tileWidth, tileHeight;
     private int type;
 
@@ -37,18 +36,15 @@ public class Tile extends GameObject
      *  @param x - x coordinate of the Tile
      *  @param y - y coordinate of the Tile
      */
-    public Tile(float x, float y)
+    public Tile(double x, double y, ObjectID id)
     {
-        super(x, y, ObjectID.Tile);
-
-        this.x = x;
-        this.y = y;
+        super(x, y, id);
 
         tileWidth = 700 / 15;
         tileHeight = tileWidth;
 
         //textures
-        imageLoader = new ImageLoader(ObjectID.Tile);
+        imageLoader = new ImageLoader(id);
     }
 
 

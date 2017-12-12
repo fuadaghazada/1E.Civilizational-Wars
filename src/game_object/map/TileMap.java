@@ -13,6 +13,7 @@ package game_object.map;
 
 import game_object.general.GameObjectHandler;
 import game_object.general.IRenderable;
+import game_object.general.ObjectID;
 
 import java.awt.*;
 import java.io.BufferedReader;
@@ -88,7 +89,7 @@ public class TileMap implements IRenderable
                 {
                     if(map[i][j] != 0)
                     {
-                        Tile tile = new Tile( x + j * Tile.getTileSize(), y + i * Tile.getTileSize());
+                        Tile tile = new Tile( x + j * Tile.getTileSize(), y + i * Tile.getTileSize(), ObjectID.Tile);
                         tile.setType(map[i][j]);
 
                         tiles.add(tile);

@@ -74,4 +74,11 @@ public class ScreenManager
         frame.getContentPane().removeAll();
         panelStack.clear();
     }
+
+    // ACCESS
+
+    public JFrame getFrame()
+    {
+        return frame;
+    }
 }

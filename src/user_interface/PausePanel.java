@@ -1,5 +1,6 @@
 package user_interface;
 
+import game_management.DataManager;
 import game_management.GameManager;
 
 import javax.swing.*;
@@ -40,6 +41,17 @@ public class PausePanel extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 gameManager.setPaused(false);
+            }
+        });
+
+        btnSaveGame.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                DataManager.getInstance().writeToFile();
+
+                if(DataManager.getInstance().isSuccessfulWrite())
+                    JOptionPane.showMessageDialog(ScreenManager.getInstance().getFrame(), "Game is Saved!");
             }
         });
 

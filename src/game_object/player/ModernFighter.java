@@ -27,12 +27,11 @@ public class ModernFighter extends Character
 
     /**
      * Constructing the character with given parameters.
-     *
-     * @param x                 - x coordinate of the character.
+     *  @param x                 - x coordinate of the character.
      * @param y                 - y coordinate of the character.
      * @param id                - id of the character as a game object.
      */
-    public ModernFighter(float x, float y, ObjectID id)
+    public ModernFighter(double x, double y, ObjectID id)
     {
         super(x, y, id);
 

@@ -1,6 +1,7 @@
 package user_interface;
 
 
+import game_management.DataManager;
 import main.CivilizationalWars;
 
 import javax.swing.*;
@@ -63,7 +64,21 @@ public class MainMenuPanel extends JPanel
             @Override
             public void actionPerformed(ActionEvent e)
             {
-                ScreenManager.getInstance().setCurrentPanel(new LoadLevelPanel());
+
+                //ScreenManager.getInstance().setCurrentPanel(new LoadLevelPanel());
+
+                if(DataManager.getInstance().isSuccessfulRead())
+                {
+                    DataManager.getInstance().setLoadCalled(true);
+
+                    GamePanel gPanel = new GamePanel();
+
+                    ScreenManager.getInstance().setCurrentPanel(gPanel);
+                }
+                else
+                {
+                    JOptionPane.showMessageDialog(ScreenManager.getInstance().getFrame(), "NO saved game", "WARNING", 1);
+                }
             }
         });
 

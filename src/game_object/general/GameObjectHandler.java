@@ -62,12 +62,14 @@ public class GameObjectHandler
             {
                 if(points[i] == null)
                     continue;
+
                 go = new ClassicFighter(points[i].getX(), points[i].getY(), objectID);
-                System.out.println(go + "x: " + points[i].getX());
+
                 if(character[0] == null)
                     character[0] = (Character) go;
                 else if(character[1] == null)
                     character[1] = (Character) go;
+
                 updatables.add(go);
                 renderables.add(go);
                 game_objects.add(go);
@@ -80,7 +82,9 @@ public class GameObjectHandler
             {
                 if(points[i] == null)
                     continue;
+
                 go = new Character(points[i].getX(), points[i].getY(), objectID);
+
                 if(character[0] == null)
                     character[0] = (Character) go;
                 else if(character[1] == null)
@@ -88,6 +92,7 @@ public class GameObjectHandler
                     character[1] = (Character) go;
                     isMultiPlayer = true;
                 }
+
                 updatables.add(go);
                 renderables.add(go);
                 game_objects.add(go);
@@ -116,7 +121,9 @@ public class GameObjectHandler
             {
                 if(points[i] == null)
                     continue;
+
                 go = new Enemy(points[i].getX(), points[i].getY(), objectID);
+
                 updatables.add(go);
                 renderables.add(go);
                 game_objects.add(go);
@@ -128,7 +135,9 @@ public class GameObjectHandler
             {
                 if(points[i] == null)
                     continue;
+
                 go = new ClassicSoldier(points[i].getX(), points[i].getY(), objectID);
+
                 updatables.add(go);
                 renderables.add(go);
                 game_objects.add(go);
@@ -141,27 +150,28 @@ public class GameObjectHandler
             {
                 if(points[i] == null)
                     continue;
+
                 go = new ModernSoldier(points[i].getX(), points[i].getY(), objectID);
+
                 updatables.add(go);
                 renderables.add(go);
                 game_objects.add(go);
             }
         }
-
-        //Add the game object ot render and update
-
-
     }
 
     //To add the existing objects
     public void addGameObject(GameObject go)
     {
-        if(!updatables.contains(go))
+        if(!updatables.contains(go)) {
             updatables.add(go);
-        if(!renderables.contains(go))
+        }
+        if(!renderables.contains(go)) {
             renderables.add(go);
-        if(!game_objects.contains(go))
+        }
+        if(!game_objects.contains(go)) {
             game_objects.add(go);
+        }
     }
 
     public void addTile(String fileName)
@@ -169,11 +179,7 @@ public class GameObjectHandler
         tileMap = new TileMap(fileName);
 
         renderables.add(tileMap);
-
     }
-
-
-
 
     /**
      *  Adds a bullet to the bullet list.
