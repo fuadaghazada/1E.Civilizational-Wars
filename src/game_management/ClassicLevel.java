@@ -36,7 +36,8 @@ public class ClassicLevel implements ILevelInterface
     {
         name = "Classic Period";
         tileMap = "src/resources/map_files/map_level_1.txt";
-        enemyType = ObjectID.ClassicSoldier;
+        //TODO: set proper enemy type
+        enemyType = ObjectID.ModernSoldier;
         characterType = ObjectID.ClassicFighter;
         currentEnemy = ENEMY_NUM;
 
@@ -61,8 +62,8 @@ public class ClassicLevel implements ILevelInterface
     }
 
     @Override
-    public int getEnemyType() {
-        return 0;
+    public ObjectID getEnemyType() {
+        return enemyType;
     }
 
     @Override
@@ -71,8 +72,8 @@ public class ClassicLevel implements ILevelInterface
     }
 
     @Override
-    public int getCharacterType() {
-        return 0;
+    public ObjectID getCharacterType() {
+        return characterType;
     }
 
     @Override

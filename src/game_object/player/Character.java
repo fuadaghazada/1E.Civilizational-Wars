@@ -96,10 +96,10 @@ public class Character extends GameObject
 
                 setHealthLevel(100);
             }
-            else
-            {
-                GameObjectHandler.getInstance().removeGameObject(this);
-            }
+            //else
+            //{
+            //    GameObjectHandler.getInstance().removeGameObject(this);
+            //}
         }
     }
 

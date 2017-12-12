@@ -71,7 +71,6 @@ public class Enemy extends GameObject
     public void fight()
     {
         //TODO: Fire at some interval when inside the range
-        System.out.println("Entered Fight");
         weapon.fire(getDir());
 
     }

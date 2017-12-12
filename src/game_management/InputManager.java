@@ -1,5 +1,6 @@
 package game_management;
 
+import game_object.general.GameObject;
 import game_object.general.GameObjectHandler;
 import main.CivilizationalWars;
 import user_interface.MainMenuPanel;
@@ -42,6 +43,8 @@ public class InputManager implements KeyListener
     @Override
     public void keyPressed(KeyEvent e)
     {
+        if(gameManager.getGameState() != GameManager.PLAYING)
+            return;
         if(e.getKeyCode() == right)
         {
             GameObjectHandler.getInstance().getCharacter(0).move(1);
@@ -95,6 +98,8 @@ public class InputManager implements KeyListener
     @Override
     public void keyReleased(KeyEvent e)
     {
+        if(gameManager.getGameState() != GameManager.PLAYING)
+            return;
         if(e.getKeyCode() == right || e.getKeyCode() == left)
         {
             GameObjectHandler.getInstance().getCharacter(0).setVelX(0);

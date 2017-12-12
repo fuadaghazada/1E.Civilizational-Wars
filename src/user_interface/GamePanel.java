@@ -137,6 +137,26 @@ public class GamePanel extends JPanel implements Runnable
         {
             pause(true);
         }
+        else
+        {
+            //TODO: win or lost
+            processLevelFinish();
+        }
+    }
+
+    private void processLevelFinish() {
+        if(gameManager.getGameState() == GameManager.WON)
+        {
+            //TODO: Navigate to win panel and stop update
+            ScreenManager.getInstance().setCurrentPanel(new WonPanel(gameManager));
+            isRunning = false;
+        }
+        else if(gameManager.getGameState() == GameManager.LOST)
+        {
+            //TODO: Navigate to lost panel
+            ScreenManager.getInstance().setCurrentPanel(new LostPanel());
+            isRunning = false;
+        }
     }
 
     public void pause(boolean paused)
@@ -176,7 +196,14 @@ public class GamePanel extends JPanel implements Runnable
 
         //HUD
         //this.renderHUD(g);
-
+        if (!(gameManager.getGameState() == GameManager.PLAYING)) {
+            if (gameManager.getGameState() == GameManager.WON) {
+                g.drawString("YOU WON", getX() + (getHeight() / 2), getY() + (getWidth() / 2));
+            }
+            if (gameManager.getGameState() == GameManager.LOST) {
+                g.drawString("YOU LOST", getX() + (getHeight() / 2), getY() + (getWidth() / 2));
+            }
+        }
         g.dispose();
     }
 

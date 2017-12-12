@@ -59,8 +59,8 @@ public class ModernLevel implements ILevelInterface
     }
 
     @Override
-    public int getEnemyType() {
-        return 0;
+    public ObjectID getEnemyType() {
+        return enemyType;
     }
 
     @Override
@@ -69,8 +69,8 @@ public class ModernLevel implements ILevelInterface
     }
 
     @Override
-    public int getCharacterType() {
-        return 0;
+    public ObjectID getCharacterType() {
+        return characterType;
     }
 
     @Override

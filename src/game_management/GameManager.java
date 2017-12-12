@@ -34,8 +34,10 @@ public class GameManager
         }
         else
         {
-            if(DataManager.getInstance().isSuccessfulRead())
+            if(DataManager.getInstance().isSuccessfulRead()) {
+                GameObjectHandler.getInstance().dispose();
                 DataManager.getInstance().readFromFile();
+            }
         }
         this.generateTiles();
     }
@@ -45,7 +47,7 @@ public class GameManager
      */
     public void generateCharacter()
     {
-        GameObjectHandler.getInstance().addGameObject(ObjectID.ClassicFighter, LevelManager.getInstance().getCurrentLevel().getCharacterPositions());
+        GameObjectHandler.getInstance().addGameObject(LevelManager.getInstance().getCurrentLevel().getCharacterType(), LevelManager.getInstance().getCurrentLevel().getCharacterPositions());
     }
 
     /**
@@ -53,7 +55,7 @@ public class GameManager
      */
     public void generateEnemies()
     {
-        GameObjectHandler.getInstance().addGameObject(ObjectID.ModernSoldier, LevelManager.getInstance().getCurrentLevel().getEnemyPositions());
+        GameObjectHandler.getInstance().addGameObject(LevelManager.getInstance().getCurrentLevel().getEnemyType(), LevelManager.getInstance().getCurrentLevel().getEnemyPositions());
     }
 
     /**
@@ -72,6 +74,7 @@ public class GameManager
         //TODO: update the camera by giving the object to follow
         camera.update(GameObjectHandler.getInstance().getCharacter(0));
         GameObjectHandler.getInstance().updateAll();
+
     }
 
     /**
@@ -89,7 +92,10 @@ public class GameManager
 
         if(GameObjectHandler.getInstance().getEnemies().size() == 0)
             return WON;
-        else if(GameObjectHandler.getInstance().getCharacter(0) == null && GameObjectHandler.getInstance().getCharacter(1) == null)
+        else if((GameObjectHandler.getInstance().getCharacter(0) == null && GameObjectHandler.getInstance().getCharacter(1) == null)
+                || ((GameObjectHandler.getInstance().getCharacter(0) != null && GameObjectHandler.getInstance().getCharacter(1) == null) && GameObjectHandler.getInstance().getCharacter(0).getLives() <= 0)
+                 || ((GameObjectHandler.getInstance().getCharacter(0) == null && GameObjectHandler.getInstance().getCharacter(1) != null) && GameObjectHandler.getInstance().getCharacter(1).getLives() <= 0)
+                || ((GameObjectHandler.getInstance().getCharacter(0) != null && GameObjectHandler.getInstance().getCharacter(1) != null) && GameObjectHandler.getInstance().getCharacter(0).getLives() + GameObjectHandler.getInstance().getCharacter(1).getLives() <=0 ))
             return LOST;
         else
             return PLAYING;
@@ -113,6 +119,11 @@ public class GameManager
     public boolean isGamePaused() {
         return isGamePaused;
     }
+
+    public boolean hasNextLevel(){
+        return LevelManager.getInstance().getCurrentLevelNo() < ILevelInterface.TOTAL_LEVEL_COUNT;
+    }
+
 
 
 }
