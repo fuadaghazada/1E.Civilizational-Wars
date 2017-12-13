@@ -19,6 +19,9 @@ import javax.swing.border.Border;
 import javax.swing.plaf.ComponentUI;
 import javax.swing.plaf.basic.BasicButtonUI;
 
+
+// Reference : http://www.java2s.com/Tutorials/Java/Swing_How_to/JButton/Extend_BasicButtonUI_to_create_custom_JButton.htm
+
 public class GameButtonUI extends BasicButtonUI implements java.io.Serializable, MouseListener, KeyListener {
 
     private final static GameButtonUI m_buttonUI = new GameButtonUI();
