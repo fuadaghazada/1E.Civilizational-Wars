@@ -26,18 +26,17 @@ public class ModernLevel implements ILevelInterface
     private Point [] characterPositions;
     private Point [] enemyPositions;
 
-    private int currentEnemy;
-
     /**
      *  Constructs modern the level
      */
     public ModernLevel()
     {
         name = "Modern Period";
+
         tileMap = "src/resources/map_files/map_level_2.txt";
+
         enemyType = ObjectID.ModernSoldier;
         characterType = ObjectID.ModernFighter;
-        currentEnemy = ENEMY_NUM;
 
         characterPositions = new Point[2];
         enemyPositions = new Point[ENEMY_NUM];

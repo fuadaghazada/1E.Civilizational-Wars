@@ -81,7 +81,7 @@ public class DataManager
     /**
      *  Writesthe game data to the file with given filename as a property
      */
-    public void writeToFile()
+    public void saveGame()
     {
         // when is need to be written to the file - game data should be saved
         this.saveGameData();
@@ -114,7 +114,7 @@ public class DataManager
     /**
      *  Reads the game data from the file with the game data.
      */
-    public void readFromFile()
+    public void loadGame()
     {
         // To handle the repetition in the file
         gameData.clear();

@@ -26,8 +26,6 @@ public class PostModernLevel implements ILevelInterface
     private Point [] characterPositions;
     private Point [] enemyPositions;
 
-    private int currentEnemy;
-
     /**
      *  Constructs the post-modern level
      */
@@ -35,9 +33,9 @@ public class PostModernLevel implements ILevelInterface
     {
         name = "Post-Modern Period";
         tileMap = "src/resources/map_files/map_level_3.txt";
+
         enemyType = ObjectID.Alien;
         characterType = ObjectID.Robot;
-        currentEnemy = ENEMY_NUM;
 
         characterPositions = new Point[2];
         enemyPositions = new Point[ENEMY_NUM];

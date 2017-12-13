@@ -36,7 +36,7 @@ public class GameManager
         {
             if(DataManager.getInstance().isSuccessfulRead()) {
                 GameObjectHandler.getInstance().dispose();
-                DataManager.getInstance().readFromFile();
+                DataManager.getInstance().loadGame();
             }
         }
         this.generateTiles();
@@ -94,7 +94,7 @@ public class GameManager
             return WON;
         else if((GameObjectHandler.getInstance().getCharacter(0) == null && GameObjectHandler.getInstance().getCharacter(1) == null)
                 || ((GameObjectHandler.getInstance().getCharacter(0) != null && GameObjectHandler.getInstance().getCharacter(1) == null) && GameObjectHandler.getInstance().getCharacter(0).getLives() <= 0)
-                 || ((GameObjectHandler.getInstance().getCharacter(0) == null && GameObjectHandler.getInstance().getCharacter(1) != null) && GameObjectHandler.getInstance().getCharacter(1).getLives() <= 0)
+                || ((GameObjectHandler.getInstance().getCharacter(0) == null && GameObjectHandler.getInstance().getCharacter(1) != null) && GameObjectHandler.getInstance().getCharacter(1).getLives() <= 0)
                 || ((GameObjectHandler.getInstance().getCharacter(0) != null && GameObjectHandler.getInstance().getCharacter(1) != null) && GameObjectHandler.getInstance().getCharacter(0).getLives() + GameObjectHandler.getInstance().getCharacter(1).getLives() <=0 ))
             return LOST;
         else
@@ -123,7 +123,4 @@ public class GameManager
     public boolean hasNextLevel(){
         return LevelManager.getInstance().getCurrentLevelNo() < ILevelInterface.TOTAL_LEVEL_COUNT;
     }
-
-
-
 }

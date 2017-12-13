@@ -27,19 +27,18 @@ public class ClassicLevel implements ILevelInterface
     private Point [] characterPositions;
     private Point [] enemyPositions;
 
-    private int currentEnemy;
-
     /**
      *  Constructs the classic level
      */
     public ClassicLevel()
     {
         name = "Classic Period";
+
         tileMap = "src/resources/map_files/map_level_1.txt";
+
         //TODO: set proper enemy type
-        enemyType = ObjectID.ModernSoldier;
+        enemyType = ObjectID.ClassicSoldier;
         characterType = ObjectID.ClassicFighter;
-        currentEnemy = ENEMY_NUM;
 
         characterPositions = new Point[2];
         enemyPositions = new Point[ENEMY_NUM];

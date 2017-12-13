@@ -37,22 +37,26 @@ public class ImageLoader
     {
         this.id  = id;
 
-        if (id.equals(ObjectID.ClassicFighter))
-        {
+        if (id.equals(ObjectID.ClassicFighter)) {
             player_still = new Image[2];
             player_still[0] = new ImageIcon("src/resources/game_textures/player/classic_soldier/test_player.png").getImage();
             player_still[1] = new ImageIcon("src/resources/game_textures/player/classic_soldier/test_player_l.png").getImage();
 
+        }
+        else if(id.equals(ObjectID.ClassicSoldier))
+        {
             enemy_still = new Image[2];
             enemy_still[0] = new ImageIcon("src/resources/game_textures/enemy/classic/test_enemy.png").getImage();
             enemy_still[1] = new ImageIcon("src/resources/game_textures/enemy/classic/test_enemy_l.png").getImage();
         }
-        else if(id.equals(ObjectID.ModernSoldier))
+        else if(id.equals(ObjectID.ModernFighter))
         {
             player_still = new Image[2];
             player_still[0] = new ImageIcon("src/resources/game_textures/player/modern_soldier/test_player.png").getImage();
             player_still[1] = new ImageIcon("src/resources/game_textures/player/modern_soldier/test_player_l.png").getImage();
-
+        }
+        else if(id.equals(ObjectID.ModernSoldier))
+        {
             enemy_still = new Image[2];
             enemy_still[0] = new ImageIcon("src/resources/game_textures/enemy/modern/test_enemy.png").getImage();
             enemy_still[1] = new ImageIcon("src/resources/game_textures/enemy/modern/test_enemy_l.png").getImage();
@@ -62,7 +66,9 @@ public class ImageLoader
             player_still = new Image[2];
             player_still[0] = new ImageIcon("src/resources/game_textures/player/robot/test_player.png").getImage();
             player_still[1] = new ImageIcon("src/resources/game_textures/player/robot/test_player_l.png").getImage();
-
+        }
+        else if(id.equals(ObjectID.Alien))
+        {
             enemy_still = new Image[2];
             enemy_still[0] = new ImageIcon("src/resources/game_textures/enemy/alien/test_enemy.png").getImage();
             enemy_still[1] = new ImageIcon("src/resources/game_textures/enemy/alien/test_enemy_l.png").getImage();

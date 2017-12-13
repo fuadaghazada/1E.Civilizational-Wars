@@ -48,7 +48,7 @@ public class PausePanel extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e)
             {
-                DataManager.getInstance().writeToFile();
+                DataManager.getInstance().saveGame();
 
                 if(DataManager.getInstance().isSuccessfulWrite())
                     JOptionPane.showMessageDialog(ScreenManager.getInstance().getFrame(), "Game is Saved!");
