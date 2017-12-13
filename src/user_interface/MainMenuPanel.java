@@ -3,6 +3,7 @@ package user_interface;
 
 import game_management.DataManager;
 import main.CivilizationalWars;
+import user_interface.custom_button.GameButtonUI;
 
 import javax.swing.*;
 import java.awt.*;
@@ -133,6 +134,11 @@ public class MainMenuPanel extends JPanel
         viewAboutBtn = new JButton("About");
         viewHelpBtn = new JButton();
         quitBtn = new JButton();
+
+        playBtn.setUI(new GameButtonUI());
+        loadLevelBtn.setUI(new GameButtonUI());
+        viewSettingsBtn.setUI(new GameButtonUI());
+        viewAboutBtn.setUI(new GameButtonUI());
 
         // Labels (for icon)
         game_label = new JLabel();
