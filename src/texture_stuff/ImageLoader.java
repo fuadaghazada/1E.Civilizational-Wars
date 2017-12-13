@@ -113,7 +113,21 @@ public class ImageLoader
                 player_walkingL[i] = new ImageIcon("src/resources/game_textures/player/classic_soldier/test_player_walk" + (i + 1) + "_l.png").getImage();
             }
         }
-        else if(id == ObjectID.ModernSoldier)
+        else if(id == ObjectID.ClassicSoldier)
+        {
+            enemy_walkingR = new Image[0];
+
+            for (int i = 0; i < enemy_walkingR.length; i++) {
+                enemy_walkingR[i] = new ImageIcon("src/resources/game_textures/player/classic_soldier/test_player_walk" + (i + 1) + ".png").getImage();
+            }
+
+            enemy_walkingL = new Image[0];
+
+            for (int i = 0; i < enemy_walkingL.length; i++) {
+                enemy_walkingL[i] = new ImageIcon("src/resources/game_textures/player/classic_soldier/test_player_walk" + (i + 1) + "_l.png").getImage();
+            }
+        }
+        else if(id == ObjectID.ModernFighter)
         {
             player_walkingR = new Image[2];
 
@@ -125,6 +139,20 @@ public class ImageLoader
 
             for (int i = 0; i < player_walkingL.length; i++) {
                 player_walkingL[i] = new ImageIcon("src/resources/game_textures/player/modern_soldier/test_player_walk" + (i + 1) + "_l.png").getImage();
+            }
+        }
+        else if(id == ObjectID.ModernSoldier)
+        {
+            enemy_walkingR = new Image[0];
+
+            for (int i = 0; i < enemy_walkingR.length; i++) {
+                enemy_walkingR[i] = new ImageIcon("src/resources/game_textures/player/modern_soldier/test_player_walk" + (i + 1) + ".png").getImage();
+            }
+
+            enemy_walkingL = new Image[0];
+
+            for (int i = 0; i < enemy_walkingL.length; i++) {
+                enemy_walkingL[i] = new ImageIcon("src/resources/game_textures/player/modern_soldier/test_player_walk" + (i + 1) + "_l.png").getImage();
             }
         }
         else if(id == ObjectID.Robot)
@@ -139,6 +167,20 @@ public class ImageLoader
 
             for (int i = 0; i < player_walkingL.length; i++) {
                 player_walkingL[i] = new ImageIcon("src/resources/game_textures/player/robot/test_player_walk" + (i + 1) + "_l.png").getImage();
+            }
+        }
+        else if(id == ObjectID.Alien)
+        {
+            enemy_walkingR = new Image[0];
+
+            for (int i = 0; i < enemy_walkingR.length; i++) {
+                enemy_walkingR[i] = new ImageIcon("src/resources/game_textures/player/robot/test_player_walk" + (i + 1) + ".png").getImage();
+            }
+
+            enemy_walkingL = new Image[0];
+
+            for (int i = 0; i < enemy_walkingL.length; i++) {
+                enemy_walkingL[i] = new ImageIcon("src/resources/game_textures/player/robot/test_player_walk" + (i + 1) + "_l.png").getImage();
             }
         }
     }
@@ -162,7 +204,21 @@ public class ImageLoader
                 player_jumpingL[i] = new ImageIcon("src/resources/game_textures/player/classic_soldier/test_player_jump" + (i + 1) + "_l.png").getImage();
             }
         }
-        else if(id == ObjectID.ModernSoldier)
+        else if(id == ObjectID.ClassicSoldier)
+        {
+            enemy_jumpingR = new Image[0];
+
+            for (int i = 0; i < enemy_jumpingR.length; i++) {
+                enemy_jumpingR[i] = new ImageIcon("src/resources/game_textures/player/classic_soldier/test_player_jump" + (i + 1) + ".png").getImage();
+            }
+
+            enemy_jumpingL = new Image[0];
+
+            for (int i = 0; i < enemy_jumpingL.length; i++) {
+                enemy_jumpingL[i] = new ImageIcon("src/resources/game_textures/player/classic_soldier/test_player_jump" + (i + 1) + "_l.png").getImage();
+            }
+        }
+        else if(id == ObjectID.ModernFighter)
         {
             player_jumpingR = new Image[1];
 
@@ -174,6 +230,20 @@ public class ImageLoader
 
             for (int i = 0; i < player_jumpingL.length; i++) {
                 player_jumpingL[i] = new ImageIcon("src/resources/game_textures/player/modern_soldier/test_player_jump" + (i + 1) + "_l.png").getImage();
+            }
+        }
+        else if(id == ObjectID.ModernSoldier)
+        {
+            enemy_jumpingR = new Image[0];
+
+            for (int i = 0; i < enemy_jumpingR.length; i++) {
+                enemy_jumpingR[i] = new ImageIcon("src/resources/game_textures/player/modern_soldier/test_player_jump" + (i + 1) + ".png").getImage();
+            }
+
+            enemy_jumpingL = new Image[0];
+
+            for (int i = 0; i < enemy_jumpingL.length; i++) {
+                enemy_jumpingL[i] = new ImageIcon("src/resources/game_textures/player/modern_soldier/test_player_jump" + (i + 1) + "_l.png").getImage();
             }
         }
         else if(id == ObjectID.Robot)
@@ -188,6 +258,20 @@ public class ImageLoader
 
             for (int i = 0; i < player_jumpingL.length; i++) {
                 player_jumpingL[i] = new ImageIcon("src/resources/game_textures/player/robot/test_player_jump" + (i + 1) + "_l.png").getImage();
+            }
+        }
+        else if(id == ObjectID.Alien)
+        {
+            enemy_jumpingR = new Image[0];
+
+            for (int i = 0; i < enemy_jumpingR.length; i++) {
+                enemy_jumpingR[i] = new ImageIcon("src/resources/game_textures/player/robot/test_player_jump" + (i + 1) + ".png").getImage();
+            }
+
+            enemy_jumpingL = new Image[0];
+
+            for (int i = 0; i < enemy_jumpingL.length; i++) {
+                enemy_jumpingL[i] = new ImageIcon("src/resources/game_textures/player/robot/test_player_jump" + (i + 1) + "_l.png").getImage();
             }
         }
     }

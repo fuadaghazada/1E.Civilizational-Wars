@@ -74,7 +74,6 @@ public class GameManager
         //TODO: update the camera by giving the object to follow
         camera.update(GameObjectHandler.getInstance().getCharacter(0));
         GameObjectHandler.getInstance().updateAll();
-
     }
 
     /**

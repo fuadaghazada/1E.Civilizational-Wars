@@ -195,93 +195,64 @@ public class GamePanel extends JPanel implements Runnable
         g2.translate(camera.getX(), camera.getY());
 
         //HUD
-        //this.renderHUD(g);
-        if (!(gameManager.getGameState() == GameManager.PLAYING)) {
-            if (gameManager.getGameState() == GameManager.WON) {
-                g.drawString("YOU WON", getX() + (getHeight() / 2), getY() + (getWidth() / 2));
-            }
-            if (gameManager.getGameState() == GameManager.LOST) {
-                g.drawString("YOU LOST", getX() + (getHeight() / 2), getY() + (getWidth() / 2));
-            }
-        }
+        this.renderHUD(g);
+
         g.dispose();
     }
 
-//    private void renderHUD(Graphics g)
-//    {
-//        // HUD
-//
-//        //Level name
-//        g.setColor(Color.BLACK);
-//        g.drawString(current.getName(), getWidth()/2, 20);
-//
-//        // Lives
-//        for(int i = 0; i < this.current.gameObjects().getCharacter().getLives(); i++)
-//        {
-//            g.drawImage(new ImageIcon("src/resources/game_textures/life.png").getImage(),  i * 30 + 20, 5, null );
-//        }
-//
-//        // HealthBar
-//        g.setColor(Color.GRAY);
-//        g.drawRect(getWidth() - 120,5, 100, 20);
-//
-//        if(this.current.gameObjects().getCharacter().getHealthLevel() <= 20)
-//        {
-//            g.setColor(Color.RED);
-//        }
-//        else
-//        {
-//            g.setColor(Color.GREEN);
-//        }
-//        g.fillRect(getWidth() - 120,5, (int) this.current.gameObjects().getCharacter().getHealthLevel(),20);
-//
-//
-//        // GameOver
-//        if(this.current.gameObjects().getCharacter().getLives() == 0)
-//        {
-//            g.setColor(Color.RED);
-//            g.drawString("GAME OVER!", getWidth()/2, getHeight()/2);
-//
-//
-//            final Timer timer = new Timer(5000, new ActionListener() {
-//
-//                @Override
-//                public void actionPerformed(ActionEvent e)
-//                {
-//                    System.out.println("+++");
-//                }
-//            });
-//
-//            timer.setRepeats(false);
-//            timer.start();
-//
-//            System.out.println("===");
-//
-//            gameManager = new GameManager();
-//            camera = new Camera(0,0);
-//        }
-//
-//        if(this.current.getName().equals("Post Modern Period"))
-//        {
-//            boolean flag = false;
-//            for(int i = 0; i < current.gameObjects().getGame_objects().size() && !flag; i++)
-//            {
-//                if(current.gameObjects().getGame_objects().get(i).getId() == ObjectID.Enemy)
-//                {
-//                    flag = false;
-//                }
-//                else
-//                {
-//                    if(i == current.gameObjects().getGame_objects().size() - 1)
-//                         flag = true;
-//                }
-//            }
-//            if(flag) {
-//                g.setColor(Color.GREEN);
-//                g.drawString("YOU WON!", getWidth() / 2, getHeight() / 2);
-//            }
-//        }
-//    }
+    /**
+     *  Renders the HUD of the game panel
+     */
+    private void renderHUD(Graphics g)
+    {
+        // Head Up Display
+
+        // Lives
+        for(int i = 0; i < GameObjectHandler.getInstance().getCharacter(0).getLives(); i++)
+        {
+            g.drawImage(new ImageIcon("src/resources/game_textures/life.png").getImage(),  i * 30 + 20, 5, null );
+        }
+
+        // HealthBar
+        g.setColor(Color.GRAY);
+        g.drawRect(getWidth() - 120,5, 100, 20);
+
+        if(GameObjectHandler.getInstance().getCharacter(0).getHealthLevel() <= 20)
+        {
+            g.setColor(Color.RED);
+        }
+        else
+        {
+            g.setColor(Color.GREEN);
+        }
+        g.fillRect(getWidth() - 120,5, (int) GameObjectHandler.getInstance().getCharacter(0).getHealthLevel(),20);
+
+
+        // Multiplayer mode
+        if(GameObjectHandler.getInstance().isMultiPlayer())
+        {
+            // Lives
+            for(int i = 0; i < GameObjectHandler.getInstance().getCharacter(1).getLives(); i++)
+            {
+                g.drawImage(new ImageIcon("src/resources/game_textures/life.png").getImage(),  i * 30 + 20, 30, null );
+            }
+
+            // HealthBar
+            g.setColor(Color.GRAY);
+            g.drawRect(getWidth() - 120,30, 100, 20);
+
+            if(GameObjectHandler.getInstance().getCharacter(1).getHealthLevel() <= 20)
+            {
+                g.setColor(Color.RED);
+            }
+            else
+            {
+                g.setColor(Color.GREEN);
+            }
+            g.fillRect(getWidth() - 120,30, (int) GameObjectHandler.getInstance().getCharacter(1).getHealthLevel(),20);
+        }
+
+    }
 
     // ACCESS
 

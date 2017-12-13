@@ -1,5 +1,6 @@
 package game_object.general;
 
+import game_object.enemy.Alien;
 import game_object.enemy.ClassicSoldier;
 import game_object.enemy.Enemy;
 import game_object.enemy.ModernSoldier;
@@ -7,6 +8,8 @@ import game_object.map.Tile;
 import game_object.map.TileMap;
 import game_object.player.Character;
 import game_object.player.ClassicFighter;
+import game_object.player.ModernFighter;
+import game_object.player.Robot;
 import game_object.weapon.Bullet;
 
 import java.awt.*;
@@ -83,7 +86,7 @@ public class GameObjectHandler
                 if(points[i] == null)
                     continue;
 
-                go = new Character(points[i].getX(), points[i].getY(), objectID);
+                go = new ModernFighter(points[i].getX(), points[i].getY(), objectID);
 
                 if(character[0] == null)
                     character[0] = (Character) go;
@@ -104,25 +107,13 @@ public class GameObjectHandler
             {
                 if(points[i] == null)
                     continue;
-                go = new Character(points[i].getX(), points[i].getY(), objectID);
+
+                go = new Robot(points[i].getX(), points[i].getY(), objectID);
+
                 if(character[0] == null)
                     character[0] = (Character) go;
                 else if(character[1] == null)
                     character[1] = (Character) go;
-
-                updatables.add(go);
-                renderables.add(go);
-                game_objects.add(go);
-            }
-        }
-        else if (objectID == ObjectID.Alien)
-        {
-            for (int i = 0; i < points.length; i++)
-            {
-                if(points[i] == null)
-                    continue;
-
-                go = new Enemy(points[i].getX(), points[i].getY(), objectID);
 
                 updatables.add(go);
                 renderables.add(go);
@@ -152,6 +143,20 @@ public class GameObjectHandler
                     continue;
 
                 go = new ModernSoldier(points[i].getX(), points[i].getY(), objectID);
+
+                updatables.add(go);
+                renderables.add(go);
+                game_objects.add(go);
+            }
+        }
+        else if (objectID == ObjectID.Alien)
+        {
+            for (int i = 0; i < points.length; i++)
+            {
+                if(points[i] == null)
+                    continue;
+
+                go = new Alien(points[i].getX(), points[i].getY(), objectID);
 
                 updatables.add(go);
                 renderables.add(go);
@@ -265,6 +270,8 @@ public class GameObjectHandler
     public boolean isMultiPlayer() {
         return isMultiPlayer;
     }
+
+    public void setMultiPlayer(boolean multiPlayer) { isMultiPlayer = multiPlayer; }
 
     public void dispose()
     {
