@@ -1,5 +1,6 @@
 package game_object.general;
 
+import game_object.bonus.SurpriseBox;
 import game_object.enemy.Alien;
 import game_object.enemy.ClassicSoldier;
 import game_object.enemy.Enemy;
@@ -157,6 +158,21 @@ public class GameObjectHandler
                     continue;
 
                 go = new Alien(points[i].getX(), points[i].getY(), objectID);
+
+                updatables.add(go);
+                renderables.add(go);
+                game_objects.add(go);
+            }
+        }
+        // Surprise box
+        else if(objectID == ObjectID.SurpriseBox)
+        {
+            for(int i = 0; i < points.length; i++)
+            {
+                if(points[i] == null)
+                    continue;
+
+                go = new SurpriseBox(points[i].getX(), points[i].getY(), objectID);
 
                 updatables.add(go);
                 renderables.add(go);

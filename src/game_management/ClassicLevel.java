@@ -24,8 +24,15 @@ public class ClassicLevel implements ILevelInterface
     private ObjectID enemyType;
     private ObjectID characterType;
 
+    // character positions
     private Point [] characterPositions;
+
+    // enemy positions
     private Point [] enemyPositions;
+
+    // surprise box positions
+    private Point [] boxPositions;
+
 
     /**
      *  Constructs the classic level
@@ -36,21 +43,31 @@ public class ClassicLevel implements ILevelInterface
 
         tileMap = "src/resources/map_files/map_level_1.txt";
 
-        //TODO: set proper enemy type
         enemyType = ObjectID.ClassicSoldier;
         characterType = ObjectID.ClassicFighter;
 
         characterPositions = new Point[2];
+
         enemyPositions = new Point[ENEMY_NUM];
+
+        boxPositions = new Point[TOTAL_BONUS_COUNT];
 
         characterPositions[0] = new Point(50,50);
 
-
+        // Enemy positions
         for (int i = 0; i < enemyPositions.length; i++)
         {
             int enX = (int) ((Math.random() * 600) + 200);
-            int enY = (int) ((Math.random() * 600) + 200);
             enemyPositions[i] = new Point(enX, 50);
+        }
+
+
+        // Surprise boxes positions
+        for (int i = 0; i < boxPositions.length; i++)
+        {
+            int bX = (int) ((Math.random() * 8000) + 200);
+
+            boxPositions[i] = new Point(bX, 70);
         }
 
     }
@@ -80,6 +97,9 @@ public class ClassicLevel implements ILevelInterface
 
     @Override
     public Point [] getEnemyPositions() { return enemyPositions; }
+
+    @Override
+    public Point [] getBoxPositions() {  return boxPositions; }
 
     @Override
     public int getEnemySize() {return ENEMY_NUM; }

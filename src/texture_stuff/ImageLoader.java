@@ -27,6 +27,9 @@ public class ImageLoader
     //weapon
     private Image [] weapons;
 
+    //surprise box
+    private Image[] box_images;
+
     // tiles
     private Image [] tiles;
 
@@ -87,6 +90,13 @@ public class ImageLoader
         else if(id.equals(ObjectID.Tile))
         {
             this.loadTiles();
+        }
+        else if(id.equals(ObjectID.SurpriseBox))
+        {
+            box_images = new Image[2];
+
+            box_images[0] = new ImageIcon("src/resources/surprise_box/surprisebox_def.png").getImage();
+            box_images[1] = new ImageIcon("src/resources/surprise_box/surprisebox_flip.png").getImage();
         }
 
         this.loadWalking();
@@ -354,4 +364,7 @@ public class ImageLoader
 
     //weapons
     public Image[] getWeapons () { return weapons; }
+
+    //surprise box
+    public Image[] getBoxes() { return box_images; }
 }

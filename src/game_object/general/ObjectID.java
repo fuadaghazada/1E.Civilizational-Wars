@@ -19,5 +19,6 @@ public enum ObjectID
     ClassicSoldier(),
     ModernSoldier(),
     Rifle(),
-    LaserGun()
+    LaserGun(),
+    SurpriseBox();
 }

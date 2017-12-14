@@ -9,6 +9,8 @@ import java.awt.*;
 public interface ILevelInterface {
 
     int TOTAL_LEVEL_COUNT = 3;
+    int TOTAL_BONUS_COUNT = 3;
+
     String getLevelTileMap();
     String getName();
     ObjectID getEnemyType();
@@ -18,5 +20,6 @@ public interface ILevelInterface {
 
     Point [] getCharacterPositions();
     Point [] getEnemyPositions();
+    Point [] getBoxPositions();
 
 }

@@ -1,5 +1,6 @@
 package game_object.player;
 
+import game_object.bonus.SurpriseBox;
 import game_object.general.GameObject;
 import game_object.general.GameObjectHandler;
 import game_object.general.ObjectID;
@@ -14,7 +15,8 @@ import java.awt.*;
 public class Character extends GameObject
 {
     // Constants
-    private final float MAX_SPEED = 5;
+    public static final float MAX_SPEED = 5;
+    public static final int MAX_LIVES = 4;
 
     // Properties
     private float gravity = 0.3f;
@@ -169,6 +171,24 @@ public class Character extends GameObject
                     i--;
 
                     break;
+                }
+            }
+        }
+
+        for(int i = 0; i < GameObjectHandler.getInstance().getGame_objects().size(); i++)
+        {
+            if(GameObjectHandler.getInstance().getGame_objects().get(i).getId() == ObjectID.SurpriseBox)
+            {
+                //TODO: Handle for multiplayer
+                if(GameObjectHandler.getInstance().getGame_objects().get(i).getBounds().intersects(GameObjectHandler.getInstance().getCharacter(0).getBounds()))
+                {
+                    SurpriseBox surpriseBox = (SurpriseBox) GameObjectHandler.getInstance().getGame_objects().get(i);
+
+                    surpriseBox.setCollected(true);
+
+                    surpriseBox.obtainPrize();
+
+                    return true;
                 }
             }
         }

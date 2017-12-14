@@ -39,7 +39,9 @@ public class GameManager
                 DataManager.getInstance().loadGame();
             }
         }
+
         this.generateTiles();
+        this.generateSurpriseBoxes();
     }
 
     /**
@@ -64,6 +66,14 @@ public class GameManager
     public void generateTiles()
     {
         GameObjectHandler.getInstance().addTile(LevelManager.getInstance().getCurrentLevel().getLevelTileMap());
+    }
+
+    /**
+     *  Generates the boxes according to the current level
+     */
+    public void generateSurpriseBoxes()
+    {
+        GameObjectHandler.getInstance().addGameObject(ObjectID.SurpriseBox, LevelManager.getInstance().getCurrentLevel().getBoxPositions());
     }
 
     /**
