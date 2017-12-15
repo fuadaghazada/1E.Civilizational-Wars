@@ -23,6 +23,10 @@ public class ImageLoader
     private Image[] enemy_walkingR, enemy_walkingL;
     private Image[] enemy_jumpingR, enemy_jumpingL;
     private Image[] enemy_still;
+    private Image[] enemy_fightingR, enemy_fightingL;
+
+    // boss
+    private Image[] boss_still;
 
     //weapon
     private Image [] weapons;
@@ -52,7 +56,7 @@ public class ImageLoader
         else if(id.equals(ObjectID.ClassicSoldier))
         {
             enemy_still = new Image[2];
-            enemy_still[0] = new ImageIcon("src/resources/game_textures/enemy/classic/test_enemy.png").getImage();
+            enemy_still[0] = new ImageIcon("src/resources/game_textures/enemy/classic/test_enemy_r.png").getImage();
             enemy_still[1] = new ImageIcon("src/resources/game_textures/enemy/classic/test_enemy_l.png").getImage();
         }
         else if(id.equals(ObjectID.ModernFighter))
@@ -90,6 +94,28 @@ public class ImageLoader
             weapons[4] = new ImageIcon("src/resources/game_textures/weapons/laserGun.png").getImage();
             weapons[5] = new ImageIcon("src/resources/game_textures/weapons/laserGun_l.png").getImage();
         }
+        else if(id.equals(ObjectID.ClassicBoss))
+        {
+            boss_still = new Image[2];
+
+            boss_still[0] = new ImageIcon("src/resources/game_textures/enemy/bosses/classic_boss/classic_boss_r.png").getImage();
+            boss_still[1] = new ImageIcon("src/resources/game_textures/enemy/bosses/classic_boss/classic_boss_l.png").getImage();
+        }
+        else if(id.equals(ObjectID.ModernBoss))
+        {
+            boss_still = new Image[2];
+
+            boss_still[0] = new ImageIcon("src/resources/game_textures/enemy/bosses/modern_boss/modern_boss_r.png").getImage();
+            boss_still[1] = new ImageIcon("src/resources/game_textures/enemy/bosses/modern_boss/modern_boss_l.png").getImage();
+        }
+        else if(id.equals(ObjectID.PostModernBoss))
+        {
+            boss_still = new Image[2];
+
+            boss_still[0] = new ImageIcon("src/resources/game_textures/enemy/bosses/post_modern_boss/post_modern_boss_r.png").getImage();
+            boss_still[1] = new ImageIcon("src/resources/game_textures/enemy/bosses/post_modern_boss/post_modern_boss_l.png").getImage();
+        }
+
         else if(id.equals(ObjectID.Tile))
         {
             this.loadTiles();
@@ -328,6 +354,20 @@ public class ImageLoader
                 player_fightingL[i] = new ImageIcon("src/resources/game_textures/player/classic_soldier/test_player_attack" + (i + 1) + "_l.png").getImage();
             }
         }
+        else if(id == ObjectID.ClassicSoldier)
+        {
+            enemy_fightingR = new Image[2];
+
+            for (int i = 0; i < enemy_fightingR.length; i++) {
+                enemy_fightingR[i] = new ImageIcon("src/resources/game_textures/enemy/classic/test_enemy_fight_r_" + (i + 1) + ".png").getImage();
+            }
+
+            enemy_fightingL = new Image[2];
+
+            for (int i = 0; i < enemy_fightingL.length; i++) {
+                enemy_fightingL[i] = new ImageIcon("src/resources/game_textures/enemy/classic/test_enemy_fight_l_" + (i + 1) + ".png").getImage();
+            }
+        }
     }
 
     /**
@@ -381,6 +421,13 @@ public class ImageLoader
     public Image[] getEnemy_jumpingL() { return enemy_jumpingL; }
 
     public Image[] getEnemy_still() { return enemy_still; }
+
+    public Image[] getEnemy_fightingR() { return enemy_fightingR; }
+
+    public Image[] getEnemy_fightingL() { return enemy_fightingL; }
+
+    // boss
+    public Image [] getBoss_still() { return boss_still; }
 
     //tiles
     public Image[] getTiles() { return tiles; }

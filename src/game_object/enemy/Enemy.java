@@ -68,11 +68,17 @@ public class Enemy extends GameObject
     }
 
 
-    public void fight()
+    public void fight(boolean onFire)
     {
         //TODO: Fire at some interval when inside the range
-        weapon.fire(getDir());
-
+        if(onFire) {
+            weapon.setUsed(true);
+            weapon.fire(getDir());
+        }
+        else
+        {
+            weapon.setUsed(false);
+        }
     }
 
     @Override
@@ -132,9 +138,13 @@ public class Enemy extends GameObject
         }
 
         if(Math.abs(this.x - player.getX()) < fireRange && (System.currentTimeMillis() - lastFire >= fireRate ) ) {
-            fight();
+            fight(true);
             lastFire = System.currentTimeMillis();
 
+        }
+        else
+        {
+            fight(false);
         }
 
         // check if the enemy is dead
@@ -166,9 +176,21 @@ public class Enemy extends GameObject
 
 
     @Override
-    public void render(Graphics g) {
-        // Test
-        g.setColor(Color.RED);
+    public void render(Graphics g)
+    {
+        // HealthBar
+        g.setColor(Color.GRAY);
+        g.drawRect((int) x,(int) y - 10, 5, 10);
+
+        if(this.getHealthLevel() <= 20)
+        {
+            g.setColor(Color.RED);
+        }
+        else
+        {
+            g.setColor(Color.GREEN);
+        }
+        g.fillRect((int) x,(int) y - 10, (int) this.getHealthLevel()/2,10);
     }
 
     @Override

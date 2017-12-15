@@ -34,6 +34,7 @@ public class GameManager
             this.generateCharacter();
             this.generateEnemies();
             this.generateSurpriseBoxes();
+            this.generateBoss();
         }
         else
         {
@@ -59,6 +60,14 @@ public class GameManager
     public void generateEnemies()
     {
         GameObjectHandler.getInstance().addGameObject(LevelManager.getInstance().getCurrentLevel().getEnemyType(), LevelManager.getInstance().getCurrentLevel().getEnemyPositions());
+    }
+
+    /**
+     *  Generates the boss according to the current level
+     */
+    public void generateBoss()
+    {
+        GameObjectHandler.getInstance().addGameObject(LevelManager.getInstance().getCurrentLevel().getBossType(), LevelManager.getInstance().getCurrentLevel().bossPosition());
     }
 
     /**

@@ -5,6 +5,8 @@ import game_object.enemy.Alien;
 import game_object.enemy.ClassicSoldier;
 import game_object.enemy.Enemy;
 import game_object.enemy.ModernSoldier;
+import game_object.enemy.boss.ClassicBoss;
+import game_object.enemy.boss.PostmodernBoss;
 import game_object.map.Tile;
 import game_object.map.TileMap;
 import game_object.player.Character;
@@ -178,6 +180,53 @@ public class GameObjectHandler
                 renderables.add(go);
                 game_objects.add(go);
             }
+        }
+
+        //Bosses
+        else if( objectID == ObjectID.ClassicBoss)
+        {
+            for (int i = 0; i < points.length; i++)
+            {
+                if(points[i] == null)
+                    continue;
+
+                go = new ClassicBoss(points[i].getX(), points[i].getY(), objectID);
+
+                updatables.add(go);
+                renderables.add(go);
+                game_objects.add(go);
+            }
+
+        }
+        else if( objectID == ObjectID.ModernBoss)
+        {
+            for (int i = 0; i < points.length; i++)
+            {
+                if(points[i] == null)
+                    continue;
+
+                go = new ModernSoldier(points[i].getX(), points[i].getY(), objectID);
+
+                updatables.add(go);
+                renderables.add(go);
+                game_objects.add(go);
+            }
+
+        }
+        else if( objectID == ObjectID.PostModernBoss)
+        {
+            for (int i = 0; i < points.length; i++)
+            {
+                if(points[i] == null)
+                    continue;
+
+                go = new PostmodernBoss(points[i].getX(), points[i].getY(), objectID);
+
+                updatables.add(go);
+                renderables.add(go);
+                game_objects.add(go);
+            }
+
         }
     }
 

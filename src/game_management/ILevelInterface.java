@@ -15,9 +15,11 @@ public interface ILevelInterface {
     String getName();
     ObjectID getEnemyType();
     ObjectID getCharacterType();
+    ObjectID getBossType();
 
     int getEnemySize();
 
+    Point [] bossPosition();
     Point [] getCharacterPositions();
     Point [] getEnemyPositions();
     Point [] getBoxPositions();

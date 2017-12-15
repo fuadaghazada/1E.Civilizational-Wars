@@ -23,6 +23,7 @@ public class PostModernLevel implements ILevelInterface
     private String tileMap;
     private ObjectID enemyType;
     private ObjectID characterType;
+    private ObjectID bossType;
 
     // character positions
     private Point [] characterPositions;
@@ -30,22 +31,32 @@ public class PostModernLevel implements ILevelInterface
     // enemy positions
     private Point [] enemyPositions;
 
+    // boss positions
+    private Point [] bossPositions;
+
     // surprise box positions
     private Point [] boxPositions;
 
+
     /**
-     *  Constructs the post-modern level
+     *  Constructs the classic level
      */
     public PostModernLevel()
     {
-        name = "Post-Modern Period";
-        tileMap = "src/resources/map_files/map_level_3.txt";
+        name = "Classic Period";
+
+        tileMap = "src/resources/map_files/map_level_1.txt";
 
         enemyType = ObjectID.Alien;
         characterType = ObjectID.Robot;
+        bossType = ObjectID.PostModernBoss;
 
         characterPositions = new Point[2];
+
         enemyPositions = new Point[ENEMY_NUM];
+
+        bossPositions = new Point[1];
+
         boxPositions = new Point[TOTAL_BONUS_COUNT];
 
         characterPositions[0] = new Point(50,50);
@@ -54,17 +65,20 @@ public class PostModernLevel implements ILevelInterface
         for (int i = 0; i < enemyPositions.length; i++)
         {
             int enX = (int) ((Math.random() * 600) + 200);
-            int enY = (int) ((Math.random() * 600) + 200);
             enemyPositions[i] = new Point(enX, 50);
         }
+
+        // Boss position
+        bossPositions[0] = new Point(4048, 200);
 
         // Surprise boxes positions
         for (int i = 0; i < boxPositions.length; i++)
         {
-            int bX = (int) ((Math.random() * 1000) + 200);
+            int bX = (int) ((Math.random() * 8000) + 200);
 
             boxPositions[i] = new Point(bX, 70);
         }
+
     }
 
     @Override
@@ -88,7 +102,10 @@ public class PostModernLevel implements ILevelInterface
     }
 
     @Override
-    public Point[] getCharacterPositions(){ return characterPositions; }
+    public ObjectID getBossType() { return bossType; }
+
+    @Override
+    public Point [] getCharacterPositions(){ return characterPositions; }
 
     @Override
     public Point [] getEnemyPositions() { return enemyPositions; }
@@ -97,6 +114,10 @@ public class PostModernLevel implements ILevelInterface
     public Point [] getBoxPositions() {  return boxPositions; }
 
     @Override
+    public Point [] bossPosition() { return bossPositions; }
+
+    @Override
     public int getEnemySize() {return ENEMY_NUM; }
+
 
 }

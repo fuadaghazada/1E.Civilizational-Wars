@@ -1,27 +1,26 @@
-package game_object.enemy;
+package game_object.enemy.boss;
 
-import game_object.general.GameObjectHandler;
 import game_object.general.ObjectID;
 import texture_stuff.ImageLoader;
+
 import java.awt.*;
 
-public class ModernSoldier extends Enemy
-{
-    // Properties
+/**
+ * Created by bmmuradov on 15/12/2017.
+ */
+public class PostmodernBoss extends Boss {
+
+    //Properties
     private ImageLoader imageLoader;
 
-    /**
-     *  Constructs the modern enemy for period 1
-     * @param x - x coordinate
-     *  @param y - y coordinate
-     * @param id - id of the object
-     */
-    public ModernSoldier(double x, double y, ObjectID id)
+
+    public PostmodernBoss(double x, double y, ObjectID id)
     {
         super(x, y, id);
+        imageLoader= new ImageLoader(ObjectID.ModernBoss);
 
-        // textures
-        imageLoader = new ImageLoader(ObjectID.ModernSoldier);
+        setWidth(150);
+        setHeight(150);
     }
 
     @Override
@@ -29,7 +28,7 @@ public class ModernSoldier extends Enemy
     {
         super.render(g);
 
-        // Enemy
+        // Boss
 
         if(getDir() == 1)
         {
@@ -42,8 +41,9 @@ public class ModernSoldier extends Enemy
     }
 
     @Override
-    public void update()
-    {
+    public void update (){
         super.update();
     }
+
+
 }

@@ -3,6 +3,7 @@ package game_object.enemy;
 import game_object.general.GameObjectHandler;
 import game_object.general.ObjectID;
 import game_object.weapon.Sword;
+import texture_stuff.Animation;
 import texture_stuff.ImageLoader;
 import java.awt.*;
 
@@ -10,6 +11,8 @@ public class ClassicSoldier extends Enemy
 {
     // Properties
     private ImageLoader imageLoader;
+
+    private Animation fightAnimationL, fightAnimationR;
     private Sword sword;
 
     /**
@@ -25,6 +28,12 @@ public class ClassicSoldier extends Enemy
         this.init();
 
         this.setWeapon(sword);
+
+        // textures
+        imageLoader = new ImageLoader(ObjectID.ClassicSoldier);
+
+        fightAnimationL = new Animation(1, imageLoader.getEnemy_fightingL());
+        fightAnimationR = new Animation(15, imageLoader.getEnemy_fightingR());
     }
 
     /**
@@ -32,35 +41,35 @@ public class ClassicSoldier extends Enemy
      */
     private void init()
     {
-        // textures
-        imageLoader = new ImageLoader(ObjectID.ClassicSoldier);
-
         sword = new Sword(x, y, ObjectID.Weapon, this);
     }
 
     @Override
-    public void render(Graphics g) {
+    public void render(Graphics g)
+    {
+        super.render(g);
 
-
-        // HealthBar
-        g.setColor(Color.GRAY);
-        g.drawRect((int) x,(int) y - 10, 5, 10);
-
-        if(this.getHealthLevel() <= 20)
+        if (getDir() == 1)
         {
-            g.setColor(Color.RED);
+            if(this.getWeapon().isUsed())
+            {
+                fightAnimationR.drawAnimation(g, (int) (x), (int) (y), width, height);
+            }
+            else
+            {
+                g.drawImage(imageLoader.getEnemy_still()[0], (int) x, (int) (y), width, height, null);
+            }
         }
-        else
+        else if (getDir() == -1)
         {
-            g.setColor(Color.GREEN);
-        }
-        g.fillRect((int) x,(int) y - 10, (int) this.getHealthLevel()/2,10);
-
-
-        if (getDir() == 1) {
-            g.drawImage(imageLoader.getEnemy_still()[0], (int) x, (int) (y), width, height, null);
-        } else if (getDir() == -1) {
-            g.drawImage(imageLoader.getEnemy_still()[1], (int) x, (int) (y), width, height, null);
+            if(this.getWeapon().isUsed())
+            {
+                fightAnimationL.drawAnimation(g, (int) (x), (int) (y), width, height);
+            }
+            else
+            {
+                g.drawImage(imageLoader.getEnemy_still()[1], (int) x, (int) (y), width, height, null);
+            }
         }
     }
 
@@ -68,5 +77,10 @@ public class ClassicSoldier extends Enemy
     public void update()
     {
         super.update();
+
+        sword.update();
+
+        fightAnimationL.runAnimation();
+        fightAnimationR.runAnimation();
     }
 }
