@@ -6,6 +6,7 @@ import game_object.enemy.ClassicSoldier;
 import game_object.enemy.Enemy;
 import game_object.enemy.ModernSoldier;
 import game_object.enemy.boss.ClassicBoss;
+import game_object.enemy.boss.ModernBoss;
 import game_object.enemy.boss.PostmodernBoss;
 import game_object.map.Tile;
 import game_object.map.TileMap;
@@ -205,7 +206,7 @@ public class GameObjectHandler
                 if(points[i] == null)
                     continue;
 
-                go = new ModernSoldier(points[i].getX(), points[i].getY(), objectID);
+                go = new ModernBoss(points[i].getX(), points[i].getY(), objectID);
 
                 updatables.add(go);
                 renderables.add(go);

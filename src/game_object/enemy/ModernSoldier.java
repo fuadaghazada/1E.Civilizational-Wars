@@ -33,11 +33,11 @@ public class ModernSoldier extends Enemy
 
         if(getDir() == 1)
         {
-            g.drawImage(imageLoader.getBoss_still()[0], (int) x, (int) (y), width, height, null);
+            g.drawImage(imageLoader.getEnemy_still()[0], (int) x, (int) (y), width, height, null);
         }
         else if(getDir() == -1)
         {
-            g.drawImage(imageLoader.getBoss_still()[1], (int) x, (int) (y), width, height, null);
+            g.drawImage(imageLoader.getEnemy_still()[1], (int) x, (int) (y), width, height, null);
         }
     }
 

@@ -13,7 +13,12 @@ public class PostmodernBoss extends Boss {
     //Properties
     private ImageLoader imageLoader;
 
-
+    /**
+     *  Constructs the boss for the post-modern level
+     *  @param x - x coordinate of the post-modern boss
+     *  @param y - y coordinate of the post-modern boss
+     *  @param id - id of the post-modern boss
+     */
     public PostmodernBoss(double x, double y, ObjectID id)
     {
         super(x, y, id);

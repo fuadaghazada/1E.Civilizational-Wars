@@ -69,7 +69,7 @@ public class ModernLevel implements ILevelInterface
         }
 
         // Boss position
-        bossPositions[0] = new Point(4048, 200);
+        bossPositions[0] = new Point(5000, 200);
 
         // Surprise boxes positions
         for (int i = 0; i < boxPositions.length; i++)

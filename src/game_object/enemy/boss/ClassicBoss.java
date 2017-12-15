@@ -15,6 +15,12 @@ public class ClassicBoss extends Boss {
 
     private ImageLoader imageLoader;
 
+    /**
+     *  Constructs the boss for the classic level
+     *  @param x - x coordinate of the classic boss
+     *  @param y - y coordinate of the classic boss
+     *  @param id - id of the classic boss
+     */
     public ClassicBoss(double x, double y, ObjectID id)
     {
         super(x, y, id);
