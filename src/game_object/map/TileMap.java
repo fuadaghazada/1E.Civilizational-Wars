@@ -20,7 +20,6 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 
 public class TileMap implements IRenderable
@@ -38,6 +37,8 @@ public class TileMap implements IRenderable
 
     private ArrayList<Tile> tiles;
 
+    private Background background;
+
     /**
      *  Constructs a tile map
      */
@@ -45,6 +46,8 @@ public class TileMap implements IRenderable
     {
         tiles = new ArrayList<>();
         this.loadMap(fileName);
+
+        background = new Background(this.getMapWidth(), this.getMapHeight());
     }
 
     private void loadMap(String fileName)
@@ -116,6 +119,8 @@ public class TileMap implements IRenderable
     {
         g.setColor(Color.BLACK);
 
+        background.render(g);
+
         for(int i = 0; i < tiles.size(); i++)
         {
             tiles.get(i).render(g);
@@ -151,7 +156,7 @@ public class TileMap implements IRenderable
 
     public int getMapWidth()
     {
-        return mapWidth;
+        return mapWidth * Tile.getTileSize();
     }
 
     public void setMapWidth(int mapWidth)
@@ -161,7 +166,7 @@ public class TileMap implements IRenderable
 
     public int getMapHeight()
     {
-        return mapHeight;
+        return mapHeight * Tile.getTileSize();
     }
 
     public void setMapHeight(int mapHeight)

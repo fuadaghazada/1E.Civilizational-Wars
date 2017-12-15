@@ -33,6 +33,7 @@ public class DataManager
 
     private Point[] characterPositions;
     private Point[] enemyPositions;
+    private Point[] boxPositions;
 
 
     /**
@@ -79,7 +80,7 @@ public class DataManager
     }
 
     /**
-     *  Writesthe game data to the file with given filename as a property
+     *  Writes the game data to the file with given filename as a property
      */
     public void saveGame()
     {
@@ -130,6 +131,8 @@ public class DataManager
 
             enemyPositions = new Point[LevelManager.getInstance().getCurrentLevel().getEnemySize()];
 
+            boxPositions = new Point[LevelManager.getInstance().getCurrentLevel().getBoxPositions().length];
+
             while (fileReader.hasNext()) {
                 String line = fileReader.nextLine();
 
@@ -139,8 +142,10 @@ public class DataManager
 
                 if (id.equals(ObjectID.ClassicFighter) || id.equals(ObjectID.ModernFighter) || id.equals(ObjectID.Robot))
                     GameObjectHandler.getInstance().addGameObject(id, characterPositions);
-                else
+                else if(id.equals(ObjectID.ClassicSoldier) || id.equals(ObjectID.ModernSoldier) || id.equals(ObjectID.Alien))
                     GameObjectHandler.getInstance().addGameObject(id, enemyPositions);
+                else if(id.equals(ObjectID.SurpriseBox))
+                    GameObjectHandler.getInstance().addGameObject(id, boxPositions);
             }
 
             fileReader.close();
@@ -185,6 +190,17 @@ public class DataManager
             }
         }
 
+        if(data[0].equals("SurpriseBox"))
+        {
+            for (int i = 0; i < boxPositions.length; i++)
+            {
+                if (boxPositions[i] == null)
+                {
+                    boxPositions[i] = new Point((int) x, (int) y);
+                }
+            }
+        }
+
         switch (data[0])
         {
             case "ClassicFighter":
@@ -210,6 +226,10 @@ public class DataManager
             case "Alien":
             {
                 return ObjectID.Alien;
+            }
+            case "SurpriseBox":
+            {
+                return ObjectID.SurpriseBox;
             }
             default:
                 return ObjectID.ClassicSoldier;

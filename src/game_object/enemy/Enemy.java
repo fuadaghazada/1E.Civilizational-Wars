@@ -81,6 +81,7 @@ public class Enemy extends GameObject
         super.update();
         this.checkCollision();
         weapon.update();
+
         //TODO: Move through the character
         Character player;
         Character player1 =  GameObjectHandler.getInstance().getCharacter(0);
@@ -166,12 +167,8 @@ public class Enemy extends GameObject
 
     @Override
     public void render(Graphics g) {
+        // Test
         g.setColor(Color.RED);
-
-        //g.fillRect((int)x, (int)y, width, height);
-
-
-        g.drawImage(new ImageIcon("src/resources/game_textures/enemy/modern/test_enemy.png").getImage(), (int) x, (int) (y), null);
     }
 
     @Override
@@ -182,8 +179,6 @@ public class Enemy extends GameObject
         {
             // To keep the game objects in a temp variable - for simplicity
             GameObject tempObject = GameObjectHandler.getInstance().getGame_objects().get(i);
-
-
 
             //checking collision with the tiles.
             if(tempObject.getId() == ObjectID.Tile)
@@ -230,8 +225,9 @@ public class Enemy extends GameObject
             if(getBounds().intersects(temp.getBounds()))
             {
                 //Need to override in child classes to check each enemy
-                if(temp.getWeapon().getOwner().getId() == ObjectID.ModernSoldier)
+                if(temp.getWeapon().getOwner().getId() == ObjectID.Alien || temp.getWeapon().getOwner().getId() == ObjectID.ModernSoldier)
                     continue;
+
                 healthLevel -= temp.getDamage();
 
                 GameObjectHandler.getInstance().removeBullet(temp);

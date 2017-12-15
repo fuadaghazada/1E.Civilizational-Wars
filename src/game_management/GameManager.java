@@ -27,10 +27,13 @@ public class GameManager
         GameObjectHandler.getInstance().dispose();
         inputManager = new InputManager(this);
 
+        this.generateTiles();
+
         if(!DataManager.getInstance().isLoadCalled())
         {
             this.generateCharacter();
             this.generateEnemies();
+            this.generateSurpriseBoxes();
         }
         else
         {
@@ -40,8 +43,6 @@ public class GameManager
             }
         }
 
-        this.generateTiles();
-        this.generateSurpriseBoxes();
     }
 
     /**
@@ -101,7 +102,7 @@ public class GameManager
 
         if(GameObjectHandler.getInstance().getEnemies().size() == 0)
             return WON;
-        else if((GameObjectHandler.getInstance().getCharacter(0) == null && GameObjectHandler.getInstance().getCharacter(1) == null)
+        else if    ((GameObjectHandler.getInstance().getCharacter(0) == null && GameObjectHandler.getInstance().getCharacter(1) == null)
                 || ((GameObjectHandler.getInstance().getCharacter(0) != null && GameObjectHandler.getInstance().getCharacter(1) == null) && GameObjectHandler.getInstance().getCharacter(0).getLives() <= 0)
                 || ((GameObjectHandler.getInstance().getCharacter(0) == null && GameObjectHandler.getInstance().getCharacter(1) != null) && GameObjectHandler.getInstance().getCharacter(1).getLives() <= 0)
                 || ((GameObjectHandler.getInstance().getCharacter(0) != null && GameObjectHandler.getInstance().getCharacter(1) != null) && GameObjectHandler.getInstance().getCharacter(0).getLives() + GameObjectHandler.getInstance().getCharacter(1).getLives() <=0 ))

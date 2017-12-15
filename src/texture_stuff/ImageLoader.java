@@ -30,8 +30,11 @@ public class ImageLoader
     //surprise box
     private Image[] box_images;
 
-    // tiles
+    //tiles
     private Image [] tiles;
+
+    //background
+    private Image background;
 
     /**
      *  Constructs an image loader which loads all the game images.
@@ -102,6 +105,7 @@ public class ImageLoader
         this.loadWalking();
         this.loadJumping();
         this.loadFighting();
+        this.loadBgImages();
     }
 
     /**
@@ -287,6 +291,25 @@ public class ImageLoader
     }
 
     /**
+     *  Loads background images
+     */
+    private void loadBgImages()
+    {
+        if(id == ObjectID.ClassicFighter)
+        {
+            background = new ImageIcon("src/resources/game_textures/background/bg1.png").getImage();
+        }
+        else if(id == ObjectID.ModernFighter)
+        {
+            background = new ImageIcon("src/resources/game_textures/background/bg2.png").getImage();
+        }
+        else if(id == ObjectID.Robot)
+        {
+            background = new ImageIcon("src/resources/game_textures/background/bg3.png").getImage();
+        }
+    }
+
+    /**
      *  Loads fighting textures
      */
     private void loadFighting()
@@ -367,4 +390,7 @@ public class ImageLoader
 
     //surprise box
     public Image[] getBoxes() { return box_images; }
+
+    // backgrounds
+    public Image getBackground() { return background; }
 }

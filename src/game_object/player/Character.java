@@ -162,7 +162,7 @@ public class Character extends GameObject
 
             if(temp.getBounds().intersects(this.getBounds()))
             {
-                if(temp.getWeapon().getOwner().getId() == ObjectID.ModernSoldier)
+                if(temp.getWeapon().getOwner().getId() == ObjectID.Alien || temp.getWeapon().getOwner().getId() == ObjectID.ModernSoldier)
                 {
                     this.healthLevel -= temp.getDamage();
 
