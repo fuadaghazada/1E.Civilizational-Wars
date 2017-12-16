@@ -26,7 +26,7 @@ public class MainMenuPanel extends JPanel
 {
     // Properties
     private JPanel up_panel, center_panel, bottom_panel;
-    private JButton playBtn, loadLevelBtn, viewSettingsBtn, viewHelpBtn, viewAboutBtn, quitBtn;
+    private JButton playBtn1, playBtn2, loadLevelBtn, viewSettingsBtn, viewHelpBtn, viewAboutBtn, quitBtn;
     private JLabel game_label;
 
     /*
@@ -51,7 +51,7 @@ public class MainMenuPanel extends JPanel
 
     public void listen()
     {
-        playBtn.addActionListener(new ActionListener()
+        playBtn1.addActionListener(new ActionListener()
         {
             @Override
             public void actionPerformed(ActionEvent e)
@@ -59,6 +59,17 @@ public class MainMenuPanel extends JPanel
                 GamePanel gPanel = new GamePanel(GameManager.BEGINNING);
 
                 ScreenManager.getInstance().setCurrentPanel(gPanel);
+            }
+        });
+
+        playBtn2.addActionListener(new ActionListener()
+        {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+//                GamePanel gPanel = new GamePanel(GameManager.BEGINNING);
+//
+//                ScreenManager.getInstance().setCurrentPanel(gPanel);
             }
         });
 
@@ -127,14 +138,16 @@ public class MainMenuPanel extends JPanel
         bottom_panel = new JPanel();
 
         // Buttons
-        playBtn = new JButton("Play Game");
+        playBtn1 = new JButton("Play Single Player");
+        playBtn2 = new JButton("Play MultiPlayer");
         loadLevelBtn = new JButton("Load Level");
         viewSettingsBtn = new JButton("Settings");
         viewAboutBtn = new JButton("About");
         viewHelpBtn = new JButton();
         quitBtn = new JButton();
 
-        playBtn.setUI(new GameButtonUI());
+        playBtn1.setUI(new GameButtonUI());
+        playBtn2.setUI(new GameButtonUI());
         loadLevelBtn.setUI(new GameButtonUI());
         viewSettingsBtn.setUI(new GameButtonUI());
         viewAboutBtn.setUI(new GameButtonUI());
@@ -149,7 +162,8 @@ public class MainMenuPanel extends JPanel
     */
     private void customizeButtons()
     {
-        playBtn.setAlignmentX(CENTER_ALIGNMENT);
+        playBtn1.setAlignmentX(CENTER_ALIGNMENT);
+        playBtn2.setAlignmentX(CENTER_ALIGNMENT);
         loadLevelBtn.setAlignmentX(CENTER_ALIGNMENT);
         viewSettingsBtn.setAlignmentX(CENTER_ALIGNMENT);
         viewAboutBtn.setAlignmentX(CENTER_ALIGNMENT);
@@ -179,7 +193,8 @@ public class MainMenuPanel extends JPanel
 
         main_buttons_panel.setLayout(new BoxLayout(main_buttons_panel, BoxLayout.Y_AXIS));
 
-        main_buttons_panel.add(playBtn);
+        main_buttons_panel.add(playBtn1);
+        main_buttons_panel.add(playBtn2);
         main_buttons_panel.add(loadLevelBtn);
         main_buttons_panel.add(viewSettingsBtn);
         main_buttons_panel.add(viewAboutBtn);
