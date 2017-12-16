@@ -3,6 +3,7 @@ package game_object.bonus;
 import game_object.general.GameObject;
 import game_object.general.GameObjectHandler;
 import game_object.general.ObjectID;
+import game_object.player.Character;
 import texture_stuff.Animation;
 import texture_stuff.ImageLoader;
 
@@ -21,6 +22,8 @@ public class SurpriseBox extends GameObject
 
     private int randomPrize;
     private boolean isCollected;
+
+    private int whoTook = -1;
 
 
     /**
@@ -51,23 +54,22 @@ public class SurpriseBox extends GameObject
     /**
      *  Collect the prize according to the choosen random number
      */
-    public void obtainPrize()
+    public void obtainPrize(Character character)
     {
         switch (randomPrize)
         {
             case LIVE:
             {
-                //TODO: Multiplayer
-                int lives = GameObjectHandler.getInstance().getCharacter(0).getLives();
+                int lives = character.getLives();
 
-                if(lives < GameObjectHandler.getInstance().getCharacter(0).MAX_LIVES)
-                    GameObjectHandler.getInstance().getCharacter(0).setLives(lives + 1);
+                if (lives < character.MAX_LIVES)
+                        character.setLives(lives + 1);
 
                 break;
             }
             case HEALTH:
             {
-                GameObjectHandler.getInstance().getCharacter(0).setHealthLevel(100.0f);
+                character.setHealthLevel(100.0f);
                 break;
             }
         }
@@ -154,4 +156,8 @@ public class SurpriseBox extends GameObject
     {
         return isCollected;
     }
+
+    public int getWhoTook() { return whoTook; }
+
+    public void setWhoTook(int whoTook) { this.whoTook = whoTook; }
 }

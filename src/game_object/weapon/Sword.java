@@ -43,14 +43,13 @@ public class Sword extends Weapon
         {
             if (GameObjectHandler.getInstance().getCharacter(0).getBounds().intersects(owner.getBounds()))
             {
-                GameObjectHandler.getInstance().getCharacter(0).setY(GameObjectHandler.getInstance().getCharacter(0).getY() - 50);
-                GameObjectHandler.getInstance().getCharacter(0).setHealthLevel(GameObjectHandler.getInstance().getCharacter(0).getHealthLevel() - 10);
+                GameObjectHandler.getInstance().getCharacter(0).takeDamage();
             }
-//            else if (GameObjectHandler.getInstance().getCharacter(1).getBounds().intersects(owner.getBounds()))
-//            {
-//                GameObjectHandler.getInstance().getCharacter(1).setY(GameObjectHandler.getInstance().getCharacter(1).getY() - 50);
-//                GameObjectHandler.getInstance().getCharacter(1).setHealthLevel(GameObjectHandler.getInstance().getCharacter(1).getHealthLevel() - 10);
-//            }
+            else if (GameObjectHandler.getInstance().getCharacter(1) != null && GameObjectHandler.getInstance().getCharacter(1).getBounds().intersects(owner.getBounds()))
+            {
+                GameObjectHandler.getInstance().getCharacter(1).setY(GameObjectHandler.getInstance().getCharacter(1).getY() - 50);
+                GameObjectHandler.getInstance().getCharacter(1).setHealthLevel(GameObjectHandler.getInstance().getCharacter(1).getHealthLevel() - 10);
+            }
         }
     }
 

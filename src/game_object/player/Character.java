@@ -69,6 +69,12 @@ public class Character extends GameObject
         }
     }
 
+    public void takeDamage()
+    {
+        this.setY(y - 50);
+        this.setHealthLevel(getHealthLevel() - 10);
+    }
+
     /**
      *  Checks if the character is dead or not
      */
@@ -179,14 +185,13 @@ public class Character extends GameObject
         {
             if(GameObjectHandler.getInstance().getGame_objects().get(i).getId() == ObjectID.SurpriseBox)
             {
-                //TODO: Handle for multiplayer
-                if(GameObjectHandler.getInstance().getGame_objects().get(i).getBounds().intersects(GameObjectHandler.getInstance().getCharacter(0).getBounds()))
+                if(GameObjectHandler.getInstance().getGame_objects().get(i).getBounds().intersects(this.getBounds()))
                 {
                     SurpriseBox surpriseBox = (SurpriseBox) GameObjectHandler.getInstance().getGame_objects().get(i);
 
                     surpriseBox.setCollected(true);
 
-                    surpriseBox.obtainPrize();
+                    surpriseBox.obtainPrize(this);
 
                     return true;
                 }

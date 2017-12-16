@@ -234,7 +234,7 @@ public class GamePanel extends JPanel implements Runnable
 
 
         // Multiplayer mode
-        if(GameObjectHandler.getInstance().isMultiPlayer())
+        if(gameManager.isMultiPlayer())
         {
             // Lives
             for(int i = 0; i < GameObjectHandler.getInstance().getCharacter(1).getLives(); i++)
