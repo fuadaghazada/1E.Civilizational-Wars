@@ -86,6 +86,7 @@ public class SettingsPanel extends JPanel {
                 cbGroup.add(cbEasy);
                 cbGroup.add(cbMedium);
                 cbGroup.add(cbHard);
+                cbEasy.setSelected(true);
                 cbEasy.setBackground(Color.BLUE);
                 cbMedium.setBackground(Color.BLUE);
                 cbHard.setBackground(Color.BLUE);
