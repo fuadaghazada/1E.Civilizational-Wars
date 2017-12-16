@@ -28,4 +28,8 @@ public class EasyLevel implements IDifficultyLevel {
         return enemySpeed;
     }
 
+    @Override
+    public String toString() {
+        return "EasyLevel";
+    }
 }

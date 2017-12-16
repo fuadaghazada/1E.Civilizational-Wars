@@ -17,7 +17,7 @@ import java.awt.*;
 public class ClassicLevel implements ILevelInterface
 {
     //constants
-    public final int ENEMY_NUM = 7;
+    public final int ENEMY_NUM = 15;
 
     // Properties
     private String name;
@@ -65,7 +65,7 @@ public class ClassicLevel implements ILevelInterface
         // Enemy positions
         for (int i = 0; i < enemyPositions.length; i++)
         {
-            int enX = (int) ((Math.random() * 600) + 200);
+            int enX = (int) ((Math.random() * 3800) + 200);
             enemyPositions[i] = new Point(enX, 50);
         }
 

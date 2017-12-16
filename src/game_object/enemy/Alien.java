@@ -19,7 +19,6 @@ public class Alien extends Enemy
     public Alien(double x, double y, ObjectID id )
     {
         super(x, y, id);
-
         // textures
         imageLoader = new ImageLoader(ObjectID.Alien);
     }

@@ -12,6 +12,7 @@ public class GameData {
     private Point[] boxPositions;
     private Point[] bossPositions;
     private boolean isMultiPlayer;
+    private IDifficultyLevel difficultyLevel;
 
 
     public int getLevel() {
@@ -60,6 +61,14 @@ public class GameData {
 
     public void setMultiPlayer(boolean multiPlayer) {
         isMultiPlayer = multiPlayer;
+    }
+
+    public IDifficultyLevel getDifficultyLevel() {
+        return difficultyLevel;
+    }
+
+    public void setDifficultyLevel(IDifficultyLevel difficultyLevel) {
+        this.difficultyLevel = difficultyLevel;
     }
 
     @Override

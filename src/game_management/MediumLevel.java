@@ -25,4 +25,9 @@ public class MediumLevel implements IDifficultyLevel {
     public float getEnemySpeed() {
         return enemySpeed;
     }
+
+    @Override
+    public String toString() {
+        return "MediumLevel";
+    }
 }

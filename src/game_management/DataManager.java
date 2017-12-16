@@ -4,6 +4,7 @@ package game_management;
 import game_object.general.GameObject;
 import game_object.general.GameObjectHandler;
 import game_object.general.ObjectID;
+import game_object.player.Character;
 import user_interface.ScreenManager;
 
 import javax.swing.*;
@@ -95,7 +96,7 @@ public class DataManager
 
             // Writing the currentLevel to the file
             fileWriter.write(level + "\n");
-
+            fileWriter.write(Character.difficultyLevel.toString() + "\n");
             // Writing the objects to the file
             for(String eachData : gameData)
             {
@@ -128,6 +129,23 @@ public class DataManager
             String level_str = fileReader.nextLine();
 
             gData.setLevel(Integer.parseInt(level_str));
+
+            String levelDif = fileReader.nextLine();
+
+            if(levelDif.equals("EasyLevel"))
+            {
+                gData.setDifficultyLevel(new EasyLevel());
+            }
+            else if(levelDif.equals("MediumLevel"))
+            {
+                gData.setDifficultyLevel(new MediumLevel());
+            }
+            else if(levelDif.equals("HardLevel")){
+                gData.setDifficultyLevel(new HardLevel());
+            }
+            else{
+                gData.setDifficultyLevel(new EasyLevel());
+            }
 
             //TODO: Handle character size according to the game mode
             characterPositions = new ArrayList<>();

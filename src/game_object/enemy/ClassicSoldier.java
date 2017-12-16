@@ -24,7 +24,8 @@ public class ClassicSoldier extends Enemy
     public ClassicSoldier(double x, double y, ObjectID id)
     {
         super(x, y, id);
-
+        fightRange = 10;
+        fireRange = 20;
         this.init();
 
         this.setWeapon(sword);

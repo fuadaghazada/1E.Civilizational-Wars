@@ -32,18 +32,16 @@ public class Enemy extends GameObject
     private final float FORCE_JUMP_DURATION = 250f;
 
     //These properties can be used in specific enemy types
-    public float speed;
+    private float speed;
 
 
-    private final float followRange  = (float) ((Math.random()* 800 ) + 100);
-    private final float fightRange = 150;// (float) ((Math.random()* 450 ) + 50);
-    private final float fireRange = fightRange + 100;
+    private final float followRange  = (float) ((Math.random()* 600 ) + 150);
+    protected float fightRange = (float) ((Math.random()* 450 ) + 50);  //150;// (float) ((Math.random()* 450 ) + 50);
+    protected float fireRange = fightRange + 50;
     //TODO: add one more range property to fire behind the fight range and follow range
 
     private long lastFire = System.currentTimeMillis();
     private final long fireRate = 750;
-
-
 
     public Enemy(double x, double y, ObjectID id){
         super(x, y, id);

@@ -12,7 +12,8 @@ public class Boss extends Enemy {
     public Boss(double x, double y, ObjectID id)
     {
         super(x, y, id);
-
+        fightRange = 20;
+        fireRange = 40;
         setHealthLevel(1000);
     }
 

@@ -1,9 +1,11 @@
 package game_management;
 
 
+import game_object.enemy.Enemy;
 import game_object.general.Camera;
 import game_object.general.GameObjectHandler;
 import game_object.general.ObjectID;
+import game_object.player.Character;
 
 import java.awt.*;
 
@@ -60,7 +62,9 @@ public class GameManager
 
             if(DataManager.getInstance().isSuccessfulRead()) {
                 GameData data = DataManager.getInstance().loadGame();
-                System.out.println(data);
+                Character.difficultyLevel = data.getDifficultyLevel();
+                Enemy.difficultyLevel = data.getDifficultyLevel();
+
                 setMultiPlayer(data.isMultiPlayer());
                 LevelManager.getInstance().changeLevel(data.getLevel());
                 this.generateTiles();
