@@ -43,8 +43,6 @@ public class GameObjectHandler
 
     private TileMap tileMap;
 
-    private boolean isMultiPlayer;
-
     public static GameObjectHandler getInstance()
     {
         return instance;
@@ -56,8 +54,6 @@ public class GameObjectHandler
         updatables = new ArrayList<>();
         renderables = new ArrayList<>();
         bullets = new ArrayList<>();
-        //clearList = new ArrayList<>();
-        isMultiPlayer = false;
         character = new Character[2];
     }
 
@@ -102,7 +98,6 @@ public class GameObjectHandler
                 else if(character[1] == null)
                 {
                     character[1] = (Character) go;
-                    isMultiPlayer = true;
                 }
 
                 updatables.add(go);
@@ -372,12 +367,6 @@ public class GameObjectHandler
     }
 
     public int getSize() { return getGame_objects().size(); }
-
-    public boolean isMultiPlayer() {
-        return isMultiPlayer;
-    }
-
-    public void setMultiPlayer(boolean multiPlayer) { isMultiPlayer = multiPlayer; }
 
     public void dispose()
     {

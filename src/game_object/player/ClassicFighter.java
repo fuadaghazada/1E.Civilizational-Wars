@@ -62,8 +62,9 @@ public class ClassicFighter extends Character
     @Override
     public void render(Graphics g)
     {
-        //rendering the player
+        super.render(g);
 
+        //rendering the player
         if(dir == 1)
             if(velX != 0 && velY == 0)
                 walkingAnimationR.drawAnimation(g, (int) x, (int) y, width, height);

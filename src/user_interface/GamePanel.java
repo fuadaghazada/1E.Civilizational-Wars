@@ -144,7 +144,6 @@ public class GamePanel extends JPanel implements Runnable
         }
         else
         {
-            //TODO: win or lost
             processLevelFinish();
         }
     }
@@ -152,13 +151,11 @@ public class GamePanel extends JPanel implements Runnable
     private void processLevelFinish() {
         if(gameManager.getGameState() == GameManager.WON)
         {
-            //TODO: Navigate to win panel and stop update
             ScreenManager.getInstance().setCurrentPanel(new WonPanel(gameManager));
             isRunning = false;
         }
         else if(gameManager.getGameState() == GameManager.LOST)
         {
-            //TODO: Navigate to lost panel
             ScreenManager.getInstance().setCurrentPanel(new LostPanel());
             isRunning = false;
         }

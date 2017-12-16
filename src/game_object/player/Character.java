@@ -114,7 +114,15 @@ public class Character extends GameObject
     @Override
     public void render(Graphics g)
     {
-        g.fillRect((int)x, (int)y, width, height);
+        if(GameObjectHandler.getInstance().getCharacter(1) != null)
+        {
+            if (this.equals(GameObjectHandler.getInstance().getCharacter(0))) {
+                g.setColor(Color.RED);
+            } else {
+                g.setColor(Color.GREEN);
+            }
+            g.fillOval((int) (x + width / 2 - 5), (int) (y - 10), 10, 10);
+        }
     }
 
     @Override

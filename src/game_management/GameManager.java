@@ -27,10 +27,14 @@ public class GameManager
 
     private Camera camera = null;
 
+
+
     public GameManager(int state, boolean isMultiPlayer)
     {
         this.isMultiPlayer = isMultiPlayer;
+
         GameObjectHandler.getInstance().dispose();
+
         inputManager = new InputManager(this);
 
         if (state == BEGINNING)
@@ -79,7 +83,6 @@ public class GameManager
      */
     public void generateCharacter(Point[] characterPositions)
     {
-        System.out.println("GENERATE CALLED");
         GameObjectHandler.getInstance().addGameObject(LevelManager.getInstance().getCurrentLevel().getCharacterType(), characterPositions);
     }
 
@@ -123,8 +126,11 @@ public class GameManager
      */
     public void update()
     {
-        //TODO: update the camera by giving the object to follow
-        camera.update(GameObjectHandler.getInstance().getCharacter(0));
+
+        if(GameObjectHandler.getInstance().getCharacter(1) != null && GameObjectHandler.getInstance().getCharacter(0).getX() <= GameObjectHandler.getInstance().getCharacter(1).getX())
+            camera.update(GameObjectHandler.getInstance().getCharacter(1));
+        else
+            camera.update(GameObjectHandler.getInstance().getCharacter(0));
         GameObjectHandler.getInstance().updateAll();
     }
 

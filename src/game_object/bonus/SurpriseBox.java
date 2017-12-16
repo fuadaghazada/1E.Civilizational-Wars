@@ -150,6 +150,7 @@ public class SurpriseBox extends GameObject
     public void setCollected(boolean collected)
     {
         isCollected = collected;
+        GameObjectHandler.getInstance().removeGameObject(this);
     }
 
     public boolean isCollected()
