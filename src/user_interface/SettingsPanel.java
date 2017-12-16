@@ -20,11 +20,10 @@ public class SettingsPanel extends JPanel {
     private JPanel[] rows;
     private JButton btnBackToMenu;
 
-    JComboBox<String> comboMove, comboFight;
+    JComboBox<String> comboKeySet;
 
     // Control keys indexes
-    private static int moveKeys = 0;
-    private static int fightKeys = 0;
+    private static int keySet = 0;
 
 
     public SettingsPanel()
@@ -45,8 +44,8 @@ public class SettingsPanel extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e)
             {
-                moveKeys = comboMove.getSelectedIndex();
-                fightKeys = comboFight.getSelectedIndex();
+                keySet = comboKeySet.getSelectedIndex();
+
 
                 updateControls();
 
@@ -108,38 +107,38 @@ public class SettingsPanel extends JPanel {
                 lblControls = new JLabel("Controls: ");
                 lblControls.setForeground(Color.WHITE);
 
-                JPanel moveP = new JPanel();
-                moveP.setLayout(new GridLayout(2,1));
-                moveP.add(new Label("Move: "));
+                JPanel keyP = new JPanel();
+                keyP.setLayout(new GridLayout(1,1));
+                keyP.add(new Label("Move: "));
 
-                String[] moveOptions = {"Arrow keys", "WASD"};
-                comboMove = new JComboBox<>(moveOptions);
+                String[] keyOptions = {"Player1: Arrow keys, K, Player2: T-F-H, Q", "Player1: T-F-H, Q, Player2: Arrow keys + k"};
+                comboKeySet = new JComboBox<>(keyOptions);
 
-                moveP.setBackground(Color.BLUE);
-                comboMove.setBackground(Color.BLUE);
-                comboMove.setForeground(Color.WHITE);
-                moveP.setForeground(Color.WHITE);
-                moveP.add(comboMove);
+                keyP.setBackground(Color.BLUE);
+                comboKeySet.setBackground(Color.BLUE);
+                comboKeySet.setForeground(Color.WHITE);
+                keyP.setForeground(Color.WHITE);
+                keyP.add(comboKeySet);
 
-                JPanel fightP = new JPanel();
-                fightP.setLayout(new GridLayout(2,1));
-                fightP.add(new Label("Fight"));
-
-                String[] fightOptions = {"Z", "K" , "L"};
-                comboFight = new JComboBox<>(fightOptions);
-                fightP.setBackground(Color.BLUE);
-                comboFight.setBackground(Color.BLUE);
-                comboFight.setForeground(Color.WHITE);
-                fightP.setForeground(Color.WHITE);
-
-
-                fightP.add(comboFight);
+//                JPanel fightP = new JPanel();
+//                fightP.setLayout(new GridLayout(2,1));
+//                fightP.add(new Label("Fight"));
+//
+//                String[] fightOptions = {"Z", "K" , "L"};
+//                comboFight = new JComboBox<>(fightOptions);
+//                fightP.setBackground(Color.BLUE);
+//                comboFight.setBackground(Color.BLUE);
+//                comboFight.setForeground(Color.WHITE);
+//                fightP.setForeground(Color.WHITE);
+//
+//
+//                fightP.add(comboFight);
 
                 //TODO: There must be a code for selecting the current key bindings.
 
                 secondRow.add(lblControls);
-                secondRow.add(moveP);
-                secondRow.add(fightP);
+                secondRow.add(keyP);
+                //secondRow.add(fightP);
 
                 return secondRow;
 
@@ -177,23 +176,30 @@ public class SettingsPanel extends JPanel {
 
     private static void updateControls()
     {
-        if(moveKeys == 0)
+        if(keySet == 0)
         {
             InputManager.right = KeyEvent.VK_RIGHT;
             InputManager.left = KeyEvent.VK_LEFT;
             InputManager.up = KeyEvent.VK_UP;
-        }
-        else if(moveKeys == 1)
-        {
-            InputManager.right = KeyEvent.VK_D;
-            InputManager.left = KeyEvent.VK_A;
-            InputManager.up = KeyEvent.VK_W;
-        }
-        if(fightKeys == 0)
-            InputManager.fight = KeyEvent.VK_Z;
-        else if (fightKeys == 1)
             InputManager.fight = KeyEvent.VK_K;
-        else if (fightKeys == 2)
-            InputManager.fight = KeyEvent.VK_L;
+
+            InputManager.right2 = KeyEvent.VK_H;
+            InputManager.left2 = KeyEvent.VK_F;
+            InputManager.up2 = KeyEvent.VK_T;
+            InputManager.fight2 = KeyEvent.VK_Q;
+        }
+        else if(keySet == 1)
+        {
+            InputManager.right2 = KeyEvent.VK_RIGHT;
+            InputManager.left2 = KeyEvent.VK_LEFT;
+            InputManager.up2 = KeyEvent.VK_UP;
+            InputManager.fight2 = KeyEvent.VK_K;
+
+            InputManager.right = KeyEvent.VK_H;
+            InputManager.left = KeyEvent.VK_F;
+            InputManager.up = KeyEvent.VK_T;
+            InputManager.fight = KeyEvent.VK_Q;
+        }
+
     }
 }

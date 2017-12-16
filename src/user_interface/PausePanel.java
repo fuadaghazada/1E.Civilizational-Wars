@@ -11,7 +11,7 @@ import java.awt.event.ActionListener;
 
 public class PausePanel extends JPanel {
 
-    JButton btnResume, btnSaveGame, btnSettings, btnBackToMenu;
+    JButton btnResume, btnSaveGame, btnBackToMenu; // btnSettings;
     private GameManager gameManager;
     public PausePanel(GameManager gameManager)
     {
@@ -29,12 +29,12 @@ public class PausePanel extends JPanel {
 
         btnResume = new JButton("Resume");
         btnSaveGame = new JButton("Save Game");
-        btnSettings = new JButton("Settings");
+        //btnSettings = new JButton("Settings");
         btnBackToMenu = new JButton("Back to Menu");
 
         add(btnResume);
         add(btnSaveGame);
-        add(btnSettings);
+        //add(btnSettings);
         add(btnBackToMenu);
 
         btnResume.addActionListener(new ActionListener() {
@@ -55,12 +55,12 @@ public class PausePanel extends JPanel {
             }
         });
 
-        btnSettings.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                ScreenManager.getInstance().setCurrentPanel(new SettingsPanel());
-            }
-        });
+//        btnSettings.addActionListener(new ActionListener() {
+//            @Override
+//            public void actionPerformed(ActionEvent e) {
+//                ScreenManager.getInstance().setCurrentPanel(new SettingsPanel());
+//            }
+//        });
 
         btnBackToMenu.addActionListener(new ActionListener() {
             @Override
