@@ -22,8 +22,8 @@ public class LevelManager
     {
         levels = new ArrayList<>();
 
-        levels.add(new ModernLevel());
         levels.add(new ClassicLevel());
+        levels.add(new ModernLevel());
         levels.add(new PostModernLevel());
 
         currentLevel = levels.get(0);

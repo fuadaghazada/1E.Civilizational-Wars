@@ -1,5 +1,6 @@
 package game_management;
 
+import audio.JukeBox;
 import game_object.enemy.ClassicSoldier;
 import game_object.enemy.Enemy;
 import game_object.general.GameObject;
@@ -72,13 +73,11 @@ public class ClassicLevel implements ILevelInterface
         bossPositions[0] = new Point(4048, 200);
 
         // Surprise boxes positions
-        for (int i = 0; i < boxPositions.length; i++)
-        {
+        for (int i = 0; i < boxPositions.length; i++) {
             int bX = (int) ((Math.random() * 8000) + 200);
 
             boxPositions[i] = new Point(bX, 70);
         }
-
     }
 
     @Override
