@@ -127,6 +127,16 @@ public class TileMap implements IRenderable
         }
     }
 
+    @Override
+    public boolean isToBeRemoved() {
+        return false;
+    }
+
+    @Override
+    public void setToBeRemoved(boolean b) {
+
+    }
+
     //ACCESS & MUTATE
 
     public ArrayList<Tile> getTiles()

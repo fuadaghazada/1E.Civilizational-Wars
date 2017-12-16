@@ -21,6 +21,8 @@ public abstract class GameObject implements IUpdatable, IRenderable
     protected boolean isFall;
     protected int dir = 1;
 
+    private boolean toBeRemoved = false;
+
     private static float GRAVITY = 0.3f;
 
 
@@ -168,5 +170,13 @@ public abstract class GameObject implements IUpdatable, IRenderable
     public  void setDir(int dir) { this.dir = dir; }
 
     public String toString() { return id + "-" + x + "-" + y; }
+
+    public boolean isToBeRemoved() {
+        return toBeRemoved;
+    }
+
+    public void setToBeRemoved(boolean toBeRemoved) {
+        this.toBeRemoved = toBeRemoved;
+    }
 }
 

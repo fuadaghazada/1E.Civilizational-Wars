@@ -31,11 +31,12 @@ public class GameManager
         GameObjectHandler.getInstance().dispose();
         inputManager = new InputManager(this);
 
-        this.generateTiles();
+
 
         if (state == BEGINNING)
         {
             LevelManager.getInstance().changeLevel(1);
+            this.generateTiles();
             this.generateCharacter();
             this.generateEnemies();
             this.generateSurpriseBoxes();
@@ -44,6 +45,8 @@ public class GameManager
         else if(state == NEXT_LEVEL)
         {
             LevelManager.getInstance().changeLevel(LevelManager.getInstance().getCurrentLevelNo()  + 1);
+            this.generateTiles();
+
             this.generateCharacter();
             this.generateEnemies();
             this.generateSurpriseBoxes();

@@ -36,7 +36,7 @@ public class GameObjectHandler
 
     private ArrayList<IUpdatable> updatables;
     private ArrayList<IRenderable> renderables;
-    private ArrayList<IUpdatable> clearList;
+    //private ArrayList<IUpdatable> clearList;
 
     private Character[] character;
 
@@ -55,7 +55,7 @@ public class GameObjectHandler
         updatables = new ArrayList<>();
         renderables = new ArrayList<>();
         bullets = new ArrayList<>();
-        clearList = new ArrayList<>();
+        //clearList = new ArrayList<>();
         isMultiPlayer = false;
         character = new Character[2];
     }
@@ -268,10 +268,11 @@ public class GameObjectHandler
      */
     public void removeGameObject(GameObject gameObject)
     {
+        gameObject.setToBeRemoved(true);
         //updatables.remove(gameObject);
-        renderables.remove(gameObject);
+        //renderables.remove(gameObject);
         game_objects.remove(gameObject);
-        clearList.add(gameObject);
+        //clearList.add(gameObject);
     }
 
 
@@ -281,7 +282,7 @@ public class GameObjectHandler
      */
     public void removeBullet(Bullet bullet)
     {
-        bullets.remove(bullet);
+        bullet.setToBeRemoved(true);
     }
 
     /**
@@ -289,16 +290,27 @@ public class GameObjectHandler
      */
     public void updateAll()
     {
-        for (IUpdatable go : updatables) {
-            go.update();
+
+        Iterator itr = updatables.iterator();
+        while (itr.hasNext())
+        {
+            IUpdatable u = (IUpdatable) itr.next();
+            u.update();
+            if (u.isToBeRemoved())
+                itr.remove();
         }
 
-        Iterator it = bullets.iterator();
-        while (it.hasNext())
-            ((Bullet)it.next()).update();
 
-        updatables.removeAll(clearList);
-        clearList.clear();
+        Iterator it = bullets.iterator();
+        while (it.hasNext()) {
+            Bullet b = (Bullet) it.next();
+            b.update();
+            if (b.isToBeRemoved())
+                it.remove();
+
+        }
+        //updatables.removeAll(clearList);
+        //clearList.clear();
     }
 
     /**
@@ -306,14 +318,22 @@ public class GameObjectHandler
      */
     public void renderAll(Graphics g)
     {
-        for (IRenderable i : renderables)
-            i.render(g);
+        Iterator itr = renderables.iterator();
+        while (itr.hasNext())
+        {
+            IRenderable r = (IRenderable) itr.next();
+            r.render(g);
+            if(r.isToBeRemoved())
+                itr.remove();
+        }
 
         Iterator it = bullets.iterator();
-        while (it.hasNext())
-            ((Bullet)it.next()).render(g);
-        //for(Bullet b : bullets)
-          //  b.render(g);
+        while (it.hasNext()) {
+            Bullet b = (Bullet) it.next();
+            b.render(g);
+            if(b.isToBeRemoved())
+                it.remove();
+        }
     }
 
     //ACCESS & MUTATE
@@ -353,7 +373,7 @@ public class GameObjectHandler
         bullets = new ArrayList<>();
         updatables = new ArrayList<>();
         renderables = new ArrayList<>();
-        clearList = new ArrayList<>();
+        //clearList = new ArrayList<>();
         character = new Character[2];
         tileMap = null;
     }
