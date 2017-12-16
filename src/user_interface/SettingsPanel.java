@@ -1,6 +1,8 @@
 package user_interface;
 
-import game_management.InputManager;
+import game_management.*;
+import game_object.enemy.Enemy;
+import game_object.player.Character;
 import main.CivilizationalWars;
 
 import javax.swing.*;
@@ -19,7 +21,7 @@ public class SettingsPanel extends JPanel {
     private JLabel lblDifficulty, lblControls, lblMusic;
     private JPanel[] rows;
     private JButton btnBackToMenu;
-
+    JCheckBox cbEasy,cbMedium, cbHard;
     JComboBox<String> comboKeySet;
 
     // Control keys indexes
@@ -45,10 +47,8 @@ public class SettingsPanel extends JPanel {
             public void actionPerformed(ActionEvent e)
             {
                 keySet = comboKeySet.getSelectedIndex();
-
-
                 updateControls();
-
+                updateDifficultyLevel();
                 ScreenManager.getInstance().back();
             }
         });
@@ -79,9 +79,9 @@ public class SettingsPanel extends JPanel {
                 lblDifficulty.setForeground(Color.WHITE);
 
 
-                JCheckBox cbEasy = new JCheckBox("Easy");
-                JCheckBox cbMedium = new JCheckBox("Medium");
-                JCheckBox cbHard = new JCheckBox("Hard");
+                cbEasy = new JCheckBox("Easy");
+                cbMedium = new JCheckBox("Medium");
+                cbHard = new JCheckBox("Hard");
                 ButtonGroup cbGroup = new ButtonGroup();
                 cbGroup.add(cbEasy);
                 cbGroup.add(cbMedium);
@@ -119,22 +119,6 @@ public class SettingsPanel extends JPanel {
                 comboKeySet.setForeground(Color.WHITE);
                 keyP.setForeground(Color.WHITE);
                 keyP.add(comboKeySet);
-
-//                JPanel fightP = new JPanel();
-//                fightP.setLayout(new GridLayout(2,1));
-//                fightP.add(new Label("Fight"));
-//
-//                String[] fightOptions = {"Z", "K" , "L"};
-//                comboFight = new JComboBox<>(fightOptions);
-//                fightP.setBackground(Color.BLUE);
-//                comboFight.setBackground(Color.BLUE);
-//                comboFight.setForeground(Color.WHITE);
-//                fightP.setForeground(Color.WHITE);
-//
-//
-//                fightP.add(comboFight);
-
-                //TODO: There must be a code for selecting the current key bindings.
 
                 secondRow.add(lblControls);
                 secondRow.add(keyP);
@@ -201,5 +185,30 @@ public class SettingsPanel extends JPanel {
             InputManager.fight = KeyEvent.VK_Q;
         }
 
+    }
+
+    private void updateDifficultyLevel()
+    {
+        IDifficultyLevel difficultyLevel;
+
+        if(cbEasy.isSelected())
+        {
+            difficultyLevel = new EasyLevel();
+        }
+        else if(cbMedium.isSelected())
+        {
+            difficultyLevel = new MediumLevel();
+        }
+        else if (cbHard.isSelected())
+        {
+            difficultyLevel = new HardLevel();
+        }
+        else
+        {
+            difficultyLevel = new EasyLevel();
+        }
+
+        Character.difficultyLevel = difficultyLevel;
+        Enemy.difficultyLevel = difficultyLevel;
     }
 }

@@ -1,5 +1,7 @@
 package game_object.player;
 
+import game_management.EasyLevel;
+import game_management.IDifficultyLevel;
 import game_object.bonus.SurpriseBox;
 import game_object.general.GameObject;
 import game_object.general.GameObjectHandler;
@@ -21,9 +23,10 @@ public class Character extends GameObject
     // Properties
     private float gravity = 0.3f;
     private int lives = 3;
-    private float healthLevel = 100f;
+    private float healthLevel;
     private Weapon weapon;
 
+    public static IDifficultyLevel difficultyLevel = new EasyLevel();
 
     /**
      * Constructing the character with given parameters.
@@ -35,7 +38,7 @@ public class Character extends GameObject
     public Character(double x, double y, ObjectID id)
     {
         super(x, y, id);
-
+        healthLevel = difficultyLevel.getCharacterHealth();
         this.setHeight(70);
         this.setWidth(50);
     }

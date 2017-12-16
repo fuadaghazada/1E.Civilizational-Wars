@@ -1,0 +1,28 @@
+package game_management;
+
+public class MediumLevel implements IDifficultyLevel {
+    private float enemyHealth;
+    private float characterHealth;
+    private float enemySpeed;
+
+    public MediumLevel() {
+        enemyHealth = 120;
+        characterHealth = 100;
+        enemySpeed = 4;
+    }
+
+    @Override
+    public float getEnemyHealth() {
+        return enemyHealth;
+    }
+
+    @Override
+    public float getCharacterHealth() {
+        return characterHealth;
+    }
+
+    @Override
+    public float getEnemySpeed() {
+        return enemySpeed;
+    }
+}

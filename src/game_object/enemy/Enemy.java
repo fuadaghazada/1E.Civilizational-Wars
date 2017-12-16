@@ -1,5 +1,7 @@
 package game_object.enemy;
 
+import game_management.EasyLevel;
+import game_management.IDifficultyLevel;
 import game_object.general.GameObject;
 import game_object.general.GameObjectHandler;
 import game_object.general.ObjectID;
@@ -8,7 +10,6 @@ import game_object.weapon.Bullet;
 import game_object.weapon.Rifle;
 import game_object.weapon.Weapon;
 
-import javax.swing.*;
 import java.awt.*;
 
 /**
@@ -18,8 +19,9 @@ import java.awt.*;
 public class Enemy extends GameObject
 {
     //TODO: it must be overriden in child classes
-    private float healthLevel = 100;
-    private float damage;
+    private float healthLevel;
+
+    public static IDifficultyLevel difficultyLevel = new EasyLevel();
 
     private Weapon weapon;
 
@@ -30,7 +32,7 @@ public class Enemy extends GameObject
     private final float FORCE_JUMP_DURATION = 250f;
 
     //These properties can be used in specific enemy types
-    public static final float HORIZONTAL_SPEED = 4;
+    public float speed;
 
 
     private final float followRange  = (float) ((Math.random()* 800 ) + 100);
@@ -45,9 +47,9 @@ public class Enemy extends GameObject
 
     public Enemy(double x, double y, ObjectID id){
         super(x, y, id);
-
+        speed = difficultyLevel.getEnemySpeed();
+        healthLevel = difficultyLevel.getEnemyHealth();
         weapon = new Rifle(x, y, ObjectID.Weapon, this);
-
         setHeight(70);
         setWidth(60);
     }
@@ -117,11 +119,11 @@ public class Enemy extends GameObject
         if(Math.abs(this.x - player.getX()) < followRange) {
             if (Math.abs(this.x - player.getX()) > fightRange) {
                 if (this.x - player.getX() < 0) {
-                    this.x += HORIZONTAL_SPEED;
+                    this.x += speed;
                     setDir(1);
                 }
                 else {
-                    this.x -= HORIZONTAL_SPEED;
+                    this.x -= speed;
                     setDir(-1);
                 }
             }
@@ -161,7 +163,7 @@ public class Enemy extends GameObject
     public void jumpRight()
     {
         jumpActivationTime = System.currentTimeMillis();
-        moveAxisSpeeds[0] = HORIZONTAL_SPEED;
+        moveAxisSpeeds[0] = speed;
         moveAxisSpeeds[1] = 10;
         forceJump = true;
     }
@@ -169,7 +171,7 @@ public class Enemy extends GameObject
     public void jumpLeft()
     {
         jumpActivationTime = System.currentTimeMillis();
-        moveAxisSpeeds[0] = -HORIZONTAL_SPEED;
+        moveAxisSpeeds[0] = -speed;
         moveAxisSpeeds[1] = 10;
         forceJump = true;
     }
