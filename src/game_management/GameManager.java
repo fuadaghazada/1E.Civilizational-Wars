@@ -21,12 +21,15 @@ public class GameManager
 
     private boolean isGamePaused = false;
 
+    private boolean isMultiPlayer;
+
     private InputManager inputManager;
 
     private Camera camera = null;
 
-    public GameManager(int state)
+    public GameManager(int state, boolean isMultiPlayer)
     {
+        this.isMultiPlayer = isMultiPlayer;
         GameObjectHandler.getInstance().dispose();
         inputManager = new InputManager(this);
 
@@ -54,6 +57,7 @@ public class GameManager
             if(DataManager.getInstance().isSuccessfulRead()) {
                 GameData data = DataManager.getInstance().loadGame();
                 System.out.println(data);
+                setMultiPlayer(data.isMultiPlayer());
                 LevelManager.getInstance().changeLevel(data.getLevel());
                 this.generateTiles();
                 this.generateCharacter(data.getCharacterPositions());
@@ -63,6 +67,10 @@ public class GameManager
 
             }
         }
+        if(isMultiPlayer)
+        {
+            this.generateCharacter(LevelManager.getInstance().getCurrentLevel().getCharacterPositions());
+        }
 
     }
 
@@ -71,6 +79,7 @@ public class GameManager
      */
     public void generateCharacter(Point[] characterPositions)
     {
+        System.out.println("GENERATE CALLED");
         GameObjectHandler.getInstance().addGameObject(LevelManager.getInstance().getCurrentLevel().getCharacterType(), characterPositions);
     }
 
@@ -164,5 +173,13 @@ public class GameManager
 
     public boolean hasNextLevel(){
         return LevelManager.getInstance().getCurrentLevelNo() < ILevelInterface.TOTAL_LEVEL_COUNT;
+    }
+
+    public boolean isMultiPlayer() {
+        return isMultiPlayer;
+    }
+
+    public void setMultiPlayer(boolean multiPlayer) {
+        isMultiPlayer = multiPlayer;
     }
 }

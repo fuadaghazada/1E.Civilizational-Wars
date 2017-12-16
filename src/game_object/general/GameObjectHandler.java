@@ -18,6 +18,7 @@ import game_object.weapon.Bullet;
 
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Iterator;
 
 /**
@@ -62,7 +63,7 @@ public class GameObjectHandler
 
     public void addGameObject(ObjectID objectID, Point [] points)
     {
-        GameObject go = null;
+        GameObject go;
 
         if(objectID == ObjectID.ClassicFighter)
         {
@@ -77,7 +78,10 @@ public class GameObjectHandler
                     character[0] = (Character) go;
                 else if(character[1] == null)
                     character[1] = (Character) go;
+                else
+                    return;
 
+                System.out.println(Arrays.toString(character));
                 updatables.add(go);
                 renderables.add(go);
                 game_objects.add(go);
@@ -291,24 +295,32 @@ public class GameObjectHandler
     public void updateAll()
     {
 
-        Iterator itr = updatables.iterator();
-        while (itr.hasNext())
+        try {
+            Iterator itr = updatables.iterator();
+            while (itr.hasNext())
+            {
+                IUpdatable u = (IUpdatable) itr.next();
+                u.update();
+                if (u.isToBeRemoved())
+                    itr.remove();
+            }
+
+
+            Iterator it = bullets.iterator();
+            while (it.hasNext()) {
+                Bullet b = (Bullet) it.next();
+                b.update();
+                if (b.isToBeRemoved())
+                    it.remove();
+
+            }
+        }
+        catch (Exception e)
         {
-            IUpdatable u = (IUpdatable) itr.next();
-            u.update();
-            if (u.isToBeRemoved())
-                itr.remove();
+            System.out.println(e.toString());
+            return;
         }
 
-
-        Iterator it = bullets.iterator();
-        while (it.hasNext()) {
-            Bullet b = (Bullet) it.next();
-            b.update();
-            if (b.isToBeRemoved())
-                it.remove();
-
-        }
         //updatables.removeAll(clearList);
         //clearList.clear();
     }

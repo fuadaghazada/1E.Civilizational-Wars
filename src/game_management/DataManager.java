@@ -156,7 +156,7 @@ public class DataManager
             gData.setBoxPositions( boxPositions.toArray(new Point[boxPositions.size()]));
             gData.setBossPositions( bossPosiitons.toArray(new Point[bossPosiitons.size()]));
 
-
+            gData.setMultiPlayer(characterPositions.size() == 2);
 
 
             fileReader.close();

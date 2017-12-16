@@ -24,7 +24,7 @@ public class InputManager implements KeyListener
     //Keys for second player
     public static int right2 = KeyEvent.VK_H;
     public static int left2 = KeyEvent.VK_F;
-    public static int up2 = KeyEvent.VK_H;
+    public static int up2 = KeyEvent.VK_T;
     public static int fight2 = KeyEvent.VK_Q;
 
     private GameManager gameManager;
@@ -63,7 +63,6 @@ public class InputManager implements KeyListener
             GameObjectHandler.getInstance().getCharacter(0).fight(true);
         }
 
-        //TODO: Think about that
         if(e.getKeyCode() == KeyEvent.VK_ESCAPE)
         {
             gameManager.setPaused(!gameManager.isGamePaused());
@@ -71,8 +70,7 @@ public class InputManager implements KeyListener
 
         //Second player
 
-        if(!GameObjectHandler.getInstance().isMultiPlayer())
-            return;
+
         if(e.getKeyCode() == right2)
         {
             GameObjectHandler.getInstance().getCharacter(1).move(1);
@@ -110,13 +108,12 @@ public class InputManager implements KeyListener
         }
 
         //Second player
-        if(!GameObjectHandler.getInstance().isMultiPlayer())
-            return;
-        if(e.getKeyCode() == right || e.getKeyCode() == left)
+
+        if(e.getKeyCode() == right2 || e.getKeyCode() == left2)
         {
             GameObjectHandler.getInstance().getCharacter(1).setVelX(0);
         }
-        if(e.getKeyCode() == fight)
+        if(e.getKeyCode() == fight2)
         {
             GameObjectHandler.getInstance().getCharacter(1).fight(false);
         }

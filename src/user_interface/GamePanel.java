@@ -52,16 +52,16 @@ public class GamePanel extends JPanel implements Runnable
     private Camera camera;
     private boolean pauseCalled = false;
 
+    private boolean isMultiPlayer;
 
     /**
      *   Constructs the game panel
      */
-    public GamePanel(int state)
+    public GamePanel(int state, boolean isMultiPlayer)
     {
+        this.isMultiPlayer = isMultiPlayer;
         init(state);
         start();
-
-
         setFocusable(true);
     }
 
@@ -70,7 +70,7 @@ public class GamePanel extends JPanel implements Runnable
      */
     public void init(int state)
     {
-        gameManager = new GameManager(state);
+        gameManager = new GameManager(state, isMultiPlayer);
         camera = new Camera(0,0);
         gameManager.setCamera(camera);
 

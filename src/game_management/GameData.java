@@ -11,6 +11,7 @@ public class GameData {
     private Point[] enemyPositions;
     private Point[] boxPositions;
     private Point[] bossPositions;
+    private boolean isMultiPlayer;
 
 
     public int getLevel() {
@@ -51,6 +52,14 @@ public class GameData {
 
     public void setBossPositions(Point[] bossPositions) {
         this.bossPositions = bossPositions;
+    }
+
+    public boolean isMultiPlayer() {
+        return isMultiPlayer;
+    }
+
+    public void setMultiPlayer(boolean multiPlayer) {
+        isMultiPlayer = multiPlayer;
     }
 
     @Override

@@ -56,7 +56,7 @@ public class MainMenuPanel extends JPanel
             @Override
             public void actionPerformed(ActionEvent e)
             {
-                GamePanel gPanel = new GamePanel(GameManager.BEGINNING);
+                GamePanel gPanel = new GamePanel(GameManager.BEGINNING, false);
 
                 ScreenManager.getInstance().setCurrentPanel(gPanel);
             }
@@ -67,9 +67,9 @@ public class MainMenuPanel extends JPanel
             @Override
             public void actionPerformed(ActionEvent e)
             {
-//                GamePanel gPanel = new GamePanel(GameManager.BEGINNING);
-//
-//                ScreenManager.getInstance().setCurrentPanel(gPanel);
+                GamePanel gPanel = new GamePanel(GameManager.BEGINNING, true);
+
+                ScreenManager.getInstance().setCurrentPanel(gPanel);
             }
         });
 
@@ -83,7 +83,7 @@ public class MainMenuPanel extends JPanel
                 if(DataManager.getInstance().isSuccessfulRead())
                 {
                     //DataManager.getInstance().setLoadCalled(true);
-                    GamePanel gPanel = new GamePanel(GameManager.SAVED_GAME);
+                    GamePanel gPanel = new GamePanel(GameManager.SAVED_GAME, false);
                     ScreenManager.getInstance().setCurrentPanel(gPanel);
                 }
                 else

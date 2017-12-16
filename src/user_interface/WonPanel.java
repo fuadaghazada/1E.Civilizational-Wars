@@ -8,7 +8,7 @@ import java.util.TimerTask;
 
 public class WonPanel extends JPanel {
 
-    public WonPanel(GameManager gameManager)
+    public WonPanel(final GameManager gameManager)
     {
         if(gameManager.hasNextLevel())
         {
@@ -26,7 +26,7 @@ public class WonPanel extends JPanel {
             timer.schedule(new TimerTask() {
                 @Override
                 public void run() {
-                    ScreenManager.getInstance().setCurrentPanel(new GamePanel(GameManager.NEXT_LEVEL));
+                    ScreenManager.getInstance().setCurrentPanel(new GamePanel(GameManager.NEXT_LEVEL, gameManager.isMultiPlayer()));
 
                 }
             }, 5000);
