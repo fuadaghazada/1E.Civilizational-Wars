@@ -1,13 +1,27 @@
 package game_object.general;
 
-import game_object.general.GameObject;
-import game_object.general.ObjectID;
+import game_management.LevelManager;
+import game_object.bonus.SurpriseBox;
+import game_object.enemy.Alien;
+import game_object.enemy.ClassicSoldier;
+import game_object.enemy.Enemy;
+import game_object.enemy.ModernSoldier;
+import game_object.enemy.boss.BossAttackObject;
+import game_object.enemy.boss.ClassicBoss;
+import game_object.enemy.boss.ModernBoss;
+import game_object.enemy.boss.PostmodernBoss;
+import game_object.map.Tile;
+import game_object.map.TileMap;
 import game_object.player.Character;
+import game_object.player.ClassicFighter;
+import game_object.player.ModernFighter;
+import game_object.player.Robot;
 import game_object.weapon.Bullet;
-import game_object.weapon.Weapon;
 
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Iterator;
 
 /**
  *  This class will keep all the game objects in a list so that it will be
@@ -16,27 +30,229 @@ import java.util.ArrayList;
  */
 public class GameObjectHandler
 {
+
+    private static GameObjectHandler instance = new GameObjectHandler();
+
     // Properties
-    private ArrayList<GameObject> game_objects = new ArrayList<>();
+    private ArrayList<GameObject> game_objects;
+    private ArrayList<Bullet> bullets;
+    private ArrayList<BossAttackObject> bossAttackObjects;
 
-    private ArrayList<Bullet> bullets = new ArrayList<>();
+    private ArrayList<IUpdatable> updatables;
+    private ArrayList<IRenderable> renderables;
+    //private ArrayList<IUpdatable> clearList;
 
-    private GameObject currentObject;
-    private Character character;
+    private Character[] character;
 
-    public GameObjectHandler() {
-        bullets = new ArrayList<Bullet>();
+    private TileMap tileMap;
+
+    public static GameObjectHandler getInstance()
+    {
+        return instance;
     }
 
-    /**
-     *  Adds the given game object to the list.
-     *  @param gameObject - given game object.
-     */
-    public void addGameObject(GameObject gameObject)
+    private GameObjectHandler()
     {
-        game_objects.add(gameObject);
-        if(gameObject.getId() == ObjectID.Character)
-            this.character = (Character) gameObject;
+        game_objects = new ArrayList<>();
+        updatables = new ArrayList<>();
+        renderables = new ArrayList<>();
+        bullets = new ArrayList<>();
+        bossAttackObjects = new ArrayList<>();
+        character = new Character[2];
+    }
+
+    public void addGameObject(ObjectID objectID, Point [] points)
+    {
+        GameObject go;
+
+        if(objectID == ObjectID.ClassicFighter)
+        {
+            for (int i = 0; i < points.length; i++)
+            {
+                if(points[i] == null)
+                    continue;
+
+                go = new ClassicFighter(points[i].getX(), points[i].getY(), objectID);
+
+                if(character[0] == null)
+                    character[0] = (Character) go;
+                else if(character[1] == null)
+                    character[1] = (Character) go;
+                else
+                    return;
+
+                System.out.println(Arrays.toString(character));
+                updatables.add(go);
+                renderables.add(go);
+                game_objects.add(go);
+            }
+            //generateCharacter(objectID);
+        }
+        else if(objectID == ObjectID.ModernFighter)
+        {
+            for (int i = 0; i < points.length; i++)
+            {
+                if(points[i] == null)
+                    continue;
+
+                go = new ModernFighter(points[i].getX(), points[i].getY(), objectID);
+
+                if(character[0] == null)
+                    character[0] = (Character) go;
+                else if(character[1] == null)
+                {
+                    character[1] = (Character) go;
+                }
+
+                updatables.add(go);
+                renderables.add(go);
+                game_objects.add(go);
+            }
+        }
+        else if(objectID == ObjectID.Robot)
+        {
+            for (int i = 0; i < points.length; i++)
+            {
+                if(points[i] == null)
+                    continue;
+
+                go = new Robot(points[i].getX(), points[i].getY(), objectID);
+
+                if(character[0] == null)
+                    character[0] = (Character) go;
+                else if(character[1] == null)
+                    character[1] = (Character) go;
+
+                updatables.add(go);
+                renderables.add(go);
+                game_objects.add(go);
+            }
+        }
+        else if( objectID == ObjectID.ClassicSoldier)
+        {
+            for (int i = 0; i < points.length; i++)
+            {
+                if(points[i] == null)
+                    continue;
+
+                go = new ClassicSoldier(points[i].getX(), points[i].getY(), objectID);
+
+                updatables.add(go);
+                renderables.add(go);
+                game_objects.add(go);
+            }
+
+        }
+        else if( objectID == ObjectID.ModernSoldier)
+        {
+            for (int i = 0; i < points.length; i++)
+            {
+                if(points[i] == null)
+                    continue;
+
+                go = new ModernSoldier(points[i].getX(), points[i].getY(), objectID);
+
+                updatables.add(go);
+                renderables.add(go);
+                game_objects.add(go);
+            }
+        }
+        else if (objectID == ObjectID.Alien)
+        {
+            for (int i = 0; i < points.length; i++)
+            {
+                if(points[i] == null)
+                    continue;
+
+                go = new Alien(points[i].getX(), points[i].getY(), objectID);
+
+                updatables.add(go);
+                renderables.add(go);
+                game_objects.add(go);
+            }
+        }
+        // Surprise box
+        else if(objectID == ObjectID.SurpriseBox)
+        {
+            for(int i = 0; i < points.length; i++)
+            {
+                if(points[i] == null)
+                    continue;
+
+                go = new SurpriseBox(points[i].getX(), points[i].getY(), objectID);
+
+                updatables.add(go);
+                renderables.add(go);
+                game_objects.add(go);
+            }
+        }
+
+        //Bosses
+        else if( objectID == ObjectID.ClassicBoss)
+        {
+            for (int i = 0; i < points.length; i++)
+            {
+                if(points[i] == null)
+                    continue;
+
+                go = new ClassicBoss(points[i].getX(), points[i].getY(), objectID);
+
+                updatables.add(go);
+                renderables.add(go);
+                game_objects.add(go);
+            }
+
+        }
+        else if( objectID == ObjectID.ModernBoss)
+        {
+            for (int i = 0; i < points.length; i++)
+            {
+                if(points[i] == null)
+                    continue;
+
+                go = new ModernBoss(points[i].getX(), points[i].getY(), objectID);
+
+                updatables.add(go);
+                renderables.add(go);
+                game_objects.add(go);
+            }
+
+        }
+        else if( objectID == ObjectID.PostModernBoss)
+        {
+            for (int i = 0; i < points.length; i++)
+            {
+                if(points[i] == null)
+                    continue;
+
+                go = new PostmodernBoss(points[i].getX(), points[i].getY(), objectID);
+
+                updatables.add(go);
+                renderables.add(go);
+                game_objects.add(go);
+            }
+        }
+    }
+
+    //To add the existing objects
+    public void addGameObject(GameObject go)
+    {
+        if(!updatables.contains(go)) {
+            updatables.add(go);
+        }
+        if(!renderables.contains(go)) {
+            renderables.add(go);
+        }
+        if(!game_objects.contains(go)) {
+            game_objects.add(go);
+        }
+    }
+
+    public void addTile(String fileName)
+    {
+        tileMap = new TileMap(fileName);
+
+        renderables.add(tileMap);
     }
 
     /**
@@ -49,13 +265,26 @@ public class GameObjectHandler
     }
 
     /**
+     *  Adds boss attacking object to the list
+     */
+    public void addBossObject(BossAttackObject bossAttackObject)
+    {
+        bossAttackObjects.add(bossAttackObject);
+    }
+
+    /**
      *  Removes the given game object from the list.
      *  @param gameObject - given game object.
      */
     public void removeGameObject(GameObject gameObject)
     {
+        gameObject.setToBeRemoved(true);
+        //updatables.remove(gameObject);
+        //renderables.remove(gameObject);
         game_objects.remove(gameObject);
+        //clearList.add(gameObject);
     }
+
 
     /**
      *  Removes the given bullet object from the list.
@@ -63,8 +292,16 @@ public class GameObjectHandler
      */
     public void removeBullet(Bullet bullet)
     {
-        bullets.remove(bullet);
-        System.out.println("removeBullet called");
+        bullet.setToBeRemoved(true);
+    }
+
+    /**
+     *  Removes the given boss attack object from the list.
+     *  @param bossAttackObject - given boss attack object.
+     */
+    public void removeBossObject(BossAttackObject bossAttackObject)
+    {
+        bossAttackObject.setToBeRemoved(true);
     }
 
     /**
@@ -72,17 +309,43 @@ public class GameObjectHandler
      */
     public void updateAll()
     {
-        for(int i = 0; i < game_objects.size(); i++)
-        {
-            currentObject = game_objects.get(i);
 
-            currentObject.update(this);
+        try {
+            Iterator itr = updatables.iterator();
+            while (itr.hasNext())
+            {
+                IUpdatable u = (IUpdatable) itr.next();
+                u.update();
+                if (u.isToBeRemoved())
+                    itr.remove();
+            }
+
+
+            Iterator it = bullets.iterator();
+            while (it.hasNext()) {
+                Bullet b = (Bullet) it.next();
+                b.update();
+                if (b.isToBeRemoved())
+                    it.remove();
+
+            }
+
+            Iterator itt = bossAttackObjects.iterator();
+            while (itt.hasNext()) {
+                BossAttackObject b = (BossAttackObject) itt.next();
+                b.update();
+                if (b.isToBeRemoved())
+                    itt.remove();
+            }
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.toString());
+            return;
         }
 
-        for(int i = 0; i < bullets.size(); i++)
-        {
-            bullets.get(i).update(this);
-        }
+        //updatables.removeAll(clearList);
+        //clearList.clear();
     }
 
     /**
@@ -90,30 +353,69 @@ public class GameObjectHandler
      */
     public void renderAll(Graphics g)
     {
-        for(int i = 0; i < game_objects.size(); i++)
+        Iterator itr = renderables.iterator();
+        while (itr.hasNext())
         {
-            currentObject = game_objects.get(i);
-
-            currentObject.render(g);
+            IRenderable r = (IRenderable) itr.next();
+            r.render(g);
+            if(r.isToBeRemoved())
+                itr.remove();
         }
 
-//        System.out.println("Bullet Size:" + bullets.size());
+        Iterator it = bullets.iterator();
+        while (it.hasNext()) {
+            Bullet b = (Bullet) it.next();
+            b.render(g);
+            if(b.isToBeRemoved())
+                it.remove();
+        }
 
-        for(int i = 0; i < bullets.size(); i++)
-        {
-            bullets.get(i).render(g);
+        Iterator itt = bossAttackObjects.iterator();
+        while (itt.hasNext()) {
+            BossAttackObject b = (BossAttackObject) itt.next();
+            b.render(g);
+            if (b.isToBeRemoved())
+                itt.remove();
         }
     }
 
     //ACCESS & MUTATE
     public ArrayList<GameObject> getGame_objects() { return game_objects; }
 
+    public ArrayList<Enemy> getEnemies()
+    {
+        ArrayList<Enemy> enemies = new ArrayList<>();
+        for(GameObject g : getGame_objects())
+        {
+            if(g instanceof Enemy)
+            {
+                enemies.add((Enemy)g);
+            }
+        }
+        return enemies;
+    }
+
     public ArrayList<Bullet> getBullets() { return bullets; }
 
-    public Character getCharacter()
+    public ArrayList<BossAttackObject> getBossAttackObjects() {
+        return bossAttackObjects;
+    }
+
+    public Character getCharacter(int index)
     {
-        return character;
+        return character[index];
     }
 
     public int getSize() { return getGame_objects().size(); }
+
+    public void dispose()
+    {
+        game_objects = new ArrayList<>();
+        bullets = new ArrayList<>();
+        updatables = new ArrayList<>();
+        renderables = new ArrayList<>();
+        //clearList = new ArrayList<>();
+        character = new Character[2];
+        tileMap = null;
+    }
 }

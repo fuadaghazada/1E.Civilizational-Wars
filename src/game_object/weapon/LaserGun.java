@@ -19,12 +19,11 @@ public class LaserGun extends Weapon
     private GameObject owner;
     /**
      * Constructing the game object weapon with given parameters.
-     *
-     * @param x  - x coordinate of the game object.
+     *  @param x  - x coordinate of the game object.
      * @param y  - y coordinate of the game object.
      * @param id - object id defines the type of the objects.
      */
-    public LaserGun(float x, float y, ObjectID id, GameObject owner)
+    public LaserGun(double x, double y, ObjectID id, GameObject owner)
     {
         super(x, y, id);
 
@@ -39,51 +38,53 @@ public class LaserGun extends Weapon
 
     /**
      *  Fires the rifle
-     *  @param gameObjectHandler - all game objects
      */
-    public void fire(GameObjectHandler gameObjectHandler, int dir)
+    public void fire(int dir)
     {
-        gameObjectHandler.addBullet(new Bullet(x + width,
-                                    y + height/2,
-                                    ObjectID.Bullet,
-                                    dir * 15, gameObjectHandler, this, 1));
+        GameObjectHandler.getInstance().addBullet(new Bullet(x + width,
+                y + height/2,
+                ObjectID.Bullet,
+                dir * 15, this, 1));
     }
 
     @Override
-    public void update(GameObjectHandler gameObjectHandler)
+    public void update()
     {
-        this.setX(gameObjectHandler.getCharacter().getX() + gameObjectHandler.getCharacter().getWidth()/4);
-        this.setY(gameObjectHandler.getCharacter().getY() + gameObjectHandler.getCharacter().getHeight()/2 + 8);
 
-        this.clearBulletList(gameObjectHandler);
+        this.setX(owner.getX() + owner.getWidth()/4);
+        this.setY(owner.getY() + owner.getHeight()/2 + 8);
+
+
+        this.clearBulletList();
     }
 
     @Override
     public void render(Graphics g)
     {
-        g.setColor(Color.RED);
-        g.drawImage(imageLoader.getWeapons()[2], (int)x , (int)y, null);
+        if(this.dir == 1)
+            g.drawImage(imageLoader.getWeapons()[4], (int)x , (int)y, null);
+        else if(dir == -1)
+            g.drawImage(imageLoader.getWeapons()[5], (int)x , (int)y, null);
     }
 
     @Override
-    protected boolean checkCollision(GameObjectHandler gameObjectHandler)
+    protected boolean checkCollision()
     {
         return false;
     }
 
     /**
      *  Clears the bullets when it hits tiles.
-     *  @param gameObjectHandler - game objects
      */
-    public void clearBulletList(GameObjectHandler gameObjectHandler)
+    public void clearBulletList()
     {
 
-        for(int i = 0; i < gameObjectHandler.getBullets().size(); i++)
+        for(int i = 0; i < GameObjectHandler.getInstance().getBullets().size(); i++)
         {
-            Bullet bullet = gameObjectHandler.getBullets().get(i);
-            if(bullet.checkCollision(gameObjectHandler))
+            Bullet bullet = GameObjectHandler.getInstance().getBullets().get(i);
+            if(bullet.checkCollision())
             {
-                gameObjectHandler.removeBullet(bullet);
+                GameObjectHandler.getInstance().removeBullet(bullet);
                 break;
             }
         }

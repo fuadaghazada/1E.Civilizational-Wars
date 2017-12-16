@@ -2,10 +2,7 @@ package game_management;
 
 import game_object.general.GameObject;
 import game_object.general.GameObjectHandler;
-import game_object.general.ObjectID;
-import game_object.weapon.Bullet;
 import main.CivilizationalWars;
-import user_interface.LoadLevelPanel;
 import user_interface.MainMenuPanel;
 
 import java.awt.event.KeyEvent;
@@ -16,16 +13,25 @@ import java.awt.event.KeyListener;
  */
 public class InputManager implements KeyListener
 {
-    // Properties
-    GameObjectHandler gameObjectHandler;
 
-    /**
-     *  Constructs the input manager with given game objects.
-     *  @param gameObjectHandler - handler keeps all the game objects.
-     */
-    public InputManager(GameObjectHandler gameObjectHandler)
+    //Default values for input keys
+    //Keys for 1st player
+    public static int right = KeyEvent.VK_RIGHT;
+    public static int left = KeyEvent.VK_LEFT;
+    public static int up = KeyEvent.VK_UP;
+    public static int fight = KeyEvent.VK_K;
+
+    //Keys for second player
+    public static int right2 = KeyEvent.VK_H;
+    public static int left2 = KeyEvent.VK_F;
+    public static int up2 = KeyEvent.VK_T;
+    public static int fight2 = KeyEvent.VK_Q;
+
+    private GameManager gameManager;
+
+    public InputManager(GameManager gameManager)
     {
-        this.gameObjectHandler = gameObjectHandler;
+        this.gameManager = gameManager;
     }
 
     @Override
@@ -37,43 +43,83 @@ public class InputManager implements KeyListener
     @Override
     public void keyPressed(KeyEvent e)
     {
-        if(e.getKeyCode() == KeyEvent.VK_RIGHT)
+        if(gameManager.getGameState() != GameManager.PLAYING)
+            return;
+        if(e.getKeyCode() == right)
         {
-            gameObjectHandler.getCharacter().setDir(1);
-            gameObjectHandler.getCharacter().setVelX(5);
+            GameObjectHandler.getInstance().getCharacter(0).move(1);
+
         }
-        if(e.getKeyCode() == KeyEvent.VK_LEFT)
+        if(e.getKeyCode() == left)
         {
-            gameObjectHandler.getCharacter().setDir(-1);
-            gameObjectHandler.getCharacter().setVelX(-5);
+            GameObjectHandler.getInstance().getCharacter(0).move(-1);
         }
-        if(e.getKeyCode() == KeyEvent.VK_UP && !gameObjectHandler.getCharacter().isJump())
+        if(e.getKeyCode() == up && !GameObjectHandler.getInstance().getCharacter(0).isJump())
         {
-            gameObjectHandler.getCharacter().setJump(true);
-            gameObjectHandler.getCharacter().setVelY(-10);
+            GameObjectHandler.getInstance().getCharacter(0).jump();
         }
-        if(e.getKeyCode() == KeyEvent.VK_F)
+        if(e.getKeyCode() == fight)
         {
-            gameObjectHandler.getCharacter().getWeapon().fire(gameObjectHandler, gameObjectHandler.getCharacter().getDir());
+            GameObjectHandler.getInstance().getCharacter(0).fight(true);
         }
+
         if(e.getKeyCode() == KeyEvent.VK_ESCAPE)
         {
-            CivilizationalWars.frame.getContentPane().removeAll();
-            CivilizationalWars.frame.getContentPane().add(new MainMenuPanel());
-            CivilizationalWars.frame.revalidate();
+            gameManager.setPaused(!gameManager.isGamePaused());
         }
+
+        //Second player
+
+
+        if(e.getKeyCode() == right2)
+        {
+            GameObjectHandler.getInstance().getCharacter(1).move(1);
+
+        }
+        if(e.getKeyCode() == left2)
+        {
+            GameObjectHandler.getInstance().getCharacter(1).move(-1);
+
+        }
+        if(e.getKeyCode() == up2 && !GameObjectHandler.getInstance().getCharacter(1).isJump())
+        {
+            GameObjectHandler.getInstance().getCharacter(1).jump();
+        }
+        if(e.getKeyCode() == fight2)
+        {
+            GameObjectHandler.getInstance().getCharacter(1).fight(true);
+        }
+
+
     }
 
     @Override
     public void keyReleased(KeyEvent e)
     {
-        if(e.getKeyCode() == KeyEvent.VK_RIGHT)
+        if(gameManager.getGameState() != GameManager.PLAYING)
+            return;
+        if(e.getKeyCode() == right || e.getKeyCode() == left)
         {
-            gameObjectHandler.getCharacter().setVelX(0);
+            GameObjectHandler.getInstance().getCharacter(0).setVelX(0);
         }
-        if(e.getKeyCode() == KeyEvent.VK_LEFT)
+        if(e.getKeyCode() == fight)
         {
-            gameObjectHandler.getCharacter().setVelX(0);
+            GameObjectHandler.getInstance().getCharacter(0).fight(false);
         }
+
+        //Second player
+
+        if(e.getKeyCode() == right2 || e.getKeyCode() == left2)
+        {
+            GameObjectHandler.getInstance().getCharacter(1).setVelX(0);
+        }
+        if(e.getKeyCode() == fight2)
+        {
+            GameObjectHandler.getInstance().getCharacter(1).fight(false);
+        }
+
+
+
+
     }
 }

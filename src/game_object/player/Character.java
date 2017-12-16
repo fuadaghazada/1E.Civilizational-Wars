@@ -1,12 +1,14 @@
 package game_object.player;
 
+import game_management.EasyLevel;
+import game_management.IDifficultyLevel;
+import game_object.bonus.SurpriseBox;
+import game_object.enemy.boss.BossAttackObject;
 import game_object.general.GameObject;
 import game_object.general.GameObjectHandler;
 import game_object.general.ObjectID;
 import game_object.weapon.Bullet;
 import game_object.weapon.Weapon;
-import main.CivilizationalWars;
-import user_interface.MainMenuPanel;
 
 import java.awt.*;
 
@@ -16,16 +18,16 @@ import java.awt.*;
 public class Character extends GameObject
 {
     // Constants
-    private final float MAX_SPEED = 5;
+    public static final float MAX_SPEED = 5;
+    public static final int MAX_LIVES = 4;
 
     // Properties
     private float gravity = 0.3f;
-
     private int lives = 3;
-    private float healthLevel = 100f;
-
+    private float healthLevel;
     private Weapon weapon;
-    private GameObjectHandler gameObjectHandler;
+
+    public static IDifficultyLevel difficultyLevel = new EasyLevel();
 
     /**
      * Constructing the character with given parameters.
@@ -34,14 +36,47 @@ public class Character extends GameObject
      * @param y - y coordinate of the character.
      * @param id - id of the character as a game object.
      */
-    public Character(float x, float y, ObjectID id, GameObjectHandler gameObjectHandler)
+    public Character(double x, double y, ObjectID id)
     {
         super(x, y, id);
-
-        this.gameObjectHandler = gameObjectHandler;
-
+        healthLevel = difficultyLevel.getCharacterHealth();
         this.setHeight(70);
         this.setWidth(50);
+    }
+
+    public void move(int dir)
+    {
+        if(dir == 0)
+            setVelX(0);
+        else {
+            setDir(dir);
+            setVelX(5);
+            weapon.setDir(dir);
+        }
+    }
+
+    public void jump()
+    {
+        setJump(true);
+        setVelY(-10);
+    }
+
+    public void fight(boolean onFire)
+    {
+        if(onFire) {
+            weapon.setUsed(true);
+            weapon.fire(getDir());
+        }
+        else
+        {
+            weapon.setUsed(false);
+        }
+    }
+
+    public void takeDamage()
+    {
+        this.setY(y - 50);
+        this.setHealthLevel(getHealthLevel() - 10);
     }
 
     /**
@@ -58,12 +93,12 @@ public class Character extends GameObject
     }
 
     @Override
-    public void update(GameObjectHandler gameObjectHandler)
+    public void update()
     {
-        super.update(gameObjectHandler);
+        super.update();
 
-        this.checkCollision(gameObjectHandler);
-
+        this.checkCollision();
+        //TODO: put this code to gamemanager and handle there
         if(isDead())
         {
             if(lives > 0)
@@ -73,30 +108,34 @@ public class Character extends GameObject
 
                 setHealthLevel(100);
             }
-            else
-            {
-                gameObjectHandler.removeGameObject(this);
-
-                CivilizationalWars.frame.getContentPane().removeAll();
-                CivilizationalWars.frame.getContentPane().add(new MainMenuPanel());
-                CivilizationalWars.frame.revalidate();
-            }
+            //else
+            //{
+            //    GameObjectHandler.getInstance().removeGameObject(this);
+            //}
         }
     }
 
     @Override
     public void render(Graphics g)
     {
-        g.fillRect((int)x, (int)y, width, height);
+        if(GameObjectHandler.getInstance().getCharacter(1) != null)
+        {
+            if (this.equals(GameObjectHandler.getInstance().getCharacter(0))) {
+                g.setColor(Color.RED);
+            } else {
+                g.setColor(Color.BLUE);
+            }
+            g.fillOval((int) (x + width / 2 - 5), (int) (y - 10), 10, 10);
+        }
     }
 
     @Override
-    protected boolean checkCollision(GameObjectHandler gameObjectHandler)
+    protected boolean checkCollision()
     {
-        for(int i = 0; i < gameObjectHandler.getGame_objects().size(); i++)
+        for(int i = 0; i < GameObjectHandler.getInstance().getGame_objects().size(); i++)
         {
             // To keep the game objects in a temp variable - for simplicity
-            GameObject tempObject = gameObjectHandler.getGame_objects().get(i);
+            GameObject tempObject = GameObjectHandler.getInstance().getGame_objects().get(i);
 
             //checking collision with the tiles.
             if(tempObject.getId() == ObjectID.Tile)
@@ -135,21 +174,55 @@ public class Character extends GameObject
             }
         }
 
-        for(int i = 0; i < gameObjectHandler.getBullets().size(); i++)
+        for(int i = 0; i < GameObjectHandler.getInstance().getBullets().size(); i++)
         {
-            Bullet temp = gameObjectHandler.getBullets().get(i);
+            Bullet temp = GameObjectHandler.getInstance().getBullets().get(i);
 
             if(temp.getBounds().intersects(this.getBounds()))
             {
-                if(temp.getWeapon().getOwner().getId() == ObjectID.Enemy)
+                if(temp.getWeapon().getOwner().getId() == ObjectID.Alien || temp.getWeapon().getOwner().getId() == ObjectID.ModernSoldier)
                 {
                     this.healthLevel -= temp.getDamage();
 
-                    gameObjectHandler.removeBullet(temp);
+                    GameObjectHandler.getInstance().removeBullet(temp);
 
                     i--;
 
                     break;
+                }
+            }
+        }
+
+        for(int i = 0; i < GameObjectHandler.getInstance().getBossAttackObjects().size(); i++)
+        {
+            BossAttackObject temp = GameObjectHandler.getInstance().getBossAttackObjects().get(i);
+
+            if(temp.getBounds().intersects(this.getBounds()))
+            {
+                this.healthLevel -= temp.getDamage();
+
+                GameObjectHandler.getInstance().removeBossObject(temp);
+
+                i--;
+
+                break;
+
+            }
+        }
+
+        for(int i = 0; i < GameObjectHandler.getInstance().getGame_objects().size(); i++)
+        {
+            if(GameObjectHandler.getInstance().getGame_objects().get(i).getId() == ObjectID.SurpriseBox)
+            {
+                if(GameObjectHandler.getInstance().getGame_objects().get(i).getBounds().intersects(this.getBounds()))
+                {
+                    SurpriseBox surpriseBox = (SurpriseBox) GameObjectHandler.getInstance().getGame_objects().get(i);
+
+                    surpriseBox.setCollected(true);
+
+                    surpriseBox.obtainPrize(this);
+
+                    return true;
                 }
             }
         }

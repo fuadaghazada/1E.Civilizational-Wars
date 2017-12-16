@@ -35,9 +35,7 @@ public class AboutPanel extends JPanel
             @Override
             public void actionPerformed(ActionEvent e)
             {
-                CivilizationalWars.frame.getContentPane().removeAll();
-                CivilizationalWars.frame.add(new MainMenuPanel());
-                CivilizationalWars.frame.revalidate();
+                ScreenManager.getInstance().setCurrentPanel(new MainMenuPanel());
             }
         });
     }
@@ -87,7 +85,8 @@ public class AboutPanel extends JPanel
         about_txt.setPreferredSize(new Dimension(500,500));
         about_txt.setEditable(false);
 
-        about_txt.append("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum et sapien nulla. Nam eu felis tellus. Integer vel lectus vitae sem ultrices ultricies. Sed maximus ornare metus sit amet blandit. Sed vel felis ligula. Quisque feugiat efficitur turpis, ac lacinia est convallis quis. In vel lacus urna. Curabitur a ornare metus, condimentum faucibus tellus. Proin semper mi eu tortor fermentum, a ornare leo interdum.");
+        about_txt.append("This project has been implemented as a part of CS-319 Project in Bilkent University, Ankara, Turkey. \n\n\n" +
+                        "Authors: Fuad Aghazada, Seyfullah Yamanoglu, Bayram Muradov, Berk Erzin");
     }
 
 }

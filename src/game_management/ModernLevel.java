@@ -1,135 +1,123 @@
 package game_management;
 
+import game_object.enemy.ClassicSoldier;
 import game_object.enemy.Enemy;
+import game_object.general.GameObject;
 import game_object.general.GameObjectHandler;
 import game_object.general.ObjectID;
 import game_object.map.Tile;
 import game_object.map.TileMap;
-import game_object.player.ModernFighter;
+import game_object.player.ClassicFighter;
+import main.CivilizationalWars;
+import user_interface.GamePanel;
 
-public class ModernLevel implements ILevelInterface {
+import java.awt.*;
+
+public class ModernLevel implements ILevelInterface
+{
     //constants
-    public static final int ENEMY_NUM = 30;
+    public final int ENEMY_NUM = 15;
 
     // Properties
     private String name;
-    private TileMap tileMap;
-    private int enemyType;
-    private int weaponType;
-    private int characterType;
-    private int currentEnemy;
+    private String tileMap;
+    private ObjectID enemyType;
+    private ObjectID characterType;
+    private ObjectID bossType;
 
-    private GameObjectHandler gameObjectHandler;
+    // character positions
+    private Point [] characterPositions;
 
-    /**
-     * Constructs the level
-     */
-    public ModernLevel() {
-        name = "Modern";
-        tileMap = new TileMap("src/resources/map_files/map_level_2.txt");
-        enemyType = 0;
-        weaponType = 0;
-        characterType = 0;
-        currentEnemy = ENEMY_NUM;
-        gameObjectHandler = new GameObjectHandler();
+    // enemy positions
+    private Point [] enemyPositions;
 
-        this.generateTiles();
-        this.generateCharacter();
-        this.generateEnemies();
-    }
+    // boss positions
+    private Point [] bossPositions;
+
+    // surprise box positions
+    private Point [] boxPositions;
+
 
     /**
-     * Generates the character
+     *  Constructs the classic level
      */
-    public void generateCharacter() {
-        ModernFighter classicFighter = new ModernFighter(50, 100, ObjectID.Character, gameObjectHandler);
+    public ModernLevel()
+    {
+        name = "Modern Period";
 
-        gameObjectHandler.addGameObject(classicFighter);
-    }
+        tileMap = "src/resources/map_files/map_level_2.txt";
 
-    /**
-     * Generates the enemies
-     */
-    public void generateEnemies() {
-        int horizontalRange = tileMap.getMapWidth() * Tile.getTileSize();
-        int verticalRange = 200;
+        enemyType = ObjectID.ModernSoldier;
+        characterType = ObjectID.ModernFighter;
+        bossType = ObjectID.ModernBoss;
 
-        for (int i = 0; i < ENEMY_NUM; i++) {
-            float randX = (float) ((Math.random() * horizontalRange) + 100);
-            float randY = verticalRange;
+        characterPositions = new Point[2];
 
-            Enemy enemy = new Enemy(randX, randY, ObjectID.Enemy, gameObjectHandler);
+        enemyPositions = new Point[ENEMY_NUM];
 
-            gameObjectHandler.addGameObject(enemy);
+        bossPositions = new Point[1];
+
+        boxPositions = new Point[TOTAL_BONUS_COUNT];
+
+        characterPositions[0] = new Point(50,50);
+
+        // Enemy positions
+        for (int i = 0; i < enemyPositions.length; i++)
+        {
+            int enX = (int) ((Math.random() * 3800) + 200);
+            enemyPositions[i] = new Point(enX, 50);
         }
-    }
 
-    /**
-     * Generates the tiles
-     */
-    public void generateTiles() {
-        for (Tile tile : tileMap.getTiles()) {
-            gameObjectHandler.addGameObject(tile);
+        // Boss position
+        bossPositions[0] = new Point(5000, 200);
+
+        // Surprise boxes positions
+        for (int i = 0; i < boxPositions.length; i++)
+        {
+            int bX = (int) ((Math.random() * 8000) + 200);
+
+            boxPositions[i] = new Point(bX, 70);
         }
+
     }
 
     @Override
-    public TileMap getLevelTileMap() {
-        return null;
+    public String getLevelTileMap() {
+        return tileMap;
     }
 
     @Override
-    public int getEnemyType() {
-        return 0;
+    public ObjectID getEnemyType() {
+        return enemyType;
     }
 
     @Override
     public String getName() {
-        return null;
+        return name;
     }
 
     @Override
-    public int getWeaponType() {
-        return 0;
+    public ObjectID getCharacterType() {
+        return characterType;
     }
 
     @Override
-    public int getCharacterType() {
-        return 0;
-    }
+    public ObjectID getBossType() { return bossType; }
 
     @Override
-    public void enemyDied() {
-        currentEnemy--;
-
-    }
+    public Point [] getCharacterPositions(){ return characterPositions; }
 
     @Override
-    public int getCurrentEnemy() {
-        return currentEnemy;
-    }
+    public Point [] getEnemyPositions() { return enemyPositions; }
 
     @Override
-    public void levelFinished(int state) {
-
-        switch (state)
-        {
-            case 0:
-                //Lost
-                break;
-            case 1:
-                //Win
-                System.out.println("YOU WON");
-                LevelManager.currentLevel = new PostModernLevel();
-
-                break;
-        }
-
-    }
+    public Point [] getBoxPositions() {  return boxPositions; }
 
     @Override
-    public GameObjectHandler gameObjects() {
-        return gameObjectHandler;
-    }
+    public Point [] bossPosition() { return bossPositions; }
+
+    @Override
+    public int getEnemySize() {return ENEMY_NUM; }
+
 
 }

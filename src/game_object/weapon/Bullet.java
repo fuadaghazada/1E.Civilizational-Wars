@@ -11,22 +11,19 @@ public class Bullet extends GameObject
     // Properties
     private int bullet_type;
     private float damage;
-    private GameObjectHandler gameObjectHandler;
     private Weapon weapon;
 
     /**
      * Constructing the game object with given parameters.
-     *
-     * @param x  - x coordinate of the game object.
+     *  @param x  - x coordinate of the game object.
      * @param y  - y coordinate of the game object.
      * @param id - object id defines the type of the objects.
      */
-    public Bullet(float x, float y, ObjectID id, float velX, GameObjectHandler gameObjectHandler, Weapon weapon, int bullet_type)
+    public Bullet(double x, double y, ObjectID id, float velX, Weapon weapon, int bullet_type)
 
     {
         super(x, y, id);
 
-        this.gameObjectHandler = gameObjectHandler;
         this.weapon = weapon;
         this.bullet_type = bullet_type;
 
@@ -47,13 +44,13 @@ public class Bullet extends GameObject
     }
 
     @Override
-    public void update(GameObjectHandler gameObjectHandler)
+    public void update()
     {
-        super.update(gameObjectHandler);
+        super.update();
 
         x += velX;
 
-        this.checkCollision(gameObjectHandler);
+        this.checkCollision();
     }
 
     @Override
@@ -76,9 +73,9 @@ public class Bullet extends GameObject
     }
 
     @Override
-    public boolean checkCollision(GameObjectHandler gameObjectHandler)
+    public boolean checkCollision()
     {
-        for(GameObject gameObject : gameObjectHandler.getGame_objects())
+        for(GameObject gameObject : GameObjectHandler.getInstance().getGame_objects())
         {
             if(gameObject.getId() == ObjectID.Tile && this.getBounds().intersects(gameObject.getBounds()))
             {

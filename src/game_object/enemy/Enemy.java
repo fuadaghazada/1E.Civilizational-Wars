@@ -1,19 +1,16 @@
 package game_object.enemy;
 
-import game_management.GameManager;
-import game_management.LevelManager;
+import game_management.EasyLevel;
+import game_management.IDifficultyLevel;
 import game_object.general.GameObject;
 import game_object.general.GameObjectHandler;
 import game_object.general.ObjectID;
 import game_object.player.Character;
 import game_object.weapon.Bullet;
-import game_object.weapon.LaserGun;
 import game_object.weapon.Rifle;
 import game_object.weapon.Weapon;
 
-import javax.swing.*;
 import java.awt.*;
-import java.util.ArrayList;
 
 /**
  *  This class will represent the enemies of the game with its given parameters and methods.
@@ -22,9 +19,10 @@ import java.util.ArrayList;
 public class Enemy extends GameObject
 {
     //TODO: it must be overriden in child classes
-    private float healthLevel = 100;
-    private float damage;
-    private GameObjectHandler gameObjectHandler;
+    private float healthLevel;
+
+    public static IDifficultyLevel difficultyLevel = new EasyLevel();
+
     private Weapon weapon;
 
     private boolean forceJump = false;
@@ -34,51 +32,34 @@ public class Enemy extends GameObject
     private final float FORCE_JUMP_DURATION = 250f;
 
     //These properties can be used in specific enemy types
-    public static final float HORIZONTAL_SPEED = 4;
+    protected float speed;
 
 
-    private final float followRange  = (float) ((Math.random()* 800 ) + 100);
-    private final float fightRange = 150;// (float) ((Math.random()* 450 ) + 50);
-    private final float fireRange = fightRange + 100;
+    protected final float followRange  = (float) ((Math.random()* 600 ) + 150);
+    protected float fightRange = (float) ((Math.random()* 450 ) + 50);  //150;// (float) ((Math.random()* 450 ) + 50);
+    protected float fireRange = fightRange + 50;
     //TODO: add one more range property to fire behind the fight range and follow range
 
-    private long lastFire = System.currentTimeMillis();
-    private final long fireRate = 750;
+    protected long lastFire = System.currentTimeMillis();
+    protected long fireRate = 750;
 
-
-
-    public Enemy(float x, float y, ObjectID id, GameObjectHandler gameObjectHandler){
+    public Enemy(double x, double y, ObjectID id){
         super(x, y, id);
-        this.gameObjectHandler = gameObjectHandler;
+        speed = difficultyLevel.getEnemySpeed();
+        healthLevel = difficultyLevel.getEnemyHealth();
         weapon = new Rifle(x, y, ObjectID.Weapon, this);
         setHeight(70);
         setWidth(60);
-
-
     }
 
 
     public boolean isDead()
     {
         if(healthLevel <= 0){
-            gameObjectHandler.getGame_objects().remove(this);
-            if(LevelManager.currentLevel != null)
-                LevelManager.currentLevel.enemyDied();
-
-
-            if(LevelManager.currentLevel.getCurrentEnemy() <= 1)
-                LevelManager.currentLevel.levelFinished(1);
             return true;
         }
         else if(getY() >= 1000)
         {
-            gameObjectHandler.getGame_objects().remove(this);
-            if(LevelManager.currentLevel != null)
-                LevelManager.currentLevel.enemyDied();
-
-
-            if(LevelManager.currentLevel.getCurrentEnemy() <= 1)
-                LevelManager.currentLevel.levelFinished(1);
             return true;
         }
 
@@ -87,33 +68,61 @@ public class Enemy extends GameObject
     }
 
 
-    public void fight()
+    public void fight(boolean onFire)
     {
         //TODO: Fire at some interval when inside the range
-        weapon.fire(gameObjectHandler, getDir());
-
+        if(onFire) {
+            weapon.setUsed(true);
+            weapon.fire(getDir());
+        }
+        else
+        {
+            weapon.setUsed(false);
+        }
     }
 
     @Override
-    public void update(GameObjectHandler gameObjectHandler) {
+    public void update() {
 
-        super.update(gameObjectHandler);
-        this.checkCollision(gameObjectHandler);
-        weapon.update(gameObjectHandler);
+        super.update();
+        this.checkCollision();
+
+        weapon.update();
+
         //TODO: Move through the character
-        Character player =  gameObjectHandler.getCharacter();
+        Character player;
+        Character player1 =  GameObjectHandler.getInstance().getCharacter(0);
+        Character player2 =  GameObjectHandler.getInstance().getCharacter(1);
 
+        if(player1 == null && player2 == null)
+            return;
+        else if (player2 == null)
+        {
+            player = player1;
+        }
+        else if (player1 == null)
+        {
+            player = player2;
+        }
+        else{
+            //Calculate which one is closer
+            if(Math.abs(this.x - player1.getX()) < Math.abs(this.x - player2.getX()))
+                player = player1;
+            else
+                player = player2;
+
+        }
 
 
 
         if(Math.abs(this.x - player.getX()) < followRange) {
             if (Math.abs(this.x - player.getX()) > fightRange) {
                 if (this.x - player.getX() < 0) {
-                    this.x += HORIZONTAL_SPEED;
+                    this.x += speed;
                     setDir(1);
                 }
                 else {
-                    this.x -= HORIZONTAL_SPEED;
+                    this.x -= speed;
                     setDir(-1);
                 }
             }
@@ -130,15 +139,19 @@ public class Enemy extends GameObject
         }
 
         if(Math.abs(this.x - player.getX()) < fireRange && (System.currentTimeMillis() - lastFire >= fireRate ) ) {
-            fight();
+            fight(true);
             lastFire = System.currentTimeMillis();
 
+        }
+        else
+        {
+            fight(false);
         }
 
         // check if the enemy is dead
         if(isDead())
         {
-            gameObjectHandler.getGame_objects().remove(this);
+            GameObjectHandler.getInstance().removeGameObject(this);
         }
 
 
@@ -149,7 +162,7 @@ public class Enemy extends GameObject
     public void jumpRight()
     {
         jumpActivationTime = System.currentTimeMillis();
-        moveAxisSpeeds[0] = HORIZONTAL_SPEED;
+        moveAxisSpeeds[0] = speed;
         moveAxisSpeeds[1] = 10;
         forceJump = true;
     }
@@ -157,32 +170,38 @@ public class Enemy extends GameObject
     public void jumpLeft()
     {
         jumpActivationTime = System.currentTimeMillis();
-        moveAxisSpeeds[0] = -HORIZONTAL_SPEED;
+        moveAxisSpeeds[0] = -speed;
         moveAxisSpeeds[1] = 10;
         forceJump = true;
     }
 
 
     @Override
-    public void render(Graphics g) {
-        g.setColor(Color.RED);
+    public void render(Graphics g)
+    {
+        // HealthBar
+        g.setColor(Color.GRAY);
+        g.drawRect((int) x,(int) y - 10, 5, 10);
 
-        //g.fillRect((int)x, (int)y, width, height);
-
-
-        g.drawImage(new ImageIcon("src/resources/game_textures/enemy/test_enemy.png").getImage(), (int) x, (int) (y), null);
+        if(this.getHealthLevel() <= 20)
+        {
+            g.setColor(Color.RED);
+        }
+        else
+        {
+            g.setColor(Color.GREEN);
+        }
+        g.fillRect((int) x,(int) y - 10, (int) this.getHealthLevel()/2,10);
     }
 
     @Override
-    protected boolean checkCollision(GameObjectHandler gameObjectHandler)
+    protected boolean checkCollision()
     {
 
-        for(int i = 0; i < gameObjectHandler.getGame_objects().size(); i++)
+        for(int i = 0; i < GameObjectHandler.getInstance().getGame_objects().size(); i++)
         {
             // To keep the game objects in a temp variable - for simplicity
-            GameObject tempObject = gameObjectHandler.getGame_objects().get(i);
-
-
+            GameObject tempObject = GameObjectHandler.getInstance().getGame_objects().get(i);
 
             //checking collision with the tiles.
             if(tempObject.getId() == ObjectID.Tile)
@@ -222,23 +241,24 @@ public class Enemy extends GameObject
         }
 
 
-        for (int i = 0; i < gameObjectHandler.getBullets().size(); i++)
+        for (int i = 0; i < GameObjectHandler.getInstance().getBullets().size(); i++)
         {
-            Bullet temp = gameObjectHandler.getBullets().get(i);
+            Bullet temp = GameObjectHandler.getInstance().getBullets().get(i);
 
             if(getBounds().intersects(temp.getBounds()))
             {
-                if(temp.getWeapon().getOwner().getId() == ObjectID.Enemy)
+                //Need to override in child classes to check each enemy
+                if(temp.getWeapon().getOwner().getId() == ObjectID.Alien || temp.getWeapon().getOwner().getId() == ObjectID.ModernSoldier)
                     continue;
+
                 healthLevel -= temp.getDamage();
 
-                gameObjectHandler.removeBullet(temp);
+                GameObjectHandler.getInstance().removeBullet(temp);
 
                 i--;
 
                 break;
             }
-
         }
         return true;
 
@@ -266,6 +286,10 @@ public class Enemy extends GameObject
     public Weapon getWeapon() {
         return weapon;
     }
+
+    public float getHealthLevel() { return healthLevel; }
+
+    public void setHealthLevel(float healthLevel) { this.healthLevel = healthLevel; }
 
     public void setWeapon(Weapon weapon) {
         this.weapon = weapon;

@@ -11,15 +11,18 @@ package game_object.map;
  *  @version - 1.00
  */
 
-import java.awt.Color;
-import java.awt.Graphics2D;
+import game_object.general.GameObjectHandler;
+import game_object.general.IRenderable;
+import game_object.general.ObjectID;
+
+import java.awt.*;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.ArrayList;
 
 
-public class TileMap
+public class TileMap implements IRenderable
 {
     //Constants
 
@@ -34,6 +37,8 @@ public class TileMap
 
     private ArrayList<Tile> tiles;
 
+    private Background background;
+
     /**
      *  Constructs a tile map
      */
@@ -41,6 +46,8 @@ public class TileMap
     {
         tiles = new ArrayList<>();
         this.loadMap(fileName);
+
+        background = new Background(this.getMapWidth(), this.getMapHeight());
     }
 
     private void loadMap(String fileName)
@@ -62,24 +69,20 @@ public class TileMap
             //initializing 2D array for map tiles
             map = new int[mapHeight][mapWidth];
 
+
+
             //filling the array with the data from the map file
             for (int i = 0; i < mapHeight; i ++)
             {
                 //splitting the tile data in a line
                 String [] tokens = bufferedReader.readLine().split(" ");
 
-                for(int k = 0 ; k <  tokens.length; k++)
-                {
-                    System.out.println(tokens[k]);
-                }
-
-
-
                 //filling process
                 for (int j = 0; j < mapWidth; j++)
                 {
-                    map[i][j] = Integer.parseInt(tokens[j]);
+                    map[i][j] = Integer.parseInt(tokens[j].trim());
                 }
+                System.out.println();
             }
 
             // Generating the tiles in a list
@@ -89,10 +92,11 @@ public class TileMap
                 {
                     if(map[i][j] != 0)
                     {
-                        Tile tile = new Tile( x + j * Tile.getTileSize(), y + i * Tile.getTileSize());
+                        Tile tile = new Tile( x + j * Tile.getTileSize(), y + i * Tile.getTileSize(), ObjectID.Tile);
                         tile.setType(map[i][j]);
 
                         tiles.add(tile);
+                        GameObjectHandler.getInstance().addGameObject(tile);
                     }
                 }
             }
@@ -108,27 +112,29 @@ public class TileMap
     }
 
     /**
-     *  Updates the tile map
+     *  Draws the tiled map using the data from the file
      */
-    public void update()
+    @Override
+    public void render(Graphics g)
     {
+        g.setColor(Color.BLACK);
+
+        background.render(g);
+
         for(int i = 0; i < tiles.size(); i++)
         {
-            tiles.get(i).update();
+            tiles.get(i).render(g);
         }
     }
 
-    /**
-     *  Draws the tiled map using the data from the file
-     */
-    public void render(Graphics2D g2)
-    {
-        g2.setColor(Color.BLACK);
+    @Override
+    public boolean isToBeRemoved() {
+        return false;
+    }
 
-        for(int i = 0; i < tiles.size(); i++)
-        {
-            tiles.get(i).render(g2);
-        }
+    @Override
+    public void setToBeRemoved(boolean b) {
+
     }
 
     //ACCESS & MUTATE
@@ -160,7 +166,7 @@ public class TileMap
 
     public int getMapWidth()
     {
-        return mapWidth;
+        return mapWidth * Tile.getTileSize();
     }
 
     public void setMapWidth(int mapWidth)
@@ -170,11 +176,12 @@ public class TileMap
 
     public int getMapHeight()
     {
-        return mapHeight;
+        return mapHeight * Tile.getTileSize();
     }
 
     public void setMapHeight(int mapHeight)
     {
         this.mapHeight = mapHeight;
     }
+
 }

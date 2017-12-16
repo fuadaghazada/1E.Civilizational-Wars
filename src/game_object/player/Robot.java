@@ -13,7 +13,7 @@ import java.awt.*;
 import java.util.ArrayList;
 
 /**
- *  This class represents the first period of character.
+ *  This class represents the third period of character.
  *
  */
 public class Robot extends Character
@@ -23,29 +23,29 @@ public class Robot extends Character
 
     // textures
     private ImageLoader imageLoader;
-    private Animation walkingAnimation, jumpingAnimation;
+    private Animation walkingAnimationR, walkingAnimationL, jumpingAnimationR, jumpingAnimationL;
 
     /**
      * Constructing the character with given parameters.
-     *
-     * @param x                 - x coordinate of the character.
+     *  @param x                 - x coordinate of the character.
      * @param y                 - y coordinate of the character.
      * @param id                - id of the character as a game object.
-     * @param gameObjectHandler - all game objects to check the collisions.
      */
-    public Robot(float x, float y, ObjectID id, GameObjectHandler gameObjectHandler)
+    public Robot (double x, double y, ObjectID id)
     {
-        super(x, y, id, gameObjectHandler);
+        super(x, y, id);
 
         this.init();
         this.setWeapon(laserGun);
 
         // loads the necessary images
-        imageLoader = new ImageLoader(ObjectID.Classic);
+        imageLoader = new ImageLoader(ObjectID.Robot);
 
         // initiating the player animations
-        walkingAnimation = new Animation(5,imageLoader.getPlayer_walking());
-        jumpingAnimation = new Animation(5,imageLoader.getPlayer_jumping());
+        walkingAnimationR = new Animation(5,imageLoader.getPlayer_walkingR());
+        walkingAnimationL = new Animation(5,imageLoader.getPlayer_walkingL());
+        jumpingAnimationR = new Animation(5,imageLoader.getPlayer_jumpingR());
+        jumpingAnimationL = new Animation(5,imageLoader.getPlayer_jumpingL());
     }
 
     /**
@@ -59,28 +59,41 @@ public class Robot extends Character
     @Override
     public void render(Graphics g)
     {
-        //rendering the player
-        if(velX != 0 && velY == 0)
-            walkingAnimation.drawAnimation(g, (int) x, (int) y, width, height);
-        else if(velY != 0)
-            jumpingAnimation.drawAnimation(g, (int) x, (int) y, width, height);
-        else
-            g.drawImage(imageLoader.getPlayer_still(), (int) x, (int) (y), null);
+        super.render(g);
 
-        // rendering the weapon /rifle
+        //rendering the player
+
+        if(dir == 1)
+            if(velX != 0 && velY == 0)
+                walkingAnimationR.drawAnimation(g, (int) x, (int) y, width, height);
+            else if(velY != 0)
+                jumpingAnimationR.drawAnimation(g, (int) x, (int) y, width, height);
+            else
+                g.drawImage(imageLoader.getPlayer_still()[0], (int) x, (int) (y), width, height, null);
+        else if(dir == -1)
+            if(velX != 0 && velY == 0)
+                walkingAnimationL.drawAnimation(g, (int) x, (int) y, width, height);
+            else if(velY != 0)
+                jumpingAnimationL.drawAnimation(g, (int) x, (int) y, width, height);
+            else
+                g.drawImage(imageLoader.getPlayer_still()[1], (int) x, (int) (y), width, height, null);
+
+        // rendering the weapon /laserGun
         laserGun.render(g);
     }
 
     @Override
-    public void update(GameObjectHandler gameObjectHandler)
+    public void update()
     {
-        super.update(gameObjectHandler);
+        super.update();
 
         // update the position of the rifle
-        laserGun.update(gameObjectHandler);
+        laserGun.update();
 
         // running the animations
-        walkingAnimation.runAnimation();
-        jumpingAnimation.runAnimation();
+        walkingAnimationR.runAnimation();
+        walkingAnimationL.runAnimation();
+        jumpingAnimationR.runAnimation();
+        jumpingAnimationL.runAnimation();
     }
 }

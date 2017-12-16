@@ -1,5 +1,8 @@
 package user_interface;
 
+import game_management.*;
+import game_object.enemy.Enemy;
+import game_object.player.Character;
 import main.CivilizationalWars;
 
 import javax.swing.*;
@@ -7,6 +10,7 @@ import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
 
 public class SettingsPanel extends JPanel {
 
@@ -17,6 +21,11 @@ public class SettingsPanel extends JPanel {
     private JLabel lblDifficulty, lblControls, lblMusic;
     private JPanel[] rows;
     private JButton btnBackToMenu;
+    JCheckBox cbEasy,cbMedium, cbHard;
+    JComboBox<String> comboKeySet;
+
+    // Control keys indexes
+    private static int keySet = 0;
 
 
     public SettingsPanel()
@@ -37,9 +46,10 @@ public class SettingsPanel extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e)
             {
-                CivilizationalWars.frame.getContentPane().removeAll();
-                CivilizationalWars.frame.add(new MainMenuPanel());
-                CivilizationalWars.frame.reva
+                keySet = comboKeySet.getSelectedIndex();
+                updateControls();
+                updateDifficultyLevel();
+                ScreenManager.getInstance().back();
             }
         });
     }
@@ -69,13 +79,14 @@ public class SettingsPanel extends JPanel {
                 lblDifficulty.setForeground(Color.WHITE);
 
 
-                JCheckBox cbEasy = new JCheckBox("Easy");
-                JCheckBox cbMedium = new JCheckBox("Medium");
-                JCheckBox cbHard = new JCheckBox("Hard");
+                cbEasy = new JCheckBox("Easy");
+                cbMedium = new JCheckBox("Medium");
+                cbHard = new JCheckBox("Hard");
                 ButtonGroup cbGroup = new ButtonGroup();
                 cbGroup.add(cbEasy);
                 cbGroup.add(cbMedium);
                 cbGroup.add(cbHard);
+                cbEasy.setSelected(true);
                 cbEasy.setBackground(Color.BLUE);
                 cbMedium.setBackground(Color.BLUE);
                 cbHard.setBackground(Color.BLUE);
@@ -97,38 +108,22 @@ public class SettingsPanel extends JPanel {
                 lblControls = new JLabel("Controls: ");
                 lblControls.setForeground(Color.WHITE);
 
-                JPanel moveP = new JPanel();
-                moveP.setLayout(new GridLayout(2,1));
-                moveP.add(new Label("Move: "));
+                JPanel keyP = new JPanel();
+                keyP.setLayout(new GridLayout(1,1));
+                keyP.add(new Label("Move: "));
 
-                String[] moveOptions = {"WASD", "Arrow keys"};
-                JComboBox<String> comboMove = new JComboBox<>(moveOptions);
+                String[] keyOptions = {"Player1: Arrow keys, K, Player2: T-F-H, Q", "Player1: T-F-H, Q, Player2: Arrow keys + k"};
+                comboKeySet = new JComboBox<>(keyOptions);
 
-                moveP.setBackground(Color.BLUE);
-                comboMove.setBackground(Color.BLUE);
-                comboMove.setForeground(Color.WHITE);
-                moveP.setForeground(Color.WHITE);
-                moveP.add(comboMove);
-
-                JPanel fightP = new JPanel();
-                fightP.setLayout(new GridLayout(2,1));
-                fightP.add(new Label("Fight"));
-
-                String[] fightOptions = {"Z", "K" , "L"};
-                JComboBox<String> comboFight = new JComboBox<>(fightOptions);
-                fightP.setBackground(Color.BLUE);
-                comboFight.setBackground(Color.BLUE);
-                comboFight.setForeground(Color.WHITE);
-                fightP.setForeground(Color.WHITE);
-
-
-                fightP.add(comboFight);
-
-                //TODO: There must be a code for selecting the current key bindings.
+                keyP.setBackground(Color.BLUE);
+                comboKeySet.setBackground(Color.BLUE);
+                comboKeySet.setForeground(Color.WHITE);
+                keyP.setForeground(Color.WHITE);
+                keyP.add(comboKeySet);
 
                 secondRow.add(lblControls);
-                secondRow.add(moveP);
-                secondRow.add(fightP);
+                secondRow.add(keyP);
+                //secondRow.add(fightP);
 
                 return secondRow;
 
@@ -151,7 +146,8 @@ public class SettingsPanel extends JPanel {
             case 4:
 
                 JPanel fourthRow = new JPanel();
-                btnBackToMenu = new JButton("Go back to menu");
+                //TODO: add another button for save and discarded back
+                btnBackToMenu = new JButton("Save and Go back to menu");
                 fourthRow.add(btnBackToMenu);
                 return fourthRow;
 
@@ -163,4 +159,57 @@ public class SettingsPanel extends JPanel {
         }
     }
 
+    private static void updateControls()
+    {
+        if(keySet == 0)
+        {
+            InputManager.right = KeyEvent.VK_RIGHT;
+            InputManager.left = KeyEvent.VK_LEFT;
+            InputManager.up = KeyEvent.VK_UP;
+            InputManager.fight = KeyEvent.VK_K;
+
+            InputManager.right2 = KeyEvent.VK_H;
+            InputManager.left2 = KeyEvent.VK_F;
+            InputManager.up2 = KeyEvent.VK_T;
+            InputManager.fight2 = KeyEvent.VK_Q;
+        }
+        else if(keySet == 1)
+        {
+            InputManager.right2 = KeyEvent.VK_RIGHT;
+            InputManager.left2 = KeyEvent.VK_LEFT;
+            InputManager.up2 = KeyEvent.VK_UP;
+            InputManager.fight2 = KeyEvent.VK_K;
+
+            InputManager.right = KeyEvent.VK_H;
+            InputManager.left = KeyEvent.VK_F;
+            InputManager.up = KeyEvent.VK_T;
+            InputManager.fight = KeyEvent.VK_Q;
+        }
+
+    }
+
+    private void updateDifficultyLevel()
+    {
+        IDifficultyLevel difficultyLevel;
+
+        if(cbEasy.isSelected())
+        {
+            difficultyLevel = new EasyLevel();
+        }
+        else if(cbMedium.isSelected())
+        {
+            difficultyLevel = new MediumLevel();
+        }
+        else if (cbHard.isSelected())
+        {
+            difficultyLevel = new HardLevel();
+        }
+        else
+        {
+            difficultyLevel = new EasyLevel();
+        }
+
+        Character.difficultyLevel = difficultyLevel;
+        Enemy.difficultyLevel = difficultyLevel;
+    }
 }

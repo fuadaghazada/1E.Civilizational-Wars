@@ -1,8 +1,6 @@
 package game_object.general;
 
 import java.awt.*;
-import java.awt.geom.AffineTransform;
-import java.util.ArrayList;
 
 /**
  *  This class represents the basic properties of the game objects.
@@ -16,23 +14,25 @@ public abstract class GameObject implements IUpdatable, IRenderable
 
     // Properties
     protected ObjectID id;
-    protected float x, y;
+    protected double x, y;
     protected int width, height;
     protected float velX, velY;
     protected boolean isJump;
     protected boolean isFall;
     protected int dir = 1;
 
+    private boolean toBeRemoved = false;
+
     private static float GRAVITY = 0.3f;
 
 
     /**
      *  Constructing the game object with given parameters.
-     *  @param x - x coordinate of the game object.
+     * @param x - x coordinate of the game object.
      *  @param y - y coordinate of the game object.
-     *  @param id - object id defines the type of the objects.
+     * @param id - object id defines the type of the objects.
      */
-    public GameObject(float x, float y, ObjectID id)
+    public GameObject(double x, double y, ObjectID id)
     {
         this.x = x;
         this.y = y;
@@ -45,15 +45,12 @@ public abstract class GameObject implements IUpdatable, IRenderable
         velY = 0;
     }
 
-    /**
-     * Updates the properties of the game object.
-     *
-     * @param gameObjectHandler - to check the collision between the game objects.
-     */
+
     @Override
-    public void update(GameObjectHandler gameObjectHandler)
+    public void update()
     {
-        x += velX;
+
+        x += velX * dir;
         y += velY;
 
         if(isFall || isJump)
@@ -74,7 +71,7 @@ public abstract class GameObject implements IUpdatable, IRenderable
     @Override
     public abstract void render(Graphics g);
 
-    protected abstract boolean checkCollision(GameObjectHandler gameObjectHandler);
+    protected abstract boolean checkCollision();
 
     /**
      *  Access the bounds of the object in a rectangle.
@@ -88,22 +85,22 @@ public abstract class GameObject implements IUpdatable, IRenderable
         return id;
     }
 
-    public float getX()
+    public double getX()
     {
         return x;
     }
 
-    public void setX(float x)
+    public void setX(double x)
     {
         this.x = x;
     }
 
-    public float getY()
+    public double getY()
     {
         return y;
     }
 
-    public void setY(float y)
+    public void setY(double y)
     {
         this.y = y;
     }
@@ -171,5 +168,15 @@ public abstract class GameObject implements IUpdatable, IRenderable
     public  int getDir() { return dir; }
 
     public  void setDir(int dir) { this.dir = dir; }
+
+    public String toString() { return id + "-" + x + "-" + y; }
+
+    public boolean isToBeRemoved() {
+        return toBeRemoved;
+    }
+
+    public void setToBeRemoved(boolean toBeRemoved) {
+        this.toBeRemoved = toBeRemoved;
+    }
 }
 

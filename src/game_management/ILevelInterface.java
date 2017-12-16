@@ -1,20 +1,28 @@
 package game_management;
 
 import game_object.general.GameObjectHandler;
+import game_object.general.ObjectID;
 import game_object.map.TileMap;
 
-public interface ILevelInterface {
+import java.awt.*;
 
-    TileMap getLevelTileMap();
-    int getEnemyType();
+public interface ILevelInterface
+{
+
+    int TOTAL_LEVEL_COUNT = 3;
+    int TOTAL_BONUS_COUNT = 3;
+
+    String getLevelTileMap();
     String getName();
-    int getWeaponType();
-    int getCharacterType();
-    void enemyDied();
-    int getCurrentEnemy();
-    void levelFinished(int state);
+    ObjectID getEnemyType();
+    ObjectID getCharacterType();
+    ObjectID getBossType();
 
-    GameObjectHandler gameObjects();
+    int getEnemySize();
 
+    Point [] bossPosition();
+    Point [] getCharacterPositions();
+    Point [] getEnemyPositions();
+    Point [] getBoxPositions();
 
 }

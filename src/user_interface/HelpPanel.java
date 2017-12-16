@@ -1,5 +1,6 @@
 package user_interface;
 
+import game_management.ClassicLevel;
 import main.CivilizationalWars;
 
 import javax.swing.*;
@@ -35,9 +36,7 @@ public class HelpPanel extends JPanel
             @Override
             public void actionPerformed(ActionEvent e)
             {
-                CivilizationalWars.frame.getContentPane().removeAll();
-                CivilizationalWars.frame.add(new MainMenuPanel());
-                CivilizationalWars.frame.revalidate();
+                ScreenManager.getInstance().back();
             }
         });
     }
@@ -87,7 +86,10 @@ public class HelpPanel extends JPanel
         about_txt.setPreferredSize(new Dimension(500,500));
         about_txt.setEditable(false);
 
-        about_txt.append("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum et sapien nulla. Nam eu felis tellus. Integer vel lectus vitae sem ultrices ultricies. Sed maximus ornare metus sit amet blandit. Sed vel felis ligula. Quisque feugiat efficitur turpis, ac lacinia est convallis quis. In vel lacus urna. Curabitur a ornare metus, condimentum faucibus tellus. Proin semper mi eu tortor fermentum, a ornare leo interdum.");
+        about_txt.append("Default control keys: arrow keys for movement -  E for fighting\n\n" +
+                         "To get information about the game go to main/about\n\n" +
+                         "To start the game go to main menu and press 'Start game' button\n\n" +
+                         "To continue the level you left go to menu and press 'Load Level' button");
     }
 
 }
