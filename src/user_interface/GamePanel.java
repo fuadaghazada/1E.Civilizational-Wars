@@ -212,7 +212,7 @@ public class GamePanel extends JPanel implements Runnable
         // Lives
         for(int i = 0; i < GameObjectHandler.getInstance().getCharacter(0).getLives(); i++)
         {
-            g.drawImage(new ImageIcon("src/resources/game_textures/life.png").getImage(),  i * 30 + 20, 5, null );
+            g.drawImage(new ImageIcon("src/resources/game_textures/life.png").getImage(),  i * 30 + 40, 5, null );
         }
 
         // HealthBar
@@ -233,10 +233,16 @@ public class GamePanel extends JPanel implements Runnable
         // Multiplayer mode
         if(gameManager.isMultiPlayer())
         {
+            //identifier
+            g.setColor(Color.RED);
+            g.fillOval(20, 7, 10,10);
+            g.setColor(Color.BLUE);
+            g.fillOval(20, 32, 10,10);
+
             // Lives
             for(int i = 0; i < GameObjectHandler.getInstance().getCharacter(1).getLives(); i++)
             {
-                g.drawImage(new ImageIcon("src/resources/game_textures/life.png").getImage(),  i * 30 + 20, 30, null );
+                g.drawImage(new ImageIcon("src/resources/game_textures/life.png").getImage(),  i * 30 + 40, 30, null );
             }
 
             // HealthBar
