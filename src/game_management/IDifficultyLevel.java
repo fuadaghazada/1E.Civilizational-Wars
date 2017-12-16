@@ -1,6 +1,7 @@
 package game_management;
 
-public interface IDifficultyLevel {
+public interface IDifficultyLevel
+{
     float getEnemyHealth();
     float getCharacterHealth();
     float getEnemySpeed();

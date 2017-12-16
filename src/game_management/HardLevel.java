@@ -5,7 +5,8 @@ public class HardLevel implements IDifficultyLevel {
     private float characterHealth;
     private float enemySpeed;
 
-    public HardLevel() {
+    public HardLevel()
+    {
         enemyHealth = 120;
         characterHealth = 100;
         enemySpeed = 4.8f;

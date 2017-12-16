@@ -1,5 +1,6 @@
 package game_object.enemy.boss;
 
+import game_object.general.GameObjectHandler;
 import game_object.general.ObjectID;
 import texture_stuff.ImageLoader;
 
@@ -33,19 +34,23 @@ public class ModernBoss extends Boss{
         super.render(g);
 
         // Boss
+        g.drawImage(imageLoader.getBoss_still()[0], (int) x, (int) (y), width, height, null);
 
-        if(getDir() == 1)
-        {
-            g.drawImage(imageLoader.getBoss_still()[0], (int) x, (int) (y), width, height, null);
-        }
-        else if(getDir() == -1)
-        {
-            g.drawImage(imageLoader.getBoss_still()[1], (int) x, (int) (y), width, height, null);
-        }
     }
 
     @Override
     public void update (){
         super.update();
+    }
+
+    @Override
+    public void addAttackObject()
+    {
+        double lo = x - 200;
+        double hi = x + 200;
+
+        double randX = (Math.random() * (hi - lo)) + lo;
+
+        GameObjectHandler.getInstance().addBossObject(new BossAttackObject(randX, 20, ObjectID.BossAttackObject, 2));
     }
 }

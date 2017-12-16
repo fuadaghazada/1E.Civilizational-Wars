@@ -59,6 +59,8 @@ public class ModernFighter extends Character
     @Override
     public void render(Graphics g)
     {
+        super.render(g);
+
         //rendering the player
 
         if(dir == 1)

@@ -2,6 +2,7 @@ package game_management;
 
 
 import game_object.enemy.Enemy;
+import game_object.enemy.boss.BossAttackObject;
 import game_object.general.Camera;
 import game_object.general.GameObjectHandler;
 import game_object.general.ObjectID;

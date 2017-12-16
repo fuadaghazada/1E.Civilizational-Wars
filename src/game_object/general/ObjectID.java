@@ -23,5 +23,6 @@ public enum ObjectID
     SurpriseBox(),
     ClassicBoss(),
     ModernBoss(),
-    PostModernBoss();
+    PostModernBoss(),
+    BossAttackObject();
 }

@@ -6,7 +6,8 @@ import game_object.map.TileMap;
 
 import java.awt.*;
 
-public interface ILevelInterface {
+public interface ILevelInterface
+{
 
     int TOTAL_LEVEL_COUNT = 3;
     int TOTAL_BONUS_COUNT = 3;

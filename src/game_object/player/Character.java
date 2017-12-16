@@ -3,6 +3,7 @@ package game_object.player;
 import game_management.EasyLevel;
 import game_management.IDifficultyLevel;
 import game_object.bonus.SurpriseBox;
+import game_object.enemy.boss.BossAttackObject;
 import game_object.general.GameObject;
 import game_object.general.GameObjectHandler;
 import game_object.general.ObjectID;
@@ -189,6 +190,23 @@ public class Character extends GameObject
 
                     break;
                 }
+            }
+        }
+
+        for(int i = 0; i < GameObjectHandler.getInstance().getBossAttackObjects().size(); i++)
+        {
+            BossAttackObject temp = GameObjectHandler.getInstance().getBossAttackObjects().get(i);
+
+            if(temp.getBounds().intersects(this.getBounds()))
+            {
+                this.healthLevel -= temp.getDamage();
+
+                GameObjectHandler.getInstance().removeBossObject(temp);
+
+                i--;
+
+                break;
+
             }
         }
 

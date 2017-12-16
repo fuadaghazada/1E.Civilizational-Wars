@@ -1,6 +1,7 @@
 package game_management;
 
-public class EasyLevel implements IDifficultyLevel {
+public class EasyLevel implements IDifficultyLevel
+{
 
 
     private float enemyHealth;

@@ -1,5 +1,6 @@
 package game_object.enemy.boss;
 
+import game_object.general.GameObjectHandler;
 import game_object.general.ObjectID;
 import texture_stuff.ImageLoader;
 
@@ -22,7 +23,7 @@ public class PostmodernBoss extends Boss {
     public PostmodernBoss(double x, double y, ObjectID id)
     {
         super(x, y, id);
-        imageLoader= new ImageLoader(ObjectID.ModernBoss);
+        imageLoader= new ImageLoader(ObjectID.PostModernBoss);
 
         setWidth(150);
         setHeight(150);
@@ -34,20 +35,23 @@ public class PostmodernBoss extends Boss {
         super.render(g);
 
         // Boss
-
-        if(getDir() == 1)
-        {
-            g.drawImage(imageLoader.getBoss_still()[0], (int) x, (int) (y), width, height, null);
-        }
-        else if(getDir() == -1)
-        {
-            g.drawImage(imageLoader.getBoss_still()[1], (int) x, (int) (y), width, height, null);
-        }
+        g.drawImage(imageLoader.getBoss_still()[0], (int) x, (int) (y), width, height, null);
     }
 
     @Override
     public void update (){
         super.update();
+    }
+
+    @Override
+    public void addAttackObject()
+    {
+        double lo = x - 200;
+        double hi = x + 200;
+
+        double randX = (Math.random() * (hi - lo)) + lo;
+
+        GameObjectHandler.getInstance().addBossObject(new BossAttackObject(randX, 20, ObjectID.BossAttackObject, 3));
     }
 
 

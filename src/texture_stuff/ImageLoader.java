@@ -27,6 +27,7 @@ public class ImageLoader
 
     // boss
     private Image[] boss_still;
+    private Image[] boss_attack_object;
 
     //weapon
     private Image [] weapons;
@@ -103,17 +104,15 @@ public class ImageLoader
         }
         else if(id.equals(ObjectID.ModernBoss))
         {
-            boss_still = new Image[2];
+            boss_still = new Image[1];
 
-            boss_still[0] = new ImageIcon("src/resources/game_textures/enemy/bosses/modern_boss/modern_boss_r.png").getImage();
-            boss_still[1] = new ImageIcon("src/resources/game_textures/enemy/bosses/modern_boss/modern_boss_l.png").getImage();
+            boss_still[0] = new ImageIcon("src/resources/game_textures/enemy/bosses/modern_boss/modern_boss.png").getImage();
         }
         else if(id.equals(ObjectID.PostModernBoss))
         {
-            boss_still = new Image[2];
+            boss_still = new Image[1];
 
-            boss_still[0] = new ImageIcon("src/resources/game_textures/enemy/bosses/post_modern_boss/post_modern_boss_r.png").getImage();
-            boss_still[1] = new ImageIcon("src/resources/game_textures/enemy/bosses/post_modern_boss/post_modern_boss_l.png").getImage();
+            boss_still[0] = new ImageIcon("src/resources/game_textures/enemy/bosses/postmodern_boss/post_modern_boss.png").getImage();
         }
 
         else if(id.equals(ObjectID.Tile))
@@ -127,6 +126,15 @@ public class ImageLoader
             box_images[0] = new ImageIcon("src/resources/surprise_box/surprisebox_def.png").getImage();
             box_images[1] = new ImageIcon("src/resources/surprise_box/surprisebox_flip.png").getImage();
         }
+        else if(id.equals(ObjectID.BossAttackObject))
+        {
+            boss_attack_object = new Image[3];
+
+            boss_attack_object[0] = new ImageIcon("src/resources/game_textures/enemy/bosses/flameball.png").getImage();
+            boss_attack_object[1] = new ImageIcon("src/resources/game_textures/enemy/bosses/starattack.png").getImage();
+            boss_attack_object[2] = new ImageIcon("src/resources/game_textures/enemy/bosses/starattack.png").getImage();
+        }
+
 
         this.loadWalking();
         this.loadJumping();
@@ -428,6 +436,8 @@ public class ImageLoader
 
     // boss
     public Image [] getBoss_still() { return boss_still; }
+
+    public Image [] getBoss_attack_object() { return boss_attack_object; }
 
     //tiles
     public Image[] getTiles() { return tiles; }

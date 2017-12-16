@@ -1,10 +1,12 @@
 package game_object.general;
 
+import game_management.LevelManager;
 import game_object.bonus.SurpriseBox;
 import game_object.enemy.Alien;
 import game_object.enemy.ClassicSoldier;
 import game_object.enemy.Enemy;
 import game_object.enemy.ModernSoldier;
+import game_object.enemy.boss.BossAttackObject;
 import game_object.enemy.boss.ClassicBoss;
 import game_object.enemy.boss.ModernBoss;
 import game_object.enemy.boss.PostmodernBoss;
@@ -34,6 +36,7 @@ public class GameObjectHandler
     // Properties
     private ArrayList<GameObject> game_objects;
     private ArrayList<Bullet> bullets;
+    private ArrayList<BossAttackObject> bossAttackObjects;
 
     private ArrayList<IUpdatable> updatables;
     private ArrayList<IRenderable> renderables;
@@ -54,6 +57,7 @@ public class GameObjectHandler
         updatables = new ArrayList<>();
         renderables = new ArrayList<>();
         bullets = new ArrayList<>();
+        bossAttackObjects = new ArrayList<>();
         character = new Character[2];
     }
 
@@ -227,7 +231,6 @@ public class GameObjectHandler
                 renderables.add(go);
                 game_objects.add(go);
             }
-
         }
     }
 
@@ -262,6 +265,14 @@ public class GameObjectHandler
     }
 
     /**
+     *  Adds boss attacking object to the list
+     */
+    public void addBossObject(BossAttackObject bossAttackObject)
+    {
+        bossAttackObjects.add(bossAttackObject);
+    }
+
+    /**
      *  Removes the given game object from the list.
      *  @param gameObject - given game object.
      */
@@ -282,6 +293,15 @@ public class GameObjectHandler
     public void removeBullet(Bullet bullet)
     {
         bullet.setToBeRemoved(true);
+    }
+
+    /**
+     *  Removes the given boss attack object from the list.
+     *  @param bossAttackObject - given boss attack object.
+     */
+    public void removeBossObject(BossAttackObject bossAttackObject)
+    {
+        bossAttackObject.setToBeRemoved(true);
     }
 
     /**
@@ -308,6 +328,14 @@ public class GameObjectHandler
                 if (b.isToBeRemoved())
                     it.remove();
 
+            }
+
+            Iterator itt = bossAttackObjects.iterator();
+            while (itt.hasNext()) {
+                BossAttackObject b = (BossAttackObject) itt.next();
+                b.update();
+                if (b.isToBeRemoved())
+                    itt.remove();
             }
         }
         catch (Exception e)
@@ -341,6 +369,14 @@ public class GameObjectHandler
             if(b.isToBeRemoved())
                 it.remove();
         }
+
+        Iterator itt = bossAttackObjects.iterator();
+        while (itt.hasNext()) {
+            BossAttackObject b = (BossAttackObject) itt.next();
+            b.render(g);
+            if (b.isToBeRemoved())
+                itt.remove();
+        }
     }
 
     //ACCESS & MUTATE
@@ -360,6 +396,10 @@ public class GameObjectHandler
     }
 
     public ArrayList<Bullet> getBullets() { return bullets; }
+
+    public ArrayList<BossAttackObject> getBossAttackObjects() {
+        return bossAttackObjects;
+    }
 
     public Character getCharacter(int index)
     {
