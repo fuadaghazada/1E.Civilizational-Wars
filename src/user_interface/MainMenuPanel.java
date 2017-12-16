@@ -71,10 +71,8 @@ public class MainMenuPanel extends JPanel
 
                 if(DataManager.getInstance().isSuccessfulRead())
                 {
-                    DataManager.getInstance().setLoadCalled(true);
-
+                    //DataManager.getInstance().setLoadCalled(true);
                     GamePanel gPanel = new GamePanel(GameManager.SAVED_GAME);
-
                     ScreenManager.getInstance().setCurrentPanel(gPanel);
                 }
                 else

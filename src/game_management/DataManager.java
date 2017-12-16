@@ -10,6 +10,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 /**
@@ -31,9 +32,10 @@ public class DataManager
     private ArrayList<String> gameData;
     private int level;
 
-    private Point[] characterPositions;
-    private Point[] enemyPositions;
-    private Point[] boxPositions;
+    private ArrayList<Point> characterPositions;
+    private ArrayList<Point> enemyPositions;
+    private ArrayList<Point> boxPositions;
+    private ArrayList<Point> bossPosiitons;
 
 
     /**
@@ -89,7 +91,7 @@ public class DataManager
 
         try
         {
-            FileWriter fileWriter = new FileWriter(file);
+            FileWriter fileWriter = new FileWriter(file, false);
 
             // Writing the currentLevel to the file
             fileWriter.write(level + "\n");
@@ -97,17 +99,16 @@ public class DataManager
             // Writing the objects to the file
             for(String eachData : gameData)
             {
-                String data = eachData;
-                fileWriter.write(data + "\n");
+                fileWriter.write(eachData + "\n");
             }
 
             fileWriter.close();
-
             isSuccessfulWrite = true;                   // did write
 
         }
         catch(IOException e)
         {
+            isSuccessfulWrite = false;
             e.printStackTrace();
         }
     }
@@ -115,8 +116,9 @@ public class DataManager
     /**
      *  Reads the game data from the file with the game data.
      */
-    public void loadGame()
+    public GameData loadGame()
     {
+        GameData gData = new GameData();
         // To handle the repetition in the file
         gameData.clear();
 
@@ -124,38 +126,48 @@ public class DataManager
             Scanner fileReader = new Scanner(file);
 
             String level_str = fileReader.nextLine();
-            LevelManager.getInstance().changeLevel(Integer.parseInt(level_str));
+
+            gData.setLevel(Integer.parseInt(level_str));
 
             //TODO: Handle character size according to the game mode
-            characterPositions = new Point[1];
+            characterPositions = new ArrayList<>();
 
-            enemyPositions = new Point[LevelManager.getInstance().getCurrentLevel().getEnemySize()];
-
-            boxPositions = new Point[LevelManager.getInstance().getCurrentLevel().getBoxPositions().length];
+            enemyPositions = new ArrayList<>();
+            boxPositions = new ArrayList<>();
+            bossPosiitons = new ArrayList<>();
 
             while (fileReader.hasNext()) {
                 String line = fileReader.nextLine();
 
                 String[] data = line.split("-");
 
-                ObjectID id = this.parseReadData(data);
-
+                parseReadData(data);
+/*
                 if (id.equals(ObjectID.ClassicFighter) || id.equals(ObjectID.ModernFighter) || id.equals(ObjectID.Robot))
                     GameObjectHandler.getInstance().addGameObject(id, characterPositions);
                 else if(id.equals(ObjectID.ClassicSoldier) || id.equals(ObjectID.ModernSoldier) || id.equals(ObjectID.Alien))
                     GameObjectHandler.getInstance().addGameObject(id, enemyPositions);
                 else if(id.equals(ObjectID.SurpriseBox))
                     GameObjectHandler.getInstance().addGameObject(id, boxPositions);
+                    */
             }
+            gData.setCharacterPositions(characterPositions.toArray(new Point[characterPositions.size()]));
+            gData.setEnemyPositions( enemyPositions.toArray(new Point[enemyPositions.size()]));
+            gData.setBoxPositions( boxPositions.toArray(new Point[boxPositions.size()]));
+            gData.setBossPositions( bossPosiitons.toArray(new Point[bossPosiitons.size()]));
+
+
+
 
             fileReader.close();
+            return gData;
         }
         catch (FileNotFoundException e)
         {
             e.printStackTrace();
         }
 
-
+        return null;
     }
 
     /**
@@ -163,77 +175,61 @@ public class DataManager
      *  @param data - data array in String
      *  @return objectID - ObjectID of the game object - from read data
      */
-    private ObjectID parseReadData(String [] data)
+    private void parseReadData(String [] data)
     {
         double x = Double.parseDouble(data[1]);
         double y = Double.parseDouble(data[2]);
 
         if(data[0].equals("ClassicFighter") || data[0].equals("ModernFighter") || data[0].equals("Robot"))
         {
-            for(int i = 0; i < characterPositions.length; i++)
-            {
-                if(characterPositions[i] == null)
-                {
-                    characterPositions[i] = new Point((int) x, (int) y);
-                }
-            }
+            characterPositions.add(new Point((int) x, (int) y));
         }
 
         if(data[0].equals("ClassicSoldier") || data[0].equals("ModernSoldier") || data[0].equals("Alien"))
         {
-            for (int i = 0; i < enemyPositions.length; i++)
-            {
-                if (enemyPositions[i] == null)
-                {
-                    enemyPositions[i] = new Point((int) x, (int) y);
-                }
-            }
+            enemyPositions.add(new Point((int) x, (int) y));
         }
 
         if(data[0].equals("SurpriseBox"))
         {
-            for (int i = 0; i < boxPositions.length; i++)
-            {
-                if (boxPositions[i] == null)
-                {
-                    boxPositions[i] = new Point((int) x, (int) y);
-                }
-            }
+            boxPositions.add(new Point((int) x, (int) y));
         }
 
-        switch (data[0])
-        {
-            case "ClassicFighter":
-            {
-                return ObjectID.ClassicFighter;
-            }
-            case "ModernFighter":
-            {
-                return ObjectID.ModernFighter;
-            }
-            case "Robot":
-            {
-                return ObjectID.Robot;
-            }
-            case "ClassicSoldier":
-            {
-                return ObjectID.ClassicSoldier;
-            }
-            case "ModernSoldier":
-            {
-                return ObjectID.ModernSoldier;
-            }
-            case "Alien":
-            {
-                return ObjectID.Alien;
-            }
-            case "SurpriseBox":
-            {
-                return ObjectID.SurpriseBox;
-            }
-            default:
-                return ObjectID.ClassicSoldier;
-        }
+        System.out.println("Data: " + Arrays.toString(data));
+
+      //  switch (data[0])
+      //  {
+      //      case "ClassicFighter":
+      //      {
+      //          return ObjectID.ClassicFighter;
+      //      }
+      //      case "ModernFighter":
+      //      {
+      //          return ObjectID.ModernFighter;
+      //      }
+      //      case "Robot":
+      //      {
+      //          return ObjectID.Robot;
+      //      }
+      //      case "ClassicSoldier":
+      //      {
+      //          return ObjectID.ClassicSoldier;
+      //      }
+      //      case "ModernSoldier":
+      //      {
+      //          return ObjectID.ModernSoldier;
+      //      }
+      //      case "Alien":
+      //      {
+      //          return ObjectID.Alien;
+      //      }
+      //      case "SurpriseBox":
+      //      {
+      //          return ObjectID.SurpriseBox;
+      //      }
+      //      default:
+      //          return ObjectID.ClassicSoldier;
+      //  }
     }
 
     // ACCESS

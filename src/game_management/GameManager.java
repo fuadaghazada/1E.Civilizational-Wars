@@ -2,7 +2,6 @@ package game_management;
 
 
 import game_object.general.Camera;
-import game_object.general.GameObject;
 import game_object.general.GameObjectHandler;
 import game_object.general.ObjectID;
 
@@ -31,32 +30,37 @@ public class GameManager
         GameObjectHandler.getInstance().dispose();
         inputManager = new InputManager(this);
 
-
-
         if (state == BEGINNING)
         {
             LevelManager.getInstance().changeLevel(1);
             this.generateTiles();
-            this.generateCharacter();
-            this.generateEnemies();
-            this.generateSurpriseBoxes();
-            this.generateBoss();
+            this.generateCharacter(LevelManager.getInstance().getCurrentLevel().getCharacterPositions());
+            this.generateEnemies(LevelManager.getInstance().getCurrentLevel().getEnemyPositions());
+            this.generateSurpriseBoxes(LevelManager.getInstance().getCurrentLevel().getBoxPositions());
+            this.generateBoss(LevelManager.getInstance().getCurrentLevel().bossPosition());
         }
         else if(state == NEXT_LEVEL)
         {
             LevelManager.getInstance().changeLevel(LevelManager.getInstance().getCurrentLevelNo()  + 1);
             this.generateTiles();
-
-            this.generateCharacter();
-            this.generateEnemies();
-            this.generateSurpriseBoxes();
-            this.generateBoss();
+            this.generateCharacter(LevelManager.getInstance().getCurrentLevel().getCharacterPositions());
+            this.generateEnemies(LevelManager.getInstance().getCurrentLevel().getEnemyPositions());
+            this.generateSurpriseBoxes(LevelManager.getInstance().getCurrentLevel().getBoxPositions());
+            this.generateBoss(LevelManager.getInstance().getCurrentLevel().bossPosition());
         }
         else if (state == SAVED_GAME)
         {
+
             if(DataManager.getInstance().isSuccessfulRead()) {
-                GameObjectHandler.getInstance().dispose();
-                DataManager.getInstance().loadGame();
+                GameData data = DataManager.getInstance().loadGame();
+                System.out.println(data);
+                LevelManager.getInstance().changeLevel(data.getLevel());
+                this.generateTiles();
+                this.generateCharacter(data.getCharacterPositions());
+                this.generateEnemies(data.getEnemyPositions());
+                this.generateSurpriseBoxes(data.getBoxPositions());
+                this.generateBoss(data.getBossPositions());
+
             }
         }
 
@@ -65,25 +69,27 @@ public class GameManager
     /**
      *  Generates the character according to the current level
      */
-    public void generateCharacter()
+    public void generateCharacter(Point[] characterPositions)
     {
-        GameObjectHandler.getInstance().addGameObject(LevelManager.getInstance().getCurrentLevel().getCharacterType(), LevelManager.getInstance().getCurrentLevel().getCharacterPositions());
+        GameObjectHandler.getInstance().addGameObject(LevelManager.getInstance().getCurrentLevel().getCharacterType(), characterPositions);
     }
 
     /**
      *  Generates the enemies according to the current level
+     * @param enemyPositions
      */
-    public void generateEnemies()
+    public void generateEnemies(Point[] enemyPositions)
     {
-        GameObjectHandler.getInstance().addGameObject(LevelManager.getInstance().getCurrentLevel().getEnemyType(), LevelManager.getInstance().getCurrentLevel().getEnemyPositions());
+        GameObjectHandler.getInstance().addGameObject(LevelManager.getInstance().getCurrentLevel().getEnemyType(), enemyPositions);
     }
 
     /**
      *  Generates the boss according to the current level
+     * @param points
      */
-    public void generateBoss()
+    public void generateBoss(Point[] points)
     {
-        GameObjectHandler.getInstance().addGameObject(LevelManager.getInstance().getCurrentLevel().getBossType(), LevelManager.getInstance().getCurrentLevel().bossPosition());
+        GameObjectHandler.getInstance().addGameObject(LevelManager.getInstance().getCurrentLevel().getBossType(), points);
     }
 
     /**
@@ -96,10 +102,11 @@ public class GameManager
 
     /**
      *  Generates the boxes according to the current level
+     * @param boxPositions
      */
-    public void generateSurpriseBoxes()
+    public void generateSurpriseBoxes(Point[] boxPositions)
     {
-        GameObjectHandler.getInstance().addGameObject(ObjectID.SurpriseBox, LevelManager.getInstance().getCurrentLevel().getBoxPositions());
+        GameObjectHandler.getInstance().addGameObject(ObjectID.SurpriseBox, boxPositions);
     }
 
     /**
