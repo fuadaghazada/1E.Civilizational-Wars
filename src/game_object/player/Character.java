@@ -122,7 +122,7 @@ public class Character extends GameObject
             if (this.equals(GameObjectHandler.getInstance().getCharacter(0))) {
                 g.setColor(Color.RED);
             } else {
-                g.setColor(Color.GREEN);
+                g.setColor(Color.BLUE);
             }
             g.fillOval((int) (x + width / 2 - 5), (int) (y - 10), 10, 10);
         }
