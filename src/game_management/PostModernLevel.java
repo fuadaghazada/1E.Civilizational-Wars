@@ -43,9 +43,9 @@ public class PostModernLevel implements ILevelInterface
      */
     public PostModernLevel()
     {
-        name = "Classic Period";
+        name = "Post Modern";
 
-        tileMap = "src/resources/map_files/map_level_1.txt";
+        tileMap = "src/resources/map_files/map_level_3.txt";
 
         enemyType = ObjectID.Alien;
         characterType = ObjectID.Robot;

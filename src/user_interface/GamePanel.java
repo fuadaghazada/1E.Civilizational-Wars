@@ -38,6 +38,9 @@ public class GamePanel extends JPanel implements Runnable
     //Constants
 	private static final long serialVersionUID = -3314656870429864436L;
 
+
+
+
     //GAME LOOP properties
 	private Thread game_thread;
     private boolean isRunning = false;
@@ -49,13 +52,15 @@ public class GamePanel extends JPanel implements Runnable
     private Camera camera;
     private boolean pauseCalled = false;
 
+
     /**
      *   Constructs the game panel
      */
-    public GamePanel()
+    public GamePanel(int state)
     {
-        init();
+        init(state);
         start();
+
 
         setFocusable(true);
     }
@@ -63,9 +68,9 @@ public class GamePanel extends JPanel implements Runnable
     /**
      *  Initialize the variables
      */
-    public void init()
+    public void init(int state)
     {
-        gameManager = new GameManager();
+        gameManager = new GameManager(state);
         camera = new Camera(0,0);
         gameManager.setCamera(camera);
 

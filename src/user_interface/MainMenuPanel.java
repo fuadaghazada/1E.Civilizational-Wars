@@ -2,6 +2,7 @@ package user_interface;
 
 
 import game_management.DataManager;
+import game_management.GameManager;
 import main.CivilizationalWars;
 import user_interface.custom_button.GameButtonUI;
 
@@ -55,7 +56,7 @@ public class MainMenuPanel extends JPanel
             @Override
             public void actionPerformed(ActionEvent e)
             {
-                GamePanel gPanel = new GamePanel();
+                GamePanel gPanel = new GamePanel(GameManager.BEGINNING);
 
                 ScreenManager.getInstance().setCurrentPanel(gPanel);
             }
@@ -72,7 +73,7 @@ public class MainMenuPanel extends JPanel
                 {
                     DataManager.getInstance().setLoadCalled(true);
 
-                    GamePanel gPanel = new GamePanel();
+                    GamePanel gPanel = new GamePanel(GameManager.SAVED_GAME);
 
                     ScreenManager.getInstance().setCurrentPanel(gPanel);
                 }

@@ -16,27 +16,40 @@ public class GameManager
     public static final int LOST = 2;
     public static final int PAUSED = 3;
 
+    public static final int BEGINNING = 1;
+    public static final int SAVED_GAME = 2;
+    public static final int NEXT_LEVEL = 3;
+
     private boolean isGamePaused = false;
 
     private InputManager inputManager;
 
     private Camera camera = null;
 
-    public GameManager()
+    public GameManager(int state)
     {
         GameObjectHandler.getInstance().dispose();
         inputManager = new InputManager(this);
 
         this.generateTiles();
 
-        if(!DataManager.getInstance().isLoadCalled())
+        if (state == BEGINNING)
         {
+            LevelManager.getInstance().changeLevel(1);
             this.generateCharacter();
             this.generateEnemies();
             this.generateSurpriseBoxes();
             this.generateBoss();
         }
-        else
+        else if(state == NEXT_LEVEL)
+        {
+            LevelManager.getInstance().changeLevel(LevelManager.getInstance().getCurrentLevelNo()  + 1);
+            this.generateCharacter();
+            this.generateEnemies();
+            this.generateSurpriseBoxes();
+            this.generateBoss();
+        }
+        else if (state == SAVED_GAME)
         {
             if(DataManager.getInstance().isSuccessfulRead()) {
                 GameObjectHandler.getInstance().dispose();

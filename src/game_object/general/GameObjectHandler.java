@@ -18,6 +18,7 @@ import game_object.weapon.Bullet;
 
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 /**
  *  This class will keep all the game objects in a list so that it will be
@@ -291,10 +292,13 @@ public class GameObjectHandler
         for (IUpdatable go : updatables) {
             go.update();
         }
-        for (Bullet b : bullets)
-            b.update();
+
+        Iterator it = bullets.iterator();
+        while (it.hasNext())
+            ((Bullet)it.next()).update();
+
         updatables.removeAll(clearList);
-        clearList.removeAll(clearList);
+        clearList.clear();
     }
 
     /**
@@ -304,8 +308,12 @@ public class GameObjectHandler
     {
         for (IRenderable i : renderables)
             i.render(g);
-        for(Bullet b : bullets)
-            b.render(g);
+
+        Iterator it = bullets.iterator();
+        while (it.hasNext())
+            ((Bullet)it.next()).render(g);
+        //for(Bullet b : bullets)
+          //  b.render(g);
     }
 
     //ACCESS & MUTATE

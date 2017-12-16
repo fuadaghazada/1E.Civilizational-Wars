@@ -26,8 +26,7 @@ public class WonPanel extends JPanel {
             timer.schedule(new TimerTask() {
                 @Override
                 public void run() {
-                    LevelManager.getInstance().changeLevel(LevelManager.getInstance().getCurrentLevelNo() + 1);
-                    ScreenManager.getInstance().setCurrentPanel(new GamePanel());
+                    ScreenManager.getInstance().setCurrentPanel(new GamePanel(GameManager.NEXT_LEVEL));
 
                 }
             }, 5000);
